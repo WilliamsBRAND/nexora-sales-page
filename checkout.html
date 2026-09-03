@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout &middot; NEXORA Birthday Pre-Order</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<style>
+:root{
+  --crimson:#6e0a14;
+  --crimson-dark:#4f0710;
+  --crimson-bright:#c0404b;
+  --white:#ffffff;
+  --offwhite:#f4f2ef;
+  --black:#0a0a0a;
+  --ink:#1c1b1a;
+  --gray:#6f6b66;
+  --line:rgba(28,27,26,.1);
+  --line-strong:rgba(28,27,26,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Montserrat',sans-serif;
+  color:var(--ink);
+  background:var(--offwhite);
+  line-height:1.65;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit;}
+
+/* ===== HERO (matches sales page dark hero) ===== */
+.hero{
+  background:var(--black);
+  color:#fff;
+  padding:72px 24px 64px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  width:560px;height:560px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(192,64,75,.18),transparent 70%);
+  top:-220px;left:50%;
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+.hero-badge{
+  position:relative;
+  display:inline-block;
+  border:1px solid rgba(255,255,255,.25);
+  padding:8px 22px;
+  border-radius:999px;
+  font-family:'Archivo',sans-serif;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:13px;
+  color:#c0404b;
+  margin-bottom:26px;
+}
+.hero h1{
+  position:relative;
+  font-family:'Archivo',sans-serif;
+  font-size:clamp(30px,5vw,46px);
+  font-weight:900;
+  line-height:1.12;
+  letter-spacing:-.02em;
+  max-width:720px;
+  margin:0 auto 16px;
+}
+.hero h1 .red{color:#c0404b;}
+.hero-sub{
+  position:relative;
+  font-size:17px;
+  color:#cfcfcf;
+  max-width:640px;
+  margin:0 auto;
+  font-weight:400;
+}
+.hero-sub b{color:#fff;font-weight:600;}
+
+.wrap{max-width:720px;margin:0 auto;padding:0 24px;}
+
+/* ===== MAIN ===== */
+main{padding:64px 0 80px;}
+
+.card{
+  background:var(--white);
+  border:1px solid var(--line-strong);
+  border-radius:16px;
+  padding:34px 32px;
+  box-shadow:0 30px 60px -30px rgba(28,27,26,.25);
+}
+.field{margin-bottom:24px;}
+.row-label{
+  font-family:'Archivo',sans-serif;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin:0 0 8px;
+  color:var(--ink);
+}
+.field input{
+  width:100%;
+  padding:15px 17px;
+  font-size:16px;
+  font-family:'Montserrat',sans-serif;
+  border:1px solid var(--line-strong);
+  border-radius:12px;
+  background:var(--offwhite);
+  color:var(--ink);
+  outline:none;
+  transition:border-color .2s,box-shadow .2s,background .2s;
+}
+.field input:focus{
+  border-color:var(--crimson);
+  box-shadow:0 0 0 3px rgba(110,10,20,.12);
+  background:var(--white);
+}
+.field input::placeholder{color:#9a958f;}
+.err{color:var(--crimson-bright);font-size:14px;min-height:20px;margin-top:-12px;}
+
+/* ===== ORDER SUMMARY (mirrors price-box) ===== */
+.order-summary{
+  border:1px solid var(--line-strong);
+  border-radius:14px;
+  padding:22px 22px 18px;
+  margin-bottom:26px;
+  background:var(--offwhite);
+}
+.sum-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:7px 0;
+  font-size:15px;
+}
+.sum-row .l{color:var(--gray);}
+.sum-row .r{font-weight:600;}
+.sum-row .discount .r{color:var(--crimson-bright);}
+.sum-total{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border-top:1px solid var(--line);
+  margin-top:10px;padding-top:16px;
+}
+.sum-total .l{font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;}
+.sum-total .r{
+  font-family:'Archivo',sans-serif;
+  font-size:30px;
+  font-weight:800;
+  color:var(--crimson-bright);
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  display:block;
+  width:100%;
+  background:var(--crimson);
+  color:#fff;
+  font-weight:700;
+  font-size:18px;
+  font-family:'Montserrat',sans-serif;
+  padding:18px 40px;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+  text-align:center;
+  transition:transform .25s,background .25s,box-shadow .25s;
+  box-shadow:0 8px 24px -12px rgba(110,10,20,.5);
+}
+.btn:hover{background:var(--crimson-dark);transform:translateY(-2px);box-shadow:0 14px 32px -14px rgba(110,10,20,.6);}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none;}
+.secure{margin-top:18px;font-size:13px;color:var(--gray);text-align:center;}
+.secure b{color:var(--ink);}
+.loading{display:none;text-align:center;padding:26px;color:var(--gray);font-size:15px;}
+.loading .spinner{
+  width:40px;height:40px;margin:0 auto 16px;
+  border:3px solid var(--line);
+  border-top-color:var(--crimson);
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+@media (max-width:560px){
+  .card{padding:26px 20px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">Birthday Pre-Order</div>
+  <h1>You're almost there.<br><span class="red">Lock in your &#8358;6,667 price.</span></h1>
+  <p class="hero-sub">Enter your details and pay securely with Paystack. Your full NEXORA access arrives on release day in October.</p>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="card" id="formCard">
+      <div class="field">
+        <div class="row-label">Full name</div>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="Your full name" />
+      </div>
+
+      <div class="field">
+        <div class="row-label">Email address</div>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" />
+      </div>
+      <div class="err" id="err"></div>
+
+      <div class="order-summary">
+        <div class="sum-row"><span class="l">NEXORA birthday pre-order</span><span class="r">&#8358;6,667</span></div>
+        <div class="sum-row discount"><span class="l">Pre-order discount</span><span class="r">&#8722;&#8358;18,333</span></div>
+        <div class="sum-row"><span class="l">Regular price</span><span class="r"><s style="color:var(--gray);">&#8358;25,000</s></span></div>
+        <div class="sum-total"><span class="l">Total you pay today</span><span class="r">&#8358;6,667</span></div>
+      </div>
+
+      <button class="btn" id="payBtn">Pay &#8358;6,667 securely</button>
+      <div class="secure"><b>&#128274; Secure checkout</b> &middot; Payments handled by Paystack</div>
+    </div>
+
+    <div class="loading" id="loading"><div class="spinner"></div>Preparing your secure payment&hellip;</div>
+  </div>
+</main>
+
+<script>
+(function () {
+  var btn = document.getElementById('payBtn');
+  var errEl = document.getElementById('err');
+  var formCard = document.getElementById('formCard');
+  var loading = document.getElementById('loading');
+  var nameEl = document.getElementById('name');
+  var emailEl = document.getElementById('email');
+
+  function showErr(msg) { errEl.textContent = msg || ''; }
+  function valid() {
+    var name = nameEl.value.trim();
+    var email = emailEl.value.trim();
+    if (!name) { showErr('Please enter your full name.'); nameEl.focus(); return false; }
+    if (!email) { showErr('Please enter your email address.'); emailEl.focus(); return false; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { showErr('Please enter a valid email address.'); emailEl.focus(); return false; }
+    showErr('');
+    return true;
+  }
+
+  btn.addEventListener('click', function () {
+    if (!valid()) return;
+    btn.disabled = true;
+    btn.textContent = 'Preparing payment\u2026';
+    showErr('');
+
+    fetch('/api/config')
+      .then(function (r) { return r.json(); })
+      .then(function (cfg) {
+        if (!cfg.ok || !cfg.publicKey) throw new Error(cfg.error || 'Paystack not configured yet.');
+        startPayment(cfg);
+      })
+      .catch(function (err) {
+        btn.disabled = false;
+        btn.textContent = 'Pay &#8358;6,667 securely';
+        showErr(err.message);
+      });
+  });
+
+  function startPayment(cfg) {
+    var reference = 'NEXORA-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8);
+    var email = emailEl.value.trim();
+    var name = nameEl.value.trim();
+
+    var handler = PaystackPop.setup({
+      key: cfg.publicKey,
+      email: email,
+      amount: parseInt(cfg.amount, 10),
+      currency: cfg.currency || 'NGN',
+      ref: reference,
+      metadata: { custom_fields: [{ display_name: 'Full Name', variable_name: 'name', value: name }] },
+      callback: function (response) {
+        var url = '/thank-you?ref=' + encodeURIComponent(response.reference) +
+                  '&email=' + encodeURIComponent(email) +
+                  '&name=' + encodeURIComponent(name);
+        window.location.href = url;
+      },
+      onClose: function () {
+        btn.disabled = false;
+        btn.textContent = 'Pay &#8358;6,667 securely';
+      }
+    });
+    handler.openIframe();
+  }
+})();
+</script>
+</body>
+</html>

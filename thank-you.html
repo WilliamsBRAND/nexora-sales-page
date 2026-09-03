@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmed &middot; NEXORA Birthday Pre-Order</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crimson:#6e0a14;
+  --crimson-dark:#4f0710;
+  --crimson-bright:#c0404b;
+  --white:#ffffff;
+  --offwhite:#f4f2ef;
+  --black:#0a0a0a;
+  --ink:#1c1b1a;
+  --gray:#6f6b66;
+  --line:rgba(28,27,26,.1);
+  --line-strong:rgba(28,27,26,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Montserrat',sans-serif;
+  color:var(--ink);
+  background:var(--offwhite);
+  line-height:1.65;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit;}
+
+/* ===== HERO (dark, matches checkout) ===== */
+.hero{
+  background:var(--black);
+  color:#fff;
+  padding:80px 24px 74px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  width:560px;height:560px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(31,122,61,.16),transparent 70%);
+  top:-200px;left:50%;
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+.hero-badge{
+  position:relative;
+  display:inline-block;
+  border:1px solid rgba(255,255,255,.25);
+  padding:8px 22px;
+  border-radius:999px;
+  font-family:'Archivo',sans-serif;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:13px;
+  color:#7fd493;
+  margin-bottom:26px;
+}
+.icon{
+  position:relative;
+  width:80px;height:80px;margin:0 auto 26px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--crimson-bright),var(--crimson-dark));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 14px 40px -12px rgba(110,10,20,.6);
+}
+.icon svg{width:38px;height:38px;}
+.hero h1{
+  position:relative;
+  font-family:'Archivo',sans-serif;
+  font-size:clamp(30px,5vw,46px);
+  font-weight:900;
+  line-height:1.12;
+  letter-spacing:-.02em;
+  max-width:720px;
+  margin:0 auto 18px;
+}
+.hero h1 .red{color:#c0404b;}
+.hero-sub{
+  position:relative;
+  font-size:17px;
+  color:#cfcfcf;
+  max-width:620px;
+  margin:0 auto;
+}
+.hero-sub b{color:#fff;font-weight:600;}
+
+.wrap{max-width:680px;margin:0 auto;padding:0 24px;}
+main{padding:64px 0 80px;}
+
+/* ===== STATUS ===== */
+.confirm-banner{
+  text-align:center;
+  background:rgba(31,122,61,.08);
+  border:1px solid rgba(31,122,61,.28);
+  color:#1f7a3d;
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:.5px;
+  padding:12px 20px;
+  border-radius:999px;
+  display:inline-block;
+  margin-bottom:40px;
+}
+
+/* ===== JOIN COMMUNITY (prominent, right after hero) ===== */
+.community{
+  background:linear-gradient(180deg,#e9fbf0,#f4fff8);
+  border:1px solid rgba(37,211,102,.4);
+  border-radius:16px;
+  padding:44px 36px;
+  text-align:center;
+  box-shadow:0 30px 60px -30px rgba(31,122,61,.35);
+  margin-bottom:30px;
+}
+.community .wa-badge{
+  width:58px;height:58px;
+  margin:0 auto 18px;
+  border-radius:14px;
+  background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 26px -10px rgba(37,211,102,.8);
+}
+.community .wa-badge svg{width:30px;height:30px;color:#fff;}
+.community h3{
+  font-family:'Archivo',sans-serif;
+  font-size:clamp(20px,4vw,26px);
+  font-weight:800;
+  letter-spacing:-.01em;
+  color:var(--black);
+  margin-bottom:10px;
+}
+.community p{
+  font-size:15px;
+  color:var(--gray);
+  max-width:460px;
+  margin:0 auto 26px;
+}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:12px;
+  background:#25d366;color:#0b1f14;
+  font-weight:700;font-size:16px;font-family:'Montserrat',sans-serif;
+  padding:17px 34px;border-radius:14px;
+  box-shadow:0 10px 28px -12px rgba(37,211,102,.7);
+  transition:transform .25s,background .25s,box-shadow .25s;
+}
+.btn-wa:hover{background:#1fb959;transform:translateY(-2px);box-shadow:0 16px 34px -14px rgba(37,211,102,.8);}
+.btn-wa svg{width:22px;height:22px;flex:0 0 auto;}
+
+/* ===== WHAT HAPPENS NEXT (mirrors section style) ===== */
+.next-card{
+  background:var(--white);
+  border:1px solid var(--line-strong);
+  border-radius:16px;
+  padding:40px 36px;
+  box-shadow:0 30px 60px -30px rgba(28,27,26,.25);
+  margin-bottom:30px;
+}
+.next-title{
+  font-family:'Archivo',sans-serif;
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:-.01em;
+  color:var(--black);
+  margin-bottom:26px;
+}
+.step{
+  display:flex;
+  gap:18px;
+  padding:16px 0;
+  border-top:1px solid var(--line);
+}
+.step:first-of-type{border-top:none;}
+.step-num{
+  flex:0 0 36px;
+  height:36px;
+  border-radius:50%;
+  background:var(--offwhite);
+  border:1px solid var(--line-strong);
+  font-family:'Archivo',sans-serif;
+  font-weight:700;
+  font-size:15px;
+  color:var(--crimson);
+  display:flex;align-items:center;justify-content:center;
+}
+.step h4{font-family:'Archivo',sans-serif;font-size:15px;font-weight:700;color:var(--black);margin-bottom:4px;}
+.step p{font-size:15px;color:var(--gray);}
+.step a{color:var(--crimson);font-weight:600;}
+.support{margin-top:24px;border-top:1px solid var(--line);padding-top:26px;text-align:center;}
+.support-q{font-size:14px;color:var(--gray);margin-bottom:16px;}
+.btn-support{display:inline-block;background:var(--crimson);color:#fff;font-weight:600;font-size:14px;font-family:'Montserrat',sans-serif;padding:13px 26px;border-radius:12px;box-shadow:0 8px 24px -12px rgba(110,10,20,.5);transition:transform .25s,background .25s;}
+.btn-support:hover{background:var(--crimson-dark);transform:translateY(-2px);}
+
+/* ===== CTA ===== */
+.btn{
+  display:inline-block;
+  background:var(--crimson);
+  color:#fff;
+  font-weight:700;
+  font-size:16px;
+  font-family:'Montserrat',sans-serif;
+  padding:17px 40px;
+  border-radius:14px;
+  box-shadow:0 8px 24px -12px rgba(110,10,20,.5);
+  transition:transform .25s,background .25s,box-shadow .25s;
+}
+.btn:hover{background:var(--crimson-dark);transform:translateY(-2px);box-shadow:0 14px 32px -14px rgba(110,10,20,.6);}
+.cta-row{text-align:center;}
+.cta-hint{font-size:15px;color:var(--gray);margin-bottom:16px;}
+.btn.wa{background:#25d366;color:#0b1f14;box-shadow:0 8px 24px -12px rgba(37,211,102,.6);display:inline-flex;align-items:center;gap:12px;}
+.btn.wa:hover{background:#1fb959;}
+.wa-ico{width:22px;height:22px;flex:0 0 auto;}
+.link{display:inline-block;margin-top:22px;font-size:14px;color:var(--gray);border-bottom:1px solid var(--line-strong);padding-bottom:2px;transition:color .2s,border-color .2s;}
+.link:hover{color:var(--crimson);border-color:var(--crimson);}
+.ref{
+  margin-top:20px;
+  font-size:13px;
+  color:var(--gray);
+  word-break:break-all;
+}
+.ref code{
+  font-family:'Montserrat',sans-serif;
+  background:var(--white);
+  border:1px solid var(--line-strong);
+  padding:2px 8px;
+  border-radius:6px;
+  color:var(--ink);
+}
+
+@media (max-width:560px){
+  .next-card{padding:30px 22px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">Pre-order received</div>
+  <div class="icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+  </div>
+  <h1>Your pre-order is<br><span class="red">confirmed.</span></h1>
+  <p class="hero-sub" id="status">We are confirming your payment now.</p>
+</header>
+
+<main>
+  <div class="wrap">
+    <div style="text-align:center;">
+      <div class="confirm-banner" id="confirmBanner" style="display:none;">&#10003; Payment verified</div>
+    </div>
+
+    <div class="community">
+      <div class="wa-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.19-.34.22-.63.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.21 5.1 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.45 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+      </div>
+      <h3>Join the community before release day</h3>
+      <p>Get the inside line on the launch, early access notes and support from other pre-order members. It all starts on WhatsApp.</p>
+      <a class="btn-wa" href="https://chat.whatsapp.com/LNC6ABmpaFN5b6we3ZuEpp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.19-.34.22-.63.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.21 5.1 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.45 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+        Join the NEXORA community on WhatsApp
+      </a>
+    </div>
+
+    <div class="next-card">
+      <div class="next-title">What happens next</div>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h4>Watch for your confirmation email</h4>
+          <p>Paystack has sent you a receipt to your inbox. Keep it as proof of purchase.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h4>We release NEXORA in October</h4>
+          <p>On release day, you get everything through the Learning Management System, the private community, your email and WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="support">
+        <p class="support-q">Need help with your order?</p>
+        <a class="btn-support" href="mailto:support@tomidewilliams.com">Email us at support@tomidewilliams.com</a>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="link" href="/">Back to the NEXORA page</a>
+      <div class="ref" id="refEl"></div>
+    </div>
+  </div>
+</main>
+
+<script>
+(function () {
+  var qs = new URLSearchParams(window.location.search);
+  var reference = qs.get('ref') || '';
+  var email = qs.get('email') || '';
+  var name = qs.get('name') || '';
+
+  var refEl = document.getElementById('refEl');
+  var statusEl = document.getElementById('status');
+  var banner = document.getElementById('confirmBanner');
+  if (reference) refEl.innerHTML = 'Transaction reference: <code>' + reference + '</code>';
+
+  async function verify() {
+    if (!reference) {
+      statusEl.textContent = 'No transaction reference was found. If you paid, reach out to support.';
+      return;
+    }
+    var url = '/api/verify-payment?reference=' + encodeURIComponent(reference) +
+              '&email=' + encodeURIComponent(email) +
+              '&name=' + encodeURIComponent(name);
+    try {
+      var r = await fetch(url);
+      var d = await r.json();
+      if (d && d.paid) {
+        statusEl.textContent = 'Payment confirmed. Welcome to your next era.';
+        banner.style.display = 'inline-block';
+      } else if (d && d.status === 'amount_mismatch') {
+        statusEl.textContent = 'There is a discrepancy with this payment. Please email support@tomidewilliams.com.';
+        hideConfirm();
+      } else if (d && (d.status === 'failed' || d.status === 'abandoned')) {
+        statusEl.textContent = 'This payment was not completed. Please email support@tomidewilliams.com for help.';
+        hideConfirm();
+      } else {
+        statusEl.textContent = 'We could not verify this payment yet. If you just completed it, email support@tomidewilliams.com.';
+        hideConfirm();
+      }
+    } catch (err) {
+      statusEl.textContent = 'We could not reach our server just now. If you completed payment, email support@tomidewilliams.com.';
+      hideConfirm();
+    }
+    function hideConfirm(){ if (banner) banner.style.display = 'none'; }
+  }
+  verify();
+})();
+</script>
+</body>
+</html>
