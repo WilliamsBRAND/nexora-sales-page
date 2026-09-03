@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXORA Birthday Offer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crimson:#6e0a14;
+  --crimson-dark:#4f0710;
+  --crimson-bright:#c0404b;
+  --white:#ffffff;
+  --offwhite:#f4f2ef;
+  --black:#0a0a0a;
+  --ink:#1c1b1a;
+  --gray:#6f6b66;
+  --line:rgba(28,27,26,.1);
+  --line-strong:rgba(28,27,26,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Montserrat',sans-serif;
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.65;
+  font-size:17px;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit;}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+.reveal.d1{transition-delay:.12s;}
+.reveal.d2{transition-delay:.24s;}
+.reveal.d3{transition-delay:.36s;}
+.reveal.d4{transition-delay:.48s;}
+
+/* ===== BUTTONS ===== */
+.btn{
+  display:inline-block;
+  background:var(--crimson);
+  color:#fff;
+  font-weight:600;
+  font-size:16px;
+  letter-spacing:0;
+  padding:17px 40px;
+  border-radius:14px;
+  text-align:center;
+  transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s,background .25s;
+  cursor:pointer;
+  font-family:'Montserrat',sans-serif;
+  box-shadow:0 1px 0 rgba(255,255,255,.08) inset, 0 8px 24px -12px rgba(110,10,20,.5);
+}
+.btn-dark{background:var(--black);color:#fff;}
+.btn:hover{transform:translateY(-2px);background:var(--crimson-dark);box-shadow:0 1px 0 rgba(255,255,255,.08) inset, 0 14px 30px -14px rgba(110,10,20,.55);}
+.btn:active{transform:translateY(0) scale(.99);}
+.btn.outline{background:transparent;color:var(--crimson);box-shadow:inset 0 0 0 1.5px var(--crimson);}
+.center{text-align:center;}
+
+/* ===== STICKY CTA BAR ===== */
+.stickybar{
+  position:fixed;left:0;right:0;bottom:0;z-index:1000;
+  background:rgba(5,5,5,.94);
+  backdrop-filter:blur(8px);
+  border-top:1px solid rgba(192,64,75,.35);
+  padding:12px 20px;
+  display:flex;align-items:center;justify-content:center;gap:18px;
+  transform:translateY(110%);
+  transition:transform .4s ease;
+}
+.stickybar.show{transform:translateY(0);}
+.stickybar .sprice{color:#fff;font-weight:800;font-size:18px;}
+.stickybar .sprice s{color:#999;font-weight:400;font-size:15px;}
+.stickybar .btn{font-size:15px;padding:13px 28px;}
+
+.ribbon{
+  display:inline-block;
+  background:linear-gradient(90deg,#c0404b,#c1121f);
+  color:#fff;
+  font-weight:800;letter-spacing:1px;
+  padding:9px 22px;font-size:13px;text-transform:uppercase;
+  transform:rotate(-1deg);
+  box-shadow:0 6px 16px rgba(110,10,20,.35);
+}
+.price-strike{color:#bbb;text-decoration:line-through;}
+.price-now{color:#c0404b;font-weight:800;}
+
+/* ===== SECTION HEADINGS ===== */
+.eyebrow{
+  font-family:'Montserrat',sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:600;
+  font-size:11.5px;
+  color:var(--crimson);
+  margin-bottom:14px;
+  text-align:center;
+}
+h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:800;line-height:1.08;letter-spacing:.01em;}
+
+/* ===== HERO ===== */
+.hero{background:var(--black);color:#fff;padding:90px 0 70px;text-align:center;}
+.hero .eyebrow{color:#c0404b;}
+.hero-badge{
+  display:inline-block;
+  border:1px solid rgba(255,255,255,.25);
+  padding:8px 22px;
+  border-radius:999px;
+  font-family:'Archivo',sans-serif;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:13px;
+  color:#c0404b;
+  margin-bottom:28px;
+}
+.hero h1{
+  font-size:58px;
+  font-weight:900;
+  line-height:1.05;
+  max-width:800px;
+  margin:0 auto 30px;
+}
+.hero h1 .red{color:#c0404b;}
+.hero-sub{font-size:18px;color:#cfcfcf;max-width:760px;margin:0 auto 40px;font-weight:400;}
+.hero .btn{font-size:19px;padding:20px 50px;}
+.price-line{margin-top:20px;font-size:16px;color:#cfcfcf;}
+.price-line .bday{color:#fff;font-weight:800;font-size:20px;}
+.price-line .regular{color:#bbb;text-decoration:line-through;}
+
+.video-ph{
+  max-width:760px;
+  margin:44px auto 40px;
+  aspect-ratio:16/9;
+  border:2px dashed rgba(192,64,75,.6);
+  border-radius:16px;
+  background:rgba(192,64,75,.08);
+  display:flex;align-items:center;justify-content:center;
+}
+.video-ph-inner{
+  text-align:center;
+  padding:20px;
+}
+.vplay{
+  width:74px;height:74px;margin:0 auto 16px;
+  border-radius:50%;
+  background:#c0404b;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;padding-left:4px;
+}
+.vname{
+  font-family:'Archivo',sans-serif;font-weight:700;
+  color:#c0404b;font-size:16px;letter-spacing:1px;
+}
+.vlab{font-size:14px;color:#aaa;font-style:italic;margin-top:6px;}
+
+/* ===== GENERIC SECTION ===== */
+section{padding:88px 0;}
+section.dark{background:var(--black);color:#fff;}
+section.gray{background:var(--offwhite);}
+.section-title{
+  text-align:center;
+  font-size:clamp(28px,4vw,40px);
+  font-weight:800;
+  letter-spacing:-.02em;
+  max-width:820px;
+  margin:0 auto 16px;
+}
+.section-title .red{color:var(--crimson);}
+section.dark .section-title{color:#fff;}
+section.dark .section-title .red{color:#c0404b;}
+.lead{text-align:center;max-width:720px;margin:0 auto 40px;font-size:18px;}
+p+p{margin-top:16px;}
+.stack{margin-top:24px;display:grid;gap:0;}
+.stack p{margin:0;}
+
+/* ===== PROOF BOXES ===== */
+.proofgrid{
+  margin-top:44px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:20px;
+}
+.proof{
+  position:relative;
+  background:var(--offwhite);
+  border:1px solid var(--line-strong);
+  border-radius:6px;
+  padding:30px 20px 24px;
+  text-align:center;
+  min-height:190px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:10px;
+  overflow:hidden;
+}
+.proof::before{
+  content:"";
+  position:absolute;inset:8px;
+  background-image:repeating-linear-gradient(45deg,transparent 0 10px,rgba(110,10,20,.03) 10px 11px);
+  pointer-events:none;
+}
+section.dark .proof{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.14);}
+section.dark .proof::before{background-image:repeating-linear-gradient(45deg,transparent 0 10px,rgba(255,255,255,.02) 10px 11px);}
+.proof .tag{
+  font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gray);font-weight:600;
+}
+section.dark .proof .tag{color:#8a8a86;}
+.proof .name{
+  position:relative;
+  font-family:'Archivo',sans-serif;
+  font-weight:700;color:var(--ink);font-size:14px;letter-spacing:-.01em;
+}
+section.dark .proof .name{color:#fff;}
+.proof .ico{
+  position:absolute;top:10px;left:12px;
+  font-family:'Archivo',sans-serif;
+  font-weight:700;font-size:12px;color:var(--crimson);
+}
+section.dark .proof .ico{color:#c0404b;}
+.proof .lab{position:relative;font-size:13px;color:var(--gray);}
+section.dark .proof .lab{color:#9a9a96;}
+
+.proof-full{grid-column:1/-1;}
+
+/* ===== LISTS ===== */
+.check-list{
+  list-style:none;
+  max-width:760px;
+  margin:28px auto 0;
+}
+.check-list li{
+  padding:12px 0 12px 38px;
+  position:relative;
+  font-size:17px;
+  border-bottom:1px solid #eee;
+}
+section.dark .check-list li{border-color:rgba(255,255,255,.1);}
+.check-list li::before{
+  content:"";
+  position:absolute;left:4px;top:19px;
+  width:18px;height:18px;
+  background:var(--crimson);
+  -webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') center/contain no-repeat;
+  mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') center/contain no-repeat;
+}
+section.dark .check-list li::before{background:#c0404b;}
+
+/* ===== CATEGORY CARDS ===== */
+.catgrid{
+  margin-top:40px;
+  display:grid;
+  gap:20px;
+}
+.cat{
+  border:1px solid #e5e5e5;
+  border-left:6px solid var(--crimson);
+  border-radius:12px;
+  padding:26px 28px;
+  background:#fff;
+}
+section.dark .cat{background:#101010;border-color:rgba(255,255,255,.12);border-left-color:#c0404b;}
+.cat h3{font-size:22px;color:var(--crimson);margin-bottom:14px;font-family:'Archivo',sans-serif;}
+section.dark .cat h3{color:#c0404b;}
+.cat .blurb{font-size:14px;color:var(--gray);margin-bottom:8px;font-style:italic;}
+.cat ul{list-style:none;margin-top:4px;}
+.cat ul li{
+  padding:7px 0 7px 24px;
+  position:relative;
+  font-size:15.5px;
+}
+.cat ul li::before{content:"•";color:var(--crimson);position:absolute;left:2px;font-weight:800;}
+section.dark .cat ul li::before{color:#c0404b;}
+
+/* ===== VIDEO LESSON ROW (LMS) ===== */
+.cat ul li.lesson{padding:9px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.cat ul li.lesson::before{content:"";}
+.cat ul li.lesson .play{flex:0 0 auto;width:26px;height:26px;color:#c0404b;display:block;}
+.cat ul li.lesson .t{flex:1 1 200px;color:#eae8e6;font-size:15px;}
+.cat ul li.lesson .dur{
+  flex:0 0 auto;font-size:12px;font-weight:700;color:#9fb3c0;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);
+  padding:2px 10px;border-radius:999px;white-space:nowrap;
+  letter-spacing:.3px;
+}
+.cat ul li.lesson .v{float:none;margin-left:auto;}
+
+/* ===== MODULES ===== */
+.module-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px;}
+.module-tag{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#999;font-family:'Archivo',sans-serif;margin-bottom:2px;}
+.module-value{font-size:15px;color:#cfcfcf;font-weight:600;white-space:nowrap;margin-left:auto;}
+.module-value .mv{color:#c0404b;font-weight:800;}
+.cat ul li .v{
+  float:right;margin-left:14px;font-size:13px;font-weight:700;color:#c0404b;
+  background:rgba(192,64,75,.12);border:1px solid rgba(192,64,75,.35);
+  padding:2px 10px;border-radius:999px;white-space:nowrap;
+}
+section.dark .cat ul li .v{background:rgba(192,64,75,.16);color:#ff8a93;}
+.module-total{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.module-total .lbl{font-size:14px;color:#cfcfcf;}
+.module-total .amt{font-size:22px;color:#fff;font-weight:800;font-family:'Archivo',sans-serif;}
+.module-total .amt .mv{color:#c0404b;}
+.cat .total-line{margin-top:18px;padding-top:16px;border-top:1px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+section.dark .cat .total-line{border-top-color:rgba(255,255,255,.14);}
+.grand-total{color:#fff;}
+
+/* ===== MODULE ACCORDION ===== */
+.cat.module .module-head{position:relative;padding-right:38px;}
+.cat.module .m-arrow{
+  position:absolute;right:0;top:50%;transform:translateY(-50%);
+  width:30px;height:30px;border-radius:50%;
+  border:1.5px solid rgba(192,64,75,.55);color:#c0404b;background:rgba(192,64,75,.10);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:17px;line-height:1;
+  cursor:pointer;transition:transform .25s ease,background .25s;
+}
+.cat.module .m-arrow:hover{background:rgba(192,64,75,.22);}
+.cat.module.collapsed .m-arrow{transform:translateY(-50%) rotate(45deg);}
+.m-body{overflow:hidden;transition:max-height .35s ease;}
+.cat.module.collapsed .m-body{max-height:0;}
+
+/* ===== PRICING ===== */
+.price-wrap{max-width:520px;margin:44px auto 0;text-align:center;}
+.price-box{
+  background:var(--black);
+  color:#fff;
+  border-radius:18px;
+  padding:44px 32px;
+}
+.price-box .big{font-size:44px;font-weight:800;color:#c0404b;font-family:'Archivo',sans-serif;}
+.price-box .strike{color:#999;text-decoration:line-through;font-size:20px;}
+.price-box .val{color:#c0404b;font-weight:700;}
+.price-box .line{margin-top:18px;font-size:16px;color:#cfcfcf;}
+
+/* ===== WHO AM I ===== */
+.credentials{
+  max-width:820px;margin:30px auto 0;
+}
+.credentials li{
+  list-style:none;
+  padding:14px 0 14px 34px;
+  position:relative;
+  border-bottom:1px solid #eee;
+  font-size:17px;
+}
+section.dark .credentials li{border-color:rgba(255,255,255,.1);}
+.credentials li::before{
+  content:"✓";
+  position:absolute;left:0;top:13px;
+  color:var(--crimson);font-weight:800;
+}
+section.dark .credentials li::before{color:#c0404b;}
+
+/* ===== FAQ ===== */
+.faq{max-width:820px;margin:30px auto 0;display:grid;gap:14px;}
+.faq-item{
+  border:1px solid #e5e5e5;
+  border-radius:10px;
+  overflow:hidden;
+  background:#fff;
+}
+section.dark .faq-item{background:#101010;border-color:rgba(255,255,255,.12);}
+.faq-item .q{
+  font-weight:700;
+  padding:18px 22px;
+  cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.faq-item .q .qm{color:var(--crimson);font-size:22px;line-height:1;}
+section.dark .faq-item .q .qm{color:#c0404b;}
+.faq-item .a{
+  padding:0 22px;
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease;
+}
+.faq-item .a p{padding-bottom:18px;margin-top:0;}
+
+/* ===== FINAL CTA ===== */
+.final{background:var(--black);color:#fff;text-align:center;}
+.final .eyebrow{color:#c0404b;}
+
+footer{background:var(--black);color:#777;text-align:center;padding:28px 20px;font-size:13px;border-top:1px solid rgba(255,255,255,.08);}
+
+/* ===== MISC ===== */
+ul.plain{list-style:none;max-width:760px;margin:26px auto 0;}
+ul.plain li{padding:8px 0;font-size:17px;}
+.pad-top-sm{margin-top:34px;}
+.red{color:var(--crimson);}
+section.dark .red{color:#c0404b;}
+
+@media(max-width:760px){
+  .hero h1{font-size:40px;}
+  .section-title{font-size:28px;}
+  .proofgrid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-badge reveal in">A Special Birthday Pre-Order</div>
+    <h1 class="reveal in d1">Two-Time TEDx Speaker and Marketing &amp; AI Professional Reveals Everything You Need to Step Into Your <span class="red">Next Era</span></h1>
+
+    <a href="#" class="btn reveal in d3" style="margin-top:30px;">Yes, I Want NEXORA for &#8358;6,667</a>
+
+    <div class="video-ph reveal">
+      <div class="video-ph-inner">
+        <div class="vplay">&#9654;</div>
+        <div class="vname">VIDEO PLACEHOLDER 01</div>
+        <div class="vlab">Hero introductory / birthday announcement video</div>
+      </div>
+    </div>
+
+    <p class="hero-sub reveal" style="margin:0 auto 14px;">For my birthday, I am packaging some of the most important lessons I have learned in my mid-20s about making more money, building a better career, creating opportunities, using AI, building a personal brand, meeting the right people and becoming more intentional about your life.</p>
+
+    <p class="reveal d1" style="max-width:760px;margin:0 auto 14px;">NEXORA is a collection of short, practical 10-20 minute lessons created to help you make better moves across your career, income, relationships, opportunities and personal growth.</p>
+
+    <p class="reveal d3" style="max-width:760px;margin:0 auto 14px;">NEXORA is currently available for pre-order. The lessons are still being recorded and will be released in October.</p>
+
+    <p class="reveal d4" style="margin:26px 0 4px;font-size:20px;font-weight:700;">Pre-order today for <span style="color:#c0404b;font-family:'Archivo',sans-serif;">&#8358;6,667</span></p>
+    <p class="reveal d4" style="margin:0 0 6px;font-size:15px;color:#cfcfcf;">The price will become <strong>&#8358;25,000</strong> after my birthday offer ends.</p>
+
+    <a href="#" class="btn reveal d4" style="margin-top:26px;">Yes, I Want NEXORA for &#8358;6,667</a>
+    <p class="price-line" style="margin-top:14px;font-size:14px;color:#999;">Offer closes &middot; October 1, 2026</p>
+  </div>
+</header>
+
+<div class="wrap" style="padding-top:64px;padding-bottom:64px;">
+  <div class="proofgrid">
+    <div class="proof">
+      <div class="ico">01</div>
+      <div class="tag">Proof 01</div>
+      <div class="name">IMAGE PROOF PLACEHOLDER 01</div>
+      <div class="lab">Proof I built a seven-figure monthly brand</div>
+    </div>
+    <div class="proof">
+      <div class="ico">02</div>
+      <div class="tag">Proof 02</div>
+      <div class="name">IMAGE PROOF PLACEHOLDER 02</div>
+      <div class="lab">Proof of the job offer that increased my income</div>
+    </div>
+    <div class="proof">
+      <div class="ico">03</div>
+      <div class="tag">Proof 03</div>
+      <div class="name">IMAGE PROOF PLACEHOLDER 03</div>
+      <div class="lab">Proof of a client, product or business result</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ GIFT ============ -->
+<section class="gray">
+  <div class="wrap">
+    <h2 class="section-title">THIS IS MY BIRTHDAY GIFT TO YOU</h2>
+    <div class="stack" style="max-width:780px;margin:30px auto 0;text-align:left;">
+      <p>I know you are wondering what NEXORA means - it is simply a combination of two words: <strong>NEXT &amp; ERA</strong>. As I celebrate my next birthday, I have decided to put together this special, personal letter for you.</p>
+      <p>I am entering a new year of my life, and I wanted to do something I have never done before.</p>
+      <p>Instead of only celebrating myself, I decided to package some of the most important things I have learned in my mid-20s about money, career, clients, opportunities, AI, marketing, LinkedIn, relationships and personal growth.</p>
+      <p>These are lessons I learned by trying things, making mistakes, taking risks, building offers, finding clients, positioning myself for opportunities and refusing to remain at the same level.</p>
+      <p>Some of these lessons cost me time.</p>
+      <p>Some cost me money.</p>
+      <p>Some came from opportunities I nearly missed.</p>
+      <p>And some came from learning things nobody sat me down to explain.</p>
+      <p>For my birthday, I want to give you the shorter route.</p>
+      <p>I have turned these lessons into practical 10-20 minute videos that you can watch, understand and apply.</p>
+      <p>This is not one long, complicated course that you will abandon halfway.</p>
+      <p>It is a collection of practical lessons you can return to whenever you need to make money, position yourself, find clients, build your career or make a better decision.</p>
+    </div>
+
+    <div class="proofgrid">
+      <div class="proof proof-full">
+        <div class="ico">04</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 04</div>
+        <div class="lab">Birthday photograph or personal image</div>
+      </div>
+    </div>
+
+    <div class="center pad-top-sm">
+      <a href="#" class="btn">Yes, I Want NEXORA for &#8358;6,667</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAKE MORE MONEY ============ -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">YOUR NEXT ERA CAN BEGIN<br><span class="red">FROM WHERE YOU ARE</span></h2>
+    <div class="stack" style="max-width:780px;margin:30px auto 0;text-align:left;">
+      <p>Different people will open NEXORA for different reasons.</p>
+      <p>Some want to earn more.</p>
+      <p>Some want a better job or clearer career direction.</p>
+      <p>Some want to attract paying clients and customers.</p>
+      <p>Some want to learn how to use AI to work faster and build useful things.</p>
+      <p>Some want to build a personal brand and become visible for better opportunities.</p>
+      <p>Some need career clarity or want to change direction.</p>
+      <p>Some need to rebuild after a difficult season.</p>
+      <p>Some want to become more intentional about their relationships, environment and future.</p>
+      <p>Whatever brings you in, NEXORA is designed to help you see new possibilities and make better decisions across different parts of your life.</p>
+      <p>The promise is bigger than any single outcome. It is about moving into your next era from wherever you are right now.</p>
+    </div>
+
+    <div class="proofgrid">
+      <div class="proof">
+        <div class="ico">05</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 05</div>
+        <div class="lab">Income alert, sales dashboard or course-sales proof</div>
+      </div>
+      <div class="proof">
+        <div class="ico">06</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 06</div>
+        <div class="lab">Client testimonial or payment proof</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIND SOMETHING USEFUL (DARK) ============ -->
+<section class="dark">
+  <div class="wrap">
+    <h2 class="section-title">YOU WILL FIND SOMETHING USEFUL INSIDE NEXORA IF YOU ARE</h2>
+    <ul class="check-list" style="max-width:760px;margin-top:34px;">
+      <li>The student who wants to start making money before graduation</li>
+      <li>The fresh graduate or corps member who is confused about what to do next</li>
+      <li>The job seeker who keeps applying but is not getting the right opportunities</li>
+      <li>The employee who wants a better-paying job, a promotion or another source of income</li>
+      <li>The freelancer who has a valuable skill but struggles to find paying clients</li>
+      <li>The business owner who wants to attract more customers and increase sales</li>
+      <li>The creator who wants to turn their knowledge, content or audience into money</li>
+      <li>The professional who wants to work with international companies and earn in foreign currency</li>
+      <li>The person with a skill who does not know how to package, price or sell it</li>
+      <li>The person trying to enter tech through marketing, sales, product marketing or AI</li>
+      <li>The person who wants to use AI to work faster, build useful things and create new sources of income</li>
+      <li>The person building a personal brand who wants LinkedIn and WhatsApp to bring jobs, clients and opportunities</li>
+      <li>The person changing careers who does not want to start their entire life from zero</li>
+      <li>The person who has several interests but does not know how to bring them together or make money from them</li>
+      <li>The person who feels stuck and needs practical ideas to move their career, income or life forward</li>
+    </ul>
+    <p class="center" style="margin:40px auto 0;max-width:760px;font-weight:700;color:#fff;">You do not need to fit into only one category.</p>
+    <p class="center" style="margin:14px auto 0;max-width:760px;color:#e8e6e4;">Maybe you have a job but also dream of building something of your own. Maybe you are a student trying to earn money, enter tech and build a name for yourself. Maybe you run a business but also want to improve your marketing, use AI better and become more intentional about your life.</p>
+    <p class="center" style="margin:14px auto 0;max-width:760px;color:#e8e6e4;">You may be interested in several things at once, and that is okay. NEXORA was created for the different parts of the person you are and the person you are becoming.</p>
+  </div>
+</section>
+
+<!-- ============ WHAT CAN NEXORA HELP ============ -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">WHAT COULD YOUR NEXT ERA LOOK LIKE?</h2>
+    <ul class="check-list" style="margin-top:34px;">
+      <li>Making more from what you already know</li>
+      <li>Finding a better job or career direction</li>
+      <li>Attracting clients and customers</li>
+      <li>Building something valuable with AI</li>
+      <li>Becoming visible for the right opportunities</li>
+      <li>Building a respected personal brand</li>
+      <li>Entering marketing, sales, product marketing, tech or AI</li>
+      <li>Meeting people and entering rooms that expand your possibilities</li>
+      <li>Becoming more intentional about your time, relationships and environment</li>
+      <li>Reinventing yourself when you have outgrown your current life</li>
+      <li>Rebuilding after a setback</li>
+      <li>Creating a life that reflects what you know you are capable of</li>
+    </ul>
+
+    <div class="proofgrid">
+      <div class="proof">
+        <div class="ico">07</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 07</div>
+        <div class="lab">LinkedIn growth or profile analytics</div>
+      </div>
+      <div class="proof">
+        <div class="ico">08</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 08</div>
+        <div class="lab">Message showing a job, speaking or partnership opportunity</div>
+      </div>
+      <div class="proof">
+        <div class="ico">09</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 09</div>
+        <div class="lab">International client or foreign-currency payment proof</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVERYTHING INSIDE (DARK) ============ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow">The Lessons</div>
+    <h2 class="section-title">EVERYTHING YOU WILL GET INSIDE NEXORA</h2>
+    <p class="lead" style="color:#cfcfcf;">Every title below is an actual lesson inside NEXORA.</p>
+
+    <div class="catgrid">
+      <div class="cat module">
+        <div class="module-head">
+          <div>
+            <div class="module-tag">Module One</div>
+            <h3 style="margin-bottom:0;">GROWTH &amp; CAREER</h3>
+          </div>
+          <span class="module-value">Module value: <span class="mv">&#8358;95,982</span></span>
+          <span class="m-arrow">+</span>
+        </div>
+        <div class="m-body">
+        <ul>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to build a portfolio even without years of experience.</span><span class="dur">17 mins</span><span class="v">&#8358;15,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to position yourself and grab opportunities you don't perfectly qualify for.</span><span class="dur">19 mins</span><span class="v">&#8358;15,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to find opportunities before everyone else starts applying.</span><span class="dur">16 mins</span><span class="v">&#8358;15,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to build relationships that can change your life forever.</span><span class="dur">22 mins</span><span class="v">&#8358;15,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">Exposing you to new roles in 2026 your mentors don't know about.</span><span class="dur">18 mins</span><span class="v">&#8358;15,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How I dealt with the issue of lack of career clarity.</span><span class="dur">15 mins</span><span class="v">&#8358;15,997</span></li>
+        </ul>
+        <div class="module-total"><span class="lbl">Module One total &middot; 1h 47m of lessons</span><span class="amt">&#8358;95,982</span></div>
+        <div class="proof" style="margin-top:20px;border-color:rgba(192,64,75,.4);">
+          <div class="ico">10</div>
+          <div class="tag">Image Proof</div>
+          <div class="name">IMAGE PROOF PLACEHOLDER 10</div>
+          <div class="lab">Job offer, interview invitation or career opportunity</div>
+        </div>
+        </div>
+      </div>
+
+      <div class="cat module">
+        <div class="module-head">
+          <div>
+            <div class="module-tag">Module Two</div>
+            <h3 style="margin-bottom:0;">MONEY &amp; INCOME</h3>
+          </div>
+          <span class="module-value">Module value: <span class="mv">&#8358;99,985</span></span>
+          <span class="m-arrow">+</span>
+        </div>
+        <div class="m-body">
+        <ul>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to build a 7-figure monthly brand from your house.</span><span class="dur">24 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to turn what you already know into something people will pay for.</span><span class="dur">20 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to build multiple income streams without learning new skills.</span><span class="dur">19 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to sell your skills to international clients from Nigeria.</span><span class="dur">21 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to create offers that no one can say no to.</span><span class="dur">23 mins</span><span class="v">&#8358;19,997</span></li>
+        </ul>
+        <div class="module-total"><span class="lbl">Module Two total &middot; 1h 47m of lessons</span><span class="amt">&#8358;99,985</span></div>
+        <div class="proof" style="margin-top:20px;border-color:rgba(192,64,75,.4);">
+          <div class="ico">11</div>
+          <div class="tag">Image Proof</div>
+          <div class="name">IMAGE PROOF PLACEHOLDER 11</div>
+          <div class="lab">Seven-figure monthly result or income breakdown</div>
+        </div>
+        </div>
+      </div>
+
+      <div class="cat module">
+        <div class="module-head">
+          <div>
+            <div class="module-tag">Module Three</div>
+            <h3 style="margin-bottom:0;">MARKETING &amp; SALES</h3>
+          </div>
+          <span class="module-value">Module value: <span class="mv">&#8358;89,985</span></span>
+          <span class="m-arrow">+</span>
+        </div>
+        <div class="m-body">
+        <ul>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to break into tech as a Marketing and sales person.</span><span class="dur">17 mins</span><span class="v">&#8358;17,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to break into product marketing with zero experience.</span><span class="dur">18 mins</span><span class="v">&#8358;17,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to run meta ads with to sell your digital products or services.</span><span class="dur">22 mins</span><span class="v">&#8358;17,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to become so good at marketing and sales.</span><span class="dur">19 mins</span><span class="v">&#8358;17,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to use your WhatsApp status and communities to build a multi-million brand.</span><span class="dur">20 mins</span><span class="v">&#8358;17,997</span></li>
+        </ul>
+        <div class="module-total"><span class="lbl">Module Three total &middot; 1h 36m of lessons</span><span class="amt">&#8358;89,985</span></div>
+        <div class="proof" style="margin-top:20px;border-color:rgba(192,64,75,.4);">
+          <div class="ico">12</div>
+          <div class="tag">Image Proof</div>
+          <div class="name">IMAGE PROOF PLACEHOLDER 12</div>
+          <div class="lab">WhatsApp sales, community result or advertising result</div>
+        </div>
+        </div>
+      </div>
+
+      <div class="cat module">
+        <div class="module-head">
+          <div>
+            <div class="module-tag">Module Four</div>
+            <h3 style="margin-bottom:0;">PERSONAL BRAND &amp; LINKEDIN</h3>
+          </div>
+          <span class="module-value">Module value: <span class="mv">&#8358;99,985</span></span>
+          <span class="m-arrow">+</span>
+        </div>
+        <div class="m-body">
+        <ul>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How I built a brand that positioned me for global opportunities.</span><span class="dur">19 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How people make money from LinkedIn even with no reach/visibility.</span><span class="dur">18 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to build authority &amp; influence without a massive audience.</span><span class="dur">17 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">The right way to attract jobs, clients and opportunities without posting everyday.</span><span class="dur">20 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to make LinkedIn work for you even when you're away.</span><span class="dur">16 mins</span><span class="v">&#8358;19,997</span></li>
+        </ul>
+        <div class="module-total"><span class="lbl">Module Four total &middot; 1h 30m of lessons</span><span class="amt">&#8358;99,985</span></div>
+        <div class="proof" style="margin-top:20px;border-color:rgba(192,64,75,.4);">
+          <div class="ico">13</div>
+          <div class="tag">Image Proof</div>
+          <div class="name">IMAGE PROOF PLACEHOLDER 13</div>
+          <div class="lab">LinkedIn follower count, reach or inbound opportunity</div>
+        </div>
+        </div>
+      </div>
+
+      <div class="cat module">
+        <div class="module-head">
+          <div>
+            <div class="module-tag">Module Five</div>
+            <h3 style="margin-bottom:0;">AI &amp; TECH</h3>
+          </div>
+          <span class="module-value">Module value: <span class="mv">&#8358;119,982</span></span>
+          <span class="m-arrow">+</span>
+        </div>
+        <div class="m-body">
+        <ul>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to use AI in your career without changing Niche.</span><span class="dur">16 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to become an AI-Powered person.</span><span class="dur">18 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to build websites and apps with AI even if you don't know how to code.</span><span class="dur">25 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to build simple AI automations and agents without becoming a developer.</span><span class="dur">25 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">Simple secrets to finding jobs and clients in AI that no one talks about.</span><span class="dur">17 mins</span><span class="v">&#8358;19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">Breaking into tech and AI roles even with zero experiences.</span><span class="dur">19 mins</span><span class="v">&#8358;19,997</span></li>
+        </ul>
+        <div class="module-total"><span class="lbl">Module Five total &middot; 2h 00m of lessons</span><span class="amt">&#8358;119,982</span></div>
+        <div class="proof" style="margin-top:20px;border-color:rgba(192,64,75,.4);">
+          <div class="ico">14</div>
+          <div class="tag">Image Proof</div>
+          <div class="name">IMAGE PROOF PLACEHOLDER 14</div>
+          <div class="lab">Website, application or AI automation you built</div>
+        </div>
+        </div>
+      </div>
+
+      <div class="cat module">
+        <div class="module-head">
+          <div>
+            <div class="module-tag">Module Six</div>
+            <h3 style="margin-bottom:0;">LIFE &amp; PERSONAL GROWTH</h3>
+          </div>
+          <span class="module-value">Module value: <span class="mv">&#8358;69,979</span></span>
+          <span class="m-arrow">+</span>
+        </div>
+        <div class="m-body">
+        <ul>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to break free from mediocrity.</span><span class="dur">14 mins</span><span class="v">&#8358;9,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to get the best out of your 24 hours.</span><span class="dur">18 mins</span><span class="v">&#8358;9,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to leave friendships and environments that limits your potential.</span><span class="dur">15 mins</span><span class="v">&#8358;9,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to bet on yourself before other people do.</span><span class="dur">13 mins</span><span class="v">&#8358;9,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to become more intentional about the people and rooms around you.</span><span class="dur">14 mins</span><span class="v">&#8358;9,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to reinvent yourself when you've outgrown your current life.</span><span class="dur">17 mins</span><span class="v">&#8358;9,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#c0404b" stroke-width="1.6" fill="rgba(192,64,75,.12)"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#c0404b"/></svg><span class="t">How to rebuild yourself after a major setback.</span><span class="dur">19 mins</span><span class="v">&#8358;9,997</span></li>
+        </ul>
+        <div class="module-total"><span class="lbl">Module Six total &middot; 1h 50m of lessons</span><span class="amt">&#8358;69,979</span></div>
+        <div class="proof" style="margin-top:20px;border-color:rgba(192,64,75,.4);">
+          <div class="ico">15</div>
+          <div class="tag">Image Proof</div>
+          <div class="name">IMAGE PROOF PLACEHOLDER 15</div>
+          <div class="lab">Personal transformation or milestone photograph</div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat total-line" style="margin-top:24px;background:#0d0d0d;border-left-color:#c0404b;">
+      <div class="module-head" style="margin-bottom:0;">
+        <div>
+          <div class="module-tag">Everything inside NEXORA</div>
+          <h3 style="margin-bottom:0;color:#c0404b;">TOTAL VALUE</h3>
+        </div>
+          <span class="module-value" style="font-size:18px;">Total: <span class="mv" style="font-size:26px;">&#8358;575,898</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO AM I ============ -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">WHY SHOULD YOU LEARN FROM ME</h2>
+    <div class="stack" style="max-width:780px;margin:30px auto 0;text-align:left;">
+      <p><strong>I am not teaching you things I copied from the internet.</strong> These are lessons from things I have personally done and results I have achieved.</p>
+      <p>Over the last few years, I have:</p>
+    </div>
+
+    <ul class="credentials">
+<li>Made over <strong>&#8358;17 million selling digital products through WhatsApp in the first 6 months of 2026</strong></li>
+<li>Built a marketing career that has generated over <strong>&#8358;50 million in 2 years</strong></li>
+      <li>Built a personal brand and community of more than <strong>47,000 people on LinkedIn</strong></li>
+      <li>Built a <strong>seven-figure monthly brand from my house</strong></li>
+      <li>Become a <strong>two-time TEDx speaker</strong></li>
+      <li>Spoken at more than <strong>20 events</strong></li>
+      <li>Hosted the largest LinkedIn Local event in Northern Nigeria, bringing together more than <strong>500 people</strong></li>
+      <li>Worked with brands and clients across Nigeria, the United States, Europe and Asia</li>
+      <li>Positioned myself for global jobs, international clients, speaking opportunities and partnerships</li>
+      <li>Helped a B2B business grow from zero to more than <strong>100 paying customers</strong></li>
+      <li>Helped a product acquire its first <strong>1,000 users in three months</strong></li>
+      <li>Generated approximately <strong>$30,000 in revenue</strong> for businesses I have worked with</li>
+      <li>Built campaigns that achieved up to <strong>60x return on advertising spend</strong></li>
+      <li>Generated more than <strong>one million impressions</strong> for a growing brand</li>
+      <li>Reduced advertising cost per lead by <strong>25%</strong></li>
+      <li>Achieved <strong>10x return on LinkedIn advertising</strong></li>
+      <li>Helped double client acquisition for a B2B company</li>
+      <li>Helped create more than <strong>10 B2B partnerships</strong></li>
+      <li>Helped increase product downloads by <strong>5x</strong></li>
+      <li>Helped increase customer activation by <strong>400%</strong></li>
+      <li>Helped increase product sign-ups by <strong>250%</strong></li>
+      <li>Helped reduce customer churn by <strong>30%</strong></li>
+      <li>Supported a product launch that processed <strong>$500,000 in transaction value during its first week</strong></li>
+      <li>Built a database of more than <strong>10,000 companies</strong> for sales and customer acquisition</li>
+      <li>Improved sales meeting show rates by more than <strong>50%</strong></li>
+      <li>Contributed to marketing and lead-generation work that produced <strong>five commercial deals worth approximately &#8358;10 billion</strong></li>
+      <li>Built more than <strong>30 AI-powered websites, applications, agents, automations, CRM systems and internal tools</strong></li>
+      <li>Built AI-powered products without following the traditional developer route</li>
+      <li>Used WhatsApp, LinkedIn, communities, content, marketing and sales to turn my knowledge into income and opportunities</li>
+    </ul>
+
+    <div class="stack" style="max-width:780px;margin:30px auto 0;text-align:left;">
+      <p>I did not achieve all of this overnight. I made mistakes, wasted money, missed opportunities and learned many things the hard way.</p>
+      <p>NEXORA contains the practical lessons behind these results.</p>
+      <p>I cannot promise that you will achieve exactly the same results because you will still have to do the work. But I can show you what worked for me and how you can apply the lessons to your money, career, business and opportunities.</p>
+      <p style="font-size:20px;font-weight:800;font-family:'Archivo',sans-serif;"><span style="color:#c0404b;">I have done it. I am still doing it.</span> And inside NEXORA, I will show you how.</p>
+    </div>
+
+    <div class="proofgrid">
+      <div class="proof">
+        <div class="ico">16</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 16</div>
+        <div class="lab">Photograph and short professional bio</div>
+      </div>
+      <div class="proof">
+        <div class="ico">17</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 17</div>
+        <div class="lab">LinkedIn profile showing 47,000+ audience</div>
+      </div>
+      <div class="proof">
+        <div class="ico">18</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 18</div>
+        <div class="lab">Revenue or customer-acquisition result</div>
+      </div>
+      <div class="proof">
+        <div class="ico">19</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 19</div>
+        <div class="lab">10,000+ prospect database</div>
+      </div>
+      <div class="proof">
+        <div class="ico">20</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 20</div>
+        <div class="lab">AI product, website, automation or internal tool</div>
+      </div>
+      <div class="proof">
+        <div class="ico">21</div>
+        <div class="tag">Image Proof</div>
+        <div class="name">IMAGE PROOF PLACEHOLDER 21</div>
+        <div class="lab">Speaking engagement, event or community proof</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REAL RESULTS (DARK) ============ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow">Proof</div>
+    <h2 class="section-title">REAL RESULTS REAL MESSAGES REAL PROOF</h2>
+    <p class="lead" style="color:#cfcfcf;">Do not only take my word for it.</p>
+
+    <div class="proofgrid">
+      <div class="proof"><div class="ico">22</div><div class="tag">Image Proof</div><div class="name">IMAGE PROOF PLACEHOLDER 22</div><div class="lab">Payment alert or earnings screenshot</div></div>
+      <div class="proof"><div class="ico">23</div><div class="tag">Image Proof</div><div class="name">IMAGE PROOF PLACEHOLDER 23</div><div class="lab">Client testimonial</div></div>
+      <div class="proof"><div class="ico">24</div><div class="tag">Image Proof</div><div class="name">IMAGE PROOF PLACEHOLDER 24</div><div class="lab">Student or mentee result</div></div>
+      <div class="proof"><div class="ico">25</div><div class="tag">Image Proof</div><div class="name">IMAGE PROOF PLACEHOLDER 25</div><div class="lab">LinkedIn inbound message</div></div>
+      <div class="proof"><div class="ico">26</div><div class="tag">Image Proof</div><div class="name">IMAGE PROOF PLACEHOLDER 26</div><div class="lab">Job offer or recruitment message</div></div>
+      <div class="proof"><div class="ico">27</div><div class="tag">Image Proof</div><div class="name">IMAGE PROOF PLACEHOLDER 27</div><div class="lab">International payment or client conversation</div></div>
+      <div class="proof"><div class="ico">28</div><div class="tag">Image Proof</div><div class="name">IMAGE PROOF PLACEHOLDER 28</div><div class="lab">Product or campaign result</div></div>
+      <div class="proof"><div class="ico">29</div><div class="tag">Image Proof</div><div class="name">IMAGE PROOF PLACEHOLDER 29</div><div class="lab">WhatsApp sales result</div></div>
+      <div class="proof"><div class="ico">30</div><div class="tag">Image Proof</div><div class="name">IMAGE PROOF PLACEHOLDER 30</div><div class="lab">Another transformation, testimonial or opportunity</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOT ANOTHER COURSE ============ -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">THIS IS NOT JUST ANOTHER COURSE</h2>
+    <div class="stack" style="max-width:780px;margin:30px auto 0;text-align:left;">
+      <p>NEXORA is a bank of practical ideas you can use at different stages of your life.</p>
+      <p>When you need to make more money, there is a lesson for you.</p>
+      <p>When you want to find clients, there is a lesson for you.</p>
+      <p>When you are applying for jobs, there is a lesson for you.</p>
+      <p>When you want to package your knowledge, there is a lesson for you.</p>
+      <p>When you want to build something with AI, there is a lesson for you.</p>
+      <p>When you feel stuck or need to reinvent yourself, there is a lesson for you.</p>
+      <p>You are not paying for information alone.</p>
+      <p>You are paying for lessons that can help you see opportunities you were previously missing, avoid mistakes and make better moves with your money, career and skills.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY PRICE LOW (DARK) ============ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow">The Offer</div>
+    <h2 class="section-title">WHY AM I SELLING THIS FOR ONLY <span class="red">&#8358;6,667</span></h2>
+    <div class="stack" style="max-width:780px;margin:30px auto 0;text-align:left;">
+      <p>My birthday is coming, and I wanted to create an offer that genuinely helps more people access the knowledge that helped me improve my income, career, opportunities, visibility, relationships, technical abilities and personal life.</p>
+      <p>Over the last few years, I have learned how to make money from what I know, build a seven-figure monthly brand from my house, attract jobs and opportunities through LinkedIn, work with international clients and use AI to build things I once believed only developers could build.</p>
+      <p>But I did not learn these things at once.</p>
+      <p>I wasted time, made mistakes, missed opportunities and paid to learn some lessons that nobody around me could teach me.</p>
+      <p>NEXORA is my way of giving you the shorter route.</p>
+      <p>The full programme will sell for &#8358;25,000, but because this is my birthday offer and the lessons are currently being recorded, you can pre-order everything for only &#8358;6,667.</p>
+    </div>
+    <p class="center" style="max-width:780px;margin:40px auto 0;font-size:22px;font-weight:800;color:#fff;font-family:'Archivo',sans-serif;line-height:1.5;">You are paying less because you are joining early - <span style="color:#c0404b;">not because you will receive less.</span></p>
+
+    <div class="price-wrap">
+      <p class="pad-top-sm"><a href="#" class="btn" style="font-size:19px;">Pre-Order NEXORA for &#8358;6,667</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVERYTHING INCLUDED ============ -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">EVERYTHING INCLUDED IN YOUR ACCESS</h2>
+    <ul class="check-list">
+      <li>All six NEXORA course categories</li>
+      <li>Every practical 10–20 minute video lesson listed above</li>
+      <li>All nine NEXORA bonuses (worth &#8358;217,973) listed below</li>
+      <li>1 year of access to the complete programme</li>
+      <li>Delivered through our easy-to-use online Learning Management System</li>
+      <li>Access to the private community, plus delivery on email and WhatsApp</li>
+    </ul>
+
+    <div class="price-box pad-top-sm reveal">
+      <div style="font-size:15px;color:#cfcfcf;margin-bottom:16px;">Total value: <span class="val">&#8358;793,871</span></div>
+      <div style="font-size:15px;color:#cfcfcf;"><s class="price-strike">&#8358;25,000</s> &nbsp;regular price</div>
+      <div style="margin-top:6px;">Your birthday offer price:</div>
+      <div class="big">&#8358;6,667</div>
+      <p class="pad-top-sm"><a href="#" class="btn-dark btn" style="background:var(--crimson);">Yes, I Want NEXORA for &#8358;6,667</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEXORA BONUSES ============ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow">The Bonuses</div>
+    <h2 class="section-title">NEXORA BONUSES</h2>
+    <p class="lead" style="color:#cfcfcf;">Bonuses worth a combined &#8358;217,973 - included with your pre-order.</p>
+
+    <div class="catgrid">
+      <div class="cat bonus">
+        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">My secrets to making &#8358;17m in 6 months selling digital products on WhatsApp in 2026.</p>
+        <p class="bonus-v">Value: <span>&#8358;47,997</span></p>
+      </div>
+      <div class="cat bonus">
+        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">The story of my first $1,000 as a novice writer.</p>
+        <p class="bonus-v">Value: <span>&#8358;19,997</span></p>
+      </div>
+      <div class="cat bonus">
+        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">How to create offers that no one will say no to.</p>
+        <p class="bonus-v">Value: <span>&#8358;27,997</span></p>
+      </div>
+      <div class="cat bonus">
+        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">How to position yourself for top-notch speaking engagements that your peers probably won't get.</p>
+        <p class="bonus-v">Value: <span>&#8358;17,997</span></p>
+      </div>
+      <div class="cat bonus">
+        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">How to use Claude Code for free.</p>
+        <p class="bonus-v">Value: <span>&#8358;11,997</span></p>
+      </div>
+      <div class="cat bonus">
+        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">How to create AI videos and influencers that make you money.</p>
+        <p class="bonus-v">Value: <span>&#8358;29,997</span></p>
+      </div>
+      <div class="cat bonus">
+        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">My approach to cold DMs, networking and creating opportunities online.</p>
+        <p class="bonus-v">Value: <span>&#8358;21,997</span></p>
+      </div>
+      <div class="cat bonus">
+        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">What I've learnt about using Upwork to get foreign clients.</p>
+        <p class="bonus-v">Value: <span>&#8358;24,997</span></p>
+      </div>
+      <div class="cat bonus">
+        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">How to build solid relationships with people you look up to.</p>
+        <p class="bonus-v">Value: <span>&#8358;14,997</span></p>
+      </div>
+    </div>
+
+    <div class="cat total-line" style="margin-top:24px;background:#0d0d0d;border-left-color:#c0404b;text-align:center;">
+      <p style="margin:0;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#999;font-family:'Archivo',sans-serif;">Total Bonus Value</p>
+      <p style="margin:4px 0 0;font-size:38px;font-weight:800;color:#c0404b;font-family:'Archivo',sans-serif;">&#8358;217,973</p>
+    </div>
+
+    <p class="center" style="max-width:780px;margin:34px auto 0;">You get all nine bonuses, the complete NEXORA programme and every lesson inside it for the birthday preorder price of only <strong style="color:#c0404b;font-family:'Archivo',sans-serif;">&#8358;6,667</strong>.</p>
+
+    <div class="center pad-top-sm">
+      <a href="#" class="btn" style="font-size:19px;">Yes, I Want NEXORA for &#8358;6,667</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="gray">
+  <div class="wrap">
+    <div class="eyebrow">Common Questions</div>
+    <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+
+    <div class="faq">
+      <div class="faq-item">
+        <div class="q">What exactly is NEXORA?<span class="qm">+</span></div>
+        <div class="a"><p>NEXORA is a collection of short, practical video lessons covering money, career, opportunities, marketing, sales, LinkedIn, personal branding, AI, relationships and personal growth. It brings together some of the most important lessons I have learned in my mid-20s about building a better life and deliberately stepping into your next era.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Who is Tomide Williams, and why should I learn from him?<span class="qm">+</span></div>
+        <div class="a"><p>Tomide Williams is an AI and Technical Product Marketing Manager, entrepreneur, two-time TEDx speaker and personal-brand strategist with a LinkedIn community of more than 47,000 people. He has made over &#8358;17 million selling digital products through WhatsApp in the first 6 months of 2026, built a marketing career that has generated over &#8358;50 million in 2 years, worked with clients across several countries and built more than 30 AI-powered websites, applications, agents and business systems. NEXORA contains practical lessons from the experiences, mistakes and strategies behind these results.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">What exactly will I receive when I pre-order NEXORA?<span class="qm">+</span></div>
+        <div class="a"><p>You will receive all six NEXORA modules, every video lesson listed on this page and all nine bonuses. The lessons cover Growth and Career, Money and Income, Marketing and Sales, Personal Brand and LinkedIn, AI and Tech, and Life and Personal Growth.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Is NEXORA already available?<span class="qm">+</span></div>
+        <div class="a"><p>No. NEXORA is currently available for pre-order. The lessons are still being recorded and will be released in October (date will be communicated in the paid community). You are paying a reduced price because you are joining early, not because you will receive less content.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Why should I pay for it before it is ready?<span class="qm">+</span></div>
+        <div class="a"><p>Pre-ordering allows you to secure the complete programme and all nine bonuses for &#8358;6,667 instead of the regular price of &#8358;25,000. You will receive everything promised on this page when NEXORA is released.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">What happens immediately after I make payment?<span class="qm">+</span></div>
+        <div class="a"><p>After your payment is confirmed, you will receive your confirmation details and be redirected to a community where others like you are waiting. You will also receive the information you need to access NEXORA when the lessons are released.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Is the &#8358;6,667 a one-time payment?<span class="qm">+</span></div>
+        <div class="a"><p>Yes. &#8358;6,667 is a one-time payment for the complete NEXORA birthday pre-order. There are no monthly subscription charges.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">When exactly will I receive the lessons?<span class="qm">+</span></div>
+        <div class="a"><p>The complete programme will be released in October. You will receive your access instructions through the community, email and on WhatsApp.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">How will the lessons be delivered?<span class="qm">+</span></div>
+        <div class="a"><p>The lessons will be available through a Learning Management System. You will be able to watch them at your own pace from your phone or computer.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">How long will I have access?<span class="qm">+</span></div>
+        <div class="a"><p>You will have access for a year.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">How long are the lessons?<span class="qm">+</span></div>
+        <div class="a"><p>Each video is designed to be short and practical. Most lessons will take approximately 10–20 minutes to complete. The goal is to give you useful ideas you can understand and apply without sitting through unnecessarily long classes.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">I am interested in several different things. Will NEXORA still be useful to me?<span class="qm">+</span></div>
+        <div class="a"><p>Yes. NEXORA was created for people whose ambitions do not fit neatly into one box. You may want to earn more, change careers, attract clients, build a personal brand, learn how to use AI and become more intentional about your life at the same time. You do not need to choose only one interest before joining.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Will NEXORA give me a step-by-step plan for my exact situation?<span class="qm">+</span></div>
+        <div class="a"><p>NEXORA will give you practical lessons, examples and strategies you can apply to different parts of your life. However, it is not a private coaching programme, and your results will depend on your starting point, decisions and willingness to apply what you learn.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">What results should I expect from NEXORA?<span class="qm">+</span></div>
+        <div class="a"><p>NEXORA can help you recognise opportunities, make better decisions, avoid certain mistakes and understand practical ways to improve your income, career, visibility, skills and personal life. However, purchasing a programme cannot guarantee a particular income, job, client or personal result. You will still need to apply the lessons.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Are all nine bonuses included in the &#8358;6,667 price?<span class="qm">+</span></div>
+        <div class="a"><p>Yes. When you pre-order NEXORA for &#8358;6,667, you will receive the complete programme and all nine bonuses listed on this page.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">When does the birthday price end?<span class="qm">+</span></div>
+        <div class="a"><p>The &#8358;6,667 birthday pre-order price ends on October 1, 2026. After the birthday offer closes, NEXORA will sell for &#8358;25,000.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Can I get a refund after paying?<span class="qm">+</span></div>
+        <div class="a"><p>No, we do not refund after payment. Please review the programme details, pre-order release date and access information carefully before making payment.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final" style="padding-bottom:70px;">
+  <div class="wrap">
+    <h2 class="section-title" style="color:#fff;">YOU ALREADY HAVE MORE THAN YOU THINK</h2>
+    <div class="stack" style="max-width:780px;margin:30px auto 0;text-align:left;">
+      <p>NEXORA is not about any single area of your life.</p>
+      <p>It brings together practical lessons on your career and global opportunities, your money and income, marketing and sales, your personal brand and LinkedIn, AI and technology, and your relationships and personal growth.</p>
+      <p>You may enter NEXORA because you want to make more money, find a better job, get clients, use AI, build a personal brand, meet better people or rebuild your life.</p>
+      <p><strong>Whatever your reason, the goal is the same: to help you stop settling and deliberately step into your next era.</strong></p>
+      <p>For my birthday, I am opening the door at a price designed to make the decision easy.</p>
+    </div>
+
+    <div class="price-wrap">
+      <p class="reveal" style="margin:16px 0 0;font-size:16px;color:#cfcfcf;text-decoration:line-through;">Regular price &#8358;25,000</p>
+      <p class="reveal d1" style="font-size:44px;margin-top:6px;"><strong style="color:#c0404b;font-family:'Archivo',sans-serif;">&#8358;6,667</strong></p>
+      <p class="reveal d1" style="font-size:14px;color:#999;">birthday pre-order price</p>
+      <p class="pad-top-sm reveal d2"><a href="#" class="btn" style="font-size:19px;">Yes, I Want NEXORA for &#8358;6,667</a></p>
+      <p class="reveal d3" style="font-size:15px;color:#cfcfcf;">Offer closes: October 1, 2026</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STICKY CTA BAR ===== -->
+<div class="stickybar" id="stickybar">
+  <span class="sprice">&#8358;6,667&nbsp;<s>&#8358;25,000</s></span>
+  <a href="#" class="btn">Yes, I Want NEXORA for &#8358;6,667</a>
+</div>
+
+<footer>NEXORA &copy; <span id="yr"></span> · All Rights Reserved</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+document.querySelectorAll('.faq-item .q').forEach(function(q){
+  q.addEventListener('click', function(){
+    var item = q.parentElement;
+    var a = item.querySelector('.a');
+    var open = a.style.maxHeight;
+    if(open && open !== '0px'){
+      a.style.maxHeight='0px';
+      q.querySelector('.qm').textContent='+';
+    } else {
+      a.style.maxHeight=a.scrollHeight+'px';
+      q.querySelector('.qm').textContent='\u2013';
+    }
+  });
+});
+
+/* ===== MODULE ACCORDION ===== */
+document.querySelectorAll('.cat.module .m-arrow').forEach(function(ar){
+  ar.addEventListener('click', function(e){
+    ar.closest('.cat.module').classList.toggle('collapsed');
+    e.stopPropagation();
+  });
+});
+
+/* ===== SCROLL REVEAL ===== */
+var revealEls = document.querySelectorAll('.reveal');
+var obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(en.isIntersecting){
+      en.target.classList.add('in');
+      obs.unobserve(en.target);
+    }
+  });
+},{threshold:0.12});
+revealEls.forEach(function(el){ obs.observe(el); });
+
+/* ===== STICKY BAR ===== */
+var sb = document.getElementById('stickybar');
+var hero = document.querySelector('.hero');
+var sbShown = false;
+window.addEventListener('scroll', function(){
+  var heroBottom = hero.getBoundingClientRect().bottom;
+  if(heroBottom < 0 && !sbShown){
+    sbShown = true;
+    sb.classList.add('show');
+  } else if(heroBottom >= 0 && sbShown){
+    sbShown = false;
+    sb.classList.remove('show');
+  }
+});
+</script>
+</body>
+</html>
