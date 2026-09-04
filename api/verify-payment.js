@@ -43,7 +43,7 @@ export default async function handler(req, res) {
 
   let tx;
   try {
-    const r = await fetch(PayPaystackVerifyUrl(secretKey, reference), {
+    const r = await fetch(paystackVerifyUrl(secretKey, reference), {
       headers: { Authorization: `Bearer ${secretKey}` },
     });
     tx = await r.json();
@@ -131,28 +131,40 @@ export default async function handler(req, res) {
           const customerEmail = email || data.customer?.email || "";
           const customerName = name || "";
 
-          // Dedup: same email + same partner + same offer within 24h = skip
-          const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
-          const dedupQuery = db.from("conversions")
+          // Idempotency: if this exact Paystack reference is already recorded, never touch it.
+          const { data: refMatch } = await db
+            .from("conversions")
             .select("id")
-            .eq("partner_id", partnerRow.id)
-            .eq("customer_email", customerEmail.toLowerCase())
-            .gte("created_at", oneDayAgo);
-          if (offerId) dedupQuery.eq("offer_id", offerId);
-          const { data: existingConv } = await dedupQuery.maybeSingle();
+            .eq("paystack_reference", reference)
+            .maybeSingle();
 
-          if (!existingConv) {
-            await db.from("conversions").insert({
-              partner_id: partnerRow.id,
-              offer_id: offerId,
-              customer_email: customerEmail.toLowerCase(),
-              customer_name: customerName,
-              paystack_reference: reference,
-              amount_kobo: amountKobo,
-              commission_kobo: commissionKobo,
-              status: "pending",
-            });
+          if (refMatch) {
+            // Already recorded for this reference — nothing to do.
             commissionRecorded = true;
+          } else {
+            // Dedup: same email + same partner + same offer within 24h = skip
+            const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+            const dedupQuery = db.from("conversions")
+              .select("id")
+              .eq("partner_id", partnerRow.id)
+              .eq("customer_email", customerEmail.toLowerCase())
+              .gte("created_at", oneDayAgo);
+            if (offerId) dedupQuery.eq("offer_id", offerId);
+            const { data: existingConv } = await dedupQuery.maybeSingle();
+
+            if (!existingConv) {
+              await db.from("conversions").insert({
+                partner_id: partnerRow.id,
+                offer_id: offerId,
+                customer_email: customerEmail.toLowerCase(),
+                customer_name: customerName,
+                paystack_reference: reference,
+                amount_kobo: amountKobo,
+                commission_kobo: commissionKobo,
+                status: "pending",
+              });
+              commissionRecorded = true;
+            }
           }
         }
       } catch (err) {
@@ -174,7 +186,7 @@ export default async function handler(req, res) {
 }
 
 // tiny helper kept inline to avoid accidental secret-key in any client bundle
-function PayPaystackVerifyUrl(secret, reference) {
+function paystackVerifyUrl(secret, reference) {
   return PAYSTACK_VERIFY + encodeURIComponent(reference);
 }
 
