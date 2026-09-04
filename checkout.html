@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checkout &middot; NEXORA Birthday Pre-Order</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,7 +13,7 @@
 :root{
   --crimson:#6e0a14;
   --crimson-dark:#4f0710;
-  --crimson-bright:#c0404b;
+  --crimson-bright:#6e0a14;
   --white:#ffffff;
   --offwhite:#f4f2ef;
   --black:#0a0a0a;
@@ -47,7 +48,7 @@ a{text-decoration:none;color:inherit;}
   position:absolute;
   width:560px;height:560px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(192,64,75,.18),transparent 70%);
+  background:radial-gradient(circle,rgba(110,10,20,.18),transparent 70%);
   top:-220px;left:50%;
   transform:translateX(-50%);
   pointer-events:none;
@@ -62,7 +63,7 @@ a{text-decoration:none;color:inherit;}
   letter-spacing:3px;
   text-transform:uppercase;
   font-size:13px;
-  color:#c0404b;
+  color:#6e0a14;
   margin-bottom:26px;
 }
 .hero h1{
@@ -75,7 +76,7 @@ a{text-decoration:none;color:inherit;}
   max-width:720px;
   margin:0 auto 16px;
 }
-.hero h1 .red{color:#c0404b;}
+.hero h1 .red{color:#6e0a14;}
 .hero-sub{
   position:relative;
   font-size:17px;
@@ -197,7 +198,7 @@ main{padding:64px 0 80px;}
 
 <header class="hero">
   <div class="hero-badge">Birthday Pre-Order</div>
-  <h1>You're almost there.<br><span class="red">Lock in your &#8358;6,667 price.</span></h1>
+  <h1>You're almost there.<br><span class="red">Lock in your &#8358;7,490 price.</span></h1>
   <p class="hero-sub">Enter your details and pay securely with Paystack. Your full NEXORA access arrives on release day in October.</p>
 </header>
 
@@ -216,14 +217,14 @@ main{padding:64px 0 80px;}
       <div class="err" id="err"></div>
 
       <div class="order-summary">
-        <div class="sum-row"><span class="l">NEXORA birthday pre-order</span><span class="r">&#8358;6,667</span></div>
-        <div class="sum-row discount"><span class="l">Pre-order discount</span><span class="r">&#8722;&#8358;18,333</span></div>
+        <div class="sum-row"><span class="l">NEXORA birthday pre-order</span><span class="r">&#8358;7,490</span></div>
+        <div class="sum-row discount"><span class="l">Pre-order discount</span><span class="r">&&8722;&#8358;18,333</span></div>
         <div class="sum-row"><span class="l">Regular price</span><span class="r"><s style="color:var(--gray);">&#8358;25,000</s></span></div>
-        <div class="sum-total"><span class="l">Total you pay today</span><span class="r">&#8358;6,667</span></div>
+        <div class="sum-total"><span class="l">Total you pay today</span><span class="r">&#8358;7,490</span></div>
       </div>
 
-      <button class="btn" id="payBtn">Pay &#8358;6,667 securely</button>
-      <div class="secure"><b>&#128274; Secure checkout</b> &middot; Payments handled by Paystack</div>
+      <button class="btn" id="payBtn">Pay &#8358;7,490 securely</button>
+      <div class="secure"><b>&&128274; Secure checkout</b> &middot; Payments handled by Paystack</div>
     </div>
 
     <div class="loading" id="loading"><div class="spinner"></div>Preparing your secure payment&hellip;</div>
@@ -238,6 +239,32 @@ main{padding:64px 0 80px;}
   var loading = document.getElementById('loading');
   var nameEl = document.getElementById('name');
   var emailEl = document.getElementById('email');
+
+  // Cookie + sessionStorage + localStorage for durable partner tracking
+  function getCookie(n){var v=document.cookie.match('(^|;)\\s*'+n+'=([^;]*)');return v?v[2]:'';}
+  function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+d*864e5);document.cookie=n+'='+v+';expires='+e.toUTCString()+';path=/;SameSite=Lax';}
+  var partner = (new URLSearchParams(window.location.search)).get('pp')
+    || getCookie('nexora_pp')
+    || sessionStorage.getItem('nexora_pp')
+    || localStorage.getItem('nexora_pp')
+    || '';
+  partner = (partner || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 32);
+  var offer = (new URLSearchParams(window.location.search)).get('offer')
+    || getCookie('nexora_offer')
+    || sessionStorage.getItem('nexora_offer')
+    || localStorage.getItem('nexora_offer')
+    || 'nexora';
+  if (partner) {
+    sessionStorage.setItem('nexora_pp', partner);
+    localStorage.setItem('nexora_pp', partner);
+    setCookie('nexora_pp', partner, 30);
+    try { fetch('/api/track?code=' + encodeURIComponent(partner) + '&offer=' + encodeURIComponent(offer)); } catch(e) {}
+  }
+  if (offer) {
+    sessionStorage.setItem('nexora_offer', offer);
+    localStorage.setItem('nexora_offer', offer);
+    setCookie('nexora_offer', offer, 30);
+  }
 
   function showErr(msg) { errEl.textContent = msg || ''; }
   function valid() {
@@ -264,7 +291,7 @@ main{padding:64px 0 80px;}
       })
       .catch(function (err) {
         btn.disabled = false;
-        btn.textContent = 'Pay &#8358;6,667 securely';
+        btn.textContent = 'Pay &#8358;7,490 securely';
         showErr(err.message);
       });
   });
@@ -280,16 +307,23 @@ main{padding:64px 0 80px;}
       amount: parseInt(cfg.amount, 10),
       currency: cfg.currency || 'NGN',
       ref: reference,
-      metadata: { custom_fields: [{ display_name: 'Full Name', variable_name: 'name', value: name }] },
+      metadata: {
+        custom_fields: [
+          { display_name: 'Full Name', variable_name: 'name', value: name },
+          { display_name: 'Partner Code', variable_name: 'partner', value: partner || '' }
+        ]
+      },
       callback: function (response) {
         var url = '/thank-you?ref=' + encodeURIComponent(response.reference) +
-                  '&email=' + encodeURIComponent(email) +
-                  '&name=' + encodeURIComponent(name);
+                  '#email=' + encodeURIComponent(email) +
+                  '#name=' + encodeURIComponent(name) +
+                  (partner ? '#pp=' + encodeURIComponent(partner) : '') +
+                  (offer ? '#offer=' + encodeURIComponent(offer) : '');
         window.location.href = url;
       },
       onClose: function () {
         btn.disabled = false;
-        btn.textContent = 'Pay &#8358;6,667 securely';
+        btn.textContent = 'Pay &#8358;7,490 securely';
       }
     });
     handler.openIframe();
@@ -298,3 +332,5 @@ main{padding:64px 0 80px;}
 </script>
 </body>
 </html>
+
+

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partners &middot; Tomide Williams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Montserrat',sans-serif;background:#0a0a0a;color:#fff;line-height:1.6;}
+
+.hero{padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden;}
+.hero::after{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(192,64,75,.15),transparent 70%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none;}
+.badge{position:relative;display:inline-block;border:1px solid rgba(255,255,255,.2);padding:8px 22px;border-radius:999px;font-family:'Archivo',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:12px;color:#c0404b;margin-bottom:28px;}
+h1{position:relative;font-family:'Archivo',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:900;line-height:1.1;max-width:700px;margin:0 auto 20px;}
+h1 .red{color:#c0404b;}
+.sub{position:relative;font-size:18px;color:#cfcfcf;max-width:560px;margin:0 auto 36px;}
+.cta-row{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn{display:inline-block;padding:16px 36px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;transition:transform .2s,box-shadow .2s;cursor:pointer;font-family:'Montserrat',sans-serif;}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:#c0404b;color:#fff;box-shadow:0 8px 24px -12px rgba(192,64,75,.5);}
+.btn-primary:hover{box-shadow:0 14px 32px -14px rgba(192,64,75,.6);}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.25);}
+.btn-outline:hover{border-color:#c0404b;color:#c0404b;}
+
+.wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+section{padding:72px 0;}
+.section-label{font-family:'Archivo',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#c0404b;margin-bottom:14px;text-align:center;}
+.section-title{font-family:'Archivo',sans-serif;font-size:clamp(26px,4vw,38px);font-weight:800;text-align:center;margin-bottom:40px;line-height:1.15;}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:32px 20px;text-align:center;}
+.stat .num{font-family:'Archivo',sans-serif;font-size:36px;font-weight:900;color:#c0404b;margin-bottom:6px;}
+.stat .lbl{font-size:14px;color:#999;}
+
+.how{display:grid;gap:20px;}
+.step{display:flex;gap:20px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 24px;}
+.step-num{flex:0 0 44px;height:44px;border-radius:50%;background:rgba(192,64,75,.15);border:1.5px solid rgba(192,64,75,.4);display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;color:#c0404b;}
+.step h3{font-family:'Archivo',sans-serif;font-size:17px;font-weight:700;margin-bottom:4px;}
+.step p{font-size:14px;color:#999;}
+
+.offers{display:grid;gap:16px;}
+.offer-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.offer-card h3{font-family:'Archivo',sans-serif;font-size:18px;font-weight:800;}
+.offer-card p{font-size:13px;color:#888;margin-top:4px;}
+.offer-meta{display:flex;gap:16px;flex-wrap:wrap;}
+.offer-tag{background:rgba(192,64,75,.1);border:1px solid rgba(192,64,75,.25);color:#c0404b;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap;}
+
+.cta-bottom{text-align:center;padding:80px 24px;}
+.cta-bottom h2{font-family:'Archivo',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:16px;}
+.cta-bottom p{font-size:16px;color:#cfcfcf;margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto;}
+
+footer{text-align:center;padding:28px 24px;font-size:12px;color:#555;border-top:1px solid rgba(255,255,255,.06);}
+
+@media(max-width:600px){
+  .stats{grid-template-columns:1fr;}
+  .step{flex-direction:column;gap:12px;}
+  .offer-card{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">Partner Program</div>
+  <h1>Earn money for every person you refer</h1>
+  <p class="sub">Share your unique link. When someone buys through it, you earn a commission. One link, multiple offers.</p>
+  <div class="cta-row">
+    <a href="/affiliates/register" class="btn btn-primary">Become a Partner</a>
+    <a href="/affiliates/login" class="btn btn-outline">Partner Login</a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><div class="num">30%</div><div class="lbl">Commission per sale</div></div>
+      <div class="stat"><div class="num">Multiple</div><div class="lbl">Offers to promote</div></div>
+      <div class="stat"><div class="num">Fast</div><div class="lbl">Bank payouts</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">How It Works</div>
+    <div class="section-title">Three steps. No complications.</div>
+    <div class="how">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Register as a Partner</h3>
+          <p>Sign up with your name and email. You get a unique referral code instantly.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Share Your Link</h3>
+          <p>Pick an offer, copy your link, and share it on social media, WhatsApp, or with friends.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Get Paid</h3>
+          <p>Every confirmed sale through your link earns you a commission. Payouts go straight to your bank.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Current Offers</div>
+    <div class="section-title">What you can promote right now</div>
+    <div class="offers" id="offerList">
+      <div class="offer-card" style="color:#555;text-align:center;justify-content:center;">Loading offers...</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-bottom">
+  <h2>Ready to start earning?</h2>
+  <p>Join partners already earning from their referrals.</p>
+  <a href="/affiliates/register" class="btn btn-primary">Become a Partner</a>
+</section>
+
+<footer>Partners &middot; Tomide Williams &copy; 2026</footer>
+
+<script>
+(function(){
+  fetch('/api/offers').then(function(r){return r.json();}).then(function(d){
+    var list = document.getElementById('offerList');
+    if(!d.ok || !d.offers || !d.offers.length){
+      list.innerHTML = '<div class="offer-card" style="color:#555;text-align:center;justify-content:center;">No offers available right now.</div>';
+      return;
+    }
+    var html = '';
+    d.offers.forEach(function(o){
+      var price = o.price_kobo ? '&#8358;' + Math.round(o.price_kobo/100).toLocaleString() : '';
+      var rate = o.commission_rate != null ? Math.round(o.commission_rate*100) + '% commission' : '';
+      html += '<div class="offer-card">' +
+        '<div><h3>' + esc(o.name) + '</h3><p>' + esc(o.description||'') + '</p></div>' +
+        '<div class="offer-meta">' +
+        (price ? '<span class="offer-tag">' + price + '</span>' : '') +
+        (rate ? '<span class="offer-tag">' + rate + '</span>' : '') +
+        '</div></div>';
+    });
+    list.innerHTML = html || '<div class="offer-card" style="color:#555;text-align:center;justify-content:center;">No offers available right now.</div>';
+  }).catch(function(){
+    document.getElementById('offerList').innerHTML = '<div class="offer-card" style="color:#555;text-align:center;justify-content:center;">Could not load offers.</div>';
+  });
+  function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+})();
+</script>
+</body>
+</html>

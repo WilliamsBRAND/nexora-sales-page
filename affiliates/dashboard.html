@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard &middot; Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Montserrat',sans-serif;background:#0a0a0a;color:#fff;min-height:100vh;}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.06);}
+.topbar .logo{font-family:'Archivo',sans-serif;font-weight:900;font-size:18px;color:#c0404b;}
+.topbar .right{display:flex;align-items:center;gap:16px;}
+.topbar .name{font-size:14px;color:#888;}
+.topbar .logout{font-size:13px;color:#666;text-decoration:none;cursor:pointer;}
+.topbar .logout:hover{color:#c0404b;}
+
+.wrap{max-width:860px;margin:0 auto;padding:32px 24px 60px;}
+.greeting{font-family:'Archivo',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px;}
+.greeting-sub{font-size:14px;color:#888;margin-bottom:28px;}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:32px;}
+.stat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:22px 16px;}
+.stat .num{font-family:'Archivo',sans-serif;font-size:28px;font-weight:900;color:#fff;}
+.stat .lbl{font-size:12px;color:#666;margin-top:2px;}
+.stat.accent .num{color:#c0404b;}
+
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.section-head h2{font-family:'Archivo',sans-serif;font-size:18px;font-weight:800;}
+
+.offers-grid{display:grid;gap:14px;margin-bottom:32px;}
+.offer-link-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px 24px;}
+.offer-link-card h3{font-family:'Archivo',sans-serif;font-size:16px;font-weight:800;margin-bottom:4px;}
+.offer-link-card .desc{font-size:13px;color:#888;margin-bottom:12px;}
+.link-row{display:flex;gap:10px;align-items:center;}
+.link-val{flex:1;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:11px 14px;font-size:12px;color:#ccc;word-break:break-all;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.copy-btn{flex:0 0 auto;padding:11px 18px;border:1.5px solid rgba(192,64,75,.5);background:rgba(192,64,75,.1);color:#c0404b;border-radius:8px;font-weight:700;font-size:12px;cursor:pointer;transition:background .2s;font-family:'Montserrat',sans-serif;}
+.copy-btn:hover{background:rgba(192,64,75,.2);}
+.copy-btn.copied{background:rgba(31,122,61,.15);border-color:rgba(31,122,61,.4);color:#4ade80;}
+
+table{width:100%;border-collapse:collapse;margin-bottom:32px;}
+th{text-align:left;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#555;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.06);}
+td{padding:12px 14px;font-size:14px;color:#aaa;border-bottom:1px solid rgba(255,255,255,.04);}
+td:first-child{color:#fff;}
+.status{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600;}
+.status.pending{background:rgba(251,191,36,.1);color:#fbbf24;}
+.status.approved{background:rgba(34,197,94,.1);color:#22c55e;}
+.status.paid{background:rgba(96,165,250,.1);color:#60a5fa;}
+.status.rejected{background:rgba(239,68,68,.1);color:#ef4444;}
+
+.empty{text-align:center;padding:40px;color:#444;font-size:14px;}
+.snackbar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1a1a;border:1px solid rgba(255,255,255,.1);padding:12px 24px;border-radius:10px;font-size:14px;color:#fff;opacity:0;transition:transform .3s,opacity .3s;z-index:999;}
+.snackbar.show{transform:translateX(-50%) translateY(0);opacity:1;}
+
+@media(max-width:600px){
+  .stats{grid-template-columns:1fr 1fr;}
+  .link-row{flex-direction:column;}
+  table{font-size:12px;}
+  td,th{padding:10px 8px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">Partners</div>
+  <div class="right">
+    <span class="name" id="partnerName"></span>
+    <a class="logout" onclick="localStorage.removeItem('nexora_partner');window.location.href='/affiliates/login';">Logout</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="greeting">Dashboard</div>
+  <div class="greeting-sub">Track your referrals, commissions, and earnings.</div>
+
+  <div class="stats">
+    <div class="stat"><div class="num" id="sClicks">-</div><div class="lbl">Total Clicks</div></div>
+    <div class="stat"><div class="num" id="sConversions">-</div><div class="lbl">Conversions</div></div>
+    <div class="stat accent"><div class="num" id="sEarnings">-</div><div class="lbl">Total Earned</div></div>
+    <div class="stat"><div class="num" id="sPending">-</div><div class="lbl">Pending</div></div>
+  </div>
+
+  <div class="section-head">
+    <h2>Your Referral Links</h2>
+  </div>
+  <div class="offers-grid" id="offersGrid"></div>
+
+  <div class="section-head">
+    <h2>Recent Commissions</h2>
+    <span class="badge" id="commCount" style="font-size:12px;color:#666;background:rgba(255,255,255,.05);padding:4px 12px;border-radius:999px;">0 sales</span>
+  </div>
+  <table id="commTable">
+    <thead><tr><th>Date</th><th>Offer</th><th>Customer</th><th>Commission</th><th>Status</th></tr></thead>
+    <tbody id="commBody"></tbody>
+  </table>
+  <div class="empty" id="emptyComm" style="display:none;">No commissions yet. Share your link to start earning.</div>
+
+  <div class="section-head">
+    <h2>Payout History</h2>
+    <span class="badge" id="payoutCount" style="font-size:12px;color:#666;background:rgba(255,255,255,.05);padding:4px 12px;border-radius:999px;">0 payouts</span>
+  </div>
+  <table id="payoutTable">
+    <thead><tr><th>Date</th><th>Amount</th><th>Reference</th><th>Status</th></tr></thead>
+    <tbody id="payoutBody"></tbody>
+  </table>
+  <div class="empty" id="emptyPayout" style="display:none;">No payouts yet.</div>
+</div>
+
+<div class="snackbar" id="snackbar"></div>
+
+<script>
+(function(){
+  var partner = null;
+  try { partner = JSON.parse(localStorage.getItem('nexora_partner')); } catch(e){}
+  if(!partner || !partner.id){ window.location.href = '/affiliates/login'; return; }
+
+  document.getElementById('partnerName').textContent = partner.name || partner.email;
+  var siteUrl = partner.siteUrl || window.location.origin;
+
+  // Load offers and render referral links
+  var grid = document.getElementById('offersGrid');
+  fetch('/api/offers')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(d.ok && d.offers && d.offers.length){
+        d.offers.forEach(function(o){
+          var checkout = o.checkout_url || '/checkout';
+          var link = siteUrl + checkout + '?pp=' + partner.code;
+          var desc = o.description || '';
+          var price = o.price_kobo ? '\u20A6' + Math.round(o.price_kobo/100).toLocaleString() : '';
+          var rate = o.commission_rate != null ? Math.round(o.commission_rate*100) + '%' : '30%';
+          var card = document.createElement('div');
+          card.className = 'offer-link-card';
+          card.innerHTML = '<h3>' + esc(o.name) + (price ? ' <span style="color:#888;font-weight:500;font-size:13px;">\u00B7 ' + price + '</span>' : '') + '</h3>' +
+            '<div class="desc">' + esc(desc) + ' <span style="color:#4ade80;">Earn ' + rate + '</span></div>' +
+            '<div class="link-row"><div class="link-val">' + esc(link) + '</div>' +
+            '<button class="copy-btn" onclick="copyLink(this,\'' + esc(link).replace(/'/g,'&#39;') + '\')">Copy</button></div>';
+          grid.appendChild(card);
+        });
+      } else {
+        grid.innerHTML = '<div class="empty">No offers available right now. Check back soon.</div>';
+      }
+    })
+    .catch(function(){
+      grid.innerHTML = '<div class="empty">Could not load offers. Please refresh.</div>';
+    });
+
+  loadStats();
+  loadCommissions();
+  loadPayouts();
+
+  function loadStats(){
+    fetch('/api/partner?action=stats&partner_id=' + partner.id)
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(d.ok){
+        document.getElementById('sClicks').textContent = d.clicks || 0;
+        document.getElementById('sConversions').textContent = d.conversions || 0;
+        document.getElementById('sEarnings').textContent = '\u20A6' + fmt(d.earned_kobo || 0);
+        document.getElementById('sPending').textContent = '\u20A6' + fmt(d.pending_kobo || 0);
+      }
+    }).catch(function(){});
+  }
+
+  function loadCommissions(){
+    fetch('/api/partner?action=commissions&partner_id=' + partner.id)
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(d.ok && d.commissions && d.commissions.length){
+        document.getElementById('commCount').textContent = d.commissions.length + ' sale' + (d.commissions.length !== 1 ? 's' : '');
+        var html = '';
+        d.commissions.forEach(function(c){
+          html += '<tr><td>' + fmtDate(c.created_at) + '</td><td>' + esc(c.offer_name||'-') + '</td><td>' + esc(c.customer_email) + '</td><td>\u20A6' + fmt(c.commission_kobo) + '</td><td><span class="status ' + c.status + '">' + c.status + '</span></td></tr>';
+        });
+        document.getElementById('commBody').innerHTML = html;
+        document.getElementById('commTable').style.display = '';
+        document.getElementById('emptyComm').style.display = 'none';
+      } else {
+        document.getElementById('commTable').style.display = 'none';
+        document.getElementById('emptyComm').style.display = '';
+      }
+    }).catch(function(){});
+  }
+
+  function loadPayouts(){
+    fetch('/api/partner?action=payouts&partner_id=' + partner.id)
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(d.ok && d.payouts && d.payouts.length){
+        document.getElementById('payoutCount').textContent = d.payouts.length + ' payout' + (d.payouts.length !== 1 ? 's' : '');
+        var html = '';
+        d.payouts.forEach(function(p){
+          html += '<tr><td>' + fmtDate(p.created_at) + '</td><td>\u20A6' + fmt(p.amount_kobo) + '</td><td>' + esc(p.paystack_transfer_ref||'-') + '</td><td><span class="status ' + p.status + '">' + p.status + '</span></td></tr>';
+        });
+        document.getElementById('payoutBody').innerHTML = html;
+        document.getElementById('payoutTable').style.display = '';
+        document.getElementById('emptyPayout').style.display = 'none';
+      } else {
+        document.getElementById('payoutTable').style.display = 'none';
+        document.getElementById('emptyPayout').style.display = '';
+      }
+    }).catch(function(){});
+  }
+
+  function fmt(k){ return Math.round(k/100).toLocaleString(); }
+  function fmtDate(s){ if(!s) return '-'; return new Date(s).toLocaleDateString('en-NG',{day:'numeric',month:'short',year:'numeric'}); }
+  function esc(t){ var d=document.createElement('div');d.textContent=t;return d.innerHTML; }
+})();
+
+function copyLink(btn, link){
+  navigator.clipboard.writeText(link).then(function(){
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  }).catch(function(){
+    var el = document.getElementById('snackbar');
+    el.textContent = 'Copy failed. Long-press and copy manually.';
+    el.classList.add('show');
+    setTimeout(function(){ el.classList.remove('show'); }, 3000);
+  });
+}
+</script>
+</body>
+</html>

@@ -1,10 +1,12 @@
-// NEXORA — server-side Paystack transaction verification + payment logging.
+// NEXORA â€” server-side Paystack transaction verification + payment logging.
 // This runs ONLY on Vercel (secret key is never exposed to the browser).
 //
 // Flow: checkout.html -> Paystack inline -> redirect to /thank-you.html?ref=REF
 //       thank-you.html -> GET /api/verify-payment?reference=REF&email=..&name=..
 //       This function verifies the transaction with Paystack's secret key,
 //       then POSTs the verified row to the Apps Script webhook (Google Sheet).
+
+import { createClient } from "@supabase/supabase-js";
 
 const PAYSTACK_VERIFY = "https://api.paystack.co/transaction/verify/";
 
@@ -13,15 +15,23 @@ function json(res, status, body) {
   return res.end(JSON.stringify(body));
 }
 
+function getDb() {
+  const url = process.env.SUPABASE_URL || "";
+  const key = process.env.SUPABASE_SERVICE_KEY || "";
+  if (!url || !key) return null;
+  return createClient(url, key);
+}
+
 export default async function handler(req, res) {
-  // Only allow GET (simple, idempotent) — could also accept POST.
+  // Only allow GET (simple, idempotent) â€” could also accept POST.
   const url = new URL(req.url, `http://${req.headers.host}`);
   const reference = url.searchParams.get("reference") || "";
   const email = url.searchParams.get("email") || "";
   const name = url.searchParams.get("name") || "";
+  const partner = url.searchParams.get("pp") || "";
+  const offerSlug = url.searchParams.get("offer") || "nexora";
 
   const secretKey = process.env.PAYSTACK_SECRET_KEY || "";
-  const expectedAmount = parseInt(process.env.PAYSTACK_AMOUNT_KOBO || "666700", 10);
 
   if (!reference) {
     return json(res, 400, { ok: false, error: "Missing reference." });
@@ -58,6 +68,8 @@ export default async function handler(req, res) {
     });
   }
 
+  const expectedAmount = parseInt(process.env.PAYSTACK_AMOUNT_KOBO || "749000", 10);
+
   if (amount !== expectedAmount) {
     return json(res, 200, {
       ok: false,
@@ -78,10 +90,74 @@ export default async function handler(req, res) {
       fp.searchParams.set("amount", String(data.amount / 100));
       fp.searchParams.set("reference", reference);
       fp.searchParams.set("status", status);
+      fp.searchParams.set("partner", partner || "");
       const sr = await fetch(fp.toString(), { method: "POST" });
       logged = sr.ok;
     } catch (err) {
       logged = false;
+    }
+  }
+
+  // Record commission in Supabase if partner code is present
+  let commissionRecorded = false;
+  if (partner) {
+    const db = getDb();
+    if (db) {
+      try {
+        const { data: partnerRow } = await db
+          .from("partners")
+          .select("id")
+          .eq("code", partner)
+          .eq("status", "active")
+          .maybeSingle();
+
+        // Look up offer for commission rate
+        let commissionRate = 0.30;
+        let offerId = null;
+        const { data: offerRow } = await db
+          .from("offers")
+          .select("id, commission_rate")
+          .eq("slug", offerSlug)
+          .eq("status", "active")
+          .maybeSingle();
+        if (offerRow) {
+          commissionRate = offerRow.commission_rate;
+          offerId = offerRow.id;
+        }
+
+        if (partnerRow) {
+          const amountKobo = parseInt(data.amount, 10);
+          const commissionKobo = Math.round(amountKobo * commissionRate);
+          const customerEmail = email || data.customer?.email || "";
+          const customerName = name || "";
+
+          // Dedup: same email + same partner + same offer within 24h = skip
+          const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+          const dedupQuery = db.from("conversions")
+            .select("id")
+            .eq("partner_id", partnerRow.id)
+            .eq("customer_email", customerEmail.toLowerCase())
+            .gte("created_at", oneDayAgo);
+          if (offerId) dedupQuery.eq("offer_id", offerId);
+          const { data: existingConv } = await dedupQuery.maybeSingle();
+
+          if (!existingConv) {
+            await db.from("conversions").insert({
+              partner_id: partnerRow.id,
+              offer_id: offerId,
+              customer_email: customerEmail.toLowerCase(),
+              customer_name: customerName,
+              paystack_reference: reference,
+              amount_kobo: amountKobo,
+              commission_kobo: commissionKobo,
+              status: "pending",
+            });
+            commissionRecorded = true;
+          }
+        }
+      } catch (err) {
+        commissionRecorded = false;
+      }
     }
   }
 
@@ -91,6 +167,7 @@ export default async function handler(req, res) {
     status,
     reference,
     logged,
+    commissionRecorded,
     customer: data.customer ? data.customer.email : email,
     amount: data.amount / 100,
   });
@@ -100,3 +177,5 @@ export default async function handler(req, res) {
 function PayPaystackVerifyUrl(secret, reference) {
   return PAYSTACK_VERIFY + encodeURIComponent(reference);
 }
+
+
