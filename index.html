@@ -117,16 +117,17 @@ a{text-decoration:none;color:inherit;}
 h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:800;line-height:1.08;letter-spacing:.01em;}
 
 
-/* ===== LIVE COUNTDOWN TIMER (PREMIUM DARK & EMERALD STYLE) ===== */
+
+/* ===== LIVE COUNTDOWN TIMER (STANDALONE LUXURY URGENCY SECTION) ===== */
 .countdown-card{
   max-width:560px;
-  margin:32px auto 0;
-  background:linear-gradient(180deg,#0a140d 0%,#040805 100%);
+  margin:0 auto;
+  background:linear-gradient(180deg,#0a150e 0%,#040805 100%);
   border:1px solid rgba(46,204,113,0.35);
-  border-radius:18px;
-  padding:28px 24px;
+  border-radius:20px;
+  padding:32px 28px;
   text-align:center;
-  box-shadow:0 14px 40px rgba(0,0,0,0.6),0 0 24px rgba(46,204,113,0.1);
+  box-shadow:0 16px 44px rgba(0,0,0,0.65),0 0 28px rgba(46,204,113,0.12);
 }
 .countdown-eyebrow{
   display:inline-flex;
@@ -134,44 +135,44 @@ h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:800;line-height:1.08;le
   justify-content:center;
   gap:8px;
   font-family:'Archivo',sans-serif;
-  font-size:12px;
+  font-size:12.5px;
   letter-spacing:2.5px;
   text-transform:uppercase;
   font-weight:800;
   color:#2ecc71;
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
 .countdown-grid{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:8px;
+  gap:10px;
 }
 .countdown-box{
   display:flex;
   flex-direction:column;
   align-items:center;
-  flex:1 1 76px;
-  max-width:96px;
+  flex:1 1 80px;
+  max-width:100px;
 }
 .countdown-num{
   width:100%;
-  background:#0e1c12;
-  border:1px solid rgba(46,204,113,0.3);
-  border-radius:12px;
-  padding:14px 4px;
+  background:#0e1d13;
+  border:1px solid rgba(46,204,113,0.32);
+  border-radius:14px;
+  padding:16px 4px;
   font-family:'Archivo',sans-serif;
-  font-size:38px;
+  font-size:40px;
   font-weight:900;
   color:#ffffff;
   line-height:1;
   letter-spacing:-.02em;
-  box-shadow:inset 0 2px 6px rgba(0,0,0,0.6),0 4px 14px rgba(0,0,0,0.5);
+  box-shadow:inset 0 2px 6px rgba(0,0,0,0.6),0 4px 16px rgba(0,0,0,0.5);
 }
 .countdown-label{
-  margin-top:8px;
+  margin-top:10px;
   font-family:'Archivo',sans-serif;
-  font-size:10px;
+  font-size:10.5px;
   font-weight:800;
   letter-spacing:2px;
   color:#2ecc71;
@@ -179,18 +180,19 @@ h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:800;line-height:1.08;le
 }
 .countdown-sep{
   font-family:'Archivo',sans-serif;
-  font-size:28px;
+  font-size:30px;
   font-weight:900;
   color:#2ecc71;
-  margin-top:-22px;
+  margin-top:-24px;
   user-select:none;
 }
 @media(max-width:520px){
-  .countdown-num{font-size:28px;padding:10px 2px;}
-  .countdown-sep{font-size:20px;margin-top:-16px;}
-  .countdown-label{font-size:9px;letter-spacing:1px;}
-  .countdown-card{padding:20px 12px;}
+  .countdown-num{font-size:30px;padding:12px 2px;}
+  .countdown-sep{font-size:22px;margin-top:-18px;}
+  .countdown-label{font-size:9.5px;letter-spacing:1px;}
+  .countdown-card{padding:22px 14px;}
 }
+
 
 /* ===== HERO ===== */
 .hero{background:var(--black);color:#fff;padding:90px 0 70px;text-align:center;}
@@ -859,7 +861,6 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 <!-- ============ EVERYTHING INSIDE (DARK) ============ -->
 <section class="dark">
   <div class="wrap">
-    <div class="eyebrow">The Lessons</div>
     <h2 class="section-title">EVERYTHING YOU WILL GET INSIDE NEXORA</h2>
     <p class="lead" style="color:#cfcfcf;">Every title below is an actual lesson inside NEXORA.</p>
 
@@ -1142,48 +1143,9 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 </section>
 
 
-<!-- ============ THIS PRICE WON'T LAST FOREVER (DARK) ============ -->
-<section class="dark" id="countdown-section">
-  <div class="wrap">
-    <p class="lead" style="color:#ffffff;max-width:760px;margin:0 auto 16px;font-weight:600;font-size:19px;line-height:1.45;">And yet the value inside this course if you implement it can change the entire trajectory of your business.</p>
-
-    <div class="countdown-card">
-      <div class="countdown-eyebrow">&#x23F0; THIS PRICE WON'T LAST FOREVER</div>
-      <div class="countdown-grid" id="nexora-countdown">
-        <div class="countdown-box">
-          <div class="countdown-num" id="cd-days">06</div>
-          <div class="countdown-label">DAYS</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-box">
-          <div class="countdown-num" id="cd-hours">19</div>
-          <div class="countdown-label">HOURS</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-box">
-          <div class="countdown-num" id="cd-mins">18</div>
-          <div class="countdown-label">MINS</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-box">
-          <div class="countdown-num" id="cd-secs">37</div>
-          <div class="countdown-label">SECS</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="center" style="margin-top:28px;">
-      <a href="checkout" class="btn" style="font-size:20px;padding:16px 36px;max-width:560px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:10px;">
-        &rarr; Get Lifetime Access only &#8358;7,490
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- ============ WHY PRICE LOW (DARK) ============ -->
 <section class="dark">
   <div class="wrap">
-    <div class="eyebrow">The Offer</div>
     <h2 class="section-title">WHY AM I SELLING THIS FOR ONLY <span class="cut-paper slant-alt" style="font-size:32px;padding:4px 16px;margin:0 4px;">₦7,490</span></h2>
     <div class="stack" style="max-width:780px;margin:30px auto 0;text-align:left;">
       <p>My birthday is coming, and I wanted to create an offer that genuinely helps more people access the knowledge that helped me improve my income, career, opportunities, visibility, relationships, technical abilities and personal life.</p>
@@ -1227,7 +1189,6 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 <!-- ============ NEXORA BONUSES ============ -->
 <section class="dark">
   <div class="wrap">
-    <div class="eyebrow">The Bonuses</div>
     <h2 class="section-title">NEXORA BONUSES</h2>
     <p class="lead" style="color:#cfcfcf;">Bonuses worth a combined ₦217,973 - included with your pre-order.</p>
 
@@ -1279,6 +1240,46 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 
     <div class="center pad-top-sm">
       <a href="checkout" class="btn" style="font-size:19px;">Yes, I Want NEXORA for ₦7,490</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THIS PRICE WON'T LAST FOREVER (DARK) ============ -->
+<section class="dark" id="countdown-section" style="background:#080808;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);">
+  <div class="wrap" style="max-width:860px;">
+    <p class="center" style="color:#ffffff;font-size:21px;font-weight:700;font-family:'Archivo',sans-serif;line-height:1.45;max-width:760px;margin:0 auto 28px;">
+      And yet the value inside this course if you implement it can change the entire trajectory of your business.
+    </p>
+
+    <div class="countdown-card">
+      <div class="countdown-eyebrow">&#x23F0; THIS PRICE WON'T LAST FOREVER</div>
+      <div class="countdown-grid" id="nexora-countdown">
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-days">06</div>
+          <div class="countdown-label">DAYS</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-hours">19</div>
+          <div class="countdown-label">HOURS</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-mins">18</div>
+          <div class="countdown-label">MINS</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-secs">37</div>
+          <div class="countdown-label">SECS</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="center" style="margin-top:32px;">
+      <a href="checkout" class="btn" style="font-size:20px;padding:17px 38px;max-width:580px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:12px;box-shadow:0 8px 24px rgba(110,10,20,.45);">
+        &rarr; Get Lifetime Access only &#8358;7,490
+      </a>
     </div>
   </div>
 </section>
