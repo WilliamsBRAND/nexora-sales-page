@@ -298,25 +298,21 @@ section.dark .proof{background:rgba(255,255,255,.02);border-color:rgba(255,255,2
 section.dark .proof::before{background-image:repeating-linear-gradient(45deg,transparent 0 10px,rgba(255,255,255,.02) 10px 11px);}
 .proof .tag{
   display:inline-block;
-  background:#ffffff;
-  color:var(--crimson);
+  background:var(--crimson);
+  color:#ffffff;
   font-family:'Archivo',sans-serif;
   font-size:10px;
   letter-spacing:.15em;
   text-transform:uppercase;
   font-weight:800;
-  padding:3px 12px 4px;
+  padding:3px 10px;
+  border-radius:4px;
   margin-bottom:4px;
-  transform:rotate(-1deg);
-  box-shadow:0 3px 10px rgba(0,0,0,0.2);
-  clip-path:polygon(
-    0% 4%, 3% 0%, 12% 3%, 25% 1%, 38% 3%, 52% 0%, 65% 2%, 78% 0%, 90% 3%, 100% 1%,
-    99% 25%, 100% 50%, 98% 75%, 100% 98%,
-    88% 97%, 75% 100%, 62% 97%, 48% 99%, 35% 96%, 22% 100%, 10% 97%, 0% 99%,
-    1% 75%, 0% 50%, 2% 25%
-  );
 }
-section.dark .proof .tag{color:var(--crimson);}
+section.dark .proof .tag{
+  background:var(--crimson);
+  color:#ffffff;
+}
 .proof .name{
   position:relative;
   font-family:'Archivo',sans-serif;
