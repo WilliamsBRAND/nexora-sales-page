@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -41,17 +41,174 @@ a{text-decoration:none;color:inherit;}
   border-bottom:1px solid rgba(110,10,20,.45);
   position:sticky;top:0;z-index:1200;
 }
-.twbar .inner{max-width:1000px;margin:0 auto;padding:11px 24px;display:flex;align-items:center;justify-content:center;gap:11px;}
+.twbar .inner{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.twbar .wm{display:flex;align-items:center;gap:11px;flex:0 0 auto;}
+.header-countdown{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);padding:5px 14px;border-radius:999px;font-family:'Montserrat',sans-serif;}
+.header-countdown .hc-label{font-size:11px;font-weight:700;color:#e63946;letter-spacing:.5px;display:flex;align-items:center;gap:4px;}
+.header-countdown .hc-digits{display:flex;align-items:center;gap:3px;font-size:13px;font-weight:800;color:#fff;font-family:'Archivo',sans-serif;}
+.header-countdown .hc-unit{display:inline-flex;align-items:baseline;}
+.header-countdown .hc-unit b{color:#fff;font-variant-numeric:tabular-nums;}
+.header-countdown .hc-unit small{font-size:9.5px;color:#888;margin-left:1px;font-weight:600;}
+.header-countdown .hc-sep{color:rgba(255,255,255,.3);font-size:11px;margin:0 1px;}
+@media(max-width:540px){
+  .header-countdown .hc-label{display:none;}
+  .twbar .wm-name{font-size:13px;}
+}
 .twbar .wm{display:flex;align-items:center;gap:11px;}
 .twbar .wm-name{font-family:'Cinzel',serif;font-weight:700;font-size:15px;letter-spacing:.14em;color:#fff;white-space:nowrap;}
 
-/* ===== REVEAL ANIMATIONS ===== */
-.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1);}
-.reveal.in{opacity:1;transform:none;}
-.reveal.d1{transition-delay:.12s;}
-.reveal.d2{transition-delay:.24s;}
-.reveal.d3{transition-delay:.36s;}
-.reveal.d4{transition-delay:.48s;}
+/* ===== REVEAL ANIMATIONS (100% VISIBLE & RESILIENT) ===== */
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+
+
+/* ===== UNIFIED PREMIUM OFFER CARD ===== */
+.offer-card {
+  background: linear-gradient(145deg, #111113 0%, #08080a 100%);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 35px rgba(110,10,20,0.18);
+  max-width: 900px;
+  margin: 32px auto 0;
+  position: relative;
+  overflow: hidden;
+}
+.offer-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--crimson), #e63946, transparent);
+}
+.offer-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+@media (min-width: 768px) {
+  .offer-card-grid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 36px;
+    align-items: center;
+  }
+}
+.offer-card-left {
+  text-align: left;
+}
+.offer-card-left h3 {
+  font-size: 18px;
+  font-family: 'Archivo', sans-serif;
+  color: #ffffff;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+.offer-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.offer-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #e0e0e0;
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+.offer-checklist li .chk-icon {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  background: rgba(46, 204, 113, 0.15);
+  border: 1px solid rgba(46, 204, 113, 0.4);
+  color: #2ecc71;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 1px;
+}
+.offer-card-right {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 26px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.offer-card-right .val-badge {
+  font-size: 14px;
+  color: #cfcfcf;
+  margin-bottom: 10px;
+}
+.offer-card-right .val-badge .val {
+  color: #ffffff;
+  background: var(--crimson);
+  padding: 2px 9px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 13.5px;
+  margin-left: 4px;
+}
+.offer-card-right .launch-line {
+  font-size: 14.5px;
+  color: #a0a0a0;
+  margin-bottom: 6px;
+}
+.offer-card-right .bday-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 4px;
+}
+.offer-card-right .price-tag {
+  margin: 12px 0 16px;
+}
+.offer-card-right .btn-offer {
+  width: 100%;
+  max-width: 100%;
+  font-size: 16.5px;
+  font-weight: 700;
+  padding: 15px 20px;
+  border-radius: 12px;
+  background: var(--crimson);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(110,10,20,0.5);
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  transition: all .25s ease;
+}
+.offer-card-right .btn-offer:hover {
+  background: var(--crimson-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(110,10,20,0.65);
+}
+.offer-card-right .offer-micro {
+  font-size: 12px;
+  color: #888;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
 
 /* ===== BUTTONS ===== */
 .btn{
@@ -193,6 +350,58 @@ h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:800;line-height:1.08;le
   .countdown-card{padding:22px 14px;}
 }
 
+
+
+/* ===== PREMIUM SCROLL REVEAL & PROGRESS ANIMATIONS ===== */
+#scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3.5px;
+  width:0%;
+  background:linear-gradient(90deg, #6e0a14 0%, #e63946 50%, #2ecc71 100%);
+  z-index:10001;
+  transition:width .08s ease-out;
+  box-shadow:0 0 12px rgba(230,57,70,0.7);
+  pointer-events:none;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(32px);
+  transition:opacity .75s cubic-bezier(0.16, 1, 0.3, 1), transform .75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change:opacity, transform;
+}
+.reveal.reveal-scale{
+  opacity:0;
+  transform:scale(0.95) translateY(24px);
+}
+.reveal.reveal-left{
+  opacity:0;
+  transform:translateX(-28px);
+}
+.reveal.reveal-right{
+  opacity:0;
+  transform:translateX(28px);
+}
+.reveal.in{
+  opacity:1 !important;
+  transform:translateY(0) translateX(0) scale(1) !important;
+}
+
+.d1{transition-delay:.08s !important;}
+.d2{transition-delay:.16s !important;}
+.d3{transition-delay:.24s !important;}
+.d4{transition-delay:.32s !important;}
+.d5{transition-delay:.40s !important;}
+.d6{transition-delay:.48s !important;}
+.d7{transition-delay:.56s !important;}
+.d8{transition-delay:.64s !important;}
+
+/* Subtle card lift on appear */
+.cat.module.in, .cat.bonus.in, .proof.in{
+  transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease, opacity .75s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
 
 /* ===== HERO ===== */
 .hero{background:var(--black);color:#fff;padding:90px 0 70px;text-align:center;}
@@ -650,6 +859,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 </style>
 </head>
 <body>
+  <div id="scroll-progress"></div>
 
 <!-- ============ TW WORDMARK ============ -->
 <div class="twbar">
@@ -664,6 +874,19 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       </svg>
       <span class="wm-name">TOMIDE WILLIAMS</span>
     </div>
+
+    <div class="header-countdown" id="header-countdown">
+      <span class="hc-label">PRE-ORDER CLOSES IN:</span>
+      <div class="hc-digits">
+        <span class="hc-unit"><b id="h-days">00</b><small>D</small></span>
+        <span class="hc-sep">:</span>
+        <span class="hc-unit"><b id="h-hours">00</b><small>H</small></span>
+        <span class="hc-sep">:</span>
+        <span class="hc-unit"><b id="h-mins">00</b><small>M</small></span>
+        <span class="hc-sep">:</span>
+        <span class="hc-unit"><b id="h-secs">00</b><small>S</small></span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -675,7 +898,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 
     <a href="checkout" class="btn reveal in d3" style="margin-top:30px;">Yes, I Want NEXORA for ₦7,490</a>
 
-    <div class="video-ph reveal">
+    <div class="video-ph">
       <div class="video-ph-inner">
         <div class="vplay">&#9654;</div>
         <div class="vname">VIDEO PLACEHOLDER 01</div>
@@ -884,11 +1107,9 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
           <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How I dealt with the issue of lack of career clarity.</span><span class="dur">15 mins</span><span class="v">₦12,997</span></li>
         </ul>
         <div class="module-total"><span class="lbl">Module One total &middot; 1h 47m of lessons</span><span class="amt">₦105,982</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">10</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 10</div>
-          <div class="lab">Job offer, interview invitation or career opportunity</div>
+        <div class="module-mockup-card" style="margin-top:24px;text-align:center;">
+          <img src="assets/module-1-mockup.jpg" alt="Module 1: Career Launchpad & Portfolio Accelerator 3D Value Stack Mockup" style="width:100%;max-width:820px;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,0.12);box-shadow:0 12px 36px rgba(0,0,0,0.5), 0 0 24px rgba(110,10,20,0.22);display:block;margin:0 auto;" loading="lazy">
+        </div>
         </div>
         </div>
       </div>
@@ -911,11 +1132,9 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
           <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to create offers that no one can say no to.</span><span class="dur">23 mins</span><span class="v">₦19,997</span></li>
         </ul>
         <div class="module-total"><span class="lbl">Module Two total &middot; 1h 47m of lessons</span><span class="amt">₦110,545</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">11</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 11</div>
-          <div class="lab">Seven-figure monthly result or income breakdown</div>
+        <div class="module-mockup-card" style="margin-top:24px;text-align:center;">
+          <img src="assets/module-2-mockup.jpg" alt="Module 2: 7-Figure Brand & Product Creation 3D Value Stack Mockup" style="width:100%;max-width:820px;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,0.12);box-shadow:0 12px 36px rgba(0,0,0,0.5), 0 0 24px rgba(110,10,20,0.22);display:block;margin:0 auto;" loading="lazy">
+        </div>
         </div>
         </div>
       </div>
@@ -938,11 +1157,9 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
           <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to use your WhatsApp status and communities to build a multi-million brand.</span><span class="dur">20 mins</span><span class="v">₦21,997</span></li>
         </ul>
         <div class="module-total"><span class="lbl">Module Three total &middot; 1h 36m of lessons</span><span class="amt">₦99,985</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">12</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 12</div>
-          <div class="lab">WhatsApp sales, community result or advertising result</div>
+        <div class="module-mockup-card" style="margin-top:24px;text-align:center;">
+          <img src="assets/module-3-mockup.jpg" alt="Module 3: High-Conversion Sales & Marketing Mastery 3D Value Stack Mockup" style="width:100%;max-width:820px;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,0.12);box-shadow:0 12px 36px rgba(0,0,0,0.5), 0 0 24px rgba(110,10,20,0.22);display:block;margin:0 auto;" loading="lazy">
+        </div>
         </div>
         </div>
       </div>
@@ -965,11 +1182,9 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
           <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to make LinkedIn work for you even when you're away.</span><span class="dur">16 mins</span><span class="v">₦18,557</span></li>
         </ul>
         <div class="module-total"><span class="lbl">Module Four total &middot; 1h 30m of lessons</span><span class="amt">₦100,545</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">13</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 13</div>
-          <div class="lab">LinkedIn follower count, reach or inbound opportunity</div>
+        <div class="module-mockup-card" style="margin-top:24px;text-align:center;">
+          <img src="assets/module-4-mockup.jpg" alt="Module 4: Influence, Positioning & Global Reach 3D Value Stack Mockup" style="width:100%;max-width:820px;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,0.12);box-shadow:0 12px 36px rgba(0,0,0,0.5), 0 0 24px rgba(110,10,20,0.22);display:block;margin:0 auto;" loading="lazy">
+        </div>
         </div>
         </div>
       </div>
@@ -993,11 +1208,9 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
           <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">Breaking into tech and AI roles even with zero experiences.</span><span class="dur">19 mins</span><span class="v">₦17,997</span></li>
         </ul>
         <div class="module-total"><span class="lbl">Module Five total &middot; 2h 00m of lessons</span><span class="amt">₦122,542</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">14</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 14</div>
-          <div class="lab">Website, application or AI automation you built</div>
+        <div class="module-mockup-card" style="margin-top:24px;text-align:center;">
+          <img src="assets/module-5-mockup.jpg" alt="Module 5: AI Implementation, Apps & Automation 3D Value Stack Mockup" style="width:100%;max-width:820px;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,0.12);box-shadow:0 12px 36px rgba(0,0,0,0.5), 0 0 24px rgba(110,10,20,0.22);display:block;margin:0 auto;" loading="lazy">
+        </div>
         </div>
         </div>
       </div>
@@ -1022,11 +1235,9 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
           <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to rebuild yourself after a major setback.</span><span class="dur">19 mins</span><span class="v">₦13,557</span></li>
         </ul>
         <div class="module-total"><span class="lbl">Module Six total &middot; 1h 50m of lessons</span><span class="amt">₦97,539</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">15</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 15</div>
-          <div class="lab">Personal transformation or milestone photograph</div>
+        <div class="module-mockup-card" style="margin-top:24px;text-align:center;">
+          <img src="assets/module-6-mockup.jpg" alt="Module 6: Mindset, Resilience & Reinvention 3D Value Stack Mockup" style="width:100%;max-width:820px;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,0.12);box-shadow:0 12px 36px rgba(0,0,0,0.5), 0 0 24px rgba(110,10,20,0.22);display:block;margin:0 auto;" loading="lazy">
+        </div>
         </div>
         </div>
       </div>
@@ -1049,8 +1260,11 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
   <div class="wrap">
     <h2 class="section-title">WHY SHOULD YOU LEARN FROM ME</h2>
     <div class="stack" style="max-width:780px;margin:30px auto 0;text-align:left;">
-      <p><strong>I am not teaching you things I copied from the internet.</strong> These are lessons from things I have personally done and results I have achieved.</p>
-      <p>Over the last few years, I have:</p>
+      <p style="font-size:18px;line-height:1.6;color:#111111;"><strong>Hi, I am Tomide Williams.</strong> I am a product marketing leader, AI and go-to-market practitioner, product builder and public speaker.</p>
+      <p style="font-size:16px;line-height:1.65;color:#222222;margin-top:14px;">I work across product, marketing, technology and growth, <strong>taking tech products from early ideas to market</strong>, building customer acquisition systems, leading launches and applying AI to the way businesses market, sell and operate.</p>
+      <p style="font-size:16px;line-height:1.65;color:#222222;margin-top:14px;">My experience spans customer research, product positioning, go-to-market strategy, demand generation, B2B acquisition, sales systems, CRM, automation and AI implementation.</p>
+      <p style="font-size:16px;line-height:1.65;color:#111111;margin-top:22px;"><strong>I am not teaching you things I copied from the internet.</strong> These are lessons from things I have personally done and results I have achieved.</p>
+      <p style="font-size:16px;line-height:1.65;color:#111111;margin-top:26px;margin-bottom:14px;font-weight:700;">Over the last few years, I have:</p>
     </div>
 
     <ul class="credentials">
@@ -1196,21 +1410,30 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 <section>
   <div class="wrap">
     <h2 class="section-title">EVERYTHING INCLUDED IN YOUR ACCESS</h2>
-    <ul class="check-list">
-      <li>All six NEXORA course categories</li>
-      <li>Every practical 10&ndash;20 minute video lesson listed above</li>
-      <li>All nine NEXORA bonuses (worth ₦217,973) listed below</li>
-      <li>1 year of access to the complete programme</li>
-      <li>Delivered through our easy-to-use online Learning Management System</li>
-      <li>Access to the private community, plus delivery on email and WhatsApp</li>
-    </ul>
 
-    <div class="price-box pad-top-sm reveal">
-      <div style="font-size:15px;color:#cfcfcf;margin-bottom:16px;">Total value: <span class="val">₦855,111</span></div>
-      <div style="font-size:15px;color:#cfcfcf;"><s class="price-strike">₦25,000</s> &nbsp;launch price</div>
-      <div style="margin-top:6px;">Your birthday offer price:</div>
-      <div class="big" style="margin:10px 0;"><span class="cut-paper slant-alt" style="font-size:40px;padding:5px 22px;">₦7,490</span></div>
-      <p class="pad-top-sm"><a href="checkout" class="btn-dark btn" style="background:var(--crimson);">Yes, I Want NEXORA for ₦7,490</a></p>
+    <div class="offer-card">
+      <div class="offer-card-grid">
+        <div class="offer-card-left">
+          <h3>Your Complete Package:</h3>
+          <ul class="offer-checklist">
+            <li><span class="chk-icon">&#10003;</span> <span>All six NEXORA course categories (34 video lessons)</span></li>
+            <li><span class="chk-icon">&#10003;</span> <span>Every practical 10&ndash;20 minute video lesson listed above</span></li>
+            <li><span class="chk-icon">&#10003;</span> <span>All nine NEXORA bonuses (worth ₦217,973) listed below</span></li>
+            <li><span class="chk-icon">&#10003;</span> <span>1 full year of access to the complete programme</span></li>
+            <li><span class="chk-icon">&#10003;</span> <span>Delivered through our easy-to-use online Learning Management System</span></li>
+            <li><span class="chk-icon">&#10003;</span> <span>Private community access, plus instant delivery on email and WhatsApp</span></li>
+          </ul>
+        </div>
+
+        <div class="offer-card-right">
+          <div class="val-badge">Total value: <span class="val">₦855,111</span></div>
+          <div class="launch-line"><s class="price-strike" style="font-size:16px;">₦25,000</s> &nbsp;launch price</div>
+          <div class="bday-label">Your birthday offer price:</div>
+          <div class="price-tag"><span class="cut-paper slant-alt" style="font-size:42px;padding:6px 26px;">₦7,490</span></div>
+          <a href="checkout" class="btn-offer">Yes, I Want NEXORA for ₦7,490</a>
+          <div class="offer-micro">&#128274; Instant LMS Access &middot; WhatsApp &amp; Email Delivery</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1273,42 +1496,53 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
   </div>
 </section>
 
-<!-- ============ THIS PRICE WON'T LAST FOREVER (DARK) ============ -->
-<section class="dark" id="countdown-section" style="background:#080808;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);">
-  <div class="wrap" style="max-width:860px;">
-    <p class="center" style="color:#ffffff;font-size:21px;font-weight:700;font-family:'Archivo',sans-serif;line-height:1.45;max-width:760px;margin:0 auto 28px;">
-      And yet the value inside this course if you implement it can change the entire trajectory of your business.
+<!-- ============ THIS OFFER WILL NOT LAST FOREVER (WHITE SECTION) ============ -->
+<section id="countdown-section" style="background:#ffffff;padding:70px 20px;">
+  <div class="wrap" style="max-width:860px;text-align:center;">
+    <h2 class="section-title" style="color:#050505;font-size:36px;margin-bottom:14px;">THIS OFFER WILL NOT LAST FOREVER</h2>
+    <p class="lead" style="max-width:760px;margin:0 auto 36px;color:#333333;font-size:18px;line-height:1.6;">
+      Once this countdown reaches zero, the birthday pre-order closes and NEXORA will officially launch at <strong style="color:#050505;">₦25,000</strong>. You will no longer be able to get lifetime access for <strong style="color:#6e0a14;">₦7,490</strong>.
     </p>
 
-    <div class="countdown-card">
-      <div class="countdown-eyebrow">&#x23F0; THIS PRICE WON'T LAST FOREVER</div>
-      <div class="countdown-grid" id="nexora-countdown">
-        <div class="countdown-box">
-          <div class="countdown-num" id="cd-days">06</div>
-          <div class="countdown-label">DAYS</div>
+    <div class="countdown-card" style="background:#09090b;border:1px solid rgba(0,0,0,0.15);border-radius:22px;padding:38px 28px;box-shadow:0 20px 50px rgba(0,0,0,0.18), 0 0 30px rgba(110,10,20,0.12);max-width:640px;margin:0 auto;text-align:center;">
+      <div class="countdown-eyebrow" style="color:#2ecc71;font-size:13px;letter-spacing:2px;font-weight:800;text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;justify-content:center;gap:8px;">
+        PRE-ORDER CLOSES IN
+      </div>
+      
+      <div class="countdown-grid" id="nexora-countdown" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:28px;">
+        <div class="countdown-box" style="display:flex;flex-direction:column;align-items:center;min-width:76px;flex:1;">
+          <div class="countdown-num" id="cd-days" style="width:100%;background:#141418;border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:16px 6px;font-family:'Archivo',sans-serif;font-size:38px;font-weight:900;color:#ffffff;line-height:1;box-shadow:inset 0 2px 4px rgba(0,0,0,0.5);">00</div>
+          <div class="countdown-label" style="margin-top:8px;font-family:'Archivo',sans-serif;font-size:11px;font-weight:800;letter-spacing:1px;color:#888888;">DAYS</div>
         </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-box">
-          <div class="countdown-num" id="cd-hours">19</div>
-          <div class="countdown-label">HOURS</div>
+
+        <div class="countdown-sep" style="font-size:28px;font-weight:800;color:rgba(255,255,255,0.3);margin-bottom:20px;">:</div>
+
+        <div class="countdown-box" style="display:flex;flex-direction:column;align-items:center;min-width:76px;flex:1;">
+          <div class="countdown-num" id="cd-hours" style="width:100%;background:#141418;border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:16px 6px;font-family:'Archivo',sans-serif;font-size:38px;font-weight:900;color:#ffffff;line-height:1;box-shadow:inset 0 2px 4px rgba(0,0,0,0.5);">00</div>
+          <div class="countdown-label" style="margin-top:8px;font-family:'Archivo',sans-serif;font-size:11px;font-weight:800;letter-spacing:1px;color:#888888;">HOURS</div>
         </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-box">
-          <div class="countdown-num" id="cd-mins">18</div>
-          <div class="countdown-label">MINS</div>
+
+        <div class="countdown-sep" style="font-size:28px;font-weight:800;color:rgba(255,255,255,0.3);margin-bottom:20px;">:</div>
+
+        <div class="countdown-box" style="display:flex;flex-direction:column;align-items:center;min-width:76px;flex:1;">
+          <div class="countdown-num" id="cd-mins" style="width:100%;background:#141418;border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:16px 6px;font-family:'Archivo',sans-serif;font-size:38px;font-weight:900;color:#ffffff;line-height:1;box-shadow:inset 0 2px 4px rgba(0,0,0,0.5);">00</div>
+          <div class="countdown-label" style="margin-top:8px;font-family:'Archivo',sans-serif;font-size:11px;font-weight:800;letter-spacing:1px;color:#888888;">MINS</div>
         </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-box">
-          <div class="countdown-num" id="cd-secs">37</div>
-          <div class="countdown-label">SECS</div>
+
+        <div class="countdown-sep" style="font-size:28px;font-weight:800;color:rgba(255,255,255,0.3);margin-bottom:20px;">:</div>
+
+        <div class="countdown-box" style="display:flex;flex-direction:column;align-items:center;min-width:76px;flex:1;">
+          <div class="countdown-num" id="cd-secs" style="width:100%;background:#141418;border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:16px 6px;font-family:'Archivo',sans-serif;font-size:38px;font-weight:900;color:#ffffff;line-height:1;box-shadow:inset 0 2px 4px rgba(0,0,0,0.5);">00</div>
+          <div class="countdown-label" style="margin-top:8px;font-family:'Archivo',sans-serif;font-size:11px;font-weight:800;letter-spacing:1px;color:#888888;">SECS</div>
         </div>
       </div>
-    </div>
 
-    <div class="center" style="margin-top:32px;">
-      <a href="checkout" class="btn" style="font-size:20px;padding:17px 38px;max-width:580px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:12px;box-shadow:0 8px 24px rgba(110,10,20,.45);">
-        &rarr; Get Lifetime Access only &#8358;7,490
+      <a href="checkout" class="btn" style="width:100%;max-width:500px;font-size:18px;font-weight:700;padding:16px 28px;background:var(--crimson);border-radius:14px;display:inline-flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 24px rgba(110,10,20,0.5);text-decoration:none;margin-top:4px;">
+        &rarr; Get Lifetime Access for &#8358;7,490
       </a>
+      <div style="font-size:12.5px;color:#888888;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:6px;">
+        <span>🔒</span> Instant LMS Access &middot; WhatsApp &amp; Email Delivery &middot; 100% Secure Checkout
+      </div>
     </div>
   </div>
 </section>
@@ -1415,55 +1649,74 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 
 <!-- ===== STICKY CTA BAR ===== -->
 <div class="stickybar" id="stickybar">
-  <span class="sprice">₦7,490&nbsp;<s>₦25,000</s></span>
-  <a href="checkout" class="btn">Yes, I Want NEXORA for ₦7,490</a>
+  <div class="stickybar-inner">
+    <!-- Component 1: Price Breakdown -->
+    <div class="sb-price">
+      <span class="sb-current">₦7,490</span>
+      <s class="sb-slash">₦25,000</s>
+      <span class="sb-tag">Pre-order</span>
+    </div>
+
+
+
+    <!-- Component 3: CTA Button -->
+    <a href="checkout" class="btn">Yes, I Want NEXORA for ₦7,490</a>
+  </div>
 </div>
 
-<footer>NEXORA &copy; <span id="yr"></span>  All Rights Reserved</footer>
+<footer>NEXORA &copy; <span id="yr"></span> &middot; All Rights Reserved</footer>
 
 <script>
-document.getElementById('yr').textContent = new Date().getFullYear();
+/* ===== 1. FOOTER YEAR ===== */
+var yrEl = document.getElementById('yr');
+if (yrEl) yrEl.textContent = new Date().getFullYear();
 
+/* ===== 2. FAQ ACCORDION ===== */
 document.querySelectorAll('.faq-item .q').forEach(function(q){
   q.addEventListener('click', function(){
     var item = q.parentElement;
     var a = item.querySelector('.a');
-    var open = a.style.maxHeight;
-    if(open && open !== '0px'){
-      a.style.maxHeight='0px';
-      q.querySelector('.qm').textContent='+';
+    var qm = q.querySelector('.qm');
+    if(!a) return;
+    var isOpen = a.style.maxHeight && a.style.maxHeight !== '0px';
+    if(isOpen){
+      a.style.maxHeight = '0px';
+      if(qm) qm.textContent = '+';
     } else {
-      a.style.maxHeight=a.scrollHeight+'px';
-      q.querySelector('.qm').textContent='\u2013';
+      a.style.maxHeight = a.scrollHeight + 'px';
+      if(qm) qm.textContent = '−';
     }
   });
 });
 
-/* ===== MODULE ACCORDION ===== */
-document.querySelectorAll('.cat.module .m-arrow').forEach(function(ar){
-  ar.addEventListener('click', function(e){
-    ar.closest('.cat.module').classList.toggle('collapsed');
-    e.stopPropagation();
-  });
+/* ===== 3. MODULE ACCORDION ===== */
+document.querySelectorAll('.cat.module').forEach(function(mod){
+  var arrow = mod.querySelector('.m-arrow');
+  var head = mod.querySelector('.module-head');
+  
+  function toggleModule(e) {
+    mod.classList.toggle('collapsed');
+    var body = mod.querySelector('.m-body');
+    if(body){
+      if(mod.classList.contains('collapsed')){
+        body.style.maxHeight = '0px';
+      } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    }
+    if(e) e.stopPropagation();
+  }
+
+  if(arrow) arrow.addEventListener('click', toggleModule);
+  if(head) head.addEventListener('click', toggleModule);
 });
 
-/* ===== SCROLL REVEAL ===== */
-var revealEls = document.querySelectorAll('.reveal');
-var obs = new IntersectionObserver(function(entries){
-  entries.forEach(function(en){
-    if(en.isIntersecting){
-      en.target.classList.add('in');
-      obs.unobserve(en.target);
-    }
-  });
-},{threshold:0.12});
-revealEls.forEach(function(el){ obs.observe(el); });
-
-/* ===== STICKY BAR ===== */
+/* ===== 4. STICKY CTA BAR ===== */
 var sb = document.getElementById('stickybar');
 var hero = document.querySelector('.hero');
 var sbShown = false;
 window.addEventListener('scroll', function(){
+  if(!hero || !sb) return;
   var heroBottom = hero.getBoundingClientRect().bottom;
   if(heroBottom < 0 && !sbShown){
     sbShown = true;
@@ -1472,11 +1725,76 @@ window.addEventListener('scroll', function(){
     sbShown = false;
     sb.classList.remove('show');
   }
-});
-</script>
+}, {passive: true});
 
-<!-- partner: carry ?pp=CODE from the sales page into every checkout CTA + cookie + storage -->
-<script>
+/* ===== 5. READING PROGRESS BAR ===== */
+var progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', function() {
+  if(!progressBar) return;
+  var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+  progressBar.style.width = scrolled + '%';
+}, {passive: true});
+
+/* ===== 6. LIVE COUNTDOWN TIMER (OCTOBER 1ST 00:00:00) ===== */
+(function() {
+  var target = new Date(2026, 9, 1, 0, 0, 0).getTime();
+
+  function updateTimer() {
+    var current = new Date().getTime();
+    var diff = target - current;
+    if (diff <= 0) {
+      diff = 0;
+    }
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    function pad(n) { return n < 10 ? '0' + n : n; }
+
+    var dStr = pad(days);
+    var hStr = pad(hours);
+    var mStr = pad(mins);
+    var sStr = pad(secs);
+
+    // 1. Main Section Countdown
+    var dEl = document.getElementById('cd-days');
+    var hEl = document.getElementById('cd-hours');
+    var mEl = document.getElementById('cd-mins');
+    var sEl = document.getElementById('cd-secs');
+    if (dEl) dEl.textContent = dStr;
+    if (hEl) hEl.textContent = hStr;
+    if (mEl) mEl.textContent = mStr;
+    if (sEl) sEl.textContent = sStr;
+
+    // 2. Header Top Countdown
+    var hdEl = document.getElementById('h-days');
+    var hhEl = document.getElementById('h-hours');
+    var hmEl = document.getElementById('h-mins');
+    var hsEl = document.getElementById('h-secs');
+    if (hdEl) hdEl.textContent = dStr;
+    if (hhEl) hhEl.textContent = hStr;
+    if (hmEl) hmEl.textContent = mStr;
+    if (hsEl) hsEl.textContent = sStr;
+
+    // 3. Sticky Bottom Bar Countdown
+    var sbdEl = document.getElementById('sb-days');
+    var sbhEl = document.getElementById('sb-hours');
+    var sbmEl = document.getElementById('sb-mins');
+    var sbsEl = document.getElementById('sb-secs');
+    if (sbdEl) sbdEl.textContent = dStr;
+    if (sbhEl) sbhEl.textContent = hStr;
+    if (sbmEl) sbmEl.textContent = mStr;
+    if (sbsEl) sbsEl.textContent = sStr;
+  }
+
+  setInterval(updateTimer, 1000);
+  updateTimer();
+})();
+
+/* ===== 7. PARTNER AFFILIATE TRACKER ===== */
 (function () {
   function getCookie(n){var v=document.cookie.match('(^|;)\\s*'+n+'=([^;]*)');return v?v[2]:'';}
   function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+d*864e5);document.cookie=n+'='+v+';expires='+e.toUTCString()+';path=/;SameSite=Lax';}
@@ -1509,49 +1827,5 @@ window.addEventListener('scroll', function(){
 })();
 </script>
 
-<script>
-  (function() {
-    var key = 'nexora_countdown_target_v3';
-    var target = localStorage.getItem(key);
-    var now = new Date().getTime();
-    if (!target || parseInt(target) <= now) {
-      // 6 days, 19 hours, 18 mins, 37 secs
-      var end = now + (6 * 24 * 3600 + 19 * 3600 + 18 * 60 + 37) * 1000;
-      localStorage.setItem(key, end);
-      target = end;
-    } else {
-      target = parseInt(target);
-    }
-
-    function updateTimer() {
-      var current = new Date().getTime();
-      var diff = target - current;
-      if (diff <= 0) {
-        diff = 0;
-      }
-      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      var secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-      function pad(n) { return n < 10 ? '0' + n : n; }
-
-      var dEl = document.getElementById('cd-days');
-      var hEl = document.getElementById('cd-hours');
-      var mEl = document.getElementById('cd-mins');
-      var sEl = document.getElementById('cd-secs');
-
-      if (dEl) dEl.textContent = pad(days);
-      if (hEl) hEl.textContent = pad(hours);
-      if (mEl) mEl.textContent = pad(mins);
-      if (sEl) sEl.textContent = pad(secs);
-    }
-
-    setInterval(updateTimer, 1000);
-    updateTimer();
-  })();
-</script>
-
 </body>
 </html>
-

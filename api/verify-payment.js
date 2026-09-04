@@ -1,25 +1,20 @@
-// NEXORA â€” server-side Paystack transaction verification + payment logging.
+// NEXORA â€” server-side Paystack transaction verification + paid confirmation.
 // This runs ONLY on Vercel (secret key is never exposed to the browser).
 //
 // Flow: checkout.html -> Paystack inline -> redirect to /thank-you.html?ref=REF
 //       thank-you.html -> GET /api/verify-payment?reference=REF&email=..&name=..
 //       This function verifies the transaction with Paystack's secret key,
 //       then POSTs the verified row to the Apps Script webhook (Google Sheet).
-
-import { createClient } from "@supabase/supabase-js";
+//
+// NOTE: Commission recording is NOT done here. The partners-platform Paystack
+// webhook (https://partners.tomidewilliams.com/api/paystack-webhook) is the
+// single authoritative source of truth for orders + commissions.
 
 const PAYSTACK_VERIFY = "https://api.paystack.co/transaction/verify/";
 
 function json(res, status, body) {
   res.status(status).setHeader("Content-Type", "application/json");
   return res.end(JSON.stringify(body));
-}
-
-function getDb() {
-  const url = process.env.SUPABASE_URL || "";
-  const key = process.env.SUPABASE_SERVICE_KEY || "";
-  if (!url || !key) return null;
-  return createClient(url, key);
 }
 
 export default async function handler(req, res) {
@@ -98,80 +93,11 @@ export default async function handler(req, res) {
     }
   }
 
-  // Record commission in Supabase if partner code is present
+  // Commissions are NOT recorded here anymore. The partners-platform
+  // (https://partners.tomidewilliams.com/api/paystack-webhook) is the single,
+  // authoritative source of truth for orders + commissions via its Paystack
+  // webhook. The legacy conversions/offers tables are no longer written.
   let commissionRecorded = false;
-  if (partner) {
-    const db = getDb();
-    if (db) {
-      try {
-        const { data: partnerRow } = await db
-          .from("partners")
-          .select("id")
-          .eq("code", partner)
-          .eq("status", "active")
-          .maybeSingle();
-
-        // Look up offer for commission rate
-        let commissionRate = 0.30;
-        let offerId = null;
-        const { data: offerRow } = await db
-          .from("offers")
-          .select("id, commission_rate")
-          .eq("slug", offerSlug)
-          .eq("status", "active")
-          .maybeSingle();
-        if (offerRow) {
-          commissionRate = offerRow.commission_rate;
-          offerId = offerRow.id;
-        }
-
-        if (partnerRow) {
-          const amountKobo = parseInt(data.amount, 10);
-          const commissionKobo = Math.round(amountKobo * commissionRate);
-          const customerEmail = email || data.customer?.email || "";
-          const customerName = name || "";
-
-          // Idempotency: if this exact Paystack reference is already recorded, never touch it.
-          const { data: refMatch } = await db
-            .from("conversions")
-            .select("id")
-            .eq("paystack_reference", reference)
-            .maybeSingle();
-
-          if (refMatch) {
-            // Already recorded for this reference — nothing to do.
-            commissionRecorded = true;
-          } else {
-            // Dedup: same email + same partner + same offer within 24h = skip
-            const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
-            const dedupQuery = db.from("conversions")
-              .select("id")
-              .eq("partner_id", partnerRow.id)
-              .eq("customer_email", customerEmail.toLowerCase())
-              .gte("created_at", oneDayAgo);
-            if (offerId) dedupQuery.eq("offer_id", offerId);
-            const { data: existingConv } = await dedupQuery.maybeSingle();
-
-            if (!existingConv) {
-              await db.from("conversions").insert({
-                partner_id: partnerRow.id,
-                offer_id: offerId,
-                customer_email: customerEmail.toLowerCase(),
-                customer_name: customerName,
-                paystack_reference: reference,
-                amount_kobo: amountKobo,
-                commission_kobo: commissionKobo,
-                status: "pending",
-              });
-              commissionRecorded = true;
-            }
-          }
-        }
-      } catch (err) {
-        commissionRecorded = false;
-      }
-    }
-  }
 
   return json(res, 200, {
     ok: true,
