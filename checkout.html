@@ -198,7 +198,7 @@ main{padding:64px 0 80px;}
 
 <header class="hero">
   <div class="hero-badge">Birthday Pre-Order</div>
-  <h1>You're almost there.<br><span class="red">Lock in your &#8358;7,490 price.</span></h1>
+  <h1>You're almost there.<br><span class="red">Lock in your ₦7,490 price.</span></h1>
   <p class="hero-sub">Enter your details and pay securely with Paystack. Your full NEXORA access arrives on release day in October.</p>
 </header>
 
@@ -217,13 +217,13 @@ main{padding:64px 0 80px;}
       <div class="err" id="err"></div>
 
       <div class="order-summary">
-        <div class="sum-row"><span class="l">NEXORA birthday pre-order</span><span class="r">&#8358;7,490</span></div>
-        <div class="sum-row discount"><span class="l">Pre-order discount</span><span class="r">&&8722;&#8358;18,333</span></div>
-        <div class="sum-row"><span class="l">Regular price</span><span class="r"><s style="color:var(--gray);">&#8358;25,000</s></span></div>
-        <div class="sum-total"><span class="l">Total you pay today</span><span class="r">&#8358;7,490</span></div>
+        <div class="sum-row"><span class="l">NEXORA birthday pre-order</span><span class="r">₦7,490</span></div>
+        <div class="sum-row discount"><span class="l">Pre-order discount</span><span class="r">&&8722;₦18,333</span></div>
+        <div class="sum-row"><span class="l">Regular price</span><span class="r"><s style="color:var(--gray);">₦25,000</s></span></div>
+        <div class="sum-total"><span class="l">Total you pay today</span><span class="r">₦7,490</span></div>
       </div>
 
-      <button class="btn" id="payBtn">Pay &#8358;7,490 securely</button>
+      <button class="btn" id="payBtn">Pay ₦7,490 securely</button>
       <div class="secure"><b>&&128274; Secure checkout</b> &middot; Payments handled by Paystack</div>
     </div>
 
@@ -291,7 +291,7 @@ main{padding:64px 0 80px;}
       })
       .catch(function (err) {
         btn.disabled = false;
-        btn.textContent = 'Pay &#8358;7,490 securely';
+        btn.textContent = 'Pay ₦7,490 securely';
         showErr(err.message);
       });
   });
@@ -323,7 +323,7 @@ main{padding:64px 0 80px;}
       },
       onClose: function () {
         btn.disabled = false;
-        btn.textContent = 'Pay &#8358;7,490 securely';
+        btn.textContent = 'Pay ₦7,490 securely';
       }
     });
     handler.openIframe();
