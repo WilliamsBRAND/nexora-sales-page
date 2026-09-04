@@ -116,6 +116,82 @@ a{text-decoration:none;color:inherit;}
 }
 h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:800;line-height:1.08;letter-spacing:.01em;}
 
+
+/* ===== LIVE COUNTDOWN TIMER (PREMIUM DARK & EMERALD STYLE) ===== */
+.countdown-card{
+  max-width:560px;
+  margin:32px auto 0;
+  background:linear-gradient(180deg,#0a140d 0%,#040805 100%);
+  border:1px solid rgba(46,204,113,0.35);
+  border-radius:18px;
+  padding:28px 24px;
+  text-align:center;
+  box-shadow:0 14px 40px rgba(0,0,0,0.6),0 0 24px rgba(46,204,113,0.1);
+}
+.countdown-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-family:'Archivo',sans-serif;
+  font-size:12px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  font-weight:800;
+  color:#2ecc71;
+  margin-bottom:20px;
+}
+.countdown-grid{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.countdown-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  flex:1 1 76px;
+  max-width:96px;
+}
+.countdown-num{
+  width:100%;
+  background:#0e1c12;
+  border:1px solid rgba(46,204,113,0.3);
+  border-radius:12px;
+  padding:14px 4px;
+  font-family:'Archivo',sans-serif;
+  font-size:38px;
+  font-weight:900;
+  color:#ffffff;
+  line-height:1;
+  letter-spacing:-.02em;
+  box-shadow:inset 0 2px 6px rgba(0,0,0,0.6),0 4px 14px rgba(0,0,0,0.5);
+}
+.countdown-label{
+  margin-top:8px;
+  font-family:'Archivo',sans-serif;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2px;
+  color:#2ecc71;
+  text-transform:uppercase;
+}
+.countdown-sep{
+  font-family:'Archivo',sans-serif;
+  font-size:28px;
+  font-weight:900;
+  color:#2ecc71;
+  margin-top:-22px;
+  user-select:none;
+}
+@media(max-width:520px){
+  .countdown-num{font-size:28px;padding:10px 2px;}
+  .countdown-sep{font-size:20px;margin-top:-16px;}
+  .countdown-label{font-size:9px;letter-spacing:1px;}
+  .countdown-card{padding:20px 12px;}
+}
+
 /* ===== HERO ===== */
 .hero{background:var(--black);color:#fff;padding:90px 0 70px;text-align:center;}
 .hero .eyebrow{color:#fff;background:var(--crimson);padding:4px 14px;border-radius:999px;font-size:12px;letter-spacing:1.5px;display:inline-block;font-weight:700;}
@@ -613,13 +689,13 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 
     <p class="reveal d1" style="max-width:760px;margin:0 auto 14px;">NEXORA is a collection of short, practical 10&ndash;20 minute lessons created to help you make better moves across your career, income, relationships, opportunities and personal growth.</p>
 
-    <p class="reveal d3" style="max-width:760px;margin:0 auto 14px;">NEXORA is currently available for pre-order. The lessons are still being recorded and will be released in October.</p>
+    <p class="reveal d3" style="max-width:760px;margin:0 auto 14px;">NEXORA is currently available for pre-order. The lessons are still being recorded and will be released when this birthday countdown ends.</p>
 
     <p class="reveal d4" style="margin:26px 0 6px;font-size:20px;font-weight:700;">Pre-order today for <span class="cut-paper slant-alt" style="font-size:26px;padding:3px 16px;margin:0 4px;">₦7,490</span></p>
     <p class="reveal d4" style="margin:0 0 6px;font-size:15px;color:#cfcfcf;">The price will become <strong>₦25,000</strong> after my birthday offer ends.</p>
 
     <a href="checkout" class="btn reveal d4" style="margin-top:26px;">Yes, I Want NEXORA for ₦7,490</a>
-    <p class="price-line" style="margin-top:14px;font-size:14px;color:#999;">Offer closes &middot; October 1, 2026</p>
+    <p class="price-line" style="margin-top:14px;font-size:14px;color:#999;">Offer closes &middot; the launch, 2026</p>
   </div>
 </header>
 
@@ -798,24 +874,19 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
             <div class="module-tag">Module One</div>
             <h3 style="margin-bottom:0;">GROWTH &amp; CAREER</h3>
           </div>
-          <span class="module-value">Module value: <span class="mv">₦95,982</span></span>
+          <span class="module-value">Module value: <span class="mv">₦105,982</span></span>
           <span class="m-arrow">+</span>
         </div>
         <div class="m-body">
         <ul>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build a portfolio even without years of experience.</span><span class="dur">17 mins</span><span class="v">₦15,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to position yourself and grab opportunities you don't perfectly qualify for.</span><span class="dur">19 mins</span><span class="v">₦15,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to find opportunities before everyone else starts applying.</span><span class="dur">16 mins</span><span class="v">₦15,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build relationships that can change your life forever.</span><span class="dur">22 mins</span><span class="v">₦15,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">Exposing you to new roles in 2026 your mentors don't know about.</span><span class="dur">18 mins</span><span class="v">₦15,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How I dealt with the issue of lack of career clarity.</span><span class="dur">15 mins</span><span class="v">₦15,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build a portfolio even without years of experience.</span><span class="dur">17 mins</span><span class="v">₦14,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to position yourself and grab opportunities you don't perfectly qualify for.</span><span class="dur">19 mins</span><span class="v">₦19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to find opportunities before everyone else starts applying.</span><span class="dur">16 mins</span><span class="v">₦16,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build relationships that can change your life forever.</span><span class="dur">22 mins</span><span class="v">₦21,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">Exposing you to new roles in 2026 your mentors don't know about.</span><span class="dur">18 mins</span><span class="v">₦18,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How I dealt with the issue of lack of career clarity.</span><span class="dur">15 mins</span><span class="v">₦12,997</span></li>
         </ul>
-        <div class="module-total"><span class="lbl">Module One total &middot; 1h 47m of lessons</span><span class="amt">₦95,982</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">10</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 10</div>
-          <div class="lab">Job offer, interview invitation or career opportunity</div>
+        <div class="module-total"><span class="lbl">Module One total &middot; 1h 47m of lessons</span><span class="amt">₦105,982</span></div>
         </div>
         </div>
       </div>
@@ -826,23 +897,18 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
             <div class="module-tag">Module Two</div>
             <h3 style="margin-bottom:0;">MONEY &amp; INCOME</h3>
           </div>
-          <span class="module-value">Module value: <span class="mv">₦99,985</span></span>
+          <span class="module-value">Module value: <span class="mv">₦110,545</span></span>
           <span class="m-arrow">+</span>
         </div>
         <div class="m-body">
         <ul>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build a 7-figure monthly brand from your house.</span><span class="dur">24 mins</span><span class="v">₦19,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to turn what you already know into something people will pay for.</span><span class="dur">20 mins</span><span class="v">₦19,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build multiple income streams without learning new skills.</span><span class="dur">19 mins</span><span class="v">₦19,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to sell your skills to international clients from Nigeria.</span><span class="dur">21 mins</span><span class="v">₦19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build a 7-figure monthly brand from your house.</span><span class="dur">24 mins</span><span class="v">₦24,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to turn what you already know into something people will pay for.</span><span class="dur">20 mins</span><span class="v">₦18,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build multiple income streams without learning new skills.</span><span class="dur">19 mins</span><span class="v">₦21,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to sell your skills to international clients from Nigeria.</span><span class="dur">21 mins</span><span class="v">₦24,557</span></li>
           <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to create offers that no one can say no to.</span><span class="dur">23 mins</span><span class="v">₦19,997</span></li>
         </ul>
-        <div class="module-total"><span class="lbl">Module Two total &middot; 1h 47m of lessons</span><span class="amt">₦99,985</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">11</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 11</div>
-          <div class="lab">Seven-figure monthly result or income breakdown</div>
+        <div class="module-total"><span class="lbl">Module Two total &middot; 1h 47m of lessons</span><span class="amt">₦110,545</span></div>
         </div>
         </div>
       </div>
@@ -853,23 +919,18 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
             <div class="module-tag">Module Three</div>
             <h3 style="margin-bottom:0;">MARKETING &amp; SALES</h3>
           </div>
-          <span class="module-value">Module value: <span class="mv">₦89,985</span></span>
+          <span class="module-value">Module value: <span class="mv">₦99,985</span></span>
           <span class="m-arrow">+</span>
         </div>
         <div class="m-body">
         <ul>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to break into tech as a Marketing and sales person.</span><span class="dur">17 mins</span><span class="v">₦17,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to break into product marketing with zero experience.</span><span class="dur">18 mins</span><span class="v">₦17,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to run meta ads with to sell your digital products or services.</span><span class="dur">22 mins</span><span class="v">₦17,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to break into tech as a Marketing and sales person.</span><span class="dur">17 mins</span><span class="v">₦16,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to break into product marketing with zero experience.</span><span class="dur">18 mins</span><span class="v">₦18,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to run meta ads with to sell your digital products or services.</span><span class="dur">22 mins</span><span class="v">₦23,997</span></li>
           <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to become so good at marketing and sales.</span><span class="dur">19 mins</span><span class="v">₦17,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to use your WhatsApp status and communities to build a multi-million brand.</span><span class="dur">20 mins</span><span class="v">₦17,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to use your WhatsApp status and communities to build a multi-million brand.</span><span class="dur">20 mins</span><span class="v">₦21,997</span></li>
         </ul>
-        <div class="module-total"><span class="lbl">Module Three total &middot; 1h 36m of lessons</span><span class="amt">₦89,985</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">12</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 12</div>
-          <div class="lab">WhatsApp sales, community result or advertising result</div>
+        <div class="module-total"><span class="lbl">Module Three total &middot; 1h 36m of lessons</span><span class="amt">₦99,985</span></div>
         </div>
         </div>
       </div>
@@ -880,23 +941,18 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
             <div class="module-tag">Module Four</div>
             <h3 style="margin-bottom:0;">PERSONAL BRAND &amp; LINKEDIN</h3>
           </div>
-          <span class="module-value">Module value: <span class="mv">₦99,985</span></span>
+          <span class="module-value">Module value: <span class="mv">₦100,545</span></span>
           <span class="m-arrow">+</span>
         </div>
         <div class="m-body">
         <ul>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How I built a brand that positioned me for global opportunities.</span><span class="dur">19 mins</span><span class="v">₦19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How I built a brand that positioned me for global opportunities.</span><span class="dur">19 mins</span><span class="v">₦22,997</span></li>
           <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How people make money from LinkedIn even with no reach/visibility.</span><span class="dur">18 mins</span><span class="v">₦19,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build authority &amp; influence without a massive audience.</span><span class="dur">17 mins</span><span class="v">₦19,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">The right way to attract jobs, clients and opportunities without posting everyday.</span><span class="dur">20 mins</span><span class="v">₦19,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to make LinkedIn work for you even when you're away.</span><span class="dur">16 mins</span><span class="v">₦19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build authority &amp; influence without a massive audience.</span><span class="dur">17 mins</span><span class="v">₦16,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">The right way to attract jobs, clients and opportunities without posting everyday.</span><span class="dur">20 mins</span><span class="v">₦21,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to make LinkedIn work for you even when you're away.</span><span class="dur">16 mins</span><span class="v">₦18,557</span></li>
         </ul>
-        <div class="module-total"><span class="lbl">Module Four total &middot; 1h 30m of lessons</span><span class="amt">₦99,985</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">13</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 13</div>
-          <div class="lab">LinkedIn follower count, reach or inbound opportunity</div>
+        <div class="module-total"><span class="lbl">Module Four total &middot; 1h 30m of lessons</span><span class="amt">₦100,545</span></div>
         </div>
         </div>
       </div>
@@ -907,24 +963,19 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
             <div class="module-tag">Module Five</div>
             <h3 style="margin-bottom:0;">AI &amp; TECH</h3>
           </div>
-          <span class="module-value">Module value: <span class="mv">₦119,982</span></span>
+          <span class="module-value">Module value: <span class="mv">₦122,542</span></span>
           <span class="m-arrow">+</span>
         </div>
         <div class="m-body">
         <ul>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to use AI in your career without changing Niche.</span><span class="dur">16 mins</span><span class="v">₦19,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to become an AI-Powered person.</span><span class="dur">18 mins</span><span class="v">₦19,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build websites and apps with AI even if you don't know how to code.</span><span class="dur">25 mins</span><span class="v">₦19,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build simple AI automations and agents without becoming a developer.</span><span class="dur">25 mins</span><span class="v">₦19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to use AI in your career without changing Niche.</span><span class="dur">16 mins</span><span class="v">₦15,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to become an AI-Powered person.</span><span class="dur">18 mins</span><span class="v">₦18,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build websites and apps with AI even if you don't know how to code.</span><span class="dur">25 mins</span><span class="v">₦24,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to build simple AI automations and agents without becoming a developer.</span><span class="dur">25 mins</span><span class="v">₦24,557</span></li>
           <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">Simple secrets to finding jobs and clients in AI that no one talks about.</span><span class="dur">17 mins</span><span class="v">₦19,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">Breaking into tech and AI roles even with zero experiences.</span><span class="dur">19 mins</span><span class="v">₦19,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">Breaking into tech and AI roles even with zero experiences.</span><span class="dur">19 mins</span><span class="v">₦17,997</span></li>
         </ul>
-        <div class="module-total"><span class="lbl">Module Five total &middot; 2h 00m of lessons</span><span class="amt">₦119,982</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">14</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 14</div>
-          <div class="lab">Website, application or AI automation you built</div>
+        <div class="module-total"><span class="lbl">Module Five total &middot; 2h 00m of lessons</span><span class="amt">₦122,542</span></div>
         </div>
         </div>
       </div>
@@ -935,25 +986,20 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
             <div class="module-tag">Module Six</div>
             <h3 style="margin-bottom:0;">LIFE &amp; PERSONAL GROWTH</h3>
           </div>
-          <span class="module-value">Module value: <span class="mv">₦69,979</span></span>
+          <span class="module-value">Module value: <span class="mv">₦97,539</span></span>
           <span class="m-arrow">+</span>
         </div>
         <div class="m-body">
         <ul>
           <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to break free from mediocrity.</span><span class="dur">14 mins</span><span class="v">₦9,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to get the best out of your 24 hours.</span><span class="dur">18 mins</span><span class="v">₦9,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to leave friendships and environments that limits your potential.</span><span class="dur">15 mins</span><span class="v">₦9,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to bet on yourself before other people do.</span><span class="dur">13 mins</span><span class="v">₦9,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to become more intentional about the people and rooms around you.</span><span class="dur">14 mins</span><span class="v">₦9,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to reinvent yourself when you've outgrown your current life.</span><span class="dur">17 mins</span><span class="v">₦9,997</span></li>
-          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to rebuild yourself after a major setback.</span><span class="dur">19 mins</span><span class="v">₦9,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to get the best out of your 24 hours.</span><span class="dur">18 mins</span><span class="v">₦12,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to leave friendships and environments that limits your potential.</span><span class="dur">15 mins</span><span class="v">₦14,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to bet on yourself before other people do.</span><span class="dur">13 mins</span><span class="v">₦11,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to become more intentional about the people and rooms around you.</span><span class="dur">14 mins</span><span class="v">₦15,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to reinvent yourself when you've outgrown your current life.</span><span class="dur">17 mins</span><span class="v">₦17,997</span></li>
+          <li class="lesson"><svg class="play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#6e0a14" stroke-width="1.6" fill="#6e0a14"/><path d="M10 8.2l5.6 3.8L10 15.8z" fill="#ffffff"/></svg><span class="t">How to rebuild yourself after a major setback.</span><span class="dur">19 mins</span><span class="v">₦13,557</span></li>
         </ul>
-        <div class="module-total"><span class="lbl">Module Six total &middot; 1h 50m of lessons</span><span class="amt">₦69,979</span></div>
-        <div class="proof" style="margin-top:20px;border-color:rgba(110,10,20,.5);">
-          <div class="ico">15</div>
-          <div class="tag">Image Proof</div>
-          <div class="name">IMAGE PROOF PLACEHOLDER 15</div>
-          <div class="lab">Personal transformation or milestone photograph</div>
+        <div class="module-total"><span class="lbl">Module Six total &middot; 1h 50m of lessons</span><span class="amt">₦97,539</span></div>
         </div>
         </div>
       </div>
@@ -965,7 +1011,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
           <div class="module-tag">Everything inside NEXORA</div>
           <h3 style="margin-bottom:0;color:#6e0a14;">TOTAL VALUE</h3>
         </div>
-          <span class="module-value" style="font-size:18px;">Total: <span class="mv" style="font-size:26px;">₦575,898</span></span>
+          <span class="module-value" style="font-size:18px;">Total: <span class="mv" style="font-size:26px;">₦637,138</span></span>
       </div>
     </div>
   </div>
@@ -1099,6 +1145,45 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
   </div>
 </section>
 
+
+<!-- ============ THIS PRICE WON'T LAST FOREVER (DARK) ============ -->
+<section class="dark" id="countdown-section">
+  <div class="wrap">
+    <p class="lead" style="color:#ffffff;max-width:760px;margin:0 auto 16px;font-weight:600;font-size:19px;line-height:1.45;">And yet the value inside this course if you implement it can change the entire trajectory of your business.</p>
+
+    <div class="countdown-card">
+      <div class="countdown-eyebrow">&#x23F0; THIS PRICE WON'T LAST FOREVER</div>
+      <div class="countdown-grid" id="nexora-countdown">
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-days">06</div>
+          <div class="countdown-label">DAYS</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-hours">19</div>
+          <div class="countdown-label">HOURS</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-mins">18</div>
+          <div class="countdown-label">MINS</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="cd-secs">37</div>
+          <div class="countdown-label">SECS</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="center" style="margin-top:28px;">
+      <a href="checkout" class="btn" style="font-size:20px;padding:16px 36px;max-width:560px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:10px;">
+        &rarr; Get Lifetime Access only &#8358;7,490
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ WHY PRICE LOW (DARK) ============ -->
 <section class="dark">
   <div class="wrap">
@@ -1134,8 +1219,8 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
     </ul>
 
     <div class="price-box pad-top-sm reveal">
-      <div style="font-size:15px;color:#cfcfcf;margin-bottom:16px;">Total value: <span class="val">₦793,871</span></div>
-      <div style="font-size:15px;color:#cfcfcf;"><s class="price-strike">₦25,000</s> &nbsp;regular price</div>
+      <div style="font-size:15px;color:#cfcfcf;margin-bottom:16px;">Total value: <span class="val">₦855,111</span></div>
+      <div style="font-size:15px;color:#cfcfcf;"><s class="price-strike">₦25,000</s> &nbsp;launch price</div>
       <div style="margin-top:6px;">Your birthday offer price:</div>
       <div class="big" style="margin:10px 0;"><span class="cut-paper slant-alt" style="font-size:40px;padding:5px 22px;">₦7,490</span></div>
       <p class="pad-top-sm"><a href="checkout" class="btn-dark btn" style="background:var(--crimson);">Yes, I Want NEXORA for ₦7,490</a></p>
@@ -1223,11 +1308,11 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       </div>
       <div class="faq-item">
         <div class="q">Is NEXORA already available?<span class="qm">+</span></div>
-        <div class="a"><p>No. NEXORA is currently available for pre-order. The lessons are still being recorded and will be released in October (date will be communicated in the paid community). You are paying a reduced price because you are joining early, not because you will receive less content.</p></div>
+        <div class="a"><p>No. NEXORA is currently available for pre-order. The lessons are still being recorded and will be released when this birthday countdown ends (date will be communicated in the paid community). You are paying a reduced price because you are joining early, not because you will receive less content.</p></div>
       </div>
       <div class="faq-item">
         <div class="q">Why should I pay for it before it is ready?<span class="qm">+</span></div>
-        <div class="a"><p>Pre-ordering allows you to secure the complete programme and all nine bonuses for ₦7,490 instead of the regular price of ₦25,000. You will receive everything promised on this page when NEXORA is released.</p></div>
+        <div class="a"><p>Pre-ordering allows you to secure the complete programme and all nine bonuses for ₦7,490 instead of the launch price of ₦25,000. You will receive everything promised on this page when NEXORA is released.</p></div>
       </div>
       <div class="faq-item">
         <div class="q">What happens immediately after I make payment?<span class="qm">+</span></div>
@@ -1239,7 +1324,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       </div>
       <div class="faq-item">
         <div class="q">When exactly will I receive the lessons?<span class="qm">+</span></div>
-        <div class="a"><p>The complete programme will be released in October. You will receive your access instructions through the community, email and on WhatsApp.</p></div>
+        <div class="a"><p>The complete programme will be released when this birthday countdown ends. You will receive your access instructions through the community, email and on WhatsApp.</p></div>
       </div>
       <div class="faq-item">
         <div class="q">How will the lessons be delivered?<span class="qm">+</span></div>
@@ -1271,7 +1356,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       </div>
       <div class="faq-item">
         <div class="q">When does the birthday price end?<span class="qm">+</span></div>
-        <div class="a"><p>The ₦7,490 birthday pre-order price ends on October 1, 2026. After the birthday offer closes, NEXORA will sell for ₦25,000.</p></div>
+        <div class="a"><p>The ₦7,490 birthday pre-order price ends when this countdown expires. After the birthday offer closes, NEXORA will sell for ₦25,000.</p></div>
       </div>
       <div class="faq-item">
         <div class="q">Can I get a refund after paying?<span class="qm">+</span></div>
@@ -1294,11 +1379,11 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
     </div>
 
     <div class="price-wrap">
-      <p class="reveal" style="margin:16px 0 0;font-size:16px;color:#cfcfcf;text-decoration:line-through;">Regular price ₦25,000</p>
+      <p class="reveal" style="margin:16px 0 0;font-size:16px;color:#cfcfcf;text-decoration:line-through;">Launch price ₦25,000</p>
       <p class="reveal d1" style="margin-top:12px;margin-bottom:8px;"><span class="cut-paper slant-alt" style="font-size:38px;padding:5px 22px;">₦7,490</span></p>
       <p class="reveal d1" style="font-size:14px;color:#999;margin-top:8px;">birthday pre-order price</p>
       <p class="pad-top-sm reveal d2"><a href="checkout" class="btn" style="font-size:19px;">Yes, I Want NEXORA for ₦7,490</a></p>
-      <p class="reveal d3" style="font-size:15px;color:#cfcfcf;">Offer closes: October 1, 2026</p>
+      <p class="reveal d3" style="font-size:15px;color:#cfcfcf;">Offer closes when the countdown ends</p>
     </div>
   </div>
 </section>
@@ -1398,6 +1483,50 @@ window.addEventListener('scroll', function(){
   }
 })();
 </script>
+
+<script>
+  (function() {
+    var key = 'nexora_countdown_target_v3';
+    var target = localStorage.getItem(key);
+    var now = new Date().getTime();
+    if (!target || parseInt(target) <= now) {
+      // 6 days, 19 hours, 18 mins, 37 secs
+      var end = now + (6 * 24 * 3600 + 19 * 3600 + 18 * 60 + 37) * 1000;
+      localStorage.setItem(key, end);
+      target = end;
+    } else {
+      target = parseInt(target);
+    }
+
+    function updateTimer() {
+      var current = new Date().getTime();
+      var diff = target - current;
+      if (diff <= 0) {
+        diff = 0;
+      }
+      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      function pad(n) { return n < 10 ? '0' + n : n; }
+
+      var dEl = document.getElementById('cd-days');
+      var hEl = document.getElementById('cd-hours');
+      var mEl = document.getElementById('cd-mins');
+      var sEl = document.getElementById('cd-secs');
+
+      if (dEl) dEl.textContent = pad(days);
+      if (hEl) hEl.textContent = pad(hours);
+      if (mEl) mEl.textContent = pad(mins);
+      if (sEl) sEl.textContent = pad(secs);
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  })();
+</script>
+
 </body>
 </html>
 
