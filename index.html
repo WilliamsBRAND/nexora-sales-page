@@ -221,10 +221,26 @@ p+p{margin-top:16px;}
 section.dark .proof{background:rgba(255,255,255,.02);border-color:rgba(255,255,255,.14);}
 section.dark .proof::before{background-image:repeating-linear-gradient(45deg,transparent 0 10px,rgba(255,255,255,.02) 10px 11px);}
 .proof .tag{
-  font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--gray);font-weight:600;
+  display:inline-block;
+  background:#ffffff;
+  color:var(--crimson);
+  font-family:'Archivo',sans-serif;
+  font-size:10px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  font-weight:800;
+  padding:3px 12px 4px;
+  margin-bottom:4px;
+  transform:rotate(-1deg);
+  box-shadow:0 3px 10px rgba(0,0,0,0.2);
+  clip-path:polygon(
+    0% 4%, 3% 0%, 12% 3%, 25% 1%, 38% 3%, 52% 0%, 65% 2%, 78% 0%, 90% 3%, 100% 1%,
+    99% 25%, 100% 50%, 98% 75%, 100% 98%,
+    88% 97%, 75% 100%, 62% 97%, 48% 99%, 35% 96%, 22% 100%, 10% 97%, 0% 99%,
+    1% 75%, 0% 50%, 2% 25%
+  );
 }
-section.dark .proof .tag{color:#8a8a86;}
+section.dark .proof .tag{color:var(--crimson);}
 .proof .name{
   position:relative;
   font-family:'Archivo',sans-serif;
@@ -265,92 +281,92 @@ section.dark .check-list li{border-color:rgba(255,255,255,.1);}
 }
 section.dark .check-list li::before{background:var(--crimson);}
 
-/* ===== CATEGORY & MODULE CARDS (SPACIOUS LUXURY LAYOUT) ===== */
+/* ===== CATEGORY & MODULE CARDS (REFINED BALANCED LUXURY) ===== */
 .catgrid{
-  margin-top:44px;
+  margin-top:36px;
   display:flex;
   flex-direction:column;
-  gap:32px;
+  gap:22px;
 }
 .cat{
   border:1px solid #e5e5e5;
-  border-left:6px solid var(--crimson);
-  border-radius:18px;
-  padding:34px 38px;
+  border-left:5px solid var(--crimson);
+  border-radius:14px;
+  padding:24px 28px;
   background:#fff;
-  box-shadow:0 8px 30px rgba(0,0,0,0.06);
+  box-shadow:0 6px 20px rgba(0,0,0,0.04);
 }
 section.dark .cat{
   background:#101010;
-  border:1px solid rgba(255,255,255,.12);
-  border-left:6px solid var(--crimson);
-  box-shadow:0 14px 40px rgba(0,0,0,0.45);
+  border:1px solid rgba(255,255,255,.1);
+  border-left:5px solid var(--crimson);
+  box-shadow:0 8px 26px rgba(0,0,0,0.35);
 }
-.cat h3{font-size:24px;color:var(--crimson);margin-bottom:14px;font-family:'Archivo',sans-serif;font-weight:900;letter-spacing:-.01em;}
+.cat h3{font-size:21px;color:var(--crimson);margin-bottom:0;font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:-.01em;}
 section.dark .cat h3{color:#ffffff;}
-.cat .blurb{font-size:14.5px;color:var(--gray);margin-bottom:12px;font-style:italic;line-height:1.5;}
-.cat ul{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:12px;}
+.cat .blurb{font-size:14px;color:var(--gray);margin-bottom:10px;font-style:italic;line-height:1.45;}
+.cat ul{list-style:none;margin-top:6px;display:flex;flex-direction:column;gap:8px;}
 .cat ul li{
-  padding:8px 0 8px 24px;
+  padding:6px 0 6px 20px;
   position:relative;
-  font-size:15.5px;
+  font-size:15px;
 }
 .cat ul li::before{content:"\2022";color:var(--crimson);position:absolute;left:2px;font-weight:800;}
 section.dark .cat ul li::before{color:var(--crimson);}
 
-/* ===== VIDEO LESSON ROW (SPACIOUS LMS CARDS) ===== */
+/* ===== VIDEO LESSON ROW (CLEAN COMPACT LMS CARDS) ===== */
 .cat ul li.lesson{
-  padding:15px 20px;
+  padding:10px 16px;
   margin:0;
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:12px;
   flex-wrap:wrap;
   background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:12px;
-  transition:all .2s ease;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:9px;
+  transition:all .18s ease;
 }
 .cat ul li.lesson:hover{
   background:rgba(255,255,255,.06);
-  border-color:rgba(255,255,255,.14);
-  transform:translateX(3px);
+  border-color:rgba(255,255,255,.12);
+  transform:translateX(2px);
 }
 .cat ul li.lesson::before{content:"";display:none;}
-.cat ul li.lesson .play{flex:0 0 auto;width:26px;height:26px;display:block;}
+.cat ul li.lesson .play{flex:0 0 auto;width:22px;height:22px;display:block;}
 .cat ul li.lesson .t{
-  flex:1 1 260px;
-  color:#f2f2f2;
-  font-size:15.5px;
+  flex:1 1 240px;
+  color:#f0f0f0;
+  font-size:14.5px;
   font-weight:500;
-  line-height:1.45;
+  line-height:1.4;
 }
 .cat ul li.lesson .dur{
   flex:0 0 auto;
-  font-size:12px;
+  font-size:11.5px;
   font-weight:700;
-  color:#a3a3a3;
+  color:#a0a0a0;
   background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.12);
-  padding:4px 14px;
+  border:1px solid rgba(255,255,255,.1);
+  padding:3px 11px;
   border-radius:999px;
   white-space:nowrap;
-  letter-spacing:.4px;
+  letter-spacing:.3px;
 }
 .cat ul li.lesson .v{
   float:none;
   margin-left:auto;
   flex:0 0 auto;
-  font-size:13px;
+  font-size:12.5px;
   font-weight:800;
   color:#ffffff;
   background:var(--crimson);
   border:1px solid rgba(255,255,255,.15);
-  padding:4px 14px;
+  padding:3px 12px;
   border-radius:999px;
   white-space:nowrap;
   letter-spacing:.3px;
-  box-shadow:0 4px 12px rgba(110,10,20,.3);
+  box-shadow:0 3px 10px rgba(110,10,20,.25);
 }
 
 /* ===== MODULE HEADER & TOTALS ===== */
@@ -358,104 +374,103 @@ section.dark .cat ul li::before{color:var(--crimson);}
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px;
+  gap:14px;
   flex-wrap:wrap;
-  margin-bottom:22px;
-  padding-bottom:18px;
+  margin-bottom:16px;
+  padding-bottom:14px;
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 .module-tag{
   font-size:11px;
-  letter-spacing:3px;
+  letter-spacing:2.5px;
   text-transform:uppercase;
-  color:#a0a0a0;
+  color:#999;
   font-family:'Archivo',sans-serif;
   font-weight:800;
-  margin-bottom:4px;
+  margin-bottom:3px;
 }
 .module-value{
-  font-size:14.5px;
-  color:#d0d0d0;
+  font-size:13.5px;
+  color:#ccc;
   font-weight:600;
   white-space:nowrap;
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:6px;
   margin-left:auto;
 }
 .module-value .mv{
   color:#fff;
   background:var(--crimson);
-  padding:3px 12px;
-  border-radius:7px;
+  padding:2px 10px;
+  border-radius:6px;
   font-weight:800;
-  font-size:14px;
-  letter-spacing:.4px;
+  font-size:13px;
+  letter-spacing:.3px;
 }
 .module-total{
-  margin-top:24px;
-  padding:18px 24px;
-  background:linear-gradient(135deg,rgba(110,10,20,.24),rgba(110,10,20,.08));
-  border:1px solid rgba(110,10,20,.4);
-  border-radius:12px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:14px;
-}
-.module-total .lbl{font-size:14.5px;font-weight:600;color:#e0e0e0;}
-.module-total .amt{font-size:24px;color:#fff;font-weight:900;font-family:'Archivo',sans-serif;}
-.module-total .amt .mv{color:#fff;background:var(--crimson);padding:3px 12px;border-radius:7px;}
-.cat .total-line{
-  margin-top:24px;
-  padding-top:18px;
-  border-top:1px solid #e5e5e5;
+  margin-top:16px;
+  padding:14px 18px;
+  background:linear-gradient(135deg,rgba(110,10,20,.2),rgba(110,10,20,.06));
+  border:1px solid rgba(110,10,20,.35);
+  border-radius:10px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   flex-wrap:wrap;
   gap:12px;
 }
+.module-total .lbl{font-size:13.5px;font-weight:600;color:#ddd;}
+.module-total .amt{font-size:20px;color:#fff;font-weight:900;font-family:'Archivo',sans-serif;}
+.module-total .amt .mv{color:#fff;background:var(--crimson);padding:2px 10px;border-radius:6px;}
+.cat .total-line{
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px solid #e5e5e5;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
 section.dark .cat .total-line{border-top-color:rgba(255,255,255,.14);}
 .grand-total{color:#fff;}
 
 /* ===== MODULE ACCORDION ===== */
-.cat.module .module-head{position:relative;padding-right:48px;}
+.cat.module .module-head{position:relative;padding-right:44px;}
 .cat.module .m-arrow{
   position:absolute;
   right:0;
   top:50%;
   transform:translateY(-50%);
-  width:36px;
-  height:36px;
+  width:32px;
+  height:32px;
   border-radius:50%;
-  border:1px solid rgba(255,255,255,.25);
+  border:1px solid rgba(255,255,255,.2);
   color:#ffffff;
   background:var(--crimson);
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:800;
-  font-size:19px;
+  font-size:17px;
   line-height:1;
   cursor:pointer;
-  transition:transform .25s ease,background .25s,box-shadow .25s;
-  box-shadow:0 4px 14px rgba(110,10,20,.35);
+  transition:transform .25s ease,background .2s;
+  box-shadow:0 3px 10px rgba(110,10,20,.3);
 }
 .cat.module .m-arrow:hover{
   background:var(--crimson-dark);
-  box-shadow:0 6px 18px rgba(110,10,20,.5);
 }
 .cat.module.collapsed .m-arrow{transform:translateY(-50%) rotate(45deg);}
-.m-body{overflow:hidden;transition:max-height .35s ease;margin-top:14px;}
+.m-body{overflow:hidden;transition:max-height .35s ease;margin-top:10px;}
 .cat.module.collapsed .m-body{max-height:0;margin-top:0;}
 
 @media(max-width:760px){
-  .cat{padding:24px 20px;}
-  .cat ul li.lesson{padding:12px 14px;gap:10px;}
+  .cat{padding:20px 16px;}
+  .cat ul li.lesson{padding:10px 12px;gap:8px;}
   .cat ul li.lesson .v{margin-left:0;}
-  .module-head{padding-right:42px;}
+  .module-head{padding-right:38px;}
 }
 
 /* ===== PRICING ===== */
@@ -1122,7 +1137,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       <div style="font-size:15px;color:#cfcfcf;margin-bottom:16px;">Total value: <span class="val">₦793,871</span></div>
       <div style="font-size:15px;color:#cfcfcf;"><s class="price-strike">₦25,000</s> &nbsp;regular price</div>
       <div style="margin-top:6px;">Your birthday offer price:</div>
-      <div class="big">₦7,490</div>
+      <div class="big" style="margin:10px 0;"><span class="cut-paper slant-alt" style="font-size:40px;padding:5px 22px;">₦7,490</span></div>
       <p class="pad-top-sm"><a href="checkout" class="btn-dark btn" style="background:var(--crimson);">Yes, I Want NEXORA for ₦7,490</a></p>
     </div>
   </div>
@@ -1280,8 +1295,8 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 
     <div class="price-wrap">
       <p class="reveal" style="margin:16px 0 0;font-size:16px;color:#cfcfcf;text-decoration:line-through;">Regular price ₦25,000</p>
-      <p class="reveal d1" style="font-size:44px;margin-top:6px;"><strong style="color:#6e0a14;font-family:'Archivo',sans-serif;">₦7,490</strong></p>
-      <p class="reveal d1" style="font-size:14px;color:#999;">birthday pre-order price</p>
+      <p class="reveal d1" style="margin-top:12px;margin-bottom:8px;"><span class="cut-paper slant-alt" style="font-size:38px;padding:5px 22px;">₦7,490</span></p>
+      <p class="reveal d1" style="font-size:14px;color:#999;margin-top:8px;">birthday pre-order price</p>
       <p class="pad-top-sm reveal d2"><a href="checkout" class="btn" style="font-size:19px;">Yes, I Want NEXORA for ₦7,490</a></p>
       <p class="reveal d3" style="font-size:15px;color:#cfcfcf;">Offer closes: October 1, 2026</p>
     </div>
