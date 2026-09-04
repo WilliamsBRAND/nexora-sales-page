@@ -250,7 +250,7 @@ main{padding:64px 0 80px;}
     || localStorage.getItem('nexora_pp')
     || '';
   partner = (partner || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 32);
-  var offer = (new URLSearchParams(window.location.search)).get('offer') || 'nexora';
+  var offer = (new URLSearchParams(window.location.search)).get('offer')
     || getCookie('nexora_offer')
     || sessionStorage.getItem('nexora_offer')
     || localStorage.getItem('nexora_offer')
@@ -259,7 +259,7 @@ main{padding:64px 0 80px;}
     sessionStorage.setItem('nexora_pp', partner);
     localStorage.setItem('nexora_pp', partner);
     setCookie('nexora_pp', partner, 30);
-    try { fetch('https://partners.tomidewilliams.com/api/track?code=' + encodeURIComponent(partner) + '&product=' + encodeURIComponent('nexora')); } catch(e) {}
+    try { fetch('https://partners.tomidewilliams.store/api/track?code=' + encodeURIComponent(partner) + '&product=' + encodeURIComponent('nexora')); } catch(e) {}
   }
   if (offer) {
     sessionStorage.setItem('nexora_offer', offer);
