@@ -537,34 +537,65 @@ section:not(.dark) .proof{
   gap:4px;
   background:rgba(18,18,22,0.95);
 }
-.proof-tag{
-  font-family:'Archivo',sans-serif;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  color:#ff8591;
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-}
-.proof-tag::before{
-  content:"";
-  display:inline-block;
-  width:6px;
-  height:6px;
-  background:var(--crimson);
-  border-radius:50%;
-}
 .proof-caption{
   font-size:13.5px;
-  color:#e4e4e7;
+  color:#f4f4f6;
   font-weight:600;
   line-height:1.4;
 }
 @media(max-width:640px){
   .proofgrid{grid-template-columns:1fr;gap:16px;}
   .proof-img-box{height:200px;}
+}
+
+/* ===== STICKY CTA BAR ===== */
+.stickybar{
+  position:fixed;left:0;right:0;bottom:0;z-index:1000;
+  background:rgba(10,10,14,0.96);
+  backdrop-filter:blur(12px);
+  border-top:1px solid rgba(229,9,20,0.35);
+  padding:12px 20px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 -10px 30px rgba(0,0,0,0.7);
+  transform:translateY(110%);
+  transition:transform .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stickybar.show{transform:translateY(0);}
+.stickybar-inner{
+  display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;
+}
+.sb-price{
+  display:flex;align-items:center;gap:10px;
+}
+.sb-current{
+  color:#ffffff !important;
+  font-family:'Archivo',sans-serif;
+  font-weight:800;
+  font-size:20px;
+  letter-spacing:-.01em;
+}
+.sb-slash{
+  color:#a1a1aa !important;
+  font-size:14.5px;
+  text-decoration:line-through;
+  font-weight:500;
+}
+.sb-tag{
+  background:rgba(229,9,20,0.25);
+  color:#ff8591 !important;
+  border:1px solid rgba(229,9,20,0.4);
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  padding:2px 8px;
+  border-radius:999px;
+}
+.stickybar .btn{
+  font-size:15px;
+  padding:12px 28px;
+  margin:0;
+  border-radius:10px;
 }
 
 /* Lightbox Modal */
@@ -599,7 +630,7 @@ section:not(.dark) .proof{
   border-bottom:1px solid rgba(255,255,255,0.08);
   background:#18181f;
 }
-.proof-modal-title{font-family:'Archivo',sans-serif;font-weight:800;color:#fff;font-size:15px;}
+.proof-modal-title{font-family:'Archivo',sans-serif;font-weight:800;color:#fff;font-size:14.5px;}
 .proof-modal-close{
   background:rgba(255,255,255,0.08);border:none;color:#fff;
   width:32px;height:32px;border-radius:50%;
@@ -1383,15 +1414,32 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 
 <div class="wrap" style="padding-top:64px;padding-bottom:64px;">
   <div class="proofgrid">
-    <div class="proof" onclick="openProofModal('assets/proof/proof-1.jpg', 'Proof 01', 'Proof I built a seven-figure monthly brand')">
+    <div class="proof" onclick="openProofModal('assets/proof/proof-1.jpg', 'Proof I built a seven-figure monthly brand')">
       <div class="proof-img-box">
         <img src="assets/proof/proof-1.jpg" alt="Proof I built a seven-figure monthly brand" class="proof-img" loading="lazy">
       </div>
       <div class="proof-info">
-        <span class="proof-tag">Proof 01</span>
         <span class="proof-caption">Proof I built a seven-figure monthly brand</span>
       </div>
     </div>
+    <div class="proof" onclick="openProofModal('assets/proof/proof-2.jpg', 'Proof of the job offer that increased my income')">
+      <div class="proof-img-box">
+        <img src="assets/proof/proof-2.jpg" alt="Proof of the job offer that increased my income" class="proof-img" loading="lazy">
+      </div>
+      <div class="proof-info">
+        <span class="proof-caption">Proof of the job offer that increased my income</span>
+      </div>
+    </div>
+    <div class="proof" onclick="openProofModal('assets/proof/proof-3.jpg', 'Proof of a client, product or business result')">
+      <div class="proof-img-box">
+        <img src="assets/proof/proof-3.jpg" alt="Proof of a client, product or business result" class="proof-img" loading="lazy">
+      </div>
+      <div class="proof-info">
+        <span class="proof-caption">Proof of a client, product or business result</span>
+      </div>
+    </div>
+  </div>
+</div>
     <div class="proof" onclick="openProofModal('assets/proof/proof-2.jpg', 'Proof 02', 'Proof of the job offer that increased my income')">
       <div class="proof-img-box">
         <img src="assets/proof/proof-2.jpg" alt="Proof of the job offer that increased my income" class="proof-img" loading="lazy">
@@ -1447,31 +1495,28 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
     </div>
 
     <div class="proofgrid">
-      <div class="proof" onclick="openProofModal('assets/proof/proof-4.jpg', 'Proof 04', 'Birthday photograph or personal image')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-4.jpg', 'Birthday photograph and personal journey')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-4.jpg" alt="Birthday photograph or personal image" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-4.jpg" alt="Birthday photograph and personal journey" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 04</span>
-          <span class="proof-caption">Birthday photograph or personal image</span>
+          <span class="proof-caption">Birthday photograph and personal journey</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-5.jpg', 'Proof 05', 'Personal lifestyle, birthday or milestone image')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-5.jpg', 'Personal milestone and lifestyle reflection')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-5.jpg" alt="Personal lifestyle, birthday or milestone image" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-5.jpg" alt="Personal milestone and lifestyle reflection" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 05</span>
-          <span class="proof-caption">Personal lifestyle, birthday or milestone image</span>
+          <span class="proof-caption">Personal milestone and lifestyle reflection</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-6.jpg', 'Proof 06', 'Personal journey, speaking or brand photo')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-6.jpg', 'Personal journey and speaking portrait')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-6.jpg" alt="Personal journey, speaking or brand photo" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-6.jpg" alt="Personal journey and speaking portrait" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 06</span>
-          <span class="proof-caption">Personal journey, speaking or brand photo</span>
+          <span class="proof-caption">Personal journey and speaking portrait</span>
         </div>
       </div>
     </div>
@@ -1501,31 +1546,28 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
     </div>
 
     <div class="proofgrid">
-      <div class="proof" onclick="openProofModal('assets/proof/proof-7.jpg', 'Proof 07', 'Income alert, sales dashboard or course-sales proof')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-7.jpg', 'Income alert, sales dashboard and course-sales proof')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-7.jpg" alt="Income alert, sales dashboard or course-sales proof" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-7.jpg" alt="Income alert, sales dashboard and course-sales proof" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 07</span>
-          <span class="proof-caption">Income alert, sales dashboard or course-sales proof</span>
+          <span class="proof-caption">Income alert, sales dashboard and course-sales proof</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-8.jpg', 'Proof 08', 'Client testimonial or payment proof')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-8.jpg', 'Client testimonial and verified payment confirmation')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-8.jpg" alt="Client testimonial or payment proof" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-8.jpg" alt="Client testimonial and verified payment confirmation" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 08</span>
-          <span class="proof-caption">Client testimonial or payment proof</span>
+          <span class="proof-caption">Client testimonial and verified payment confirmation</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-9.jpg', 'Proof 09', 'Revenue alert, transaction or bank transfer proof')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-9.jpg', 'Transaction and bank transfer payment proof')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-9.jpg" alt="Revenue alert, transaction or bank transfer proof" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-9.jpg" alt="Transaction and bank transfer payment proof" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 09</span>
-          <span class="proof-caption">Revenue alert, transaction or bank transfer proof</span>
+          <span class="proof-caption">Transaction and bank transfer payment proof</span>
         </div>
       </div>
     </div>
@@ -1579,31 +1621,28 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
     </ul>
 
     <div class="proofgrid">
-      <div class="proof" onclick="openProofModal('assets/proof/proof-10.jpg', 'Proof 10', 'LinkedIn growth or profile analytics')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-10.jpg', 'LinkedIn audience growth and profile reach analytics')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-10.jpg" alt="LinkedIn growth or profile analytics" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-10.jpg" alt="LinkedIn audience growth and profile reach analytics" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 10</span>
-          <span class="proof-caption">LinkedIn growth or profile analytics</span>
+          <span class="proof-caption">LinkedIn audience growth and profile reach analytics</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-11.jpg', 'Proof 11', 'Message showing a job, speaking or partnership opportunity')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-11.jpg', 'Inbound messages for speaking, jobs and partnerships')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-11.jpg" alt="Message showing a job, speaking or partnership opportunity" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-11.jpg" alt="Inbound messages for speaking, jobs and partnerships" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 11</span>
-          <span class="proof-caption">Message showing a job, speaking or partnership opportunity</span>
+          <span class="proof-caption">Inbound messages for speaking, jobs and partnerships</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-12.jpg', 'Proof 12', 'International client or foreign-currency payment proof')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-12.jpg', 'International client foreign-currency payment proof')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-12.jpg" alt="International client or foreign-currency payment proof" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-12.jpg" alt="International client foreign-currency payment proof" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 12</span>
-          <span class="proof-caption">International client or foreign-currency payment proof</span>
+          <span class="proof-caption">International client foreign-currency payment proof</span>
         </div>
       </div>
     </div>
@@ -1837,85 +1876,76 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
     </div>
 
     <div class="proofgrid">
-      <div class="proof" onclick="openProofModal('assets/proof/proof-13.jpg', 'Proof 13', 'Photograph and short professional bio')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-13.jpg', 'Professional profile, background and achievements')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-13.jpg" alt="Photograph and short professional bio" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-13.jpg" alt="Professional profile, background and achievements" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 13</span>
-          <span class="proof-caption">Photograph and short professional bio</span>
+          <span class="proof-caption">Professional profile, background and achievements</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-14.jpg', 'Proof 14', 'LinkedIn profile showing 47,000+ audience')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-14.jpg', 'LinkedIn profile showing 47,000+ professional audience')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-14.jpg" alt="LinkedIn profile showing 47,000+ audience" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-14.jpg" alt="LinkedIn profile showing 47,000+ professional audience" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 14</span>
-          <span class="proof-caption">LinkedIn profile showing 47,000+ audience</span>
+          <span class="proof-caption">LinkedIn profile showing 47,000+ professional audience</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-15.jpg', 'Proof 15', 'Revenue or customer-acquisition result')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-15.jpg', 'Direct revenue and customer acquisition result')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-15.jpg" alt="Revenue or customer-acquisition result" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-15.jpg" alt="Direct revenue and customer acquisition result" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 15</span>
-          <span class="proof-caption">Revenue or customer-acquisition result</span>
+          <span class="proof-caption">Direct revenue and customer acquisition result</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-16.jpg', 'Proof 16', '10,000+ prospect database')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-16.jpg', '10,000+ company prospect and customer acquisition database')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-16.jpg" alt="10,000+ prospect database" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-16.jpg" alt="10,000+ company prospect and customer acquisition database" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 16</span>
-          <span class="proof-caption">10,000+ prospect database</span>
+          <span class="proof-caption">10,000+ company prospect and customer acquisition database</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-17.jpg', 'Proof 17', 'AI product, website, automation or internal tool')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-17.jpg', 'AI products, websites, automations and internal tools')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-17.jpg" alt="AI product, website, automation or internal tool" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-17.jpg" alt="AI products, websites, automations and internal tools" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 17</span>
-          <span class="proof-caption">AI product, website, automation or internal tool</span>
+          <span class="proof-caption">AI products, websites, automations and internal tools</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-18.jpg', 'Proof 18', 'Speaking engagement, event or community proof')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-18.jpg', 'Live speaking engagements, stage and community events')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-18.jpg" alt="Speaking engagement, event or community proof" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-18.jpg" alt="Live speaking engagements, stage and community events" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 18</span>
-          <span class="proof-caption">Speaking engagement, event or community proof</span>
+          <span class="proof-caption">Live speaking engagements, stage and community events</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-19.jpg', 'Proof 19', 'TEDx talk, stage or public appearance proof')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-19.jpg', 'Two-time TEDx speaker and keynote presentation proof')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-19.jpg" alt="TEDx talk, stage or public appearance proof" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-19.jpg" alt="Two-time TEDx speaker and keynote presentation proof" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 19</span>
-          <span class="proof-caption">TEDx talk, stage or public appearance proof</span>
+          <span class="proof-caption">Two-time TEDx speaker and keynote presentation proof</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-20.jpg', 'Proof 20', 'B2B partnership, launch or corporate deal proof')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-20.jpg', 'B2B partnerships, corporate deals and campaign launches')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-20.jpg" alt="B2B partnership, launch or corporate deal proof" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-20.jpg" alt="B2B partnerships, corporate deals and campaign launches" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 20</span>
-          <span class="proof-caption">B2B partnership, launch or corporate deal proof</span>
+          <span class="proof-caption">B2B partnerships, corporate deals and campaign launches</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-21.jpg', 'Proof 21', 'Global client engagement or international work proof')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-21.jpg', 'Global client engagements and international collaborations')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-21.jpg" alt="Global client engagement or international work proof" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-21.jpg" alt="Global client engagements and international collaborations" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 21</span>
-          <span class="proof-caption">Global client engagement or international work proof</span>
+          <span class="proof-caption">Global client engagements and international collaborations</span>
         </div>
       </div>
     </div>
@@ -1929,85 +1959,76 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
     <p class="lead" style="color:#cfcfcf;">Do not only take my word for it.</p>
 
     <div class="proofgrid">
-      <div class="proof" onclick="openProofModal('assets/proof/proof-22.jpg', 'Proof 22', 'Payment alert or earnings screenshot')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-22.jpg', 'Payment alert and earnings confirmation screenshot')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-22.jpg" alt="Payment alert or earnings screenshot" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-22.jpg" alt="Payment alert and earnings confirmation screenshot" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 22</span>
-          <span class="proof-caption">Payment alert or earnings screenshot</span>
+          <span class="proof-caption">Payment alert and earnings confirmation screenshot</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-23.jpg', 'Proof 23', 'Client testimonial')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-23.jpg', 'Direct client testimonial and satisfaction feedback')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-23.jpg" alt="Client testimonial" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-23.jpg" alt="Direct client testimonial and satisfaction feedback" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 23</span>
-          <span class="proof-caption">Client testimonial</span>
+          <span class="proof-caption">Direct client testimonial and satisfaction feedback</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-24.jpg', 'Proof 24', 'Student or mentee result')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-24.jpg', 'Student and mentee transformation milestone')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-24.jpg" alt="Student or mentee result" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-24.jpg" alt="Student and mentee transformation milestone" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 24</span>
-          <span class="proof-caption">Student or mentee result</span>
+          <span class="proof-caption">Student and mentee transformation milestone</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-25.jpg', 'Proof 25', 'LinkedIn inbound message')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-25.jpg', 'LinkedIn inbound client conversation')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-25.jpg" alt="LinkedIn inbound message" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-25.jpg" alt="LinkedIn inbound client conversation" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 25</span>
-          <span class="proof-caption">LinkedIn inbound message</span>
+          <span class="proof-caption">LinkedIn inbound client conversation</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-26.jpg', 'Proof 26', 'Job offer or recruitment message')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-26.jpg', 'Direct job offer and career opportunity message')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-26.jpg" alt="Job offer or recruitment message" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-26.jpg" alt="Direct job offer and career opportunity message" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 26</span>
-          <span class="proof-caption">Job offer or recruitment message</span>
+          <span class="proof-caption">Direct job offer and career opportunity message</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-27.jpg', 'Proof 27', 'International payment or client conversation')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-27.jpg', 'International client payment and project discussion')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-27.jpg" alt="International payment or client conversation" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-27.jpg" alt="International client payment and project discussion" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 27</span>
-          <span class="proof-caption">International payment or client conversation</span>
+          <span class="proof-caption">International client payment and project discussion</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-28.jpg', 'Proof 28', 'Product or campaign result')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-28.jpg', 'Product launch and marketing campaign result')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-28.jpg" alt="Product or campaign result" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-28.jpg" alt="Product launch and marketing campaign result" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 28</span>
-          <span class="proof-caption">Product or campaign result</span>
+          <span class="proof-caption">Product launch and marketing campaign result</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-29.jpg', 'Proof 29', 'WhatsApp sales result')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-29.jpg', 'WhatsApp audience and community sales results')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-29.jpg" alt="WhatsApp sales result" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-29.jpg" alt="WhatsApp audience and community sales results" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 29</span>
-          <span class="proof-caption">WhatsApp sales result</span>
+          <span class="proof-caption">WhatsApp audience and community sales results</span>
         </div>
       </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-30.jpg', 'Proof 30', 'Another transformation, testimonial or opportunity')">
+      <div class="proof" onclick="openProofModal('assets/proof/proof-30.jpg', 'Client breakthrough, transformation and gratitude')">
         <div class="proof-img-box">
-          <img src="assets/proof/proof-30.jpg" alt="Another transformation, testimonial or opportunity" class="proof-img" loading="lazy">
+          <img src="assets/proof/proof-30.jpg" alt="Client breakthrough, transformation and gratitude" class="proof-img" loading="lazy">
         </div>
         <div class="proof-info">
-          <span class="proof-tag">Proof 30</span>
-          <span class="proof-caption">Another transformation, testimonial or opportunity</span>
+          <span class="proof-caption">Client breakthrough, transformation and gratitude</span>
         </div>
       </div>
     </div>
@@ -2633,7 +2654,7 @@ window.addEventListener('scroll', function() {
 <div id="proofLightbox" class="proof-modal-backdrop" onclick="closeProofModal(event)">
   <div class="proof-modal-card" onclick="event.stopPropagation()">
     <div class="proof-modal-header">
-      <div id="proofModalTag" class="proof-modal-title">Proof Preview</div>
+      <div id="proofModalTag" class="proof-modal-title">Verified Proof</div>
       <button class="proof-modal-close" onclick="closeProofModal()">&times;</button>
     </div>
     <div class="proof-modal-body">
@@ -2643,9 +2664,9 @@ window.addEventListener('scroll', function() {
 </div>
 
 <script>
-function openProofModal(src, tag, caption) {
+function openProofModal(src, caption) {
   document.getElementById('proofModalImg').src = src;
-  document.getElementById('proofModalTag').textContent = tag + ' Â· ' + caption;
+  document.getElementById('proofModalTag').textContent = caption;
   document.getElementById('proofLightbox').classList.add('active');
 }
 function closeProofModal(e) {
