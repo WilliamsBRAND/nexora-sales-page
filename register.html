@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -385,17 +385,21 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
 }
 .action-btn-primary {
-  background: var(--crimson);
-  color: #fff;
-  padding: 14px 22px;
+  background: #25D366;
+  color: #ffffff;
+  padding: 15px 22px;
   border-radius: 10px;
   font-weight: 700;
   font-size: 15px;
   transition: all 0.15s ease;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.25);
 }
 .action-btn-primary:hover {
-  background: var(--crimson-hover);
+  background: #20bd5a;
   transform: translateY(-1px);
 }
 .action-btn-secondary {
@@ -452,11 +456,11 @@ footer {
     <div id="formView">
       <div class="header-area">
         <div class="tag-pill">
-          <span>â—</span> Manual Payer Registration
+          Manual Payer Registration
         </div>
         <h1 class="main-title">Complete Your NEXORA Registration</h1>
         <p class="sub-text">
-          Thank you for joining NEXORA! Kindly fill out this official form with your details to confirm your registration and gain immediate access.
+          Thank you for joining NEXORA! Kindly fill out this form with your details to confirm your registration and get instant access to the private community.
         </p>
       </div>
 
@@ -538,14 +542,14 @@ footer {
           </label>
           <select id="moduleInterest" name="moduleInterest" class="select-input" required>
             <option value="" disabled selected>-- Select a Module Focus --</option>
-            <option value="ALL OF THE ABOVE (Complete Suite)">ðŸŒŸ ALL OF THE ABOVE (Complete Suite)</option>
-            <option value="MONEY & INCOME">ðŸ’° MONEY & INCOME</option>
-            <option value="PERSONAL BRAND & LINKEDIN">ðŸš€ PERSONAL BRAND & LINKEDIN</option>
-            <option value="AI & TECH">ðŸ¤– AI & TECH</option>
-            <option value="MARKETING & SALES">ðŸ“ˆ MARKETING & SALES</option>
-            <option value="LIFE & PERSONAL GROWTH">ðŸŒ± LIFE & PERSONAL GROWTH</option>
-            <option value="CAREER & GLOBAL OPPORTUNITIES">ðŸŒ CAREER & GLOBAL OPPORTUNITIES</option>
-            <option value="BONUSES & RESOURCES">ðŸŽ BONUSES & SPECIAL RESOURCES</option>
+            <option value="ALL OF THE ABOVE (Complete Suite)">ALL OF THE ABOVE (Complete Suite)</option>
+            <option value="MONEY & INCOME">MONEY &amp; INCOME</option>
+            <option value="PERSONAL BRAND & LINKEDIN">PERSONAL BRAND &amp; LINKEDIN</option>
+            <option value="AI & TECH">AI &amp; TECH</option>
+            <option value="MARKETING & SALES">MARKETING &amp; SALES</option>
+            <option value="LIFE & PERSONAL GROWTH">LIFE &amp; PERSONAL GROWTH</option>
+            <option value="CAREER & GLOBAL OPPORTUNITIES">CAREER &amp; GLOBAL OPPORTUNITIES</option>
+            <option value="BONUSES & RESOURCES">BONUSES &amp; SPECIAL RESOURCES</option>
           </select>
         </div>
 
@@ -558,7 +562,7 @@ footer {
         </div>
 
         <button type="submit" id="submitBtn" class="submit-btn">
-          <span>Complete Registration</span>
+          <span>Complete Registration &amp; Join Community</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14"/>
             <path d="m12 5 7 7-7 7"/>
@@ -575,9 +579,9 @@ footer {
           <polyline points="20 6 9 17 4 12"/>
         </svg>
       </div>
-      <h2 class="success-title">You're Registered! ðŸŽ‰</h2>
+      <h2 class="success-title">You're Registered!</h2>
       <p class="success-desc">
-        Welcome to <b style="color:#fff;">NEXORA</b>, <span id="confirmedName" style="color:#ff8591; font-weight:600;"></span>! Your manual registration has been recorded successfully. Check your email for further onboarding details.
+        Welcome to <b style="color:#fff;">NEXORA</b>, <span id="confirmedName" style="color:#ff8591; font-weight:600;"></span>! Your registration is confirmed. Redirecting you to the private WhatsApp community now...
       </p>
 
       <div class="ref-box">
@@ -585,11 +589,12 @@ footer {
       </div>
 
       <div class="success-actions">
-        <a href="/" class="action-btn-primary">
-          Go to Marketplace Home &rarr;
+        <a id="waDirectBtn" href="https://chat.whatsapp.com/LNC6ABmpaFN5b6we3ZuEpp" class="action-btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.19-.34.22-.63.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.21 5.1 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.45 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+          Join WhatsApp Community Now &rarr;
         </a>
-        <a href="https://wa.me/2348000000000?text=Hi%20Tomide,%20I%20just%20completed%20my%20NEXORA%20registration" target="_blank" rel="noopener" class="action-btn-secondary">
-          Contact Support on WhatsApp
+        <a href="/" class="action-btn-secondary">
+          Go to Marketplace Home
         </a>
       </div>
     </div>
@@ -602,6 +607,8 @@ footer {
 </footer>
 
 <script>
+const COMMUNITY_URL = 'https://chat.whatsapp.com/LNC6ABmpaFN5b6we3ZuEpp';
+
 function toggleOther(show) {
   const wrap = document.getElementById('otherInputWrap');
   const input = document.getElementById('heardFromOther');
@@ -658,6 +665,11 @@ async function handleRegistration(e) {
     document.getElementById('confirmedName').textContent = result.data?.name || data.name;
     document.getElementById('confirmedRef').textContent = result.data?.reference || 'NEX-REG-CONFIRMED';
     document.getElementById('successView').classList.add('active');
+
+    // Immediate Redirect to Community
+    setTimeout(() => {
+      window.location.href = COMMUNITY_URL;
+    }, 1200);
 
   } catch (err) {
     errorMsg.textContent = err.message;
