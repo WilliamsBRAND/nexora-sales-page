@@ -1,52 +1,7 @@
 // NEXORA — Verified Customer Feedback & Review API
 import { getDb, json } from './_db.js';
 
-const INITIAL_REVIEWS = [
-  {
-    id: "seed-1",
-    name: "Dr. Emmanuel K.",
-    role: "AI Researcher & Consultant · Lagos",
-    rating: 5,
-    comment: "The practical breakdown in NEXORA is second to none. Tomide doesn't just teach theory; he gives step-by-step blueprints for landing high-paying international clients and deploying real AI systems.",
-    review: "The practical breakdown in NEXORA is second to none. Tomide doesn't just teach theory; he gives step-by-step blueprints for landing high-paying international clients and deploying real AI systems.",
-    avatar: "",
-    verified: true,
-    date: "2026-09-02T10:30:00Z"
-  },
-  {
-    id: "seed-2",
-    name: "Chioma A.",
-    role: "Product Marketer & Freelancer · Abuja",
-    rating: 5,
-    comment: "Getting NEXORA at the pre-order price is honestly a steal. The modules on offer positioning and Upwork proposals already changed how I pitch clients this month.",
-    review: "Getting NEXORA at the pre-order price is honestly a steal. The modules on offer positioning and Upwork proposals already changed how I pitch clients this month.",
-    avatar: "",
-    verified: true,
-    date: "2026-09-03T14:20:00Z"
-  },
-  {
-    id: "seed-3",
-    name: "Oluwaseun B.",
-    role: "Growth Lead & Content Creator · Ibadan",
-    rating: 5,
-    comment: "I love how direct and actionable the lessons are. No fluff. The Claude Code and AI video automation frameworks are worth 10x the price alone.",
-    review: "I love how direct and actionable the lessons are. No fluff. The Claude Code and AI video automation frameworks are worth 10x the price alone.",
-    avatar: "",
-    verified: true,
-    date: "2026-09-04T09:15:00Z"
-  },
-  {
-    id: "seed-4",
-    name: "Tunde M.",
-    role: "Software Developer · Lagos",
-    rating: 5,
-    comment: "Even as a developer, the business monetization and executive relationship modules gave me perspectives I never thought about. Highly recommend to anyone looking to level up.",
-    review: "Even as a developer, the business monetization and executive relationship modules gave me perspectives I never thought about. Highly recommend to anyone looking to level up.",
-    avatar: "",
-    verified: true,
-    date: "2026-09-04T18:45:00Z"
-  }
-];
+const INITIAL_REVIEWS = [];
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
