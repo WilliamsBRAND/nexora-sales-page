@@ -856,6 +856,393 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
   transform:rotate(1.8deg);
 }
 
+
+/* ==================== REVIEWS SLIDER CSS ==================== */
+.reviews-section {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.reviews-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 28px;
+}
+.rh-badge {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  background: rgba(251, 191, 36, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.28);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+.reviews-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: clamp(22px, 3.8vw, 32px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.reviews-sub {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+.reviews-summary-bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--line);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  color: #fff;
+  flex-wrap: wrap;
+}
+.rs-stars { color: #fbbf24; font-size: 14px; letter-spacing: 2px; }
+.rs-score { font-weight: 800; }
+.rs-sep { color: var(--muted-2); }
+.rs-count { color: var(--muted); }
+.rs-link {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #f87171;
+  border-bottom: 1px dashed rgba(248,113,113,.5);
+  margin-left: 4px;
+  transition: all .15s;
+}
+.rs-link:hover { color: #fff; border-bottom-color: #fff; }
+
+.reviews-slider-wrap {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.reviews-track-viewport {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 16px;
+  padding: 8px 2px;
+}
+.reviews-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.review-card {
+  flex: 0 0 calc(33.333% - 11px);
+  min-width: 260px;
+  background: #121212;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  transition: border-color .2s, transform .2s;
+}
+.review-card:hover {
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-2px);
+}
+.rc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 8px;
+}
+.rc-stars {
+  color: #fbbf24;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+}
+.rc-badge {
+  font-size: 10.5px;
+  font-weight: 800;
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.rc-text {
+  font-size: 13.8px;
+  color: #e4e4e7;
+  line-height: 1.6;
+  margin-bottom: 18px;
+  flex-grow: 1;
+  font-style: normal;
+}
+.rc-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.rc-avatar {
+  overflow: hidden;
+
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--crimson), #2a0408);
+  color: #fff;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.rc-info {
+  line-height: 1.3;
+}
+.rc-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+}
+.rc-avatar-img, .rc-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.rc-role {
+  font-size: 11.5px;
+  color: var(--muted-2);
+}
+
+.review-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #181818;
+  border: 1px solid var(--line-strong);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all .2s;
+  z-index: 2;
+}
+.review-arrow:hover {
+  background: var(--crimson);
+  border-color: var(--crimson);
+  transform: scale(1.05);
+}
+.review-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.reviews-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.rev-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.2);
+  transition: all .25s;
+  cursor: pointer;
+}
+.rev-dot.active {
+  width: 24px;
+  background: var(--crimson-hover);
+}
+
+@media (max-width: 900px) {
+  .review-card {
+    flex: 0 0 calc(50% - 8px);
+  }
+}
+@media (max-width: 640px) {
+  .review-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+  .review-arrow {
+    display: none; /* Mobile swipes or uses dots */
+  }
+  .reviews-track-viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .reviews-track-viewport::-webkit-scrollbar {
+    display: none;
+  }
+  .review-card {
+    scroll-snap-align: start;
+  }
+}
+
+
+/* ===== MOBILE BREATHING ROOM ENHANCEMENT (iOS & Android) ===== */
+@media (max-width: 760px) {
+  .cat.module {
+    padding: 24px 18px 22px !important;
+    margin-bottom: 24px !important;
+    border-radius: 16px !important;
+    background: rgba(18, 18, 22, 0.95) !important;
+  }
+  .cat.module .module-head {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    padding-right: 48px !important;
+    margin-bottom: 18px !important;
+    padding-bottom: 16px !important;
+    position: relative !important;
+  }
+  .module-tag {
+    font-size: 11px !important;
+    letter-spacing: 2px !important;
+    color: #a1a1aa !important;
+    margin-bottom: 4px !important;
+  }
+  .module-head h3 {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+    color: #ffffff !important;
+    margin-bottom: 0 !important;
+  }
+  .module-value {
+    font-size: 13.5px !important;
+    color: #cfcfcf !important;
+    margin-left: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-top: 4px !important;
+  }
+  .module-value .mv {
+    font-size: 13px !important;
+    padding: 2px 10px !important;
+    border-radius: 6px !important;
+  }
+  .cat.module .m-arrow {
+    position: absolute !important;
+    top: 24px !important;
+    right: 0 !important;
+    transform: translateY(-50%) !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 19px !important;
+  }
+  .cat.module.collapsed .m-arrow {
+    transform: translateY(-50%) rotate(45deg) !important;
+  }
+  .cat ul {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+  .cat ul li.lesson {
+    display: grid !important;
+    grid-template-columns: 24px auto 1fr !important;
+    align-items: center !important;
+    column-gap: 10px !important;
+    row-gap: 10px !important;
+    padding: 14px 16px !important;
+    background: rgba(255, 255, 255, 0.035) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    margin: 0 !important;
+  }
+  .cat ul li.lesson .play {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    align-self: start !important;
+    margin-top: 2px !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
+  .cat ul li.lesson .t {
+    grid-column: 2 / -1 !important;
+    grid-row: 1 !important;
+    font-size: 14.5px !important;
+    font-weight: 500 !important;
+    line-height: 1.5 !important;
+    color: #f4f4f5 !important;
+  }
+  .cat ul li.lesson .dur {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    font-size: 11.5px !important;
+    padding: 3px 10px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #a1a1aa !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    white-space: nowrap !important;
+  }
+  .cat ul li.lesson .v {
+    grid-column: 3 !important;
+    grid-row: 2 !important;
+    justify-self: start !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    padding: 3px 11px !important;
+    border-radius: 999px !important;
+    background: var(--crimson) !important;
+    color: #ffffff !important;
+    margin-left: 0 !important;
+    white-space: nowrap !important;
+  }
+  .module-total {
+    margin-top: 20px !important;
+    padding: 16px 18px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+  .module-total .lbl {
+    font-size: 13.5px !important;
+    color: #a1a1aa !important;
+  }
+  .module-total .amt {
+    font-size: 22px !important;
+    font-weight: 900 !important;
+    color: #ffffff !important;
+  }
+  .module-mockup-card {
+    margin-top: 20px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1443,53 +1830,64 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 <section class="dark">
   <div class="wrap">
     <h2 class="section-title">NEXORA BONUSES</h2>
-    <p class="lead" style="color:#cfcfcf;">Bonuses worth a combined ₦217,973 - included with your pre-order.</p>
+    <p class="lead" style="color:#cfcfcf;">Bonuses worth a combined ₦197,976 - included with your pre-order.</p>
 
     <div class="catgrid">
       <div class="cat bonus">
-        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">My secrets to making ₦17m in 6 months selling digital products on WhatsApp in 2026.</p>
-        <p class="bonus-v">Value: <span>₦47,997</span></p>
+        <div style="font-size:12px;font-weight:800;color:#e63946;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">BONUS 01 <span style="color:#2ecc71;font-weight:700;">(Value: ₦27,997)</span></div>
+        <h3 style="margin:0 0 8px;font-size:18px;color:#fff;">How to Build an Irresistible Offer</h3>
+        <p style="margin:0;font-size:14.5px;color:#cfcfcf;line-height:1.5;">Learn how to package your skills, knowledge, product or service into an offer people genuinely want to buy.</p>
       </div>
+
       <div class="cat bonus">
-        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">The story of my first $1,000 as a novice writer.</p>
-        <p class="bonus-v">Value: <span>₦19,997</span></p>
+        <div style="font-size:12px;font-weight:800;color:#e63946;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">BONUS 02 <span style="color:#2ecc71;font-weight:700;">(Value: ₦14,997)</span></div>
+        <h3 style="margin:0 0 8px;font-size:18px;color:#fff;">How to Build Relationships That Open Doors</h3>
+        <p style="margin:0;font-size:14.5px;color:#cfcfcf;line-height:1.5;">Learn how to create meaningful professional relationships, enter valuable rooms and remain memorable without pretending.</p>
       </div>
+
       <div class="cat bonus">
-        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">How to create offers that no one will say no to.</p>
-        <p class="bonus-v">Value: <span>₦27,997</span></p>
+        <div style="font-size:12px;font-weight:800;color:#e63946;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">BONUS 03 <span style="color:#2ecc71;font-weight:700;">(Value: ₦17,997)</span></div>
+        <h3 style="margin:0 0 8px;font-size:18px;color:#fff;">How to Get Speaking Engagements</h3>
+        <p style="margin:0;font-size:14.5px;color:#cfcfcf;line-height:1.5;">Learn how to position yourself, package your ideas and find opportunities to speak at events and conferences.</p>
       </div>
+
       <div class="cat bonus">
-        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">How to position yourself for top-notch speaking engagements that your peers probably won't get.</p>
-        <p class="bonus-v">Value: <span>₦17,997</span></p>
+        <div style="font-size:12px;font-weight:800;color:#e63946;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">BONUS 04 <span style="color:#2ecc71;font-weight:700;">(Value: ₦11,997)</span></div>
+        <h3 style="margin:0 0 8px;font-size:18px;color:#fff;">How to Build Websites and Apps With Claude Code for Free</h3>
+        <p style="margin:0;font-size:14.5px;color:#cfcfcf;line-height:1.5;">Learn how to use AI to turn your ideas into functional websites and applications even if you are not a developer.</p>
       </div>
+
       <div class="cat bonus">
-        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">How to use Claude Code for free.</p>
-        <p class="bonus-v">Value: <span>₦11,997</span></p>
+        <div style="font-size:12px;font-weight:800;color:#e63946;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">BONUS 05 <span style="color:#2ecc71;font-weight:700;">(Value: ₦24,997)</span></div>
+        <h3 style="margin:0 0 8px;font-size:18px;color:#fff;">How to Find International Clients on Upwork</h3>
+        <p style="margin:0;font-size:14.5px;color:#cfcfcf;line-height:1.5;">Learn how to position your profile, identify the right opportunities and submit proposals that get responses.</p>
       </div>
+
       <div class="cat bonus">
-        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">How to create AI videos and influencers that make you money.</p>
-        <p class="bonus-v">Value: <span>₦29,997</span></p>
+        <div style="font-size:12px;font-weight:800;color:#e63946;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">BONUS 06 <span style="color:#2ecc71;font-weight:700;">(Value: ₦29,997)</span></div>
+        <h3 style="margin:0 0 8px;font-size:18px;color:#fff;">How to Create AI Videos and Build Influence</h3>
+        <p style="margin:0;font-size:14.5px;color:#cfcfcf;line-height:1.5;">Learn how to use AI tools to create videos, communicate your ideas and grow your influence without expensive setups.</p>
       </div>
+
       <div class="cat bonus">
-        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">My approach to cold DMs, networking and creating opportunities online.</p>
-        <p class="bonus-v">Value: <span>₦21,997</span></p>
+        <div style="font-size:12px;font-weight:800;color:#e63946;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">BONUS 07 <span style="color:#2ecc71;font-weight:700;">(Value: ₦21,997)</span></div>
+        <h3 style="margin:0 0 8px;font-size:18px;color:#fff;">AI Prompts, Templates & Practical Resources</h3>
+        <p style="margin:0;font-size:14.5px;color:#cfcfcf;line-height:1.5;">Get reusable prompts, templates and resources that will help you apply the lessons faster.</p>
       </div>
+
       <div class="cat bonus">
-        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">What I've learnt about using Upwork to get foreign clients.</p>
-        <p class="bonus-v">Value: <span>₦24,997</span></p>
-      </div>
-      <div class="cat bonus">
-        <p style="margin:0 0 10px;font-size:17px;line-height:1.5;">How to build solid relationships with people you look up to.</p>
-        <p class="bonus-v">Value: <span>₦14,997</span></p>
+        <div style="font-size:12px;font-weight:800;color:#e63946;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">BONUS 08 <span style="color:#2ecc71;font-weight:700;">(Value: ₦47,997)</span></div>
+        <h3 style="margin:0 0 8px;font-size:18px;color:#fff;">Private NEXORA Community</h3>
+        <p style="margin:0;font-size:14.5px;color:#cfcfcf;line-height:1.5;">Join a community of people who are also working towards more income, better careers and bigger opportunities.</p>
       </div>
     </div>
 
     <div class="cat total-line" style="margin-top:24px;background:#0d0d0d;border-left-color:#6e0a14;text-align:center;">
       <p style="margin:0;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#999;font-family:'Archivo',sans-serif;">Total Bonus Value</p>
-      <p style="margin:4px 0 0;font-size:38px;font-weight:800;color:#6e0a14;font-family:'Archivo',sans-serif;">₦217,973</p>
+      <p style="margin:4px 0 0;font-size:38px;font-weight:800;color:#6e0a14;font-family:'Archivo',sans-serif;">₦197,976</p>
     </div>
 
-    <p class="center" style="max-width:780px;margin:34px auto 0;">You get all nine bonuses, the complete NEXORA programme and every lesson inside it for the birthday preorder price of only <strong style="color:#6e0a14;font-family:'Archivo',sans-serif;">₦7,490</strong>.</p>
+    <p class="center" style="max-width:780px;margin:34px auto 0;">You get all eight bonuses, the complete NEXORA programme and every lesson inside it for the birthday preorder price of only <strong style="color:#6e0a14;font-family:'Archivo',sans-serif;">₦7,490</strong>.</p>
 
     <div class="center pad-top-sm">
       <a href="checkout" class="btn" style="font-size:19px;">Yes, I Want NEXORA for ₦7,490</a>
@@ -1828,5 +2226,149 @@ window.addEventListener('scroll', function() {
 })();
 </script>
 
+<script>
+
+// ==================== DYNAMIC REVIEWS SLIDER SCRIPT ====================
+(function() {
+  var currentIdx = 0;
+  var track = document.getElementById('reviewsTrack');
+  var viewport = document.getElementById('reviewsViewport');
+  var dotsContainer = document.getElementById('reviewsDots');
+  var countLabel = document.getElementById('reviewCountLabel');
+  var reviewsData = [];
+
+  function getCardsPerView() {
+    if (window.innerWidth < 640) return 1;
+    if (window.innerWidth < 900) return 2;
+    return 3;
+  }
+
+  function renderDots() {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = '';
+    var totalCards = track.querySelectorAll('.review-card').length;
+    var perView = getCardsPerView();
+    var maxIdx = Math.max(0, totalCards - perView);
+    var pages = maxIdx + 1;
+    if (pages <= 1) return;
+
+    for (var i = 0; i < pages; i++) {
+      (function(idx) {
+        var dot = document.createElement('div');
+        dot.className = 'rev-dot' + (idx === currentIdx ? ' active' : '');
+        dot.onclick = function() {
+          currentIdx = idx;
+          updateSlider();
+        };
+        dotsContainer.appendChild(dot);
+      })(i);
+    }
+  }
+
+  window.slideReviews = function(delta) {
+    var totalCards = track.querySelectorAll('.review-card').length;
+    var perView = getCardsPerView();
+    var maxIdx = Math.max(0, totalCards - perView);
+    currentIdx += delta;
+    if (currentIdx < 0) currentIdx = maxIdx;
+    if (currentIdx > maxIdx) currentIdx = 0;
+    updateSlider();
+  };
+
+  function updateSlider() {
+    if (!track) return;
+    var totalCards = track.querySelectorAll('.review-card').length;
+    var perView = getCardsPerView();
+    var maxIdx = Math.max(0, totalCards - perView);
+    if (currentIdx > maxIdx) currentIdx = maxIdx;
+    if (currentIdx < 0) currentIdx = 0;
+
+    var card = track.querySelector('.review-card');
+    if (card) {
+      var gap = 16;
+      var cardWidth = card.offsetWidth + gap;
+      track.style.transform = 'translateX(-' + (currentIdx * cardWidth) + 'px)';
+    }
+
+    // Update dots
+    if (dotsContainer) {
+      var dots = dotsContainer.querySelectorAll('.rev-dot');
+      dots.forEach(function(d, i) {
+        if (i === currentIdx) d.classList.add('active');
+        else d.classList.remove('active');
+      });
+    }
+  }
+
+  function getInitials(name) {
+    if (!name) return 'NW';
+    var p = name.trim().split(' ');
+    if (p.length === 1) return p[0].substring(0, 2).toUpperCase();
+    return (p[0][0] + p[1][0]).toUpperCase();
+  }
+
+  function createReviewCardHtml(r) {
+    var starStr = '★'.repeat(r.rating || 5) + '☆'.repeat(5 - (r.rating || 5));
+    var initials = getInitials(r.name);
+    var avatarHtml = r.avatar 
+      ? '<img src="' + escapeHtml(r.avatar) + '" alt="' + escapeHtml(r.name) + '" class="rc-avatar-img" />'
+      : initials;
+    var reviewBody = r.review || r.comment || '';
+    return '<div class="review-card">' +
+      '<div class="rc-top">' +
+        '<div class="rc-stars">' + starStr + '</div>' +
+        '<span class="rc-badge">&#10003; ' + (r.verified ? 'Verified Purchase' : 'Verified Pre-Order') + '</span>' +
+      '</div>' +
+      '<p class="rc-text">"' + escapeHtml(reviewBody) + '"</p>' +
+      '<div class="rc-author">' +
+        '<div class="rc-avatar' + (r.avatar ? ' has-img' : '') + '">' + avatarHtml + '</div>' +
+        '<div class="rc-info">' +
+          '<div class="rc-name">' + escapeHtml(r.name) + '</div>' +
+          '<div class="rc-role">' + escapeHtml(r.role || 'Verified Purchase') + '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  async function loadReviews() {
+    try {
+      var res = await fetch('/api/feedback');
+      if (res.ok) {
+        var data = await res.json();
+        if (data && data.reviews && data.reviews.length > 0) {
+          reviewsData = data.reviews;
+          track.innerHTML = reviewsData.map(createReviewCardHtml).join('');
+          if (countLabel) {
+            countLabel.textContent = reviewsData.length + ' Verified Reviews';
+          }
+          currentIdx = 0;
+          renderDots();
+          updateSlider();
+        }
+      }
+    } catch (e) {
+      console.log('Reviews fetch fallback active');
+    }
+    renderDots();
+  }
+
+  window.addEventListener('resize', function() {
+    renderDots();
+    updateSlider();
+  });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadReviews);
+  } else {
+    loadReviews();
+  }
+})();
+
+</script>
 </body>
 </html>

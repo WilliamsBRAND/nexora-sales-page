@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verified Feedback &middot; NEXORA</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crimson:#7A0A15;
+  --crimson-dark:#4f0710;
+  --crimson-bright:#9B0D1A;
+  --panel:#141414;
+  --bg:#0A0A0A;
+  --line:rgba(255,255,255,.1);
+  --line-strong:rgba(255,255,255,.18);
+  --muted:#999;
+  --gold:#f59e0b;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Montserrat',sans-serif;
+  color:#fff;
+  background:var(--bg);
+  line-height:1.6;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+a{text-decoration:none;color:inherit;}
+
+.top-bar{
+  border-bottom:1px solid var(--line);
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(10,10,10,.8);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:'Archivo',sans-serif;
+  font-weight:900;
+  font-size:18px;
+  letter-spacing:-.01em;
+}
+.brand svg{width:28px;height:28px;}
+.back-link{
+  font-size:13px;
+  color:var(--muted);
+  font-weight:600;
+  transition:color .15s;
+}
+.back-link:hover{color:#fff;}
+
+.main-wrap{
+  max-width:620px;
+  width:100%;
+  margin:40px auto 60px;
+  padding:0 20px;
+  flex:1;
+}
+.fb-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:36px 32px;
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(34,197,94,.12);
+  border:1px solid rgba(34,197,94,.3);
+  color:#4ade80;
+  padding:5px 12px;
+  border-radius:999px;
+  font-size:11.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:16px;
+}
+h1{
+  font-family:'Archivo',sans-serif;
+  font-size:clamp(24px,4vw,32px);
+  font-weight:900;
+  letter-spacing:-.02em;
+  line-height:1.2;
+  margin-bottom:8px;
+}
+.sub{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:28px;
+  line-height:1.55;
+}
+
+.form-group{margin-bottom:20px;}
+label{
+  display:block;
+  font-size:11.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--muted);
+  margin-bottom:7px;
+}
+.req-tag{color:#f87171;font-size:12px;margin-left:2px;}
+.opt-tag{color:var(--muted);font-weight:400;text-transform:none;letter-spacing:normal;font-size:11.5px;margin-left:4px;}
+
+input, textarea, select{
+  width:100%;
+  padding:13px 15px;
+  font-size:14.5px;
+  font-family:inherit;
+  background:rgba(0,0,0,.4);
+  border:1px solid var(--line);
+  border-radius:9px;
+  color:#fff;
+  outline:none;
+  transition:border-color .15s;
+}
+input:focus, textarea:focus, select:focus{
+  border-color:var(--crimson-bright);
+}
+textarea{resize:vertical;min-height:110px;}
+
+/* Photo Upload Widget */
+.photo-upload-container{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  background:rgba(0,0,0,.25);
+  border:1px dashed var(--line-strong);
+  border-radius:12px;
+  padding:16px;
+  transition:border-color .2s;
+}
+.photo-upload-container:hover{
+  border-color:rgba(255,255,255,.3);
+}
+.photo-preview-circle{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:#1e1e1e;
+  border:2px solid rgba(255,255,255,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+  position:relative;
+}
+.photo-preview-circle img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:none;
+}
+.photo-preview-circle svg{
+  width:26px;
+  height:26px;
+  color:var(--muted);
+}
+.photo-controls{
+  flex:1;
+}
+.photo-btn-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.upload-btn-label{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  color:#fff;
+  padding:8px 14px;
+  border-radius:8px;
+  font-size:12.5px;
+  font-weight:700;
+  cursor:pointer;
+  transition:all .15s;
+}
+.upload-btn-label:hover{
+  background:rgba(255,255,255,.15);
+  border-color:rgba(255,255,255,.3);
+}
+.remove-photo-btn{
+  background:none;
+  border:none;
+  color:#f87171;
+  font-size:12px;
+  font-weight:600;
+  cursor:pointer;
+  padding:4px;
+  display:none;
+}
+.remove-photo-btn:hover{text-decoration:underline;}
+.photo-hint{
+  font-size:11.5px;
+  color:var(--muted);
+  margin-top:6px;
+}
+
+/* Star Rating System */
+.rating-box{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:6px;
+}
+.stars{
+  display:flex;
+  gap:6px;
+  cursor:pointer;
+}
+.star{
+  font-size:32px;
+  color:#444;
+  transition:transform .12s, color .12s;
+  user-select:none;
+}
+.star.active, .star.hover{
+  color:var(--gold);
+}
+.star:hover{transform:scale(1.15);}
+.rating-label{
+  font-size:13px;
+  font-weight:700;
+  color:var(--gold);
+  margin-left:8px;
+}
+
+.submit-btn{
+  width:100%;
+  padding:15px;
+  background:linear-gradient(135deg,var(--crimson-bright),var(--crimson));
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:9px;
+  color:#fff;
+  font-family:'Archivo',sans-serif;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+  transition:all .15s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:10px;
+}
+.submit-btn:hover{
+  background:linear-gradient(135deg,#b31020,var(--crimson-bright));
+  box-shadow:0 10px 25px -8px rgba(155,13,26,.6);
+  transform:translateY(-1px);
+}
+.submit-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+  transform:none;
+}
+
+/* Success State */
+.success-card{
+  display:none;
+  text-align:center;
+  padding:10px 0 20px;
+}
+.success-icon{
+  width:72px;
+  height:72px;
+  background:rgba(34,197,94,.15);
+  border:2px solid #4ade80;
+  color:#4ade80;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  margin:0 auto 20px;
+  animation:popIn .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes popIn{0%{transform:scale(0.5);opacity:0;}100%{transform:scale(1);opacity:1;}}
+.success-card h2{
+  font-family:'Archivo',sans-serif;
+  font-size:24px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+.success-card p{
+  color:var(--muted);
+  font-size:14.5px;
+  max-width:440px;
+  margin:0 auto 24px;
+}
+
+/* WhatsApp Success Button */
+.btn-wa-success{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  background:#25D366;
+  color:#fff;
+  font-family:'Archivo',sans-serif;
+  font-weight:800;
+  font-size:16px;
+  letter-spacing:-.01em;
+  padding:17px 32px;
+  border-radius:12px;
+  box-shadow:0 16px 36px -10px rgba(37,211,102,.55);
+  transition:all .15s;
+  width:100%;
+  max-width:480px;
+}
+.btn-wa-success:hover{
+  background:#1eb857;
+  transform:translateY(-2px);
+  box-shadow:0 20px 45px -12px rgba(37,211,102,.65);
+}
+.btn-wa-success svg{
+  width:24px;
+  height:24px;
+  flex-shrink:0;
+}
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <a href="/" class="brand">
+    <svg viewBox="0 0 100 100" fill="none" aria-label="Tomide Williams">
+      <circle cx="50" cy="50" r="46" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+      <path d="M 25 35 L 75 35" stroke="#7A0A15" stroke-width="7" stroke-linecap="square"/>
+      <path d="M 50 35 L 50 75" stroke="#7A0A15" stroke-width="7" stroke-linecap="square"/>
+      <path d="M 20 25 L 35 80 L 50 55 L 65 80 L 80 25" stroke="#050505" stroke-width="12" stroke-linejoin="bevel"/>
+      <path d="M 20 25 L 35 80 L 50 55 L 65 80 L 80 25" stroke="#ffffff" stroke-width="4" stroke-linejoin="bevel"/>
+    </svg>
+    <span>NEXORA</span>
+  </a>
+  <a href="/" class="back-link">&larr; Back to Homepage</a>
+</header>
+
+<main class="main-wrap">
+  <div class="fb-card">
+    
+    <!-- FORM VIEW -->
+    <div id="formView">
+      <div class="badge">✓ Verified Purchase Review</div>
+      <h1>Rate & Share Your Feedback</h1>
+      <p class="sub">Your feedback directly shapes NEXORA lessons and helps fellow learners step into their next era.</p>
+
+      <form id="fbForm" onsubmit="submitFeedback(event)">
+        
+        <!-- 1. Star Rating (REQUIRED) -->
+        <div class="form-group">
+          <label>Overall Rating <span class="req-tag">* (Required)</span></label>
+          <div class="rating-box">
+            <div class="stars" id="starContainer">
+              <span class="star active" data-val="1">&#9733;</span>
+              <span class="star active" data-val="2">&#9733;</span>
+              <span class="star active" data-val="3">&#9733;</span>
+              <span class="star active" data-val="4">&#9733;</span>
+              <span class="star active" data-val="5">&#9733;</span>
+            </div>
+            <span class="rating-label" id="ratingText">5.0 / 5.0 (Excellent)</span>
+          </div>
+          <input type="hidden" id="starRating" value="5" />
+        </div>
+
+        <!-- 2. Full Name (REQUIRED & PRE-FILLED) -->
+        <div class="form-group">
+          <label>Full Name <span class="req-tag">* (Required)</span></label>
+          <input type="text" id="custName" placeholder="e.g. Samuel Adekunle" required />
+        </div>
+
+        <!-- 3. Profile Photo (OPTIONAL) -->
+        <div class="form-group">
+          <label>Profile Picture <span class="opt-tag">(Optional)</span></label>
+          <div class="photo-upload-container">
+            <div class="photo-preview-circle" id="previewCircle">
+              <svg id="previewPlaceholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <img id="previewImg" alt="Profile preview" />
+            </div>
+            <div class="photo-controls">
+              <div class="photo-btn-row">
+                <label for="photoFileInput" class="upload-btn-label">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                  <span>Choose Photo</span>
+                </label>
+                <button type="button" class="remove-photo-btn" id="removePhotoBtn" onclick="removePhoto()">Remove</button>
+              </div>
+              <input type="file" id="photoFileInput" accept="image/*" style="display:none;" onchange="handlePhotoSelect(event)" />
+              <div class="photo-hint">Add your headshot to show beside your review (JPG, PNG, WebP).</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Role / Profession (OPTIONAL) -->
+        <div class="form-group">
+          <label>Your Profession / Location <span class="opt-tag">(Optional)</span></label>
+          <input type="text" id="custRole" placeholder="e.g. Software Developer · Lagos, Freelancer · Abuja, Student" />
+        </div>
+
+        <!-- 5. Review & Feedback (REQUIRED) -->
+        <div class="form-group">
+          <label>Your Review & Feedback <span class="req-tag">* (Required)</span></label>
+          <textarea id="custComment" placeholder="What are you most excited to learn in NEXORA? How was your experience joining?" required></textarea>
+        </div>
+
+        <input type="hidden" id="custEmail" value="" />
+        <input type="hidden" id="custRef" value="" />
+
+        <div id="errMsg" style="color:#ef4444;font-size:13px;margin-bottom:12px;display:none;"></div>
+
+        <button type="submit" class="submit-btn" id="subBtn">
+          <span>Submit Verified Review &rarr;</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- SUCCESS VIEW: DIRECTS TO WHATSAPP COMMUNITY -->
+    <div class="success-card" id="successView">
+      <div class="success-icon">&#10003;</div>
+      <h2>Thank You, <span id="confName">Learner</span>!</h2>
+      <p>Your verified review has been submitted and published. Join fellow students in the private WhatsApp community now:</p>
+      <div style="display:flex;justify-content:center;margin-top:10px;">
+        <a href="https://chat.whatsapp.com/LNC6ABmpaFN5b6we3ZuEpp" target="_blank" rel="noopener" class="btn-wa-success">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.19-.34.22-.63.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.21 5.1 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.45 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+          <span>Join the NEXORA WhatsApp Community &rarr;</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+var currentRating = 5;
+var uploadedPhotoBase64 = '';
+
+var ratingLabels = {
+  1: '1.0 / 5.0 (Poor)',
+  2: '2.0 / 5.0 (Fair)',
+  3: '3.0 / 5.0 (Good)',
+  4: '4.0 / 5.0 (Very Good)',
+  5: '5.0 / 5.0 (Excellent)'
+};
+
+// Setup URL params & localStorage pre-filling for name & email
+(function() {
+  var qs = new URLSearchParams(window.location.search);
+  var name = qs.get('name') || '';
+  var email = qs.get('email') || '';
+  var ref = qs.get('ref') || '';
+
+  try {
+    if (!name) name = localStorage.getItem('nexora_cust_name') || sessionStorage.getItem('nexora_cust_name') || '';
+    if (!email) email = localStorage.getItem('nexora_cust_email') || sessionStorage.getItem('nexora_cust_email') || '';
+  } catch (e) {}
+
+  if (name) document.getElementById('custName').value = name;
+  if (email) document.getElementById('custEmail').value = email;
+  if (ref) document.getElementById('custRef').value = ref;
+
+  initStars();
+})();
+
+function initStars() {
+  var stars = document.querySelectorAll('.star');
+  stars.forEach(function(s) {
+    s.addEventListener('click', function() {
+      var val = parseInt(this.getAttribute('data-val'), 10);
+      setRating(val);
+    });
+    s.addEventListener('mouseenter', function() {
+      var val = parseInt(this.getAttribute('data-val'), 10);
+      highlightStars(val);
+    });
+  });
+
+  document.getElementById('starContainer').addEventListener('mouseleave', function() {
+    highlightStars(currentRating);
+  });
+}
+
+function highlightStars(val) {
+  var stars = document.querySelectorAll('.star');
+  stars.forEach(function(s) {
+    var sVal = parseInt(s.getAttribute('data-val'), 10);
+    if (sVal <= val) s.classList.add('active');
+    else s.classList.remove('active');
+  });
+}
+
+function setRating(val) {
+  currentRating = val;
+  document.getElementById('starRating').value = val;
+  document.getElementById('ratingText').textContent = ratingLabels[val] || (val + '.0 / 5.0');
+  highlightStars(val);
+}
+
+// Handle Photo File Selection & Resize
+function handlePhotoSelect(e) {
+  var file = e.target.files && e.target.files[0];
+  if (!file) return;
+
+  if (!file.type.startsWith('image/')) {
+    alert('Please select a valid image file (JPG, PNG, or WebP).');
+    return;
+  }
+
+  var reader = new FileReader();
+  reader.onload = function(evt) {
+    var img = new Image();
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      var size = 200;
+      canvas.width = size;
+      canvas.height = size;
+      var ctx = canvas.getContext('2d');
+
+      var minDim = Math.min(img.width, img.height);
+      var sx = (img.width - minDim) / 2;
+      var sy = (img.height - minDim) / 2;
+      ctx.drawImage(img, sx, sy, minDim, minDim, 0, 0, size, size);
+
+      uploadedPhotoBase64 = canvas.toDataURL('image/jpeg', 0.85);
+
+      var pImg = document.getElementById('previewImg');
+      var pSvg = document.getElementById('previewPlaceholder');
+      var rBtn = document.getElementById('removePhotoBtn');
+
+      pImg.src = uploadedPhotoBase64;
+      pImg.style.display = 'block';
+      pSvg.style.display = 'none';
+      rBtn.style.display = 'inline-block';
+    };
+    img.src = evt.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function removePhoto() {
+  uploadedPhotoBase64 = '';
+  document.getElementById('photoFileInput').value = '';
+  var pImg = document.getElementById('previewImg');
+  var pSvg = document.getElementById('previewPlaceholder');
+  var rBtn = document.getElementById('removePhotoBtn');
+
+  pImg.style.display = 'none';
+  pImg.src = '';
+  pSvg.style.display = 'block';
+  rBtn.style.display = 'none';
+}
+
+function submitFeedback(e) {
+  e.preventDefault();
+  var name = document.getElementById('custName').value.trim();
+  var role = document.getElementById('custRole').value.trim();
+  var comment = document.getElementById('custComment').value.trim();
+  var email = document.getElementById('custEmail').value.trim();
+  var ref = document.getElementById('custRef').value.trim();
+  var rating = currentRating;
+  var btn = document.getElementById('subBtn');
+  var err = document.getElementById('errMsg');
+
+  if (!name) {
+    err.textContent = 'Please enter your name.';
+    err.style.display = 'block';
+    return;
+  }
+
+  if (!comment) {
+    err.textContent = 'Please enter your review and feedback.';
+    err.style.display = 'block';
+    return;
+  }
+
+  if (!rating || rating < 1 || rating > 5) {
+    err.textContent = 'Please select a star rating (1 to 5 stars).';
+    err.style.display = 'block';
+    return;
+  }
+
+  err.style.display = 'none';
+  btn.disabled = true;
+  btn.innerHTML = 'Submitting your review...';
+
+  var payload = {
+    name: name,
+    role: role || 'Verified Pre-Order Purchase',
+    comment: comment,
+    review: comment,
+    avatar: uploadedPhotoBase64 || '',
+    email: email,
+    reference: ref,
+    rating: rating
+  };
+
+  fetch('/api/feedback', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).then(function(r) { return r.json(); }).then(function(d) {
+    btn.disabled = false;
+    btn.innerHTML = '<span>Submit Verified Review &rarr;</span>';
+    if (d && d.ok) {
+      document.getElementById('formView').style.display = 'none';
+      document.getElementById('confName').textContent = name.split(' ')[0] || name;
+      document.getElementById('successView').style.display = 'block';
+    } else {
+      err.textContent = (d && d.error) || 'Could not submit feedback. Please try again.';
+      err.style.display = 'block';
+    }
+  }).catch(function() {
+    btn.disabled = false;
+    btn.innerHTML = '<span>Submit Verified Review &rarr;</span>';
+    err.textContent = 'Network error. Please try again.';
+    err.style.display = 'block';
+  });
+}
+</script>
+</body>
+</html>

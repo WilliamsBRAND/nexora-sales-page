@@ -315,11 +315,17 @@ main{padding:64px 0 80px;}
         ]
       },
       callback: function (response) {
+        try {
+          localStorage.setItem('nexora_cust_name', name);
+          localStorage.setItem('nexora_cust_email', email);
+          sessionStorage.setItem('nexora_cust_name', name);
+          sessionStorage.setItem('nexora_cust_email', email);
+        } catch (e) {}
         var url = '/thank-you?ref=' + encodeURIComponent(response.reference) +
-                  '#email=' + encodeURIComponent(email) +
-                  '#name=' + encodeURIComponent(name) +
-                  (partner ? '#pp=' + encodeURIComponent(partner) : '') +
-                  (offer ? '#offer=' + encodeURIComponent(offer) : '');
+                  '&email=' + encodeURIComponent(email) +
+                  '&name=' + encodeURIComponent(name) +
+                  (partner ? '&pp=' + encodeURIComponent(partner) : '') +
+                  (offer ? '&offer=' + encodeURIComponent(offer) : '');
         window.location.href = url;
       },
       onClose: function () {

@@ -1,0 +1,672 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Â· NEXORA</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0c;
+  --card: #121216;
+  --card-border: rgba(255, 255, 255, 0.09);
+  --card-glow: rgba(122, 10, 21, 0.18);
+  --input-bg: #17171c;
+  --input-border: rgba(255, 255, 255, 0.12);
+  --text: #f4f4f6;
+  --muted: #a1a1aa;
+  --muted-soft: #71717a;
+  --crimson: #7A0A15;
+  --crimson-hover: #980D1B;
+  --crimson-glow: rgba(122, 10, 21, 0.35);
+  --gold: #fbbf24;
+  --emerald: #10b981;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ambient glow background */
+body::before {
+  content: "";
+  position: fixed;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 680px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(122, 10, 21, 0.22) 0%, rgba(10, 10, 12, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* Navigation */
+.nav-wrap {
+  padding: 22px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  z-index: 10;
+}
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  font-size: 19px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.brand-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(122, 10, 21, 0.3);
+  color: #ff8591;
+  border: 1px solid rgba(122, 10, 21, 0.6);
+  padding: 3px 9px;
+  border-radius: 999px;
+  margin-left: 4px;
+}
+.back-btn {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--muted);
+  transition: color 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.back-btn:hover {
+  color: #fff;
+}
+
+/* Main Container */
+.main-container {
+  max-width: 620px;
+  width: 100%;
+  margin: 36px auto 72px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+  flex: 1;
+}
+
+/* Card */
+.reg-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 44px 40px;
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.7), 0 0 40px -10px var(--card-glow);
+}
+
+@media (max-width: 640px) {
+  .main-container {
+    margin: 16px auto 40px;
+    padding: 0 14px;
+  }
+  .reg-card {
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+}
+
+/* Header Area */
+.header-area {
+  margin-bottom: 30px;
+  text-align: left;
+}
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ff9da7;
+  background: rgba(122, 10, 21, 0.25);
+  border: 1px solid rgba(255, 87, 104, 0.3);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.main-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.sub-text {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 22px;
+}
+.form-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #f4f4f5;
+  margin-bottom: 8px;
+}
+.form-label .req {
+  color: #ff6b7b;
+  margin-left: 2px;
+}
+.form-label .opt {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted-soft);
+  margin-left: 4px;
+}
+
+.text-input, .select-input, .text-area {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  padding: 13px 15px;
+  font-size: 14.5px;
+  font-family: inherit;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.text-input:focus, .select-input:focus, .text-area:focus {
+  border-color: #ff4d61;
+  background: #1c1c22;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.18);
+}
+.text-input::placeholder, .text-area::placeholder {
+  color: #55555c;
+}
+
+/* Options Grid for Where Did You Hear */
+.pills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 9px;
+  margin-top: 6px;
+}
+.pill-option {
+  position: relative;
+  cursor: pointer;
+}
+.pill-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.pill-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: all 0.15s ease;
+  user-select: none;
+  text-align: center;
+}
+.pill-option:hover .pill-box {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  background: #1b1b20;
+}
+.pill-option input:checked + .pill-box {
+  background: rgba(122, 10, 21, 0.35);
+  border-color: #ff5768;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(122, 10, 21, 0.4);
+}
+
+.other-input-wrap {
+  margin-top: 10px;
+  display: none;
+}
+.other-input-wrap.active {
+  display: block;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  background: var(--crimson);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Archivo', sans-serif;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  box-shadow: 0 10px 28px -6px var(--crimson-glow);
+}
+.submit-btn:hover:not(:disabled) {
+  background: var(--crimson-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px -6px rgba(155, 13, 26, 0.55);
+}
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: none;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-msg {
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  color: #fca5a5;
+  padding: 12px 16px;
+  border-radius: 9px;
+  font-size: 13.5px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+/* Success Card View */
+.success-view {
+  display: none;
+  text-align: center;
+  padding: 20px 0 10px;
+}
+.success-view.active {
+  display: block;
+}
+.success-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.12);
+  border: 2px solid rgba(16, 185, 129, 0.4);
+  color: var(--emerald);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.success-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.success-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 26px;
+}
+.ref-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: #e4e4e7;
+  margin-bottom: 28px;
+  display: inline-block;
+}
+.ref-box span {
+  color: var(--gold);
+  font-weight: 700;
+  font-family: monospace;
+}
+.success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 380px;
+  margin: 0 auto;
+}
+.action-btn-primary {
+  background: var(--crimson);
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  display: block;
+}
+.action-btn-primary:hover {
+  background: var(--crimson-hover);
+  transform: translateY(-1px);
+}
+.action-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e4e4e7;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.15s ease;
+  display: block;
+}
+.action-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 13px;
+  color: var(--muted-soft);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 10;
+}
+</style>
+</head>
+<body>
+
+<div class="nav-wrap">
+  <a href="/" class="brand-link">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="8" fill="#7A0A15"/>
+      <path d="M9 23L16 9L23 23H18.5L16 17.5L13.5 23H9Z" fill="#FFFFFF"/>
+    </svg>
+    NEXORA
+    <span class="brand-badge">Registration</span>
+  </a>
+  <a href="/" class="back-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m15 18-6-6 6-6"/>
+    </svg>
+    Back to Home
+  </a>
+</div>
+
+<div class="main-container">
+  <div class="reg-card">
+    
+    <!-- FORM VIEW -->
+    <div id="formView">
+      <div class="header-area">
+        <div class="tag-pill">
+          <span>â—</span> Manual Payer Registration
+        </div>
+        <h1 class="main-title">Complete Your NEXORA Registration</h1>
+        <p class="sub-text">
+          Thank you for joining NEXORA! Kindly fill out this official form with your details to confirm your registration and gain immediate access.
+        </p>
+      </div>
+
+      <div id="errorMsg" class="error-msg"></div>
+
+      <form id="regForm" onsubmit="handleRegistration(event)">
+        <!-- 1. Full Name -->
+        <div class="form-group">
+          <label class="form-label" for="fullName">
+            Full Name <span class="req">*</span>
+          </label>
+          <input type="text" id="fullName" name="name" class="text-input" placeholder="e.g. Tunde Williams" required autocomplete="name">
+        </div>
+
+        <!-- 2. Email Address -->
+        <div class="form-group">
+          <label class="form-label" for="emailAddr">
+            Email Address <span class="req">*</span>
+          </label>
+          <input type="email" id="emailAddr" name="email" class="text-input" placeholder="e.g. you@example.com" required autocomplete="email">
+        </div>
+
+        <!-- 3. Phone / WhatsApp -->
+        <div class="form-group">
+          <label class="form-label" for="phoneNum">
+            Phone / WhatsApp Number <span class="req">*</span>
+          </label>
+          <input type="tel" id="phoneNum" name="phone" class="text-input" placeholder="e.g. 08012345678 or +234..." required autocomplete="tel">
+        </div>
+
+        <!-- 4. Where did you hear about this? -->
+        <div class="form-group">
+          <label class="form-label">
+            Where did you hear about this? <span class="req">*</span>
+          </label>
+          <div class="pills-grid">
+            <label class="pill-option">
+              <input type="radio" name="heardFrom" value="Tomide" required onchange="toggleOther(false)">
+              <span class="pill-box">Tomide</span>
+            </label>
+            <label class="pill-option">
+              <input type="radio" name="heardFrom" value="X (Twitter)" onchange="toggleOther(false)">
+              <span class="pill-box">X (Twitter)</span>
+            </label>
+            <label class="pill-option">
+              <input type="radio" name="heardFrom" value="LinkedIn" onchange="toggleOther(false)">
+              <span class="pill-box">LinkedIn</span>
+            </label>
+            <label class="pill-option">
+              <input type="radio" name="heardFrom" value="WhatsApp" onchange="toggleOther(false)">
+              <span class="pill-box">WhatsApp</span>
+            </label>
+            <label class="pill-option">
+              <input type="radio" name="heardFrom" value="Facebook" onchange="toggleOther(false)">
+              <span class="pill-box">Facebook</span>
+            </label>
+            <label class="pill-option">
+              <input type="radio" name="heardFrom" value="IG (Instagram)" onchange="toggleOther(false)">
+              <span class="pill-box">IG (Instagram)</span>
+            </label>
+            <label class="pill-option">
+              <input type="radio" name="heardFrom" value="Friend" onchange="toggleOther(false)">
+              <span class="pill-box">Friend</span>
+            </label>
+            <label class="pill-option">
+              <input type="radio" name="heardFrom" value="Other" onchange="toggleOther(true)">
+              <span class="pill-box">Other...</span>
+            </label>
+          </div>
+          <div id="otherInputWrap" class="other-input-wrap">
+            <input type="text" id="heardFromOther" name="heardFromOther" class="text-input" placeholder="Please specify where you heard about us">
+          </div>
+        </div>
+
+        <!-- 5. Which of the modules interests you? -->
+        <div class="form-group">
+          <label class="form-label" for="moduleInterest">
+            Which of the modules interests you most? <span class="req">*</span>
+          </label>
+          <select id="moduleInterest" name="moduleInterest" class="select-input" required>
+            <option value="" disabled selected>-- Select a Module Focus --</option>
+            <option value="ALL OF THE ABOVE (Complete Suite)">ðŸŒŸ ALL OF THE ABOVE (Complete Suite)</option>
+            <option value="MONEY & INCOME">ðŸ’° MONEY & INCOME</option>
+            <option value="PERSONAL BRAND & LINKEDIN">ðŸš€ PERSONAL BRAND & LINKEDIN</option>
+            <option value="AI & TECH">ðŸ¤– AI & TECH</option>
+            <option value="MARKETING & SALES">ðŸ“ˆ MARKETING & SALES</option>
+            <option value="LIFE & PERSONAL GROWTH">ðŸŒ± LIFE & PERSONAL GROWTH</option>
+            <option value="CAREER & GLOBAL OPPORTUNITIES">ðŸŒ CAREER & GLOBAL OPPORTUNITIES</option>
+            <option value="BONUSES & RESOURCES">ðŸŽ BONUSES & SPECIAL RESOURCES</option>
+          </select>
+        </div>
+
+        <!-- 6. Proof of Payment / Transfer Note -->
+        <div class="form-group">
+          <label class="form-label" for="paymentProof">
+            Proof of Payment / Transfer Note <span class="opt">(Optional)</span>
+          </label>
+          <textarea id="paymentProof" name="paymentProof" class="text-area" rows="2" placeholder="Sender account name, bank name, or transaction date for quick verification"></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn" class="submit-btn">
+          <span>Complete Registration</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/>
+            <path d="m12 5 7 7-7 7"/>
+          </svg>
+          <div class="spinner" id="btnSpinner"></div>
+        </button>
+      </form>
+    </div>
+
+    <!-- SUCCESS VIEW -->
+    <div id="successView" class="success-view">
+      <div class="success-icon">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <h2 class="success-title">You're Registered! ðŸŽ‰</h2>
+      <p class="success-desc">
+        Welcome to <b style="color:#fff;">NEXORA</b>, <span id="confirmedName" style="color:#ff8591; font-weight:600;"></span>! Your manual registration has been recorded successfully. Check your email for further onboarding details.
+      </p>
+
+      <div class="ref-box">
+        Confirmation Reference: <span id="confirmedRef"></span>
+      </div>
+
+      <div class="success-actions">
+        <a href="/" class="action-btn-primary">
+          Go to Marketplace Home &rarr;
+        </a>
+        <a href="https://wa.me/2348000000000?text=Hi%20Tomide,%20I%20just%20completed%20my%20NEXORA%20registration" target="_blank" rel="noopener" class="action-btn-secondary">
+          Contact Support on WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 NEXORA. All rights reserved. Practical AI &amp; Career Acceleration.
+</footer>
+
+<script>
+function toggleOther(show) {
+  const wrap = document.getElementById('otherInputWrap');
+  const input = document.getElementById('heardFromOther');
+  if (show) {
+    wrap.classList.add('active');
+    input.focus();
+    input.required = true;
+  } else {
+    wrap.classList.remove('active');
+    input.required = false;
+    input.value = '';
+  }
+}
+
+async function handleRegistration(e) {
+  e.preventDefault();
+  const form = document.getElementById('regForm');
+  const errorMsg = document.getElementById('errorMsg');
+  const submitBtn = document.getElementById('submitBtn');
+  const spinner = document.getElementById('btnSpinner');
+
+  errorMsg.style.display = 'none';
+  errorMsg.textContent = '';
+
+  const formData = new FormData(form);
+  const data = {
+    name: formData.get('name'),
+    email: formData.get('email'),
+    phone: formData.get('phone'),
+    heardFrom: formData.get('heardFrom'),
+    heardFromOther: formData.get('heardFromOther'),
+    moduleInterest: formData.get('moduleInterest'),
+    paymentProof: formData.get('paymentProof'),
+  };
+
+  submitBtn.disabled = true;
+  spinner.style.display = 'block';
+
+  try {
+    const res = await fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json();
+
+    if (!res.ok || !result.ok) {
+      throw new Error(result.error || 'Registration failed. Please check your details and try again.');
+    }
+
+    // Show Success View
+    document.getElementById('formView').style.display = 'none';
+    document.getElementById('confirmedName').textContent = result.data?.name || data.name;
+    document.getElementById('confirmedRef').textContent = result.data?.reference || 'NEX-REG-CONFIRMED';
+    document.getElementById('successView').classList.add('active');
+
+  } catch (err) {
+    errorMsg.textContent = err.message;
+    errorMsg.style.display = 'block';
+  } finally {
+    submitBtn.disabled = false;
+    spinner.style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>

@@ -1,14 +1,5 @@
-// NEXORA â€” server-side Paystack transaction verification + paid confirmation.
+// NEXORA — server-side Paystack transaction verification + paid confirmation.
 // This runs ONLY on Vercel (secret key is never exposed to the browser).
-//
-// Flow: checkout.html -> Paystack inline -> redirect to /thank-you.html?ref=REF
-//       thank-you.html -> GET /api/verify-payment?reference=REF&email=..&name=..
-//       This function verifies the transaction with Paystack's secret key,
-//       then POSTs the verified row to the Apps Script webhook (Google Sheet).
-//
-// NOTE: Commission recording is NOT done here. The partners-platform Paystack
-// webhook (https://partners.tomidewilliams.com/api/paystack-webhook) is the
-// single authoritative source of truth for orders + commissions.
 
 const PAYSTACK_VERIFY = "https://api.paystack.co/transaction/verify/";
 
@@ -17,8 +8,11 @@ function json(res, status, body) {
   return res.end(JSON.stringify(body));
 }
 
+function paystackVerifyUrl(secretKey, reference) {
+  return PAYSTACK_VERIFY + encodeURIComponent(reference);
+}
+
 export default async function handler(req, res) {
-  // Only allow GET (simple, idempotent) â€” could also accept POST.
   const url = new URL(req.url, `http://${req.headers.host}`);
   const reference = url.searchParams.get("reference") || "";
   const email = url.searchParams.get("email") || "";
@@ -51,7 +45,7 @@ export default async function handler(req, res) {
     return json(res, 400, { ok: false, error: (tx && tx.message) || "Verification failed." });
   }
 
-  const status = data.status; // success | failed | abandoned | pending
+  const status = data.status;
   const amount = parseInt(data.amount, 10);
 
   if (status !== "success") {
@@ -77,43 +71,57 @@ export default async function handler(req, res) {
   // Verified: success + correct amount. Log to Google Sheet via Apps Script webhook.
   const sheetWebhook = process.env.SHEET_WEBHOOK_URL || "";
   let logged = false;
+  const source = partner ? `Affiliate (${partner})` : "Ads (Sales Page)";
+  const customerEmail = email || data.customer?.email || "";
+  const customerName = name || (data.customer?.first_name ? (data.customer.first_name + " " + (data.customer.last_name || "")).trim() : "");
+  const amountNaira = String(data.amount / 100);
+
   if (sheetWebhook) {
     try {
       const fp = new URL(sheetWebhook);
-      fp.searchParams.set("email", email || data.customer?.email || "");
-      fp.searchParams.set("name", name || "");
-      fp.searchParams.set("amount", String(data.amount / 100));
+      fp.searchParams.set("email", customerEmail);
+      fp.searchParams.set("name", customerName);
+      fp.searchParams.set("amount", amountNaira);
       fp.searchParams.set("reference", reference);
       fp.searchParams.set("status", status);
       fp.searchParams.set("partner", partner || "");
-      const sr = await fetch(fp.toString(), { method: "POST" });
+      fp.searchParams.set("source", source);
+
+      const payload = {
+        name: customerName,
+        email: customerEmail,
+        amount: amountNaira,
+        reference: reference,
+        status: status,
+        partner: partner || "",
+        source: source
+      };
+
+      const sr = await fetch(fp.toString(), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
       logged = sr.ok;
     } catch (err) {
       logged = false;
     }
   }
 
-  // Commissions are NOT recorded here anymore. The partners-platform
-  // (https://partners.tomidewilliams.com/api/paystack-webhook) is the single,
-  // authoritative source of truth for orders + commissions via its Paystack
-  // webhook. The legacy conversions/offers tables are no longer written.
-  let commissionRecorded = false;
-
   return json(res, 200, {
     ok: true,
     paid: true,
-    status,
+    status: "success",
     reference,
-    logged,
-    commissionRecorded,
-    customer: data.customer ? data.customer.email : email,
-    amount: data.amount / 100,
+    amount: data.amount,
+    currency: data.currency,
+    customer: {
+      email: customerEmail,
+      name: customerName,
+    },
+    paid_at: data.paid_at,
+    partner: partner || null,
+    source,
+    sheet_logged: logged,
   });
 }
-
-// tiny helper kept inline to avoid accidental secret-key in any client bundle
-function paystackVerifyUrl(secret, reference) {
-  return PAYSTACK_VERIFY + encodeURIComponent(reference);
-}
-
-

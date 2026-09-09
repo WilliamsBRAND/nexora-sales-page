@@ -1,0 +1,2359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>NEXORA: A Special Birthday Offer &middot; Everything You Need to Step Into Your Next Era</title>
+<meta name="description" content="A practical collection of lessons about making money, building a better career, finding clients, using AI, creating opportunities and rising again when life does not go as planned. Created by Tomide Williams · AI, Tech & Marketing Specialist.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --crimson: #7A0A15;
+  --crimson-hover: #9B0D1A;
+  --crimson-glow: rgba(122, 10, 21, 0.35);
+  --crimson-soft: rgba(122, 10, 21, 0.15);
+  --crimson-border: rgba(122, 10, 21, 0.4);
+  --black: #080808;
+  --bg: #0a0a0a;
+  --panel: #121212;
+  --panel-2: #181818;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.15);
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --muted-2: #71717a;
+  --green: #22c55e;
+  --green-bg: rgba(34, 197, 94, 0.12);
+  --gold: #fbbf24;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+
+/* ---- TOP NAVBAR ---- */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  width: 100%;
+}
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+.brand-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.brand-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--crimson-soft);
+  color: #f87171;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--crimson-border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.brand-badge::before {
+  content: "★";
+  color: var(--gold);
+  font-size: 10px;
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nav-price {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+}
+.nav-btn {
+  background: var(--crimson);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px var(--crimson-glow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.nav-btn:hover {
+  background: var(--crimson-hover);
+  transform: translateY(-1px);
+}
+
+/* ---- CONTAINER ---- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 110px;
+  width: 100%;
+}
+
+/* ---- PRODUCT HERO SHOWCASE (DESKTOP: 70% IMAGE / 30% MARKETPLACE UI) ---- */
+.product-hero {
+  display: grid;
+  grid-template-columns: 2.3fr 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+/* Gallery (70% column) */
+.gallery-wrap {
+  position: sticky;
+  top: 90px;
+  width: 100%;
+}
+.main-img-box {
+  background: radial-gradient(circle at center, #1f1f1f 0%, #0d0d0d 100%);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 16 / 10.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+.main-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.img-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.thumbs-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+}
+.thumbs-row::-webkit-scrollbar { height: 4px; }
+.thumbs-row::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 4px; }
+
+.thumb-btn {
+  flex: 0 0 68px;
+  height: 48px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background: #181818;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s;
+  scroll-snap-align: start;
+}
+.thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.thumb-btn.active, .thumb-btn:hover {
+  border-color: var(--crimson);
+  box-shadow: 0 0 10px var(--crimson-glow);
+}
+
+/* Product Details (Conservative 30% Marketplace UI) */
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Minimalist Text Creator & Proof Meta */
+.creator-meta-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.creator-text-line {
+  font-size: 12px;
+  color: #a1a1aa;
+  line-height: 1.35;
+}
+.creator-text-line .c-by { color: #71717a; }
+.creator-text-line .c-name { color: #ffffff; font-weight: 700; }
+.creator-text-line .c-sep { color: rgba(255, 255, 255, 0.25); margin: 0 3px; }
+.creator-text-line .c-role { color: #e88a93; font-weight: 600; }
+
+.proof-text-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #4ade80;
+  line-height: 1.35;
+}
+.stars-gold {
+  color: #fbbf24;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+.proof-count {
+  color: #86efac;
+  font-weight: 500;
+}
+
+.product-h1 {
+  font-family: 'Archivo', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.product-sub {
+  font-size: 13.5px;
+  color: #a1a1aa;
+  line-height: 1.55;
+}
+
+/* Price & CTA Box */
+.price-card {
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  width: 100%;
+}
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.cur-price {
+  font-family: 'Archivo', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.old-price {
+  font-size: 14px;
+  color: var(--muted-2);
+  text-decoration: line-through;
+  font-weight: 600;
+}
+.save-pill {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.cta-btn-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--crimson);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 18px var(--crimson-glow);
+  transition: all 0.2s;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+}
+.cta-btn-main:hover {
+  background: var(--crimson-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px var(--crimson-glow);
+}
+.guarantee-note {
+  font-size: 11px;
+  color: var(--muted-2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ---- VSL SECTION ---- */
+.vsl-section {
+  margin: 40px 0 50px;
+  width: 100%;
+}
+.vsl-card {
+  background: linear-gradient(180deg, #161616 0%, #0d0d0d 100%);
+  border: 1px solid rgba(122, 10, 21, 0.45);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 30px rgba(122,10,21,0.15);
+  width: 100%;
+}
+.vsl-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.vsl-player-box {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+  background: #000;
+}
+.vsl-thumbnail-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+.vsl-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+.vsl-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(0,0,0,0.35);
+}
+.vsl-play-btn {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.vsl-play-btn svg {
+  width: 100%;
+  height: 100%;
+}
+.vsl-play-text {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+/* ---- AUTHOR FEATURE CARD ---- */
+.author-feature-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+  background: linear-gradient(135deg, rgba(122, 10, 21, 0.15) 0%, rgba(18, 18, 18, 0.95) 100%);
+  border: 1px solid rgba(122, 10, 21, 0.35);
+  border-radius: 20px;
+  padding: 28px;
+  margin: 32px 0;
+  align-items: center;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.4);
+  width: 100%;
+}
+.author-portrait-box {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+}
+.author-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.author-portrait-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+.author-feature-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.af-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f87171;
+}
+.af-name {
+  font-family: 'Archivo', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+}
+.af-role {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #e88a93;
+}
+.af-bio {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ---- CONTENT SECTIONS & LETTER ---- */
+.content-section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  width: 100%;
+}
+.sec-eyebrow {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #f87171;
+  margin-bottom: 10px;
+}
+.sec-eyebrow.center { text-align: center; }
+.sec-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+.sec-title.center { text-align: center; }
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 16px;
+  color: #d4d4d8;
+  line-height: 1.75;
+}
+.prose p strong { color: #fff; }
+.prose .quote-box {
+  background: rgba(122, 10, 21, 0.1);
+  border-left: 3px solid var(--crimson);
+  padding: 16px 20px;
+  border-radius: 0 12px 12px 0;
+  font-size: 16px;
+  font-style: italic;
+  color: #f4f4f5;
+  margin: 10px 0;
+}
+
+.check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0;
+}
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  color: #e4e4e7;
+  line-height: 1.55;
+}
+.check-list li::before {
+  content: "✓";
+  flex: 0 0 20px;
+  height: 20px;
+  background: var(--green-bg);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: var(--green);
+  font-weight: 900;
+  font-size: 11px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+/* Bullet list */
+.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0;
+}
+.bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  color: #d1d5db;
+}
+.bullet-list li::before {
+  content: "•";
+  color: var(--crimson);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ---- ACCORDION MODULES ---- */
+.categories-wrap {
+  margin: 60px 0;
+  width: 100%;
+}
+.modules-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.module-acc-item {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  width: 100%;
+}
+.module-acc-item:hover { border-color: rgba(122, 10, 21, 0.45); }
+.module-acc-item.open {
+  border-color: rgba(122, 10, 21, 0.6);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+.module-acc-header {
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  background: var(--panel);
+  gap: 16px;
+}
+.module-acc-header:hover { background: var(--panel-2); }
+.mod-hdr-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+.mod-badge {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f87171;
+}
+.mod-hdr-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.3;
+}
+.mod-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+.mod-val-pill {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  white-space: nowrap;
+}
+.mod-toggle-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--panel-2);
+  border: 1px solid var(--line-strong);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, background 0.2s;
+  flex-shrink: 0;
+}
+.module-acc-item.open .mod-toggle-icon {
+  transform: rotate(45deg);
+  background: var(--crimson);
+  border-color: var(--crimson);
+}
+
+.module-acc-body {
+  display: none;
+  padding: 0 22px 22px;
+  border-top: 1px solid var(--line);
+  background: #0d0d0d;
+}
+.module-acc-item.open .module-acc-body { display: block; }
+.mod-body-inner {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding-top: 20px;
+  width: 100%;
+}
+.mod-img-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+  width: 100%;
+}
+.mod-img-wrap img { width: 100%; height: auto; object-fit: cover; }
+.mod-lessons-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+}
+.mod-desc-text {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.mod-video-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+}
+.video-lesson-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: #e4e4e7;
+  width: 100%;
+}
+.vl-icon {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+}
+.vl-title {
+  flex: 1;
+  font-weight: 500;
+  line-height: 1.4;
+  word-break: break-word;
+}
+.vl-dur {
+  font-size: 11.5px;
+  color: var(--muted-2);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.vl-price {
+  font-size: 12px;
+  font-weight: 700;
+  color: #f87171;
+  font-family: 'Archivo', sans-serif;
+  white-space: nowrap;
+  background: rgba(122, 10, 21, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.mod-summary-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: rgba(122, 10, 21, 0.1);
+  border: 1px solid rgba(122, 10, 21, 0.3);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 4px;
+  gap: 8px;
+}
+.mod-total-val {
+  font-family: 'Archivo', sans-serif;
+  font-size: 15.5px;
+  color: #4ade80;
+}
+
+/* Grand Total Card */
+.grand-total-card {
+  background: linear-gradient(135deg, rgba(122, 10, 21, 0.25) 0%, rgba(18, 18, 18, 1) 100%);
+  border: 1px solid rgba(122, 10, 21, 0.5);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+.gt-tag {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #f87171;
+  text-transform: uppercase;
+}
+.gt-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  margin: 4px 0;
+}
+.gt-sub { font-size: 13px; color: var(--muted); }
+.gt-pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: right;
+}
+.gt-val-row { font-size: 13.5px; color: var(--muted); }
+.gt-orig {
+  font-weight: 800;
+  color: var(--muted-2);
+  text-decoration: line-through;
+  margin-left: 6px;
+}
+.gt-bday-row {
+  font-size: 14.5px;
+  color: #fff;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.gt-deal {
+  font-family: 'Archivo', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: #22c55e;
+}
+
+/* Bonuses */
+.bonuses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+  width: 100%;
+}
+.bonus-card {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bonus-num {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f87171;
+}
+.bonus-title {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.3;
+}
+.bonus-desc {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Summary Box */
+.summary-box {
+  background: linear-gradient(180deg, rgba(122, 10, 21, 0.15) 0%, rgba(18, 18, 18, 1) 100%);
+  border: 1px solid rgba(122, 10, 21, 0.45);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 50px auto;
+  max-width: 860px;
+  text-align: center;
+  width: 100%;
+}
+.summary-items {
+  max-width: 580px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+/* FAQ Accordion */
+.faq-wrap {
+  max-width: 860px;
+  margin: 50px auto;
+  width: 100%;
+}
+.faq-item {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.faq-q {
+  padding: 16px 18px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  gap: 12px;
+}
+.faq-q span {
+  font-size: 18px;
+  font-weight: 800;
+  flex-shrink: 0;
+  color: var(--muted-2);
+}
+.faq-a {
+  display: none;
+  padding: 0 18px 18px;
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-q { color: #f87171; }
+.faq-item.open .faq-q span { color: #f87171; }
+
+/* Sticky Bottom Bar */
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--line-strong);
+  padding: 10px 20px;
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+  gap: 14px;
+  width: 100%;
+  max-width: 100vw;
+}
+.sb-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.sb-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.sb-name {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sb-price {
+  font-size: 14px;
+  font-weight: 900;
+  color: #22c55e;
+  font-family: 'Archivo', sans-serif;
+  white-space: nowrap;
+}
+.sb-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* ========================================================= */
+/* ===== MOBILE SPECIFIC MEDIA QUERY (STRICT & CLEAN) ===== */
+/* ========================================================= */
+@media (max-width: 860px) {
+  .container {
+    padding: 16px 14px 90px !important;
+    width: 100% !important;
+  }
+  .navbar {
+    padding: 10px 14px !important;
+  }
+  .brand-badge {
+    display: none !important;
+  }
+  .nav-price {
+    display: none !important;
+  }
+  .nav-btn {
+    padding: 8px 14px !important;
+    font-size: 12.5px !important;
+  }
+  .brand-title {
+    font-size: 17px !important;
+  }
+
+  /* 1. HERO PRODUCT CARD - FULL STACK & ZERO-WRAP PRECISION FOR ANDROID & IOS */
+  .product-hero {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    margin-bottom: 32px !important;
+    width: 100% !important;
+  }
+  .gallery-wrap {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .main-img-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 14px !important;
+  }
+  .thumbs-row {
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 6px !important;
+    margin-top: 8px !important;
+    padding-bottom: 4px !important;
+  }
+  .thumb-btn {
+    flex: 0 0 58px !important;
+    height: 42px !important;
+  }
+  .product-details {
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 12px !important;
+  }
+
+  /* Single-line Creator & Social Proof on Android & iOS */
+  .creator-meta-block {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    width: 100% !important;
+  }
+  .creator-text-line {
+    font-size: clamp(10px, 2.7vw, 12px) !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.35 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .creator-text-line .c-sep {
+    margin: 0 2px !important;
+  }
+  .proof-text-line {
+    font-size: clamp(10px, 2.6vw, 11.5px) !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    line-height: 1.35 !important;
+  }
+  .stars-gold {
+    font-size: clamp(10.5px, 2.7vw, 12px) !important;
+    letter-spacing: 1px !important;
+    flex-shrink: 0 !important;
+  }
+  .proof-count {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .product-h1 {
+    font-size: clamp(18px, 4.8vw, 21px) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+  }
+  .product-sub {
+    font-size: clamp(12.5px, 3.2vw, 14px) !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Price Card Single-Row on Android & iOS */
+  .price-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px 14px !important;
+    border-radius: 12px !important;
+    gap: 12px !important;
+  }
+  .price-row {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 6px !important;
+    flex-wrap: nowrap !important;
+  }
+  .cur-price {
+    font-size: clamp(22px, 6.2vw, 26px) !important;
+    white-space: nowrap !important;
+  }
+  .old-price {
+    font-size: clamp(12px, 3.4vw, 14px) !important;
+    white-space: nowrap !important;
+  }
+  .save-pill {
+    font-size: clamp(8.5px, 2.2vw, 10px) !important;
+    padding: 2px 5px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .cta-btn-main {
+    padding: 13px 16px !important;
+    font-size: 14px !important;
+    border-radius: 10px !important;
+  }
+  .guarantee-note {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* 2. VSL ON MOBILE */
+  .vsl-section {
+    margin: 28px 0 !important;
+  }
+  .vsl-card {
+    padding: 20px 14px !important;
+    border-radius: 16px !important;
+  }
+  .vsl-play-btn {
+    width: 52px !important;
+    height: 52px !important;
+  }
+  .vsl-play-text {
+    font-size: 12.5px !important;
+  }
+
+  /* 3. ABOUT CREATOR CARD ON MOBILE */
+  .author-feature-card {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 20px 16px !important;
+    gap: 16px !important;
+    border-radius: 16px !important;
+    text-align: left !important;
+    margin: 24px 0 !important;
+  }
+  .author-portrait-box {
+    max-width: 180px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    aspect-ratio: 4 / 5 !important;
+  }
+  .author-feature-info {
+    text-align: left !important;
+    width: 100% !important;
+  }
+  .af-name {
+    font-size: 22px !important;
+  }
+
+  /* 4. CONTENT SECTIONS & ACCORDIONS */
+  .content-section {
+    padding: 22px 16px !important;
+    border-radius: 16px !important;
+    margin-bottom: 24px !important;
+  }
+  .sec-title {
+    font-size: 22px !important;
+    margin-bottom: 16px !important;
+  }
+  .prose {
+    font-size: 15px !important;
+    gap: 14px !important;
+  }
+  .mod-body-inner {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .mod-img-wrap {
+    max-width: 260px !important;
+    margin: 0 auto !important;
+  }
+  .module-acc-header {
+    padding: 16px 14px !important;
+    gap: 10px !important;
+  }
+  .mod-hdr-title {
+    font-size: 15.5px !important;
+  }
+  .video-lesson-row {
+    flex-wrap: wrap !important;
+    gap: 6px 10px !important;
+    padding: 9px 10px !important;
+  }
+  .vl-title {
+    width: calc(100% - 32px) !important;
+    font-size: 13px !important;
+  }
+  .vl-dur {
+    margin-left: 32px !important;
+    font-size: 11px !important;
+  }
+  .vl-price {
+    margin-left: auto !important;
+    font-size: 11px !important;
+  }
+  .grand-total-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 20px 16px !important;
+    gap: 14px !important;
+  }
+  .gt-pricing {
+    text-align: left !important;
+    width: 100% !important;
+    border-top: 1px solid var(--line) !important;
+    padding-top: 12px !important;
+  }
+  .bonuses-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .summary-box {
+    padding: 24px 16px !important;
+    border-radius: 16px !important;
+  }
+  .sb-name {
+    display: none !important;
+  }
+  .sticky-bar {
+    padding: 8px 12px !important;
+  }
+  .sticky-bar .nav-btn {
+    padding: 8px 14px !important;
+    font-size: 12.5px !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAVBAR -->
+<div class="nav-wrap">
+  <div class="navbar">
+    <div class="brand-box">
+      <span class="brand-title">NEXORA</span>
+      <span class="brand-badge">A Special Birthday Offer</span>
+    </div>
+    <div class="nav-actions">
+      <span class="nav-price">₦7,490</span>
+      <a href="/checkout" class="nav-btn checkout-link">Pre-Order Now</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 2-COLUMN SHOWCASE HERO -->
+  <div class="product-hero">
+    
+    <!-- LEFT: Visual Gallery -->
+    <div class="gallery-wrap">
+      <div class="main-img-box">
+        <img id="mainImg" src="/assets/nexora-grand-stack-mockup.jpg" alt="NEXORA Complete 3D Value Stack">
+        <div class="img-badge">Instant Digital Access &middot; October 2026 Release</div>
+      </div>
+      <div class="thumbs-row">
+        <button class="thumb-btn active" onclick="setImg('/assets/nexora-grand-stack-mockup.jpg', this)">
+          <img src="/assets/nexora-grand-stack-mockup.jpg" alt="Grand Stack">
+        </button>
+        <button class="thumb-btn" onclick="setImg('/assets/tomide-williams.jpg', this)">
+          <img src="/assets/tomide-williams.jpg" alt="Tomide Williams">
+        </button>
+        <button class="thumb-btn" onclick="setImg('/assets/module-1-mockup.jpg', this)">
+          <img src="/assets/module-1-mockup.jpg" alt="Module 1">
+        </button>
+        <button class="thumb-btn" onclick="setImg('/assets/module-2-mockup.jpg', this)">
+          <img src="/assets/module-2-mockup.jpg" alt="Module 2">
+        </button>
+        <button class="thumb-btn" onclick="setImg('/assets/module-3-mockup.jpg', this)">
+          <img src="/assets/module-3-mockup.jpg" alt="Module 3">
+        </button>
+        <button class="thumb-btn" onclick="setImg('/assets/module-4-mockup.jpg', this)">
+          <img src="/assets/module-4-mockup.jpg" alt="Module 4">
+        </button>
+        <button class="thumb-btn" onclick="setImg('/assets/module-5-mockup.jpg', this)">
+          <img src="/assets/module-5-mockup.jpg" alt="Module 5">
+        </button>
+        <button class="thumb-btn" onclick="setImg('/assets/module-6-mockup.jpg', this)">
+          <img src="/assets/module-6-mockup.jpg" alt="Module 6">
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Product Details & Purchase Card -->
+    <div class="product-details">
+      <div class="creator-meta-block">
+        <div class="creator-text-line">
+          <span class="c-by">Created by</span> <strong class="c-name">Tomide Williams</strong> <span class="c-sep">|</span> <span class="c-role">AI, Tech & Marketing Specialist</span>
+        </div>
+        <div class="proof-text-line">
+          <span class="stars-gold">★★★★★</span> <span class="proof-count">(100+ people got it at pre-order, join them now)</span>
+        </div>
+      </div>
+
+      <h1 class="product-h1">NEXORA: Everything You Need to Step Into Your Next Era.</h1>
+
+      <p class="product-sub">
+        A practical collection of lessons about making money, building a better career, finding clients, using AI, creating opportunities and rising again when life does not go as planned.
+      </p>
+
+      <!-- Purchase Box -->
+      <div class="price-card">
+        <div class="price-row">
+          <div class="cur-price">₦7,490</div>
+          <div class="old-price">₦25,000</div>
+          <div class="save-pill">Birthday Pre-order</div>
+        </div>
+
+        <a href="/checkout" class="cta-btn-main checkout-link">
+          <span>PRE-ORDER NEXORA FOR ₦7,490</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+
+        <div class="guarantee-note">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Secure checkout through Paystack. You will receive an email confirmation immediately after payment.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- VIDEO SALES LETTER (VSL) -->
+  <div class="vsl-section">
+    <div class="vsl-card">
+      <div class="vsl-header">
+        <div class="sec-eyebrow center" style="margin-bottom:6px;">OFFICIAL OVERVIEW VIDEO</div>
+        <h2 class="sec-title center" style="margin-bottom:8px;font-size:clamp(20px, 3.2vw, 28px);">Watch This Before You Step Into Your Next Era</h2>
+        <p style="color:var(--muted);font-size:14.5px;text-align:center;max-width:620px;margin:0 auto 20px;">
+          A short personal walkthrough explaining how NEXORA was built and how you can use it immediately.
+        </p>
+      </div>
+      <div class="vsl-player-box">
+        <div class="vsl-thumbnail-wrap">
+          <img src="/assets/nexora-grand-stack-mockup.jpg" alt="NEXORA Video Sales Letter" class="vsl-poster">
+          <div class="vsl-play-overlay">
+            <div class="vsl-play-btn">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+            </div>
+            <span class="vsl-play-text">Click to Play Overview Video</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- A PERSONAL LETTER FROM ME TO YOU -->
+  <div class="content-section">
+    <div class="sec-eyebrow">A PERSONAL LETTER FROM ME TO YOU</div>
+    <h2 class="sec-title">I know what it feels like to want more from your life but not know exactly how to get there</h2>
+
+    <div class="prose">
+      <p>Maybe you know you are capable of earning more, but you do not know what to sell.</p>
+      <p>Maybe you want a better job, but you do not know how to position yourself.</p>
+      <p>Maybe you have a skill, qualification, experience or idea, but you have not figured out how to turn it into money.</p>
+      <p>Maybe you want clients, international opportunities or a stronger personal brand, but everything you have tried has produced little or no result.</p>
+      <p>Or maybe life did not go according to plan, and you are trying to find the courage and clarity to rise again.</p>
+      <p><strong>I understand that feeling.</strong></p>
+      <p>I did not start with everything figured out.</p>
+      <p>I have had seasons when I was confused about my career, worried about money, uncertain about my next move and forced to rebuild after things did not work out the way I expected.</p>
+      <p>I had to learn how to recognise the value in what I already knew.</p>
+      <p>I had to learn how to package my knowledge, position myself, sell my skills, build relationships, find opportunities and enter rooms I did not initially believe I belonged in.</p>
+      <p>I also had to learn how to bet on myself before other people could see what I was capable of.</p>
+      <p><strong>Those lessons changed my life.</strong></p>
+      <p>They helped me build a seven-figure monthly brand from my house, grow a LinkedIn community of more than 47,000 people, find international opportunities, attract clients, build digital products and create a career across marketing, sales, AI and technology.</p>
+      <p>But this is not only a story about me.</p>
+      <div class="quote-box">
+        "I created NEXORA because I believe you can rise too. You may not have everything you need yet, but you probably have more than you think."
+      </div>
+      <p>You may already have a skill, an experience, an idea, a small audience, a phone, a laptop or knowledge that can solve someone else’s problem.</p>
+      <p>Sometimes, the difference between where you are and where you want to be is learning how to see what you already have, package it properly and position it where the right people can find it.</p>
+      <p><strong>That is what I want NEXORA to help you do.</strong></p>
+    </div>
+  </div>
+
+  <!-- THIS IS MY BIRTHDAY OFFER TO YOU -->
+  <div class="content-section">
+    <div class="sec-eyebrow">THIS IS MY BIRTHDAY OFFER TO YOU</div>
+    <h2 class="sec-title">A shorter route to moving forward</h2>
+
+    <div class="prose">
+      <p>For my birthday, I wanted to create something that could genuinely help people move forward.</p>
+      <p>So I brought together some of the most important lessons I have learned about money, career growth, finding clients, building a personal brand, using AI, marketing, relationships and personal development.</p>
+      <p>These are not lessons I copied from the internet.</p>
+      <p>They come from the things I have tried, the mistakes I have made, the opportunities I nearly missed and the practical decisions that helped me move from one level of my life to another.</p>
+      <p>Some of these lessons cost me money. Some cost me time. Some took years to understand. Some came from difficult seasons when I had no choice but to reinvent myself.</p>
+      <p><strong>For my birthday, I want to give you a shorter route.</strong></p>
+      <p>NEXORA contains short, practical video lessons that you can watch, understand and begin to use immediately.</p>
+      <p>You do not need to finish one long course before you can benefit. You can go directly to the lesson that speaks to what you need right now.</p>
+      
+      <ul class="bullet-list">
+        <li>If you need to make more money, there is something for you.</li>
+        <li>If you need clients, there is something for you.</li>
+        <li>If you want a better career, there is something for you.</li>
+        <li>If you want to use AI, build your personal brand or find international opportunities, there is something for you.</li>
+        <li>If you are rebuilding your life after a setback, there is something for you too.</li>
+      </ul>
+
+      <div style="margin-top: 24px;">
+        <a href="/checkout" class="cta-btn-main checkout-link" style="max-width: 440px;">
+          <span>GET NEXORA AT THE BIRTHDAY PRICE (₦7,490)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHO IS NEXORA FOR? -->
+  <div class="content-section">
+    <div class="sec-eyebrow">WHO IS NEXORA FOR?</div>
+    <h2 class="sec-title">NEXORA is for you if you are:</h2>
+
+    <ul class="check-list">
+      <li>A student who wants to start making money before graduation</li>
+      <li>A graduate trying to choose the right career path</li>
+      <li>A job seeker looking for better opportunities</li>
+      <li>An employee who wants to earn more or move into a better role</li>
+      <li>A freelancer who wants to attract more clients</li>
+      <li>A business owner who wants to market and sell more effectively</li>
+      <li>A creator who wants to turn knowledge into income</li>
+      <li>A marketer or salesperson who wants to enter tech</li>
+      <li>A professional who wants to find international clients from Nigeria</li>
+      <li>Someone with a skill who does not know how to package or sell it</li>
+      <li>Someone who feels stuck and needs practical ideas for moving forward</li>
+      <li>Someone recovering from a setback and ready to rise again</li>
+      <li>Someone who knows that their income, career and opportunities can be better</li>
+    </ul>
+
+    <div class="quote-box" style="margin-top: 24px;">
+      You do not have to work in tech. You do not have to be an influencer. You do not need thousands of followers. You do not have to live outside Nigeria. You do not need to know how to code. You only need to be willing to learn and take action.
+    </div>
+  </div>
+
+  <!-- EVERYTHING YOU WILL GET INSIDE NEXORA (6 EXPANDABLE MODULES) -->
+  <div class="categories-wrap">
+    <div style="text-align:center;max-width:760px;margin:0 auto 32px;">
+      <div class="sec-eyebrow center">COMPLETE 6-PART CURRICULUM</div>
+      <h2 class="sec-title center">Everything You Will Get Inside NEXORA</h2>
+      <p style="color:var(--muted);font-size:15.5px;">
+        Click any module to expand and inspect the practical video lessons, durations, and standalone values. Total curriculum valuation: <strong style="color:#22c55e;">₦637,138</strong>.
+      </p>
+    </div>
+
+    <div class="modules-accordion-list">
+      
+      <!-- MODULE 01 -->
+      <div class="module-acc-item open" id="mod-1">
+        <div class="module-acc-header" onclick="toggleModule('mod-1')">
+          <div class="mod-hdr-left">
+            <div class="mod-badge">MODULE 01</div>
+            <h3 class="mod-hdr-title">CAREER AND GLOBAL OPPORTUNITIES</h3>
+            <div class="mod-meta-row">
+              <span class="mod-count">6 Video Lessons &middot; 1h 47m</span>
+              <span class="mod-val-pill">Value: ₦105,982</span>
+            </div>
+          </div>
+          <div class="mod-hdr-right">
+            <div class="mod-toggle-icon">+</div>
+          </div>
+        </div>
+        <div class="module-acc-body">
+          <div class="mod-body-inner">
+            <div class="mod-img-wrap">
+              <img src="/assets/module-1-mockup.jpg" alt="Module 01: Career and Global Opportunities Mockup">
+            </div>
+            <div class="mod-lessons-wrap">
+              <p class="mod-desc-text">Learn how to position yourself for better jobs, find opportunities earlier and build proof that makes people take you seriously.</p>
+              <ul class="mod-video-list">
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">Exposing you to new roles in 2026 your mentors don't know about.</span>
+                  <span class="vl-dur">18 mins</span>
+                  <span class="vl-price">₦18,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to build a portfolio even without years of experience.</span>
+                  <span class="vl-dur">17 mins</span>
+                  <span class="vl-price">₦14,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to position yourself and grab opportunities you don't perfectly qualify for.</span>
+                  <span class="vl-dur">19 mins</span>
+                  <span class="vl-price">₦19,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to build relationships that can change your life forever.</span>
+                  <span class="vl-dur">22 mins</span>
+                  <span class="vl-price">₦21,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to find opportunities before everyone else starts applying.</span>
+                  <span class="vl-dur">16 mins</span>
+                  <span class="vl-price">₦16,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How I dealt with the issue of lack of career clarity.</span>
+                  <span class="vl-dur">15 mins</span>
+                  <span class="vl-price">₦12,997</span>
+                </li>
+              </ul>
+              <div class="mod-summary-bar">
+                <span>Module 01 Total &middot; 1h 47m</span>
+                <span class="mod-total-val">₦105,982</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODULE 02 -->
+      <div class="module-acc-item" id="mod-2">
+        <div class="module-acc-header" onclick="toggleModule('mod-2')">
+          <div class="mod-hdr-left">
+            <div class="mod-badge">MODULE 02</div>
+            <h3 class="mod-hdr-title">MONEY AND INCOME</h3>
+            <div class="mod-meta-row">
+              <span class="mod-count">5 Video Lessons &middot; 1h 47m</span>
+              <span class="mod-val-pill">Value: ₦110,545</span>
+            </div>
+          </div>
+          <div class="mod-hdr-right">
+            <div class="mod-toggle-icon">+</div>
+          </div>
+        </div>
+        <div class="module-acc-body">
+          <div class="mod-body-inner">
+            <div class="mod-img-wrap">
+              <img src="/assets/module-2-mockup.jpg" alt="Module 02: Money and Income Mockup">
+            </div>
+            <div class="mod-lessons-wrap">
+              <p class="mod-desc-text">Learn how to recognise the value in what you already know and turn your skills, knowledge and experience into income.</p>
+              <ul class="mod-video-list">
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to build a 7-figure monthly brand from your house.</span>
+                  <span class="vl-dur">24 mins</span>
+                  <span class="vl-price">₦24,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to turn what you already know into something people will pay for.</span>
+                  <span class="vl-dur">20 mins</span>
+                  <span class="vl-price">₦18,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to build multiple income streams without learning new skills.</span>
+                  <span class="vl-dur">19 mins</span>
+                  <span class="vl-price">₦21,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to sell your skills to international clients from Nigeria.</span>
+                  <span class="vl-dur">21 mins</span>
+                  <span class="vl-price">₦24,557</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to create offers that no one can say no to.</span>
+                  <span class="vl-dur">23 mins</span>
+                  <span class="vl-price">₦19,997</span>
+                </li>
+              </ul>
+              <div class="mod-summary-bar">
+                <span>Module 02 Total &middot; 1h 47m</span>
+                <span class="mod-total-val">₦110,545</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODULE 03 -->
+      <div class="module-acc-item" id="mod-3">
+        <div class="module-acc-header" onclick="toggleModule('mod-3')">
+          <div class="mod-hdr-left">
+            <div class="mod-badge">MODULE 03</div>
+            <h3 class="mod-hdr-title">MARKETING AND SALES</h3>
+            <div class="mod-meta-row">
+              <span class="mod-count">5 Video Lessons &middot; 1h 36m</span>
+              <span class="mod-val-pill">Value: ₦99,985</span>
+            </div>
+          </div>
+          <div class="mod-hdr-right">
+            <div class="mod-toggle-icon">+</div>
+          </div>
+        </div>
+        <div class="module-acc-body">
+          <div class="mod-body-inner">
+            <div class="mod-img-wrap">
+              <img src="/assets/module-3-mockup.jpg" alt="Module 03: Marketing and Sales Mockup">
+            </div>
+            <div class="mod-lessons-wrap">
+              <p class="mod-desc-text">Learn how to package what you know, build offers people want and use marketing and sales to generate income.</p>
+              <ul class="mod-video-list">
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to break into tech as a Marketing and sales person.</span>
+                  <span class="vl-dur">17 mins</span>
+                  <span class="vl-price">₦16,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to break into product marketing with zero experience.</span>
+                  <span class="vl-dur">18 mins</span>
+                  <span class="vl-price">₦18,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to run Meta ads to sell your digital products or services.</span>
+                  <span class="vl-dur">22 mins</span>
+                  <span class="vl-price">₦23,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to turn your skills and knowledge into an offer people can't refuse.</span>
+                  <span class="vl-dur">23 mins</span>
+                  <span class="vl-price">₦19,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to use your WhatsApp status and communities to build a multi-million brand.</span>
+                  <span class="vl-dur">20 mins</span>
+                  <span class="vl-price">₦21,997</span>
+                </li>
+              </ul>
+              <div class="mod-summary-bar">
+                <span>Module 03 Total &middot; 1h 36m</span>
+                <span class="mod-total-val">₦99,985</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODULE 04 -->
+      <div class="module-acc-item" id="mod-4">
+        <div class="module-acc-header" onclick="toggleModule('mod-4')">
+          <div class="mod-hdr-left">
+            <div class="mod-badge">MODULE 04</div>
+            <h3 class="mod-hdr-title">PERSONAL BRAND AND LINKEDIN</h3>
+            <div class="mod-meta-row">
+              <span class="mod-count">5 Video Lessons &middot; 1h 30m</span>
+              <span class="mod-val-pill">Value: ₦100,545</span>
+            </div>
+          </div>
+          <div class="mod-hdr-right">
+            <div class="mod-toggle-icon">+</div>
+          </div>
+        </div>
+        <div class="module-acc-body">
+          <div class="mod-body-inner">
+            <div class="mod-img-wrap">
+              <img src="/assets/module-4-mockup.jpg" alt="Module 04: Personal Brand and LinkedIn Mockup">
+            </div>
+            <div class="mod-lessons-wrap">
+              <p class="mod-desc-text">Learn how to build authority, attract opportunities and make LinkedIn work for you without becoming a full-time content creator.</p>
+              <ul class="mod-video-list">
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How I built a brand that positioned me for global opportunities.</span>
+                  <span class="vl-dur">19 mins</span>
+                  <span class="vl-price">₦22,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How people make money from LinkedIn even with no reach or visibility.</span>
+                  <span class="vl-dur">18 mins</span>
+                  <span class="vl-price">₦19,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to build authority and influence without a massive audience.</span>
+                  <span class="vl-dur">17 mins</span>
+                  <span class="vl-price">₦16,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">The right way to attract jobs, clients and opportunities without posting every day.</span>
+                  <span class="vl-dur">20 mins</span>
+                  <span class="vl-price">₦21,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to make LinkedIn work for you even when you're away.</span>
+                  <span class="vl-dur">16 mins</span>
+                  <span class="vl-price">₦18,557</span>
+                </li>
+              </ul>
+              <div class="mod-summary-bar">
+                <span>Module 04 Total &middot; 1h 30m</span>
+                <span class="mod-total-val">₦100,545</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODULE 05 -->
+      <div class="module-acc-item" id="mod-5">
+        <div class="module-acc-header" onclick="toggleModule('mod-5')">
+          <div class="mod-hdr-left">
+            <div class="mod-badge">MODULE 05</div>
+            <h3 class="mod-hdr-title">AI AND TECH</h3>
+            <div class="mod-meta-row">
+              <span class="mod-count">6 Video Lessons &middot; 2h 00m</span>
+              <span class="mod-val-pill">Value: ₦122,542</span>
+            </div>
+          </div>
+          <div class="mod-hdr-right">
+            <div class="mod-toggle-icon">+</div>
+          </div>
+        </div>
+        <div class="module-acc-body">
+          <div class="mod-body-inner">
+            <div class="mod-img-wrap">
+              <img src="/assets/module-5-mockup.jpg" alt="Module 05: AI and Tech Mockup">
+            </div>
+            <div class="mod-lessons-wrap">
+              <p class="mod-desc-text">Learn how to use AI to become more valuable, work faster and build useful things without following the traditional developer route.</p>
+              <ul class="mod-video-list">
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to use AI in your career without changing Niche.</span>
+                  <span class="vl-dur">16 mins</span>
+                  <span class="vl-price">₦15,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to become an AI-Powered person.</span>
+                  <span class="vl-dur">18 mins</span>
+                  <span class="vl-price">₦18,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to build websites and apps with AI even if you don't know how to code.</span>
+                  <span class="vl-dur">25 mins</span>
+                  <span class="vl-price">₦24,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to build simple AI automations and agents without becoming a developer.</span>
+                  <span class="vl-dur">25 mins</span>
+                  <span class="vl-price">₦24,557</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">Simple secrets to finding jobs and clients in AI that no one talks about.</span>
+                  <span class="vl-dur">17 mins</span>
+                  <span class="vl-price">₦19,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">Breaking into tech and AI roles even with zero experiences.</span>
+                  <span class="vl-dur">19 mins</span>
+                  <span class="vl-price">₦17,997</span>
+                </li>
+              </ul>
+              <div class="mod-summary-bar">
+                <span>Module 05 Total &middot; 2h 00m</span>
+                <span class="mod-total-val">₦122,542</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODULE 06 -->
+      <div class="module-acc-item" id="mod-6">
+        <div class="module-acc-header" onclick="toggleModule('mod-6')">
+          <div class="mod-hdr-left">
+            <div class="mod-badge">MODULE 06</div>
+            <h3 class="mod-hdr-title">LIFE AND PERSONAL GROWTH</h3>
+            <div class="mod-meta-row">
+              <span class="mod-count">7 Video Lessons &middot; 1h 50m</span>
+              <span class="mod-val-pill">Value: ₦97,539</span>
+            </div>
+          </div>
+          <div class="mod-hdr-right">
+            <div class="mod-toggle-icon">+</div>
+          </div>
+        </div>
+        <div class="module-acc-body">
+          <div class="mod-body-inner">
+            <div class="mod-img-wrap">
+              <img src="/assets/module-6-mockup.jpg" alt="Module 06: Life and Personal Growth Mockup">
+            </div>
+            <div class="mod-lessons-wrap">
+              <p class="mod-desc-text">Learn how to become more intentional, use your time better, leave limiting environments and rebuild yourself when life forces you to begin again.</p>
+              <ul class="mod-video-list">
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to break free from mediocrity.</span>
+                  <span class="vl-dur">14 mins</span>
+                  <span class="vl-price">₦9,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to get the best out of your 24 hours.</span>
+                  <span class="vl-dur">18 mins</span>
+                  <span class="vl-price">₦12,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to leave friendships and environments that limits your potential.</span>
+                  <span class="vl-dur">15 mins</span>
+                  <span class="vl-price">₦14,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to bet on yourself before other people do.</span>
+                  <span class="vl-dur">13 mins</span>
+                  <span class="vl-price">₦11,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to become more intentional about the people and rooms around you.</span>
+                  <span class="vl-dur">14 mins</span>
+                  <span class="vl-price">₦15,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to reinvent yourself when you've outgrown your current life.</span>
+                  <span class="vl-dur">17 mins</span>
+                  <span class="vl-price">₦17,997</span>
+                </li>
+                <li class="video-lesson-row">
+                  <div class="vl-icon">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#7A0A15" stroke="#9B0D1A" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="#ffffff"/></svg>
+                  </div>
+                  <span class="vl-title">How to rebuild yourself after a major setback.</span>
+                  <span class="vl-dur">19 mins</span>
+                  <span class="vl-price">₦13,557</span>
+                </li>
+              </ul>
+              <div class="mod-summary-bar">
+                <span>Module 06 Total &middot; 1h 50m</span>
+                <span class="mod-total-val">₦97,539</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GRAND CURRICULUM TOTAL VALUE BANNER -->
+    <div class="grand-total-card">
+      <div class="gt-info">
+        <span class="gt-tag">COMPLETE VALUE RECAP</span>
+        <h3 class="gt-title">Total Curriculum Value</h3>
+        <p class="gt-sub">33 Video Lessons &middot; 6 Comprehensive Modules &middot; Lifetime Access</p>
+      </div>
+      <div class="gt-pricing">
+        <div class="gt-val-row">
+          <span class="gt-lbl">Total Real Value:</span>
+          <span class="gt-orig">₦637,138</span>
+        </div>
+        <div class="gt-bday-row">
+          <span class="gt-lbl">Birthday Pre-order:</span>
+          <span class="gt-deal">₦7,490</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL 8 BONUSES -->
+  <div class="content-section">
+    <div class="sec-eyebrow">EXCLUSIVE ADDITIONS</div>
+    <h2 class="sec-title">You Will Also Receive These 8 Bonuses</h2>
+
+    <div class="bonuses-grid">
+      <div class="bonus-card">
+        <div class="bonus-num">BONUS 01 <span style="color:#4ade80;font-size:11px;font-weight:700;margin-left:6px;">(Value: ₦27,997)</span></div>
+        <h4 class="bonus-title">How to Build an Irresistible Offer</h4>
+        <p class="bonus-desc">Learn how to package your skills, knowledge, product or service into an offer people genuinely want to buy.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">BONUS 02 <span style="color:#4ade80;font-size:11px;font-weight:700;margin-left:6px;">(Value: ₦14,997)</span></div>
+        <h4 class="bonus-title">How to Build Relationships That Open Doors</h4>
+        <p class="bonus-desc">Learn how to create meaningful professional relationships, enter valuable rooms and remain memorable without pretending.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">BONUS 03 <span style="color:#4ade80;font-size:11px;font-weight:700;margin-left:6px;">(Value: ₦17,997)</span></div>
+        <h4 class="bonus-title">How to Get Speaking Engagements</h4>
+        <p class="bonus-desc">Learn how to position yourself, package your ideas and find opportunities to speak at events and conferences.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">BONUS 04 <span style="color:#4ade80;font-size:11px;font-weight:700;margin-left:6px;">(Value: ₦11,997)</span></div>
+        <h4 class="bonus-title">How to Build Websites and Apps With Claude Code for Free</h4>
+        <p class="bonus-desc">Learn how to use AI to turn your ideas into functional websites and applications even if you are not a developer.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">BONUS 05 <span style="color:#4ade80;font-size:11px;font-weight:700;margin-left:6px;">(Value: ₦24,997)</span></div>
+        <h4 class="bonus-title">How to Find International Clients on Upwork</h4>
+        <p class="bonus-desc">Learn how to position your profile, identify the right opportunities and submit proposals that get responses.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">BONUS 06 <span style="color:#4ade80;font-size:11px;font-weight:700;margin-left:6px;">(Value: ₦29,997)</span></div>
+        <h4 class="bonus-title">How to Create AI Videos and Build Influence</h4>
+        <p class="bonus-desc">Learn how to use AI tools to create videos, communicate your ideas and grow your influence without expensive setups.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">BONUS 07 <span style="color:#4ade80;font-size:11px;font-weight:700;margin-left:6px;">(Value: ₦21,997)</span></div>
+        <h4 class="bonus-title">AI Prompts, Templates & Practical Resources</h4>
+        <p class="bonus-desc">Get reusable prompts, templates and resources that will help you apply the lessons faster.</p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">BONUS 08 <span style="color:#4ade80;font-size:11px;font-weight:700;margin-left:6px;">(Value: ₦47,997)</span></div>
+        <h4 class="bonus-title">Private NEXORA Community</h4>
+        <p class="bonus-desc">Join a community of people who are also working towards more income, better careers and bigger opportunities.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px; text-align: center;">
+      <a href="/checkout" class="cta-btn-main checkout-link" style="max-width: 440px; margin: 0 auto;">
+        <span>YES, I WANT NEXORA (₦7,490)</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- WHO AM I, AND WHY SHOULD YOU LISTEN TO ME? -->
+  <div class="content-section">
+    <div class="sec-eyebrow">ABOUT THE CREATOR</div>
+    <h2 class="sec-title">Who am I, and why should you listen to me?</h2>
+
+    <!-- Author Bio Card with Portrait -->
+    <div class="author-feature-card" style="margin-bottom: 28px;">
+      <div class="author-portrait-box">
+        <img src="/assets/tomide-williams.jpg" alt="Tomide Williams" class="author-portrait">
+        <div class="author-portrait-badge">Tomide Williams</div>
+      </div>
+      <div class="author-feature-info">
+        <div class="af-tag">AI, TECH & MARKETING SPECIALIST</div>
+        <h3 class="af-name">Tomide Williams</h3>
+        <p class="af-role">Product Marketing & AI Specialist &middot; 2x TEDx Speaker</p>
+        <p class="af-bio">
+          "Over the last few years, I have deliberately built my career, created offers, sold digital products, helped businesses go to market, found global opportunities and learned how to use AI to build faster. NEXORA is built strictly from real things I have practiced and proven."
+        </p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <p>My name is <strong>Tomide Williams</strong>.</p>
+      <p>I am an <strong>AI, Tech & Marketing Specialist</strong> and Technical Product Marketing Manager working across product, marketing, sales, AI and technology.</p>
+      <p>Over the last few years, I have deliberately built my career, created offers, sold digital products, helped businesses go to market, found global opportunities and learned how to use AI to build faster.</p>
+      <p>Along the way, I have been able to:</p>
+
+      <ul class="check-list">
+        <li>Build a personal brand and community of more than 47,000 people on LinkedIn</li>
+        <li>Build a seven-figure monthly brand from my house</li>
+        <li>Generate more than ₦17 million through WhatsApp in one year</li>
+        <li>Generate more than ₦50 million from my knowledge, communities and offers within three years</li>
+        <li>Position myself for global jobs, clients, speaking opportunities and partnerships</li>
+        <li>Help a B2B business acquire more than 100 paying customers</li>
+        <li>Help generate an estimated $20,000 to $30,000 in revenue for a B2B business</li>
+        <li>Build a database of more than 10,000 prospects for sales and customer acquisition</li>
+        <li>Build AI-powered websites, applications, automations and internal tools</li>
+        <li>Use LinkedIn, WhatsApp, content, communities, marketing and sales to create income and opportunities</li>
+        <li>Speak at more than 20 events</li>
+        <li>Speak on more than two TEDx stages</li>
+      </ul>
+
+      <p style="margin-top: 20px;">I am not sharing these things to impress you.</p>
+      <p>I am sharing them so you understand that NEXORA is built from things I have practised.</p>
+      <p>I cannot promise that watching videos alone will change your life. But I can show you the ideas, systems and decisions that have helped me create results, so you can apply them to your own journey.</p>
+    </div>
+  </div>
+
+  <!-- WHY AM I SELLING THIS FOR ONLY ₦7,490? -->
+  <div class="content-section">
+    <div class="sec-eyebrow">TRANSPARENT PRICING</div>
+    <h2 class="sec-title">Why am I selling this for only ₦7,490?</h2>
+
+    <div class="prose">
+      <p>NEXORA is not ₦7,490 because the lessons are worth only ₦7,490.</p>
+      <p>This is a birthday pre-order.</p>
+      <p>The videos are currently being recorded and will be officially released in <strong>October 2026</strong> (exact date will be communicated in the group).</p>
+      <p>Instead of waiting until everything is released and charging the regular price, I want people who believe in the offer early to secure access at a much lower price.</p>
+      <p>I also know that many people who need this information may not be able to pay ₦25,000 immediately.</p>
+      <p>For my birthday, I want to make the decision easier.</p>
+      <p>That is why you can pre-order NEXORA today for <strong>₦7,490</strong>.</p>
+      <p>Once NEXORA is officially released, the price will increase to ₦25,000.</p>
+      <p>This is not a countdown trick. It is simply my way of rewarding the people who join during my birthday pre-order period.</p>
+      
+      <div class="price-card" style="margin-top: 24px;">
+        <div style="font-size: 14.5px; color: var(--muted);">Birthday Pre-order Price: <strong style="color:#fff;font-size:20px;">₦7,490</strong></div>
+        <div style="font-size: 14.5px; color: var(--muted);">Regular Price: <strong style="color:#fff;font-size:17px;">₦25,000</strong></div>
+        <div style="font-size: 14.5px; color: var(--muted);">Official Release: <strong style="color:#fff;font-size:17px;">October 2026 (Date communicated in group)</strong></div>
+        
+        <a href="/checkout" class="cta-btn-main checkout-link" style="margin-top: 8px;">
+          <span>LOCK IN YOUR ₦7,490 PRE-ORDER</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT YOU GET WITH YOUR PRE-ORDER -->
+  <div class="summary-box">
+    <div class="sec-eyebrow">SUMMARY RECAP</div>
+    <h2 class="sec-title">What You Get With Your Pre-Order</h2>
+
+    <div class="summary-items">
+      <ul class="check-list">
+        <li>All six NEXORA modules (33+ lessons)</li>
+        <li>Every practical video lesson listed on this page</li>
+        <li>All eight high-value bonuses</li>
+        <li>Lifetime access</li>
+        <li>Future lesson updates</li>
+        <li>Private community access</li>
+        <li>Immediate payment confirmation</li>
+        <li>Complete access when NEXORA is released in October 2026 (date communicated in group)</li>
+      </ul>
+    </div>
+
+    <div style="font-size: 16.5px; color: var(--muted); margin-top: 18px;">Your Price Today: <strong style="color:#fff;font-size:30px;font-family:'Archivo',sans-serif;">₦7,490</strong></div>
+
+    <div style="margin-top: 22px;">
+      <a href="/checkout" class="cta-btn-main checkout-link" style="max-width: 440px; margin: 0 auto;">
+        <span>PRE-ORDER NEXORA NOW</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- FREQUENTLY ASKED QUESTIONS (ALL 20 FAQS) -->
+  <div class="faq-wrap">
+    <div style="text-align:center;max-width:700px;margin:0 auto 32px;">
+      <div class="sec-eyebrow center">GOT QUESTIONS?</div>
+      <h2 class="sec-title center">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-item open">
+      <div class="faq-q" onclick="toggleFaq(this)">What does NEXORA mean? <span>+</span></div>
+      <div class="faq-a">NEXORA represents your next era. It is about taking what you already know, combining it with better information and tools, and using it to create more income, better opportunities and a stronger future.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is NEXORA only for people in tech? <span>+</span></div>
+      <div class="faq-a">No. NEXORA is for students, employees, job seekers, freelancers, creators, business owners, marketers, salespeople and anybody who wants to earn more or create better opportunities. You do not need to work in tech to benefit.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is this only for people looking for international jobs? <span>+</span></div>
+      <div class="faq-a">No. NEXORA covers local and international opportunities. The goal is to help you recognise more possibilities, position yourself properly and improve your ability to earn.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">I do not have a business. Can I still join? <span>+</span></div>
+      <div class="faq-a">Yes. You can use NEXORA to improve your career, package a skill, find clients, build your personal brand or discover new ways to make money.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">I do not know what skill to monetise. Is NEXORA still for me? <span>+</span></div>
+      <div class="faq-a">Yes. Some of the lessons will help you identify the value in your existing knowledge, experience, interests and abilities. You may already know something useful that another person or business is willing to pay for.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">I am still a student. Can I join? <span>+</span></div>
+      <div class="faq-a">Yes. NEXORA can help you begin building skills, proof of work, visibility and income opportunities before you graduate.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">I have a full-time job. Is this still relevant to me? <span>+</span></div>
+      <div class="faq-a">Yes. You can use the lessons to improve your positioning, move into a better role, build an additional income stream or create opportunities outside your current job.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">I do not have a large audience. Can I use the personal branding lessons? <span>+</span></div>
+      <div class="faq-a">Yes. Some lessons specifically explain how to build authority and attract opportunities without thousands of followers or posting every day.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Do I need to know how to code? <span>+</span></div>
+      <div class="faq-a">No. The AI and technology lessons are designed to show you what is possible even if you are not a traditional developer.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Are the lessons live or recorded? <span>+</span></div>
+      <div class="faq-a">The main lessons are recorded videos that you can watch at your own pace.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How long are the lessons? <span>+</span></div>
+      <div class="faq-a">Most lessons are practical videos of approximately 10 to 20 minutes.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is NEXORA available immediately? <span>+</span></div>
+      <div class="faq-a">No. NEXORA is currently available for pre-order. The lessons are still being recorded and will be officially released in October 2026 (exact date will be communicated in the paid group). You will receive an email confirmation immediately after completing your payment.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Why should I pay before the lessons are released? <span>+</span></div>
+      <div class="faq-a">Pre-ordering allows you to secure complete access at the birthday price of ₦7,490. The regular price will be ₦25,000 after the official release.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How will I receive access? <span>+</span></div>
+      <div class="faq-a">You will receive access instructions through the email address you use during checkout. Please ensure that you enter a working email address.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How long will I have access? <span>+</span></div>
+      <div class="faq-a">You will receive lifetime access, including future updates added to your NEXORA access.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Are the bonuses included in the ₦7,490 price? <span>+</span></div>
+      <div class="faq-a">Yes. All the bonuses listed on this page are included in your pre-order.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is there a private community? <span>+</span></div>
+      <div class="faq-a">Yes. Your access includes entry into the private NEXORA community.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can NEXORA guarantee that I will make money or get a job? <span>+</span></div>
+      <div class="faq-a">No responsible programme can guarantee a specific financial or career result. NEXORA gives you practical lessons, ideas, frameworks and tools. Your results will depend on how you apply them, your starting point, your market and the consistency of your actions.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is there a refund policy? <span>+</span></div>
+      <div class="faq-a">Because NEXORA is a digital product and your pre-order immediately reserves access to the complete programme and bonuses, all payments are final. Please read the information on this page carefully before purchasing.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">When will the birthday price end? <span>+</span></div>
+      <div class="faq-a">The birthday price is available only during the announced pre-order period. After the birthday offer closes or NEXORA is officially released, the price will increase to ₦25,000.</div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA CARD -->
+  <div class="content-section" style="text-align: center;">
+    <div class="price-card" style="max-width: 580px; margin: 0 auto; text-align: center;">
+      <div style="font-size: 14.5px; color: var(--muted);">NEXORA Birthday Pre-order Price: <strong style="color:#fff;font-size:22px;">₦7,490</strong></div>
+      <div style="font-size: 13.5px; color: var(--muted);">Regular Price: <strong style="color:#fff;">₦25,000</strong> &middot; Official Release: <strong style="color:#fff;">October 2026</strong></div>
+      
+      <a href="/checkout" class="cta-btn-main checkout-link" style="margin: 14px auto 0; max-width: 460px; width:100%;">
+        <span>YES, I AM READY FOR MY NEXT ERA</span>
+      </a>
+
+      <div class="guarantee-note" style="margin-top: 10px;">
+        Secure checkout through Paystack. Immediate email confirmation after payment.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- STICKY BOTTOM BAR -->
+<div class="sticky-bar">
+  <div class="sb-left">
+    <img src="/assets/tomide-williams.jpg" class="sb-img" alt="Tomide Williams">
+    <div class="sb-info">
+      <span class="sb-name">NEXORA: A Special Birthday Offer</span>
+      <span class="sb-price">₦7,490 <s style="color:var(--muted-2);font-weight:400;font-size:12px;">₦25,000</s></span>
+    </div>
+  </div>
+  <a href="/checkout" class="nav-btn checkout-link">Pre-Order Now</a>
+</div>
+
+<script>
+// Image gallery switch
+function setImg(src, btn) {
+  var img = document.getElementById('mainImg');
+  if (img) img.src = src;
+  document.querySelectorAll('.thumb-btn').forEach(function(b){ b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+}
+
+// Module accordion toggle
+function toggleModule(id) {
+  var el = document.getElementById(id);
+  if (el) {
+    el.classList.toggle('open');
+  }
+}
+
+// FAQ accordion
+function toggleFaq(el) {
+  var parent = el.parentElement;
+  parent.classList.toggle('open');
+}
+
+// Preserve affiliate partner tracking on all checkout links
+(function() {
+  function getCookie(n){var v=document.cookie.match('(^|;)\\s*'+n+'=([^;]*)');return v?v[2]:'';}
+  var pp = (new URLSearchParams(window.location.search)).get('pp') || getCookie('nexora_pp') || localStorage.getItem('nexora_pp') || '';
+  if (pp) {
+    pp = pp.replace(/[^A-Za-z0-9_-]/g, '').slice(0, 32);
+    document.querySelectorAll('a.checkout-link').forEach(function(a) {
+      var href = a.getAttribute('href') || '/checkout';
+      var sep = href.indexOf('?') >= 0 ? '&' : '?';
+      a.setAttribute('href', href + sep + 'pp=' + encodeURIComponent(pp));
+    });
+  }
+})();
+</script>
+</body>
+</html>
