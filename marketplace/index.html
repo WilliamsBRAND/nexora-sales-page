@@ -1304,6 +1304,56 @@ svg { display: block; }
     font-size: 12.5px !important;
   }
 }
+
+/* Lightbox Modal */
+.proof-modal-backdrop{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.88);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  z-index:99999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.proof-modal-backdrop.active{display:flex;}
+.proof-modal-card{
+  max-width:920px;width:100%;
+  background:#121216;
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,0.85);
+  display:flex;flex-direction:column;
+  animation:modalPop .2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes modalPop{
+  from{opacity:0;transform:scale(0.96);}
+  to{opacity:1;transform:scale(1);}
+}
+.proof-modal-header{
+  padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  background:#18181f;
+}
+.proof-modal-title{font-family:'Archivo',sans-serif;font-weight:800;color:#fff;font-size:14.5px;}
+.proof-modal-close{
+  background:rgba(255,255,255,0.08);border:none;color:#fff;
+  width:32px;height:32px;border-radius:50%;
+  font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s;
+}
+.proof-modal-close:hover{background:var(--crimson);}
+.proof-modal-body{
+  padding:16px;background:#08080b;
+  display:flex;align-items:center;justify-content:center;
+  max-height:80vh;overflow:auto;
+}
+.proof-modal-img{max-width:100%;max-height:75vh;object-fit:contain;border-radius:8px;}
+
 </style>
 </head>
 <body>
@@ -2181,6 +2231,72 @@ svg { display: block; }
   </div>
 
   <!-- FREQUENTLY ASKED QUESTIONS (ALL 20 FAQS) -->
+  
+  <!-- ============ VERIFIED TRACK RECORD & PICTURE PROOFS (DARK) ============ -->
+  <div class="content-section" id="track-record" style="margin-top: 50px;">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <div style="font-size: 11px; font-weight: 800; color: #ef4444; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; font-family: 'Archivo', sans-serif;">VERIFIED TRACK RECORD &amp; REAL PROOF</div>
+      <h2 style="font-family: 'Archivo', sans-serif; font-size: 28px; font-weight: 900; color: #ffffff; letter-spacing: -0.02em; margin-bottom: 10px;">PROVEN RESULTS &amp; CREDIBILITY</h2>
+      <p style="color: #a1a1aa; font-size: 15px; max-width: 680px; margin: 0 auto; line-height: 1.6;">From 2x TEDx speaking stages and 48,000+ LinkedIn audience to multi-million Naira product revenue and global client contracts.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+      <div onclick="openProofModal('/assets/proof/proof-4.jpg', 'Holding official TEDx Speaker Award plaque at TEDx Tanke')" style="background: #141416; border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; overflow: hidden; cursor: pointer; transition: transform .2s, border-color .2s;">
+        <div style="width: 100%; height: 230px; overflow: hidden; background: #000;">
+          <img src="/assets/proof/proof-4.jpg" alt="TEDx Speaker Award" style="width: 100%; height: 100%; object-fit: cover; transition: transform .3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
+        </div>
+        <div style="padding: 14px 16px;">
+          <span style="font-size: 13.5px; font-weight: 700; color: #f4f4f5; display: block; line-height: 1.4;">2x TEDx Speaker Plaque at TEDx Tanke</span>
+        </div>
+      </div>
+
+      <div onclick="openProofModal('/assets/proof/proof-13.jpg', 'Official LinkedIn profile with 48,000+ followers and executive personal brand')" style="background: #141416; border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; overflow: hidden; cursor: pointer; transition: transform .2s, border-color .2s;">
+        <div style="width: 100%; height: 230px; overflow: hidden; background: #000;">
+          <img src="/assets/proof/proof-13.jpg" alt="LinkedIn 48K+ Audience" style="width: 100%; height: 100%; object-fit: cover; transition: transform .3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
+        </div>
+        <div style="padding: 14px 16px;">
+          <span style="font-size: 13.5px; font-weight: 700; color: #f4f4f5; display: block; line-height: 1.4;">48,000+ Audience &amp; Personal Brand</span>
+        </div>
+      </div>
+
+      <div onclick="openProofModal('/assets/proof/proof-15.jpg', 'Delivering keynote speech on stage at TEDx UniOsun')" style="background: #141416; border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; overflow: hidden; cursor: pointer; transition: transform .2s, border-color .2s;">
+        <div style="width: 100%; height: 230px; overflow: hidden; background: #000;">
+          <img src="/assets/proof/proof-15.jpg" alt="Keynote Stage" style="width: 100%; height: 100%; object-fit: cover; transition: transform .3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
+        </div>
+        <div style="padding: 14px 16px;">
+          <span style="font-size: 13.5px; font-weight: 700; color: #f4f4f5; display: block; line-height: 1.4;">Keynote Presentation at TEDx UniOsun</span>
+        </div>
+      </div>
+
+      <div onclick="openProofModal('/assets/proof/proof-1.jpg', 'OPay account statement showing ₦19.5M+ total credit generated in 2026')" style="background: #141416; border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; overflow: hidden; cursor: pointer; transition: transform .2s, border-color .2s;">
+        <div style="width: 100%; height: 230px; overflow: hidden; background: #000;">
+          <img src="/assets/proof/proof-1.jpg" alt="₦19.5M+ Revenue Statement" style="width: 100%; height: 100%; object-fit: cover; transition: transform .3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
+        </div>
+        <div style="padding: 14px 16px;">
+          <span style="font-size: 13.5px; font-weight: 700; color: #f4f4f5; display: block; line-height: 1.4;">₦19.5M+ Digital Product Cashflow in 2026</span>
+        </div>
+      </div>
+
+      <div onclick="openProofModal('/assets/proof/proof-19.jpg', 'Receiving official leadership recognition award at Youth Leadership Convention')" style="background: #141416; border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; overflow: hidden; cursor: pointer; transition: transform .2s, border-color .2s;">
+        <div style="width: 100%; height: 230px; overflow: hidden; background: #000;">
+          <img src="/assets/proof/proof-19.jpg" alt="Leadership Award" style="width: 100%; height: 100%; object-fit: cover; transition: transform .3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
+        </div>
+        <div style="padding: 14px 16px;">
+          <span style="font-size: 13.5px; font-weight: 700; color: #f4f4f5; display: block; line-height: 1.4;">Youth Leadership Recognition Award</span>
+        </div>
+      </div>
+
+      <div onclick="openProofModal('/assets/proof/proof-7.jpg', 'International client invoice receipt of $1,200 for product marketing strategy')" style="background: #141416; border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; overflow: hidden; cursor: pointer; transition: transform .2s, border-color .2s;">
+        <div style="width: 100%; height: 230px; overflow: hidden; background: #000;">
+          <img src="/assets/proof/proof-7.jpg" alt="$1,200 Client Invoice" style="width: 100%; height: 100%; object-fit: cover; transition: transform .3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
+        </div>
+        <div style="padding: 14px 16px;">
+          <span style="font-size: 13.5px; font-weight: 700; color: #f4f4f5; display: block; line-height: 1.4;">$1,200 International Client Contract</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="faq-wrap">
     <div style="text-align:center;max-width:700px;margin:0 auto 32px;">
       <div class="sec-eyebrow center">GOT QUESTIONS?</div>
@@ -2355,5 +2471,39 @@ function toggleFaq(el) {
   }
 })();
 </script>
+
+<!-- PROOF LIGHTBOX MODAL -->
+<div id="proofLightbox" class="proof-modal-backdrop" onclick="closeProofModal(event)">
+  <div class="proof-modal-card" onclick="event.stopPropagation()">
+    <div class="proof-modal-header">
+      <div id="proofModalTag" class="proof-modal-title">Verified Proof</div>
+      <button class="proof-modal-close" onclick="closeProofModal()">&times;</button>
+    </div>
+    <div class="proof-modal-body">
+      <img id="proofModalImg" class="proof-modal-img" src="" alt="Proof Preview">
+    </div>
+  </div>
+</div>
+
+<script>
+function openProofModal(src, caption) {
+  var img = document.getElementById('proofModalImg');
+  var tag = document.getElementById('proofModalTag');
+  var lb = document.getElementById('proofLightbox');
+  if (img) img.src = src;
+  if (tag) tag.textContent = caption;
+  if (lb) lb.classList.add('active');
+}
+function closeProofModal(e) {
+  if (!e || e.target.id === 'proofLightbox' || e.target.classList.contains('proof-modal-close')) {
+    var lb = document.getElementById('proofLightbox');
+    if (lb) lb.classList.remove('active');
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeProofModal();
+});
+</script>
+
 </body>
 </html>

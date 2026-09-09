@@ -1636,27 +1636,6 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
         </div>
       </div>
     </div>
-        <div class="proof-info">
-          <span class="proof-caption">Inbound LinkedIn DM from client requesting sales pipeline building services</span>
-        </div>
-      </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-11.jpg', 'Multi-currency digital sales dashboard showing 3,578+ completed orders')">
-        <div class="proof-img-box">
-          <img src="assets/proof/proof-11.jpg" alt="Multi-currency digital sales dashboard showing 3,578+ completed orders" class="proof-img" loading="lazy">
-        </div>
-        <div class="proof-info">
-          <span class="proof-caption">Multi-currency digital sales dashboard showing 3,578+ completed orders</span>
-        </div>
-      </div>
-      <div class="proof" onclick="openProofModal('assets/proof/proof-12.jpg', 'Inbound referral invitation to head marketing for a funded AI startup in Lagos')">
-        <div class="proof-img-box">
-          <img src="assets/proof/proof-12.jpg" alt="Inbound referral invitation to head marketing for a funded AI startup in Lagos" class="proof-img" loading="lazy">
-        </div>
-        <div class="proof-info">
-          <span class="proof-caption">Inbound referral invitation to head marketing for a funded AI startup in Lagos</span>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -2156,7 +2135,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 
       <div class="cat bonus">
         <div style="font-size:12px;font-weight:800;color:#e63946;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">BONUS 06 <span style="color:#2ecc71;font-weight:700;">(Value: ₦29,997)</span></div>
-        <h3 style="margin:0 0 8px;font-size:18px;color:#fff;">How to create AI videos and influences that makes you money.</h3>
+        <h3 style="margin:0 0 8px;font-size:18px;color:#fff;">How to create AI videos and influencers that makes you money.</h3>
         <p style="margin:0;font-size:14.5px;color:#cfcfcf;line-height:1.5;">Step-by-step methods to generate high-retention AI videos, build personal influence, and convert viewership into revenue.</p>
       </div>
 
@@ -2258,15 +2237,9 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 <!-- ============ VERIFIED REVIEWS & FEEDBACK (DARK) ============ -->
 <section class="dark" id="reviews-section" style="padding: 70px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);">
   <div class="wrap">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:16px;">
-      <div>
-        <div style="font-size:12px;font-weight:800;color:var(--crimson);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;font-family:'Archivo',sans-serif;">STUDENT FEEDBACK &amp; VERIFIED PURCHASES</div>
-        <h2 class="section-title" style="margin-bottom:0;text-align:left;">WHAT PEOPLE ARE SAYING</h2>
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;">
-        <span id="reviewCountLabel" style="font-size:13px;font-weight:700;color:#22c55e;background:rgba(34,197,94,0.1);padding:5px 12px;border-radius:999px;border:1px solid rgba(34,197,94,0.25);">Verified Reviews</span>
-        <a href="feedback" style="font-size:12.5px;font-weight:700;color:#cfcfcf;border:1px solid rgba(255,255,255,0.15);padding:6px 14px;border-radius:8px;transition:all .2s;text-decoration:none;" onmouseover="this.style.color='#fff';this.style.borderColor='#fff'" onmouseout="this.style.color='#cfcfcf';this.style.borderColor='rgba(255,255,255,0.15)'">+ Leave a Review</a>
-      </div>
+    <div style="margin-bottom:28px;text-align:center;">
+      <div style="font-size:12px;font-weight:800;color:var(--crimson);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;font-family:'Archivo',sans-serif;">STUDENT FEEDBACK &amp; VERIFIED PURCHASES</div>
+      <h2 class="section-title" style="margin-bottom:0;">WHAT PEOPLE ARE SAYING</h2>
     </div>
 
     <div class="reviews-slider-container">
@@ -2680,9 +2653,7 @@ window.addEventListener('scroll', function() {
         if (data && data.reviews && data.reviews.length > 0) {
           reviewsData = data.reviews;
           track.innerHTML = reviewsData.map(createReviewCardHtml).join('');
-          if (countLabel) {
-            countLabel.textContent = reviewsData.length + ' Verified Reviews';
-          }
+          /* count label removed */
           currentIdx = 0;
           renderDots();
           updateSlider();
