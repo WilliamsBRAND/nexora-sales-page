@@ -1422,7 +1422,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 
         <!-- Main Image Frame -->
         <div style="position:relative;width:100%;max-width:820px;margin:0 auto;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);background:#050507;">
-          <img id="heroShowcaseImg" src="/assets/nexora-grand-stack-mockup.jpg" alt="NEXORA Complete 3D Value Stack" style="width:100%;height:auto;display:block;max-height:480px;object-fit:cover;transition:opacity 0.2s ease;" loading="eager">
+          <img id="heroShowcaseImg" src="/assets/nexora-grand-stack-mockup.jpg" alt="NEXORA Complete 3D Value Stack" onclick="jumpToCurrentHeroTarget()" title="Click to view this module in the curriculum" style="width:100%;height:auto;display:block;max-height:480px;object-fit:cover;cursor:pointer;transition:opacity 0.2s ease;" loading="eager">
           <div id="heroShowcaseCap" style="padding:12px 18px;background:#0d0d12;border-top:1px solid rgba(255,255,255,0.08);font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:700;color:#f4f4f6;text-align:center;">
             NEXORA Grand Stack &mdash; 6 Comprehensive Modules &middot; 33 Video Lessons &middot; 11 High-Value Bonuses
           </div>
@@ -2800,7 +2800,25 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeProofModal();
 });
 
+var currentHeroTargetId = 'curriculum-section';
+
+function jumpToCurrentHeroTarget() {
+  if (currentHeroTargetId) {
+    var targetEl = document.getElementById(currentHeroTargetId);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var body = targetEl.querySelector('.m-body');
+      var arrow = targetEl.querySelector('.m-arrow');
+      if (body && (!body.style.maxHeight || body.style.maxHeight === '0px')) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        if (arrow) arrow.textContent = '−';
+      }
+    }
+  }
+}
+
 function setHeroMockup(src, caption, btn, targetSectionId) {
+  currentHeroTargetId = targetSectionId || 'curriculum-section';
   var img = document.getElementById('heroShowcaseImg');
   var cap = document.getElementById('heroShowcaseCap');
   if (img) {
