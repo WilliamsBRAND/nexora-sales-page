@@ -1410,6 +1410,82 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       </div>
     </div>
 
+    <!-- ============ HERO VALUE STACK SHOWCASE ============ -->
+    <div class="hero-showcase-wrap reveal in d3" style="margin:28px auto 42px;max-width:860px;width:100%;">
+      <div style="background:linear-gradient(180deg, #131317 0%, #09090b 100%);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:24px 20px;box-shadow:0 24px 60px rgba(0,0,0,0.7), 0 0 35px rgba(110,10,20,0.22);text-align:center;">
+        
+        <!-- Top Valuation Ribbon -->
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(46,204,113,0.12);border:1px solid rgba(46,204,113,0.35);padding:6px 18px;border-radius:999px;font-size:12.5px;font-weight:700;color:#2ecc71;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;">
+          <span>✨</span> COMPLETE 6-MODULE PROGRAMME &middot; TOTAL VALUE: ₦637,138
+        </div>
+
+        <!-- Main Dynamic Showcase Image Frame -->
+        <div style="position:relative;width:100%;max-width:760px;margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);background:#050507;box-shadow:0 12px 30px rgba(0,0,0,0.5);">
+          <img id="heroShowcaseImg" src="/assets/nexora-grand-stack-mockup.jpg" alt="NEXORA Complete 3D Value Stack" style="width:100%;height:auto;display:block;max-height:460px;object-fit:cover;transition:opacity 0.25s ease;" loading="eager">
+          <div id="heroShowcaseCap" style="padding:10px 16px;background:rgba(10,10,14,0.92);border-top:1px solid rgba(255,255,255,0.08);font-size:13.5px;font-weight:600;color:#e4e4e7;text-align:center;">
+            NEXORA Complete 3D Value Stack (All 6 Modules + 33 Video Lessons + 11 Bonuses)
+          </div>
+        </div>
+
+        <!-- Interactive Thumbnail Switcher Row -->
+        <div style="margin-top:18px;">
+          <div style="font-size:12px;font-weight:700;color:#888;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Tap any module card to inspect:</div>
+          <div id="heroThumbList" style="display:flex;align-items:center;justify-content:flex-start;gap:10px;overflow-x:auto;padding:4px 4px 10px;-webkit-overflow-scrolling:touch;">
+            
+            <button type="button" class="hero-thumb active" onclick="setHeroMockup('/assets/nexora-grand-stack-mockup.jpg', 'NEXORA Complete 3D Value Stack (All 6 Modules + 33 Video Lessons + 11 Bonuses)', this)" style="flex:0 0 auto;width:92px;border:2px solid #6e0a14;background:#18181c;border-radius:10px;padding:4px;cursor:pointer;outline:none;transition:transform 0.2s, border-color 0.2s;transform:scale(1.05);">
+              <img src="/assets/nexora-grand-stack-mockup.jpg" alt="Grand Stack" style="width:100%;height:54px;object-fit:cover;border-radius:6px;display:block;">
+              <span style="font-size:10px;font-weight:700;color:#fff;display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">All Modules</span>
+            </button>
+
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-1-mockup.jpg', 'Module 01: Career and Global Opportunities (6 Video Lessons · Value: ₦105,982)', this)" style="flex:0 0 auto;width:92px;border:2px solid rgba(255,255,255,0.15);background:#18181c;border-radius:10px;padding:4px;cursor:pointer;outline:none;transition:transform 0.2s, border-color 0.2s;">
+              <img src="/assets/module-1-mockup.jpg" alt="Module 1" style="width:100%;height:54px;object-fit:cover;border-radius:6px;display:block;">
+              <span style="font-size:10px;font-weight:700;color:#ccc;display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Mod 1: Career</span>
+            </button>
+
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-2-mockup.jpg', 'Module 02: Money & WhatsApp Income (5 Video Lessons · Value: ₦110,545)', this)" style="flex:0 0 auto;width:92px;border:2px solid rgba(255,255,255,0.15);background:#18181c;border-radius:10px;padding:4px;cursor:pointer;outline:none;transition:transform 0.2s, border-color 0.2s;">
+              <img src="/assets/module-2-mockup.jpg" alt="Module 2" style="width:100%;height:54px;object-fit:cover;border-radius:6px;display:block;">
+              <span style="font-size:10px;font-weight:700;color:#ccc;display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Mod 2: Money</span>
+            </button>
+
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-3-mockup.jpg', 'Module 03: Marketing & Sales Mastery (5 Video Lessons · Value: ₦99,985)', this)" style="flex:0 0 auto;width:92px;border:2px solid rgba(255,255,255,0.15);background:#18181c;border-radius:10px;padding:4px;cursor:pointer;outline:none;transition:transform 0.2s, border-color 0.2s;">
+              <img src="/assets/module-3-mockup.jpg" alt="Module 3" style="width:100%;height:54px;object-fit:cover;border-radius:6px;display:block;">
+              <span style="font-size:10px;font-weight:700;color:#ccc;display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Mod 3: Sales</span>
+            </button>
+
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-4-mockup.jpg', 'Module 04: Personal Brand & LinkedIn Authority (5 Video Lessons · Value: ₦100,545)', this)" style="flex:0 0 auto;width:92px;border:2px solid rgba(255,255,255,0.15);background:#18181c;border-radius:10px;padding:4px;cursor:pointer;outline:none;transition:transform 0.2s, border-color 0.2s;">
+              <img src="/assets/module-4-mockup.jpg" alt="Module 4" style="width:100%;height:54px;object-fit:cover;border-radius:6px;display:block;">
+              <span style="font-size:10px;font-weight:700;color:#ccc;display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Mod 4: Brand</span>
+            </button>
+
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-5-mockup.jpg', 'Module 05: AI & Tech Automations (6 Video Lessons · Value: ₦122,542)', this)" style="flex:0 0 auto;width:92px;border:2px solid rgba(255,255,255,0.15);background:#18181c;border-radius:10px;padding:4px;cursor:pointer;outline:none;transition:transform 0.2s, border-color 0.2s;">
+              <img src="/assets/module-5-mockup.jpg" alt="Module 5" style="width:100%;height:54px;object-fit:cover;border-radius:6px;display:block;">
+              <span style="font-size:10px;font-weight:700;color:#ccc;display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Mod 5: AI & Tech</span>
+            </button>
+
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-6-mockup.jpg', 'Module 06: Life & Personal Growth (7 Video Lessons · Value: ₦97,539)', this)" style="flex:0 0 auto;width:92px;border:2px solid rgba(255,255,255,0.15);background:#18181c;border-radius:10px;padding:4px;cursor:pointer;outline:none;transition:transform 0.2s, border-color 0.2s;">
+              <img src="/assets/module-6-mockup.jpg" alt="Module 6" style="width:100%;height:54px;object-fit:cover;border-radius:6px;display:block;">
+              <span style="font-size:10px;font-weight:700;color:#ccc;display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Mod 6: Growth</span>
+            </button>
+
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/tomide-williams.jpg', 'Created by Tomide Williams (AI & Marketing Specialist · 2x TEDx Speaker)', this)" style="flex:0 0 auto;width:92px;border:2px solid rgba(255,255,255,0.15);background:#18181c;border-radius:10px;padding:4px;cursor:pointer;outline:none;transition:transform 0.2s, border-color 0.2s;">
+              <img src="/assets/tomide-williams.jpg" alt="Tomide Williams" style="width:100%;height:54px;object-fit:cover;border-radius:6px;display:block;">
+              <span style="font-size:10px;font-weight:700;color:#ccc;display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Author</span>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Micro Proof Strip -->
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 22px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:13px;color:#a1a1aa;font-weight:600;">
+          <span>💰 <strong style="color:#fff;">₦19.5M+</strong> WhatsApp Sales</span>
+          <span>🌍 <strong style="color:#fff;">$1,200</strong> Global Retainers</span>
+          <span>🎙️ <strong style="color:#fff;">2x TEDx</strong> Speaker</span>
+          <span>👥 <strong style="color:#fff;">47,000+</strong> LinkedIn Community</span>
+        </div>
+
+      </div>
+    </div>
+
     <p class="hero-sub reveal" style="margin:0 auto 14px;">For my birthday, I am packaging some of the most important lessons I have learned in my mid-20s about making more money, building a better career, creating opportunities, using AI, building a personal brand, meeting the right people and becoming more intentional about your life.</p>
 
     <p class="reveal d1" style="max-width:760px;margin:0 auto 14px;">NEXORA is a collection of short, practical 10&ndash;20 minute lessons created to help you make better moves across your career, income, relationships, opportunities and personal growth.</p>
@@ -2724,6 +2800,32 @@ function closeProofModal(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeProofModal();
 });
+
+function setHeroMockup(src, caption, btn) {
+  var img = document.getElementById('heroShowcaseImg');
+  var cap = document.getElementById('heroShowcaseCap');
+  if (img) {
+    img.style.opacity = '0.3';
+    setTimeout(function() {
+      img.src = src;
+      img.style.opacity = '1';
+    }, 150);
+  }
+  if (cap) cap.textContent = caption || '';
+  document.querySelectorAll('.hero-thumb').forEach(function(b) {
+    b.style.borderColor = 'rgba(255,255,255,0.15)';
+    b.style.transform = 'none';
+    var txt = b.querySelector('span');
+    if (txt) txt.style.color = '#ccc';
+  });
+  if (btn) {
+    btn.style.borderColor = '#6e0a14';
+    btn.style.transform = 'scale(1.05)';
+    var txt = btn.querySelector('span');
+    if (txt) txt.style.color = '#fff';
+  }
+}
+
 </script>
 </body>
 </html>
