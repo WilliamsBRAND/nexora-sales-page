@@ -403,6 +403,81 @@ h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:800;line-height:1.08;le
   transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease, opacity .75s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+/* ===== HERO METRIC STRIP ===== */
+.hero-metric-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: 'Archivo', sans-serif;
+}
+.h-metric-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #a1a1aa;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.h-metric-item strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+.h-metric-divider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-metric-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 12px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    margin-top: 18px;
+  }
+  .h-metric-divider {
+    display: none;
+  }
+  .h-metric-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 9px 6px;
+    background: #111116;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    white-space: normal;
+    gap: 3px;
+  }
+  .h-metric-item strong {
+    font-size: 14.5px;
+    color: #ffffff;
+    display: block;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+  .h-metric-item span {
+    font-size: 11px;
+    color: #9ca3af;
+    display: block;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+}
+
 /* ===== HERO THUMB GRID (ONE LINE ON DESKTOP) ===== */
 .hero-thumb-grid {
   display: grid;
@@ -1533,14 +1608,22 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
           </div>
 
         <!-- Metric Verification Strip -->
-        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 28px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font-family:'Archivo',sans-serif;font-size:12.5px;color:#a1a1aa;letter-spacing:0.5px;">
-          <span><strong style="color:#ffffff;">2x TEDx</strong> Speaker</span>
-          <span style="color:rgba(255,255,255,0.2);">&bull;</span>
-          <span><strong style="color:#ffffff;">7-Figure</strong> International Jobs</span>
-          <span style="color:rgba(255,255,255,0.2);">&bull;</span>
-          <span><strong style="color:#ffffff;">47,000+</strong> LinkedIn Followers</span>
-          <span style="color:rgba(255,255,255,0.2);">&bull;</span>
-          <span><strong style="color:#ffffff;">₦19.5M+</strong> WhatsApp Status Revenue</span>
+        <div class="hero-metric-strip">
+          <div class="h-metric-item">
+            <strong>2x TEDx</strong> <span>Speaker</span>
+          </div>
+          <div class="h-metric-divider"></div>
+          <div class="h-metric-item">
+            <strong>7-Figure</strong> <span>International Jobs</span>
+          </div>
+          <div class="h-metric-divider"></div>
+          <div class="h-metric-item">
+            <strong>47,000+</strong> <span>LinkedIn Followers</span>
+          </div>
+          <div class="h-metric-divider"></div>
+          <div class="h-metric-item">
+            <strong>₦19.5M+</strong> <span>WhatsApp Status Revenue</span>
+          </div>
         </div>
 
       </div>
