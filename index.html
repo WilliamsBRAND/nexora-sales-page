@@ -1430,47 +1430,42 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 
         <!-- Interactive Navigation Grid -->
         <div style="margin-top:20px;">
-          <div style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:800;color:#71717a;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;text-align:left;">INSPECT MODULE VALUE STACKS:</div>
-          <div id="heroThumbList" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(95px, 1fr));gap:8px;">
+          <div style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:800;color:#a1a1aa;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;text-align:left;">TAP ANY MODULE CARD TO INSPECT WHAT YOU GET:</div>
+          <div id="heroThumbList" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(110px, 1fr));gap:8px;">
             
-            <button type="button" class="hero-thumb active" onclick="setHeroMockup('/assets/nexora-grand-stack-mockup.jpg', 'NEXORA Grand Stack — 6 Comprehensive Modules · 33 Video Lessons · 11 High-Value Bonuses', this)" style="border:2px solid #6e0a14;background:#141418;border-radius:10px;padding:6px 4px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:800;color:#fff;display:block;">All Modules</span>
-              <span style="font-size:9.5px;color:#e63946;display:block;margin-top:2px;">Complete</span>
+            <button type="button" class="hero-thumb active" onclick="setHeroMockup('/assets/nexora-grand-stack-mockup.jpg', 'NEXORA Grand Stack — 6 Comprehensive Modules · 33 Video Lessons · 11 High-Value Bonuses', this, 'curriculum-section')" style="border:2px solid #6e0a14;background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
+              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:800;color:#fff;display:block;">All Modules</span>
+              <span style="font-size:10px;color:#e63946;display:block;margin-top:2px;">Full Bundle</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-1-mockup.jpg', 'Module 01: Career & Global Opportunities (6 Video Lessons · Value: ₦105,982)', this)" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:6px 4px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;color:#ccc;display:block;">01 &middot; Career</span>
-              <span style="font-size:9.5px;color:#71717a;display:block;margin-top:2px;">₦105k Value</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-1-mockup.jpg', 'Module 01: Career & Global Opportunities (6 Video Lessons · Value: ₦105,982)', this, 'mod-1')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
+              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">01 &middot; Career</span>
+              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦105k Value</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-2-mockup.jpg', 'Module 02: Money & WhatsApp Income (5 Video Lessons · Value: ₦110,545)', this)" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:6px 4px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;color:#ccc;display:block;">02 &middot; Money</span>
-              <span style="font-size:9.5px;color:#71717a;display:block;margin-top:2px;">₦110k Value</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-2-mockup.jpg', 'Module 02: Money & WhatsApp Income (5 Video Lessons · Value: ₦110,545)', this, 'mod-2')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
+              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">02 &middot; Money</span>
+              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦110k Value</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-3-mockup.jpg', 'Module 03: Marketing & Sales (5 Video Lessons · Value: ₦99,985)', this)" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:6px 4px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;color:#ccc;display:block;">03 &middot; Sales</span>
-              <span style="font-size:9.5px;color:#71717a;display:block;margin-top:2px;">₦100k Value</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-3-mockup.jpg', 'Module 03: Marketing & Sales (5 Video Lessons · Value: ₦99,985)', this, 'mod-3')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
+              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">03 &middot; Sales</span>
+              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦100k Value</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-4-mockup.jpg', 'Module 04: Personal Brand & LinkedIn (5 Video Lessons · Value: ₦100,545)', this)" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:6px 4px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;color:#ccc;display:block;">04 &middot; Brand</span>
-              <span style="font-size:9.5px;color:#71717a;display:block;margin-top:2px;">₦100k Value</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-4-mockup.jpg', 'Module 04: Personal Brand & LinkedIn (5 Video Lessons · Value: ₦100,545)', this, 'mod-4')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
+              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">04 &middot; Brand</span>
+              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦100k Value</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-5-mockup.jpg', 'Module 05: AI & Tech Automations (6 Video Lessons · Value: ₦122,542)', this)" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:6px 4px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;color:#ccc;display:block;">05 &middot; AI Tech</span>
-              <span style="font-size:9.5px;color:#71717a;display:block;margin-top:2px;">₦122k Value</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-5-mockup.jpg', 'Module 05: AI & Tech Automations (6 Video Lessons · Value: ₦122,542)', this, 'mod-5')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
+              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">05 &middot; AI Tech</span>
+              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦122k Value</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-6-mockup.jpg', 'Module 06: Life & Growth (7 Video Lessons · Value: ₦97,539)', this)" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:6px 4px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;color:#ccc;display:block;">06 &middot; Growth</span>
-              <span style="font-size:9.5px;color:#71717a;display:block;margin-top:2px;">₦97k Value</span>
-            </button>
-
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/tomide-williams.jpg', 'Created by Tomide Williams — Technical Product Marketing Manager & 2x TEDx Speaker', this)" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:6px 4px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;color:#ccc;display:block;">Author</span>
-              <span style="font-size:9.5px;color:#71717a;display:block;margin-top:2px;">Profile</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-6-mockup.jpg', 'Module 06: Life & Growth (7 Video Lessons · Value: ₦97,539)', this, 'mod-6')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
+              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">06 &middot; Growth</span>
+              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦97k Value</span>
             </button>
 
           </div>
@@ -1734,12 +1729,12 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
 <!-- ============ EVERYTHING INSIDE (DARK) ============ -->
 <section class="dark">
   <div class="wrap">
-    <h2 class="section-title">EVERYTHING YOU WILL GET INSIDE NEXORA</h2>
+    <h2 class="section-title" id="curriculum-section">EVERYTHING YOU WILL GET INSIDE NEXORA</h2>
     <p class="lead" style="color:#cfcfcf;">Every title below is an actual lesson inside NEXORA.</p>
 
     <div class="catgrid">
       <!-- MODULE ONE -->
-      <div class="cat module">
+      <div class="cat module" id="mod-1">
         <div class="module-head">
           <div>
             <div class="module-tag">Module One</div>
@@ -1765,7 +1760,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       </div>
 
       <!-- MODULE TWO -->
-      <div class="cat module">
+      <div class="cat module" id="mod-2">
         <div class="module-head">
           <div>
             <div class="module-tag">Module Two</div>
@@ -1790,7 +1785,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       </div>
 
       <!-- MODULE THREE -->
-      <div class="cat module">
+      <div class="cat module" id="mod-3">
         <div class="module-head">
           <div>
             <div class="module-tag">Module Three</div>
@@ -1815,7 +1810,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       </div>
 
       <!-- MODULE FOUR -->
-      <div class="cat module">
+      <div class="cat module" id="mod-4">
         <div class="module-head">
           <div>
             <div class="module-tag">Module Four</div>
@@ -1840,7 +1835,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       </div>
 
       <!-- MODULE FIVE -->
-      <div class="cat module">
+      <div class="cat module" id="mod-5">
         <div class="module-head">
           <div>
             <div class="module-tag">Module Five</div>
@@ -1866,7 +1861,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       </div>
 
       <!-- MODULE SIX -->
-      <div class="cat module">
+      <div class="cat module" id="mod-6">
         <div class="module-head">
           <div>
             <div class="module-tag">Module Six</div>
@@ -2805,7 +2800,7 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeProofModal();
 });
 
-function setHeroMockup(src, caption, btn) {
+function setHeroMockup(src, caption, btn, targetSectionId) {
   var img = document.getElementById('heroShowcaseImg');
   var cap = document.getElementById('heroShowcaseCap');
   if (img) {
@@ -2813,20 +2808,37 @@ function setHeroMockup(src, caption, btn) {
     setTimeout(function() {
       img.src = src;
       img.style.opacity = '1';
-    }, 150);
+    }, 120);
   }
   if (cap) cap.textContent = caption || '';
   document.querySelectorAll('.hero-thumb').forEach(function(b) {
-    b.style.borderColor = 'rgba(255,255,255,0.15)';
+    b.style.borderColor = 'rgba(255,255,255,0.12)';
     b.style.transform = 'none';
     var txt = b.querySelector('span');
     if (txt) txt.style.color = '#ccc';
   });
   if (btn) {
     btn.style.borderColor = '#6e0a14';
-    btn.style.transform = 'scale(1.05)';
+    btn.style.transform = 'scale(1.03)';
     var txt = btn.querySelector('span');
     if (txt) txt.style.color = '#fff';
+  }
+
+  // Smooth scroll to the module section on the page
+  if (targetSectionId) {
+    var targetEl = document.getElementById(targetSectionId);
+    if (targetEl) {
+      setTimeout(function() {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Automatically open the module accordion body if closed
+        var body = targetEl.querySelector('.m-body');
+        var arrow = targetEl.querySelector('.m-arrow');
+        if (body && (!body.style.maxHeight || body.style.maxHeight === '0px')) {
+          body.style.maxHeight = body.scrollHeight + 'px';
+          if (arrow) arrow.textContent = '−';
+        }
+      }, 200);
+    }
   }
 }
 
