@@ -1,5 +1,17 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/marketplace",
+      "destination": "https://nexora.tomidewilliams.store",
+      "permanent": true
+    },
+    {
+      "source": "/marketplace/:path*",
+      "destination": "https://nexora.tomidewilliams.store/:path*",
+      "permanent": true
+    }
+  ]
 }
