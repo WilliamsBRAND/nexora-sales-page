@@ -403,6 +403,68 @@ h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:800;line-height:1.08;le
   transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease, opacity .75s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+/* ===== HERO THUMB GRID (ONE LINE ON DESKTOP) ===== */
+.hero-thumb-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+@media (max-width: 860px) {
+  .hero-thumb-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+}
+@media (max-width: 520px) {
+  .hero-thumb-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+  }
+}
+.hero-thumb {
+  border: 1px solid rgba(255,255,255,0.12);
+  background: #141418;
+  border-radius: 8px;
+  padding: 7px 4px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.hero-thumb.active {
+  border: 2px solid #6e0a14 !important;
+  background: #1a1012 !important;
+}
+.hero-thumb .ht-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ccc;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+.hero-thumb.active .ht-title {
+  color: #ffffff;
+  font-weight: 800;
+}
+.hero-thumb .ht-val {
+  font-size: 9.5px;
+  color: #71717a;
+  display: block;
+  margin-top: 2px;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.hero-thumb.active .ht-val {
+  color: #e63946;
+  font-weight: 700;
+}
+
 /* ===== HERO ===== */
 .hero{background:var(--black);color:#fff;padding:90px 0 70px;text-align:center;}
 .hero .eyebrow{color:#fff;background:var(--crimson);padding:4px 14px;border-radius:999px;font-size:12px;letter-spacing:1.5px;display:inline-block;font-weight:700;}
@@ -1431,45 +1493,44 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
         <!-- Interactive Navigation Grid -->
         <div style="margin-top:20px;">
           <div style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:800;color:#a1a1aa;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;text-align:left;">TAP ANY MODULE CARD TO INSPECT WHAT YOU GET:</div>
-          <div id="heroThumbList" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(110px, 1fr));gap:8px;">
+          <div id="heroThumbList" class="hero-thumb-grid">
             
-            <button type="button" class="hero-thumb active" onclick="setHeroMockup('/assets/nexora-grand-stack-mockup.jpg', 'NEXORA Grand Stack — 6 Comprehensive Modules · 33 Video Lessons · 11 High-Value Bonuses', this, 'curriculum-section')" style="border:2px solid #6e0a14;background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:800;color:#fff;display:block;">All Modules</span>
-              <span style="font-size:10px;color:#e63946;display:block;margin-top:2px;">Full Bundle</span>
+            <button type="button" class="hero-thumb active" onclick="setHeroMockup('/assets/nexora-grand-stack-mockup.jpg', 'NEXORA Grand Stack — 6 Comprehensive Modules · 33 Video Lessons · 11 High-Value Bonuses', this, 'curriculum-section')">
+              <span class="ht-title">All Modules</span>
+              <span class="ht-val">Full Bundle</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-1-mockup.jpg', 'Module 01: Career & Global Opportunities (6 Video Lessons · Value: ₦105,982)', this, 'mod-1')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">01 &middot; Career</span>
-              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦105k Value</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-1-mockup.jpg', 'Module 01: Career & Global Opportunities (6 Video Lessons · Value: ₦105,982)', this, 'mod-1')">
+              <span class="ht-title">01 &middot; Career</span>
+              <span class="ht-val">₦105k Value</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-2-mockup.jpg', 'Module 02: Money & WhatsApp Income (5 Video Lessons · Value: ₦110,545)', this, 'mod-2')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">02 &middot; Money</span>
-              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦110k Value</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-2-mockup.jpg', 'Module 02: Money & WhatsApp Income (5 Video Lessons · Value: ₦110,545)', this, 'mod-2')">
+              <span class="ht-title">02 &middot; Money</span>
+              <span class="ht-val">₦110k Value</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-3-mockup.jpg', 'Module 03: Marketing & Sales (5 Video Lessons · Value: ₦99,985)', this, 'mod-3')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">03 &middot; Sales</span>
-              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦100k Value</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-3-mockup.jpg', 'Module 03: Marketing & Sales (5 Video Lessons · Value: ₦99,985)', this, 'mod-3')">
+              <span class="ht-title">03 &middot; Sales</span>
+              <span class="ht-val">₦100k Value</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-4-mockup.jpg', 'Module 04: Personal Brand & LinkedIn (5 Video Lessons · Value: ₦100,545)', this, 'mod-4')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">04 &middot; Brand</span>
-              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦100k Value</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-4-mockup.jpg', 'Module 04: Personal Brand & LinkedIn (5 Video Lessons · Value: ₦100,545)', this, 'mod-4')">
+              <span class="ht-title">04 &middot; Brand</span>
+              <span class="ht-val">₦100k Value</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-5-mockup.jpg', 'Module 05: AI & Tech Automations (6 Video Lessons · Value: ₦122,542)', this, 'mod-5')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">05 &middot; AI Tech</span>
-              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦122k Value</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-5-mockup.jpg', 'Module 05: AI Tools, Systems & Automations (6 Video Lessons · Value: ₦122,500)', this, 'mod-5')">
+              <span class="ht-title">05 &middot; AI Tech</span>
+              <span class="ht-val">₦122k Value</span>
             </button>
 
-            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-6-mockup.jpg', 'Module 06: Life & Growth (7 Video Lessons · Value: ₦97,539)', this, 'mod-6')" style="border:1px solid rgba(255,255,255,0.12);background:#141418;border-radius:10px;padding:8px 6px;cursor:pointer;outline:none;transition:border-color 0.2s, background 0.2s;">
-              <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#ccc;display:block;">06 &middot; Growth</span>
-              <span style="font-size:10px;color:#71717a;display:block;margin-top:2px;">₦97k Value</span>
+            <button type="button" class="hero-thumb" onclick="setHeroMockup('/assets/module-6-mockup.jpg', 'Module 06: Launch, Monetization & Scale (6 Video Lessons · Value: ₦97,581)', this, 'mod-6')">
+              <span class="ht-title">06 &middot; Growth</span>
+              <span class="ht-val">₦97k Value</span>
             </button>
 
           </div>
-        </div>
 
         <!-- Metric Verification Strip -->
         <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 28px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font-family:'Archivo',sans-serif;font-size:12.5px;color:#a1a1aa;letter-spacing:0.5px;">
@@ -2830,16 +2891,12 @@ function setHeroMockup(src, caption, btn, targetSectionId) {
   }
   if (cap) cap.textContent = caption || '';
   document.querySelectorAll('.hero-thumb').forEach(function(b) {
-    b.style.borderColor = 'rgba(255,255,255,0.12)';
-    b.style.transform = 'none';
-    var txt = b.querySelector('span');
-    if (txt) txt.style.color = '#ccc';
+    b.classList.remove('active');
+    b.style.borderColor = '';
+    b.style.background = '';
   });
   if (btn) {
-    btn.style.borderColor = '#6e0a14';
-    btn.style.transform = 'scale(1.03)';
-    var txt = btn.querySelector('span');
-    if (txt) txt.style.color = '#fff';
+    btn.classList.add('active');
   }
 
   // Smooth scroll to the module section on the page
