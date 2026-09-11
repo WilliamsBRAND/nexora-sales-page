@@ -219,12 +219,13 @@ main{padding:64px 0 80px;}
 
       <div class="order-summary">
         <div class="sum-row"><span class="l">NEXORA birthday pre-order</span><span class="r">₦4,997</span></div>
+        <div class="sum-row"><span class="l">Gateway processing fee</span><span class="r">₦178</span></div>
         <div class="sum-row discount"><span class="l">Pre-order discount</span><span class="r">&&8722;₦20,003</span></div>
         <div class="sum-row"><span class="l">Regular price</span><span class="r"><s style="color:var(--gray);">₦25,000</s></span></div>
-        <div class="sum-total"><span class="l">Total you pay today</span><span class="r">₦4,997</span></div>
+        <div class="sum-total"><span class="l">Total you pay today</span><span class="r">₦5,175</span></div>
       </div>
 
-      <button class="btn" id="payBtn">Pay ₦4,997 securely</button>
+      <button class="btn" id="payBtn">Pay ₦5,175 securely</button>
       <div class="secure"><b>&&128274; Secure checkout</b> &middot; Payments handled by Paystack</div>
     </div>
 
@@ -292,7 +293,7 @@ main{padding:64px 0 80px;}
       })
       .catch(function (err) {
         btn.disabled = false;
-        btn.textContent = 'Pay ₦4,997 securely';
+        btn.textContent = 'Pay ₦5,175 securely';
         showErr(err.message);
       });
   });
@@ -330,7 +331,7 @@ main{padding:64px 0 80px;}
       },
       onClose: function () {
         btn.disabled = false;
-        btn.textContent = 'Pay ₦4,997 securely';
+        btn.textContent = 'Pay ₦5,175 securely';
       }
     });
     handler.openIframe();
