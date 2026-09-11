@@ -57,14 +57,17 @@ export default async function handler(req, res) {
     });
   }
 
+  // Accept valid promo and standard price tiers
+  const validAmounts = [517800, 500000, 499700, 749000];
   const expectedAmount = parseInt(process.env.PAYSTACK_AMOUNT_KOBO || "517800", 10);
+  const isValidAmount = validAmounts.includes(amount) || amount === expectedAmount;
 
-  if (amount !== expectedAmount) {
+  if (!isValidAmount) {
     return json(res, 200, {
       ok: false,
       paid: false,
       status: "amount_mismatch",
-      message: "Payment amount does not match the NEXORA pre-order price.",
+      message: "Payment amount does not match any valid NEXORA price tier.",
     });
   }
 

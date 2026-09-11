@@ -316,7 +316,7 @@ main{padding:48px 0 72px;}
     btn.textContent = 'Preparing payment\u2026';
     showErr('');
 
-    fetch('/api/config')
+    fetch('/api/config' + (offer ? '?offer=' + encodeURIComponent(offer) : ''))
       .then(function (r) { return r.json(); })
       .then(function (cfg) {
         if (!cfg.ok || !cfg.publicKey) throw new Error(cfg.error || 'Paystack not configured yet.');
