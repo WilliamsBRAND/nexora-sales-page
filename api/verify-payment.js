@@ -57,7 +57,7 @@ export default async function handler(req, res) {
     });
   }
 
-  const expectedAmount = parseInt(process.env.PAYSTACK_AMOUNT_KOBO || "517500", 10);
+  const expectedAmount = parseInt(process.env.PAYSTACK_AMOUNT_KOBO || "517800", 10);
 
   if (amount !== expectedAmount) {
     return json(res, 200, {
