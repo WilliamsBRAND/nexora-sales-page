@@ -45,7 +45,7 @@ export default async function handler(req, res) {
         customer_email: email,
         customer_name: name,
         paystack_reference: reference,
-        amount_kobo: 749000,
+        amount_kobo: 499700,
         status: 'manual_verified',
         webhook_event: JSON.stringify({
           phone,
@@ -74,7 +74,7 @@ export default async function handler(req, res) {
       fp.searchParams.set('name', name);
       fp.searchParams.set('email', email);
       fp.searchParams.set('phone', phone);
-      fp.searchParams.set('amount', '7490');
+      fp.searchParams.set('amount', '4997');
       fp.searchParams.set('reference', reference);
       fp.searchParams.set('status', 'manual_registration');
       fp.searchParams.set('source', `Manual Transfer Form (${finalSource})`);
@@ -85,7 +85,7 @@ export default async function handler(req, res) {
         name,
         email,
         phone,
-        amount: '7490',
+        amount: '4997',
         reference,
         status: 'manual_registration',
         source: `Manual Transfer Form (${finalSource})`,
