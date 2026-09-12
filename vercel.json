@@ -4,6 +4,16 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/checkout/thank-you",
+      "destination": "/thank-you",
+      "permanent": false
+    },
+    {
+      "source": "/checkout/thank-you.html",
+      "destination": "/thank-you",
+      "permanent": false
+    },
+    {
       "source": "/marketplace",
       "destination": "https://nexora.tomidewilliams.store",
       "permanent": true
