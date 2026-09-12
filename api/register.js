@@ -1,4 +1,4 @@
-﻿// NEXORA â€” Manual Registration API (/api/register)
+// NEXORA — Manual Registration API (/api/register)
 // Saves manual payer registration to Supabase and Google Sheet webhook.
 import { getDb, json } from './_db.js';
 
@@ -16,10 +16,12 @@ export default async function handler(req, res) {
   const name = (body.name || '').trim();
   const email = (body.email || '').trim().toLowerCase();
   const phone = (body.phone || '').trim();
+  const rawAmount = String(body.amountPaid || body.amount || '').trim();
   const heardFrom = (body.heardFrom || '').trim();
   const heardFromOther = (body.heardFromOther || '').trim();
   const moduleInterest = (body.moduleInterest || '').trim();
   const paymentProof = (body.paymentProof || '').trim();
+  const partner = (body.partner || body.pp || '').trim();
 
   // Basic validation
   if (!name) return json(res, 400, { ok: false, error: 'Full name is required.' });
@@ -27,6 +29,12 @@ export default async function handler(req, res) {
   if (!phone) return json(res, 400, { ok: false, error: 'Phone/WhatsApp number is required.' });
   if (!heardFrom) return json(res, 400, { ok: false, error: 'Please specify where you heard about NEXORA.' });
   if (!moduleInterest) return json(res, 400, { ok: false, error: 'Please select your module interest.' });
+
+  // Clean and parse amount paid
+  const numericAmount = rawAmount.replace(/[^0-9.]/g, '');
+  const amountNumber = parseFloat(numericAmount) || 4997;
+  const finalAmountString = String(amountNumber);
+  const amountKobo = Math.round(amountNumber * 100);
 
   const finalSource = heardFrom === 'Other' && heardFromOther ? `Other: ${heardFromOther}` : heardFrom;
   const reference = `MANUAL-${Date.now()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
@@ -45,13 +53,17 @@ export default async function handler(req, res) {
         customer_email: email,
         customer_name: name,
         paystack_reference: reference,
-        amount_kobo: 499700,
+        amount_kobo: amountKobo,
         status: 'manual_verified',
         webhook_event: JSON.stringify({
           phone,
+          amount_paid_raw: rawAmount,
+          amount_paid_naira: finalAmountString,
+          channel: 'Manual Registration',
           heard_from: finalSource,
           module_interest: moduleInterest,
           payment_proof: paymentProof || 'Manual Bank Transfer',
+          partner: partner || null,
           registered_at: new Date().toISOString(),
         }),
       };
@@ -74,10 +86,12 @@ export default async function handler(req, res) {
       fp.searchParams.set('name', name);
       fp.searchParams.set('email', email);
       fp.searchParams.set('phone', phone);
-      fp.searchParams.set('amount', '4997');
+      fp.searchParams.set('amount', finalAmountString);
       fp.searchParams.set('reference', reference);
       fp.searchParams.set('status', 'manual_registration');
-      fp.searchParams.set('source', `Manual Transfer Form (${finalSource})`);
+      fp.searchParams.set('source', 'Manual Registration Form');
+      fp.searchParams.set('channel', 'Manual Registration');
+      fp.searchParams.set('partner', partner || 'None');
       fp.searchParams.set('module_interest', moduleInterest);
       fp.searchParams.set('proof', paymentProof || 'N/A');
 
@@ -85,10 +99,12 @@ export default async function handler(req, res) {
         name,
         email,
         phone,
-        amount: '4997',
+        amount: finalAmountString,
         reference,
         status: 'manual_registration',
-        source: `Manual Transfer Form (${finalSource})`,
+        channel: 'Manual Registration',
+        source: 'Manual Registration Form',
+        partner: partner || 'None',
         heard_from: finalSource,
         module_interest: moduleInterest,
         proof: paymentProof || 'N/A',
@@ -112,6 +128,7 @@ export default async function handler(req, res) {
     data: {
       name,
       email,
+      amount: finalAmountString,
       reference,
       dbSaved,
       sheetLogged,

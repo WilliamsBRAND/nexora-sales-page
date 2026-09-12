@@ -495,6 +495,14 @@ footer {
           <input type="tel" id="phoneNum" name="phone" class="text-input" placeholder="e.g. 08012345678 or +234..." required autocomplete="tel">
         </div>
 
+        <!-- 3.5 How much did you pay? -->
+        <div class="form-group">
+          <label class="form-label" for="amountPaid">
+            How much did you pay? (₦) <span class="req">*</span>
+          </label>
+          <input type="text" id="amountPaid" name="amountPaid" class="text-input" placeholder="e.g. 5,000 or 7,490 or 4,997" required>
+        </div>
+
         <!-- 4. Where did you hear about this? -->
         <div class="form-group">
           <label class="form-label">
@@ -642,6 +650,7 @@ async function handleRegistration(e) {
     name: formData.get('name'),
     email: formData.get('email'),
     phone: formData.get('phone'),
+    amountPaid: formData.get('amountPaid'),
     heardFrom: formData.get('heardFrom'),
     heardFromOther: formData.get('heardFromOther'),
     moduleInterest: formData.get('moduleInterest'),

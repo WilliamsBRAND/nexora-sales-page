@@ -112,20 +112,7 @@ export default async function handler(req, res) {
       }
     }
 
-    // Optional: Log to Google Sheets
-    const sheetWebhook = process.env.SHEET_WEBHOOK_URL || '';
-    if (sheetWebhook) {
-      try {
-        const fp = new URL(sheetWebhook);
-        fp.searchParams.set('name', reviewerName);
-        fp.searchParams.set('email', email || '');
-        fp.searchParams.set('amount', 'Feedback');
-        fp.searchParams.set('reference', reference || 'REVIEW-' + Date.now());
-        fp.searchParams.set('status', `${starRating} Stars: ${reviewText.slice(0, 80)}`);
-        fp.searchParams.set('source', 'Review Submission');
-        await fetch(fp.toString(), { method: 'POST' });
-      } catch (e) {}
-    }
+    // Feedbacks stored in Supabase only — excluded from Google Sheet per settings
 
     return json(res, 200, {
       ok: true,

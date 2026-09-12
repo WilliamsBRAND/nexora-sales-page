@@ -1,6 +1,4 @@
-// NEXORA — server-side Paystack transaction verification + paid confirmation.
-// This runs ONLY on Vercel (secret key is never exposed to the browser).
-
+// NEXORA — server-side Paystack transaction verification (Sales Page)
 const PAYSTACK_VERIFY = "https://api.paystack.co/transaction/verify/";
 
 function json(res, status, body) {
@@ -18,7 +16,7 @@ export default async function handler(req, res) {
   const email = url.searchParams.get("email") || "";
   const name = url.searchParams.get("name") || "";
   const partner = url.searchParams.get("pp") || "";
-  const offerSlug = url.searchParams.get("offer") || "nexora";
+  const phone = url.searchParams.get("phone") || "";
 
   const secretKey = process.env.PAYSTACK_SECRET_KEY || "";
 
@@ -57,26 +55,14 @@ export default async function handler(req, res) {
     });
   }
 
-  // Accept valid promo and standard price tiers
-  const validAmounts = [517800, 500000, 499700, 749000];
-  const expectedAmount = parseInt(process.env.PAYSTACK_AMOUNT_KOBO || "517800", 10);
-  const isValidAmount = validAmounts.includes(amount) || amount === expectedAmount;
-
-  if (!isValidAmount) {
-    return json(res, 200, {
-      ok: false,
-      paid: false,
-      status: "amount_mismatch",
-      message: "Payment amount does not match any valid NEXORA price tier.",
-    });
-  }
-
-  // Verified: success + correct amount. Log to Google Sheet via Apps Script webhook.
+  // Log to Google Sheet via Apps Script webhook
   const sheetWebhook = process.env.SHEET_WEBHOOK_URL || "";
   let logged = false;
-  const source = partner ? `Affiliate (${partner})` : "Ads (Sales Page)";
+  const channel = "Sales Page";
+  const source = partner ? `Affiliate (${partner}) - Sales Page` : "Sales Page (Direct Ads)";
   const customerEmail = email || data.customer?.email || "";
   const customerName = name || (data.customer?.first_name ? (data.customer.first_name + " " + (data.customer.last_name || "")).trim() : "");
+  const customerPhone = phone || data.customer?.phone || "";
   const amountNaira = String(data.amount / 100);
 
   if (sheetWebhook) {
@@ -84,20 +70,25 @@ export default async function handler(req, res) {
       const fp = new URL(sheetWebhook);
       fp.searchParams.set("email", customerEmail);
       fp.searchParams.set("name", customerName);
+      fp.searchParams.set("phone", customerPhone);
       fp.searchParams.set("amount", amountNaira);
       fp.searchParams.set("reference", reference);
       fp.searchParams.set("status", status);
-      fp.searchParams.set("partner", partner || "");
+      fp.searchParams.set("partner", partner || "None");
+      fp.searchParams.set("channel", channel);
       fp.searchParams.set("source", source);
 
       const payload = {
         name: customerName,
         email: customerEmail,
+        phone: customerPhone,
         amount: amountNaira,
         reference: reference,
         status: status,
-        partner: partner || "",
-        source: source
+        partner: partner || "None",
+        channel: channel,
+        source: source,
+        timestamp: new Date().toISOString()
       };
 
       const sr = await fetch(fp.toString(), {
@@ -121,9 +112,11 @@ export default async function handler(req, res) {
     customer: {
       email: customerEmail,
       name: customerName,
+      phone: customerPhone,
     },
     paid_at: data.paid_at,
     partner: partner || null,
+    channel,
     source,
     sheet_logged: logged,
   });
