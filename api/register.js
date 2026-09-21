@@ -2,7 +2,7 @@
 // Saves lead/VIP registration to Supabase, logs to Google Sheets, and routes to custom Partner WhatsApp funnel if set.
 import { getDb, json } from './_db.js';
 
-const MASTER_WA_GROUP = 'https://chat.whatsapp.com/LNC6ABmpaFN5b6we3ZuEpp';
+const MASTER_WA_GROUP = 'https://chat.whatsapp.com/LqRRlc5SI4A8pQjlEf1hgg';
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');

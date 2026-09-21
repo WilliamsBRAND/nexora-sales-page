@@ -42,7 +42,7 @@ async function sync() {
     const email = o.customer_email || '-';
     const phone = meta.phone || '-';
     const partner = meta.partner || 'None';
-    const redirectUrl = meta.redirect_url || 'https://chat.whatsapp.com/LNC6ABmpaFN5b6we3ZuEpp';
+    const redirectUrl = meta.redirect_url || 'https://chat.whatsapp.com/LqRRlc5SI4A8pQjlEf1hgg';
     const reference = o.paystack_reference || '-';
     const status = o.status || 'verified';
     const timestamp = o.created_at || meta.registered_at || new Date().toISOString();
