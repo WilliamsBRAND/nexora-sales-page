@@ -561,6 +561,51 @@ h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:800;line-height:1.08;le
   font-weight: 700;
 }
 
+/* ===== HERO SHOWCASE & BREATHING SPACE ===== */
+.hero-showcase-wrap {
+  margin: 36px auto 68px !important;
+  max-width: 860px;
+  width: 100%;
+}
+.hero-birthday-intro {
+  margin-top: 56px !important;
+  margin-bottom: 22px !important;
+  max-width: 780px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  font-size: 17px !important;
+  line-height: 1.85 !important;
+  color: #f4f4f6 !important;
+}
+.hero-narrative-p {
+  max-width: 760px !important;
+  margin: 0 auto 20px !important;
+  font-size: 15.5px !important;
+  line-height: 1.78 !important;
+  color: #d1d5db !important;
+}
+
+@media (max-width: 768px) {
+  .hero-showcase-wrap {
+    margin: 24px auto 52px !important;
+  }
+  .hero-birthday-intro {
+    margin-top: 48px !important;
+    margin-bottom: 18px !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .hero-narrative-p {
+    margin: 0 auto 16px !important;
+    font-size: 14.5px !important;
+    line-height: 1.7 !important;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
 /* ===== HERO ===== */
 .hero{background:var(--black);color:#fff;padding:90px 0 70px;text-align:center;}
 .hero .eyebrow{color:#fff;background:var(--crimson);padding:4px 14px;border-radius:999px;font-size:12px;letter-spacing:1.5px;display:inline-block;font-weight:700;}
@@ -1569,7 +1614,7 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
     </div>
 
     <!-- 3D Value Stack Mockup Showcase -->
-    <div class="hero-showcase-wrap reveal in d3" style="margin:28px auto 42px;max-width:860px;width:100%;">
+    <div class="hero-showcase-wrap reveal in d3">
       <div style="background:#09090c;border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:26px 22px;box-shadow:0 30px 70px rgba(0,0,0,0.7), 0 0 35px rgba(110,10,20,0.18);text-align:center;">
         
         <!-- Header Line -->
@@ -1650,11 +1695,12 @@ section.dark .red{color:#fff;background:var(--crimson);padding:2px 8px;border-ra
       </div>
     </div>
 
-    <p class="hero-sub reveal" style="margin:0 auto 14px;">For my birthday, I am packaging some of the most important lessons I have learned in my mid-20s about making more money, building a better career, creating opportunities, using AI, building a personal brand, getting clients and jobs on LinkedIn, connecting and partnering with ambitious creators and professionals, building solid industry relationships, and becoming more intentional about your life.</p>
+    <!-- Spacious Birthday Story Narrative -->
+    <p class="hero-birthday-intro reveal">For my birthday, I am packaging some of the most important lessons I have learned in my mid-20s about making more money, building a better career, creating opportunities, using AI, building a personal brand, getting clients and jobs on LinkedIn, connecting and partnering with ambitious creators and professionals, building solid industry relationships, and becoming more intentional about your life.</p>
 
-    <p class="reveal d1" style="max-width:760px;margin:0 auto 14px;">NEXORA is an exclusive live launch breakdown and collection of practical 10&ndash;20 minute lessons created to help you make better moves across your career, income, relationships, opportunities and personal growth.</p>
+    <p class="hero-narrative-p reveal d1">NEXORA is an exclusive live launch breakdown and collection of practical 10&ndash;20 minute lessons created to help you make better moves across your career, income, relationships, opportunities and personal growth.</p>
 
-    <p class="reveal d3" style="max-width:760px;margin:0 auto 14px;">Join the live NEXORA Launch Event & Party and webinar breakdown. Attendance is 100% free for everyone who registers before the countdown ends.</p>
+    <p class="hero-narrative-p reveal d3">Join the live NEXORA Launch Event & Party and webinar breakdown. Attendance is 100% free for everyone who registers before the countdown ends.</p>
 
     <p class="reveal d4" style="margin:26px 0 6px;font-size:20px;font-weight:700;">Live Launch Event Access &middot; <span class="cut-paper slant-alt" style="font-size:24px;padding:3px 16px;margin:0 4px;color:#2ecc71;">100% FREE</span></p>
     <p class="reveal d4" style="margin:0 0 6px;font-size:15px;color:#cfcfcf;">Direct access to the private WhatsApp group and live launch session.</p>
