@@ -315,7 +315,9 @@ main{padding:48px 0 72px;}
     sessionStorage.setItem('nexora_pp', partner);
     localStorage.setItem('nexora_pp', partner);
     setCookie('nexora_pp', partner, 30);
-    try { fetch('https://partners.tomidewilliams.store/api/track?code=' + encodeURIComponent(partner) + '&product=' + encodeURIComponent('nexora')); } catch(e) {}
+    try {
+      fetch('https://partners.tomidewilliams.com/api/track?code=' + encodeURIComponent(partner) + '&product=' + encodeURIComponent('nexora')).catch(function(){});
+    } catch(e) {}
   }
 
   function showErr(msg) { errEl.textContent = msg || ''; }
@@ -326,13 +328,17 @@ main{padding:48px 0 72px;}
     if (!name) { showErr('Please enter your full name.'); nameEl.focus(); return false; }
     if (!email) { showErr('Please enter your email address.'); emailEl.focus(); return false; }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { showErr('Please enter a valid email address.'); emailEl.focus(); return false; }
-    if (!phone || phone.length < 8) { showErr('Please enter your valid WhatsApp phone number.'); phoneEl.focus(); return false; }
+    if (!phone || phone.length < 7) { showErr('Please enter your valid WhatsApp phone number.'); phoneEl.focus(); return false; }
     showErr('');
     return true;
   }
 
+  var isSubmitting = false;
+
   btn.addEventListener('click', function () {
+    if (isSubmitting) return;
     if (!valid()) return;
+    isSubmitting = true;
     btn.disabled = true;
     btn.textContent = 'Registering & Redirecting…';
     showErr('');
@@ -350,28 +356,47 @@ main{padding:48px 0 72px;}
       sessionStorage.setItem('nexora_cust_phone', phone);
     } catch (e) {}
 
-    // Async track / register
-    try {
-      fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          phone: phone,
-          partner: partner,
-          tier: 'free_webinar',
-          amount: '0',
-          heardFrom: 'Direct Free Registration',
-          moduleInterest: 'All Modules'
-        })
-      }).catch(function(){});
-    } catch(e) {}
+    var redirected = false;
+    function doRedirect(targetUrl) {
+      if (redirected) return;
+      redirected = true;
+      var dest = targetUrl || WA_GROUP_URL;
+      window.location.href = dest;
+    }
 
-    // Direct redirect to WhatsApp Group
-    setTimeout(function() {
-      window.location.href = WA_GROUP_URL;
-    }, 600);
+    // Safety timeout fallback (max 3 seconds before auto-redirecting to master group)
+    var fallbackTimer = setTimeout(function() {
+      doRedirect(WA_GROUP_URL);
+    }, 3000);
+
+    // Call registration API
+    fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone,
+        partner: partner,
+        tier: 'free_vip_pass',
+        amount: '0',
+        heardFrom: partner ? ('Partner Referral: ' + partner) : 'Direct Free Registration',
+        moduleInterest: 'All 6 Modules + Bonuses'
+      })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      clearTimeout(fallbackTimer);
+      if (data && data.redirectUrl) {
+        doRedirect(data.redirectUrl);
+      } else {
+        doRedirect(WA_GROUP_URL);
+      }
+    })
+    .catch(function(err) {
+      clearTimeout(fallbackTimer);
+      doRedirect(WA_GROUP_URL);
+    });
   });
 })();
 </script>

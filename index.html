@@ -2992,6 +2992,45 @@ function setHeroMockup(src, caption, btn, targetSectionId) {
   }
 }
 
+// Partner Referral Tracking & Attribution Persistence
+(function() {
+  function getCookie(n){var v=document.cookie.match('(^|;)\\s*'+n+'=([^;]*)');return v?v[2]:'';}
+  function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+d*864e5);document.cookie=n+'='+v+';expires='+e.toUTCString()+';path=/;SameSite=Lax';}
+
+  var params = new URLSearchParams(window.location.search);
+  var partner = params.get('pp') || params.get('ref') || params.get('p') || getCookie('nexora_pp') || sessionStorage.getItem('nexora_pp') || localStorage.getItem('nexora_pp') || '';
+  partner = (partner || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 32);
+
+  if (partner) {
+    sessionStorage.setItem('nexora_pp', partner);
+    localStorage.setItem('nexora_pp', partner);
+    setCookie('nexora_pp', partner, 30);
+
+    // Track click on Partners Platform backend
+    try {
+      fetch('https://partners.tomidewilliams.com/api/track?code=' + encodeURIComponent(partner) + '&product=' + encodeURIComponent('nexora')).catch(function(){});
+    } catch(e) {}
+
+    // Update all checkout buttons with the partner query parameter
+    function enrichCheckoutLinks() {
+      var links = document.querySelectorAll('a[href^="checkout"], a[href^="/checkout"]');
+      links.forEach(function(a) {
+        try {
+          var href = a.getAttribute('href');
+          var url = new URL(href, window.location.origin);
+          url.searchParams.set('pp', partner);
+          a.setAttribute('href', url.pathname.replace(/^\//, '') + url.search);
+        } catch(e) {}
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', enrichCheckoutLinks);
+    } else {
+      enrichCheckoutLinks();
+    }
+  }
+})();
 </script>
 </body>
 </html>

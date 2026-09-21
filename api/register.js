@@ -1,6 +1,8 @@
-// NEXORA — Manual Registration API (/api/register)
-// Saves manual payer registration to Supabase and Google Sheet webhook.
+// NEXORA — Registration API (/api/register)
+// Saves lead/VIP registration to Supabase, logs to Google Sheets, and routes to custom Partner WhatsApp funnel if set.
 import { getDb, json } from './_db.js';
+
+const MASTER_WA_GROUP = 'https://chat.whatsapp.com/LNC6ABmpaFN5b6we3ZuEpp';
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -16,33 +18,47 @@ export default async function handler(req, res) {
   const name = (body.name || '').trim();
   const email = (body.email || '').trim().toLowerCase();
   const phone = (body.phone || '').trim();
-  const rawAmount = String(body.amountPaid || body.amount || '').trim();
-  const heardFrom = (body.heardFrom || '').trim();
+  const rawAmount = String(body.amountPaid || body.amount || '0').trim();
+  const heardFrom = (body.heardFrom || 'Free Launch Event Registration').trim();
   const heardFromOther = (body.heardFromOther || '').trim();
-  const moduleInterest = (body.moduleInterest || '').trim();
+  const moduleInterest = (body.moduleInterest || 'All 6 Modules + Bonuses').trim();
   const paymentProof = (body.paymentProof || '').trim();
-  const partner = (body.partner || body.pp || '').trim();
+  const partner = (body.partner || body.pp || body.ref || '').trim();
+  const tier = (body.tier || 'free_vip_pass').trim();
 
   // Basic validation
   if (!name) return json(res, 400, { ok: false, error: 'Full name is required.' });
   if (!email || !email.includes('@')) return json(res, 400, { ok: false, error: 'Valid email address is required.' });
-  if (!phone) return json(res, 400, { ok: false, error: 'Phone/WhatsApp number is required.' });
-  if (!heardFrom) return json(res, 400, { ok: false, error: 'Please specify where you heard about NEXORA.' });
-  if (!moduleInterest) return json(res, 400, { ok: false, error: 'Please select your module interest.' });
+  if (!phone || phone.length < 7) return json(res, 400, { ok: false, error: 'Phone/WhatsApp number is required.' });
 
-  // Clean and parse amount paid
+  // Clean and parse amount paid (0 for free launch event)
   const numericAmount = rawAmount.replace(/[^0-9.]/g, '');
-  const amountNumber = parseFloat(numericAmount) || 4997;
+  const amountNumber = parseFloat(numericAmount) || 0;
   const finalAmountString = String(amountNumber);
   const amountKobo = Math.round(amountNumber * 100);
 
   const finalSource = heardFrom === 'Other' && heardFromOther ? `Other: ${heardFromOther}` : heardFrom;
-  const reference = `MANUAL-${Date.now()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
+  const reference = `NEX-${tier === 'free_vip_pass' ? 'VIP' : 'REG'}-${Date.now()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
 
   const db = getDb();
   let dbSaved = false;
+  let redirectUrl = MASTER_WA_GROUP;
 
-  // 1. Save to Supabase
+  // 1. Check for Partner's Custom WhatsApp Group Funnel URL
+  if (db && partner) {
+    try {
+      const partnerCode = partner.toUpperCase();
+      const titleKey = `wa_funnel:${partnerCode}`;
+      const { data: waRow } = await db.from('marketing_materials').select('url').eq('title', titleKey).maybeSingle();
+      if (waRow && waRow.url && waRow.url.trim()) {
+        redirectUrl = waRow.url.trim();
+      }
+    } catch (waErr) {
+      console.error('[api/register] Partner WhatsApp lookup error:', waErr);
+    }
+  }
+
+  // 2. Save Registration to Supabase
   if (db) {
     try {
       const { data: offers } = await db.from('offers').select('id, product_id').eq('slug', 'nexora').maybeSingle();
@@ -54,16 +70,17 @@ export default async function handler(req, res) {
         customer_name: name,
         paystack_reference: reference,
         amount_kobo: amountKobo,
-        status: 'manual_verified',
+        status: 'verified',
         webhook_event: JSON.stringify({
           phone,
           amount_paid_raw: rawAmount,
           amount_paid_naira: finalAmountString,
-          channel: 'Manual Registration',
+          channel: tier === 'free_vip_pass' ? 'Free VIP Launch Pass' : 'Manual Registration',
           heard_from: finalSource,
           module_interest: moduleInterest,
-          payment_proof: paymentProof || 'Manual Bank Transfer',
+          payment_proof: paymentProof || (amountKobo > 0 ? 'Manual Bank Transfer' : 'Free VIP Registration'),
           partner: partner || null,
+          redirect_url: redirectUrl,
           registered_at: new Date().toISOString(),
         }),
       };
@@ -76,7 +93,7 @@ export default async function handler(req, res) {
     }
   }
 
-  // 2. Post to Google Sheet Webhook (Apps Script)
+  // 3. Post to Google Sheet Webhook (Apps Script)
   const sheetWebhook = process.env.SHEET_WEBHOOK_URL || '';
   let sheetLogged = false;
 
@@ -88,12 +105,12 @@ export default async function handler(req, res) {
       fp.searchParams.set('phone', phone);
       fp.searchParams.set('amount', finalAmountString);
       fp.searchParams.set('reference', reference);
-      fp.searchParams.set('status', 'manual_registration');
-      fp.searchParams.set('source', 'Manual Registration Form');
-      fp.searchParams.set('channel', 'Manual Registration');
+      fp.searchParams.set('status', tier === 'free_vip_pass' ? 'vip_registered' : 'manual_registration');
+      fp.searchParams.set('source', 'Launch Event Checkout');
+      fp.searchParams.set('channel', tier === 'free_vip_pass' ? 'Free Launch Event' : 'Manual Registration');
       fp.searchParams.set('partner', partner || 'None');
       fp.searchParams.set('module_interest', moduleInterest);
-      fp.searchParams.set('proof', paymentProof || 'N/A');
+      fp.searchParams.set('proof', paymentProof || 'Free VIP Registration');
 
       const payload = {
         name,
@@ -101,13 +118,14 @@ export default async function handler(req, res) {
         phone,
         amount: finalAmountString,
         reference,
-        status: 'manual_registration',
-        channel: 'Manual Registration',
-        source: 'Manual Registration Form',
+        status: tier === 'free_vip_pass' ? 'vip_registered' : 'manual_registration',
+        channel: tier === 'free_vip_pass' ? 'Free Launch Event' : 'Manual Registration',
+        source: 'Launch Event Checkout',
         partner: partner || 'None',
         heard_from: finalSource,
         module_interest: moduleInterest,
-        proof: paymentProof || 'N/A',
+        proof: paymentProof || 'Free VIP Registration',
+        redirect_url: redirectUrl,
         timestamp: new Date().toISOString(),
       };
 
@@ -125,11 +143,15 @@ export default async function handler(req, res) {
   return json(res, 200, {
     ok: true,
     message: 'Registration successful',
+    redirectUrl,
     data: {
       name,
       email,
+      phone,
       amount: finalAmountString,
       reference,
+      partner: partner || null,
+      redirectUrl,
       dbSaved,
       sheetLogged,
     },
