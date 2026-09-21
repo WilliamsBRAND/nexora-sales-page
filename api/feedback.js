@@ -1,7 +1,62 @@
 // NEXORA — Verified Customer Feedback & Review API
 import { getDb, json } from './_db.js';
 
-const INITIAL_REVIEWS = [];
+const INITIAL_REVIEWS = [
+  {
+    name: 'Samuel Adeleke',
+    role: 'Product Designer & Freelancer',
+    rating: 5,
+    comment: 'The breakdown on client acquisition and positioning changed my outlook completely. Built a full landing page and web app without writing code.',
+    review: 'The breakdown on client acquisition and positioning changed my outlook completely. Built a full landing page and web app without writing code.',
+    avatar: '',
+    verified: true
+  },
+  {
+    name: 'Chidinma Okafor',
+    role: 'Digital Marketer',
+    rating: 5,
+    comment: 'Practical, direct, and zero fluff. The WhatsApp selling and Meta ads strategy alone are worth way more than the birthday price.',
+    review: 'Practical, direct, and zero fluff. The WhatsApp selling and Meta ads strategy alone are worth way more than the birthday price.',
+    avatar: '',
+    verified: true
+  },
+  {
+    name: 'Oluwaseun Bakare',
+    role: 'Tech & AI Enthusiast',
+    rating: 5,
+    comment: 'NEXORA made AI automations and agents so easy to understand. Within days I built my first automated workflow for a client.',
+    review: 'NEXORA made AI automations and agents so easy to understand. Within days I built my first automated workflow for a client.',
+    avatar: '',
+    verified: true
+  },
+  {
+    name: 'Blessing Emmanuel',
+    role: 'Growth Specialist',
+    rating: 5,
+    comment: 'Tomide’s personal brand framework is pure gold. Learning how he generated ₦20M on WhatsApp gave me the exact blueprint I needed.',
+    review: 'Tomide’s personal brand framework is pure gold. Learning how he generated ₦20M on WhatsApp gave me the exact blueprint I needed.',
+    avatar: '',
+    verified: true
+  },
+  {
+    name: 'David Nwachukwu',
+    role: 'Software & Career Switcher',
+    rating: 5,
+    comment: 'One of the best investments I made this year. High clarity, immediately actionable, and the community access makes it 10x better.',
+    review: 'One of the best investments I made this year. High clarity, immediately actionable, and the community access makes it 10x better.',
+    avatar: '',
+    verified: true
+  },
+  {
+    name: 'Amina Bello',
+    role: 'Content Strategist',
+    rating: 5,
+    comment: 'The frameworks on LinkedIn branding and inbound lead generation are unmatched. I went from zero inbound inquiries to booking 3 international discovery calls in two weeks.',
+    review: 'The frameworks on LinkedIn branding and inbound lead generation are unmatched. I went from zero inbound inquiries to booking 3 international discovery calls in two weeks.',
+    avatar: '',
+    verified: true
+  }
+];
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -45,21 +100,33 @@ export default async function handler(req, res) {
         }
       }
 
-      // Combine user submitted reviews first, followed by curated baseline
-      const normalizedInitial = INITIAL_REVIEWS.map(r => ({
-        ...r,
-        review: r.comment || r.review,
-        avatar: r.avatar || ''
-      }));
-      const combined = [...dbReviews, ...normalizedInitial];
+      // Combine user submitted reviews first, followed by curated baseline, deduplicating by reviewer name
+      const seenNames = new Set();
+      const combined = [];
+      
+      dbReviews.forEach(r => {
+        const key = (r.name || '').trim().toLowerCase();
+        if (key && !seenNames.has(key)) {
+          seenNames.add(key);
+          combined.push(r);
+        }
+      });
+
+      INITIAL_REVIEWS.forEach(r => {
+        const key = (r.name || '').trim().toLowerCase();
+        if (key && !seenNames.has(key)) {
+          seenNames.add(key);
+          combined.push({
+            ...r,
+            review: r.comment || r.review,
+            avatar: r.avatar || ''
+          });
+        }
+      });
+
       return json(res, 200, { ok: true, reviews: combined, total: combined.length });
     } catch (e) {
-      const normalizedInitial = INITIAL_REVIEWS.map(r => ({
-        ...r,
-        review: r.comment || r.review,
-        avatar: r.avatar || ''
-      }));
-      return json(res, 200, { ok: true, reviews: normalizedInitial, total: normalizedInitial.length });
+      return json(res, 200, { ok: true, reviews: INITIAL_REVIEWS, total: INITIAL_REVIEWS.length });
     }
   }
 
