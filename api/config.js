@@ -3,7 +3,7 @@
 
 // Offer matrix supporting multiple pricing tiers for the same product
 const OFFERS = {
-  "partner": { amount: "608000", priceNaira: "6,080", discountPercent: 20, originalPriceNaira: "7,600" },
+  "partner": { amount: "760000", priceNaira: "7,600" },
   "marketplace": { amount: "760000", priceNaira: "7,600" },
   "bday": { amount: "517800", priceNaira: "5,178" },
   "nexora": { amount: "517800", priceNaira: "5,178" },
@@ -16,8 +16,8 @@ export default function handler(req, res) {
   const pp = url.searchParams.get("pp") || url.searchParams.get("partner") || url.searchParams.get("ref") || "";
   let offer = url.searchParams.get("offer") || url.searchParams.get("tier") || "nexora";
 
-  // When a partner referral code is present or partner tier requested, apply the 20% discount (₦6,080)
-  if (pp || offer === "partner") {
+  // When a partner referral code is present, use standard partner marketplace price (₦7,600)
+  if (pp || offer === "partner" || offer === "marketplace") {
     offer = "partner";
   }
 

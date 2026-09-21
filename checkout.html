@@ -327,20 +327,19 @@ main{padding:48px 0 72px;}
     setCookie('nexora_offer', offer, 30);
   }
 
-  var currentPriceNaira = partner ? '6,080' : '5,178';
-  var currentAmountKobo = partner ? '608000' : '517800';
+  var currentPriceNaira = partner ? '7,600' : '5,178';
+  var currentAmountKobo = partner ? '760000' : '517800';
 
   if (partner) {
-    if (heroBadge) heroBadge.textContent = '20% Partner Discount Applied';
-    if (heroTitle) heroTitle.innerHTML = 'Exclusive Partner Privilege<br><span class="highlight">Lock in your ₦6,080 price (20% OFF)</span>';
+    if (heroBadge) heroBadge.textContent = 'Partner Referral Access';
+    if (heroTitle) heroTitle.innerHTML = 'NEXORA Lifetime Access<br><span class="highlight">₦7,600 one-time</span>';
     if (orderSummary) {
       orderSummary.innerHTML =
         '<div class="sum-row"><span class="l">Base retail price</span><span class="r">₦7,600</span></div>' +
-        '<div class="sum-row discount"><span class="l">Partner link discount (20% OFF)</span><span class="r">&minus;₦1,520</span></div>' +
         '<div class="sum-row"><span class="l">Regular value</span><span class="r"><s style="color:var(--gray);">₦25,000</s></span></div>' +
-        '<div class="sum-total"><span class="l">Total you pay today</span><span class="r">₦6,080</span></div>';
+        '<div class="sum-total"><span class="l">Total you pay today</span><span class="r">₦7,600</span></div>';
     }
-    if (btn) btn.textContent = 'Pay ₦6,080 securely';
+    if (btn) btn.textContent = 'Pay ₦7,600 securely';
   }
 
   function showErr(msg) { errEl.textContent = msg || ''; }
