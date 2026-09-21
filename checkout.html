@@ -247,10 +247,10 @@ main{padding:48px 0 72px;}
 </head>
 <body>
 
-<header class="hero">
-  <div class="hero-badge">Birthday Pre-Order</div>
-  <h1>You're almost there.<br><span class="highlight">Lock in your ₦4,997 price</span></h1>
-  <p class="hero-sub">Enter your details and pay securely with Paystack. You will be redirected to the NEXORA VIP community immediately after payment is completed.</p>
+<header class="hero" id="checkoutHero">
+  <div class="hero-badge" id="heroBadge">Birthday Pre-Order</div>
+  <h1 id="heroTitle">You're almost there.<br><span class="highlight">Lock in your ₦4,997 price</span></h1>
+  <p class="hero-sub" id="heroSub">Enter your details and pay securely with Paystack. You will be redirected to the NEXORA VIP community immediately after payment is completed.</p>
 </header>
 
 <main>
@@ -267,12 +267,12 @@ main{padding:48px 0 72px;}
       </div>
       <div class="err" id="err"></div>
 
-      <div class="order-summary">
+      <div class="order-summary" id="orderSummary">
         <div class="sum-row"><span class="l">NEXORA birthday pre-order</span><span class="r">₦4,997</span></div>
         <div class="sum-row"><span class="l">Gateway processing fee</span><span class="r">₦181</span></div>
         <div class="sum-row discount"><span class="l">Pre-order discount</span><span class="r">&minus;₦20,003</span></div>
         <div class="sum-row"><span class="l">Regular price</span><span class="r"><s style="color:var(--gray);">₦25,000</s></span></div>
-        <div class="sum-total"><span class="l">Total you pay today</span><span class="r">₦5,178</span></div>
+        <div class="sum-total"><span class="l">Total you pay today</span><span class="r" id="totalDisplay">₦5,178</span></div>
       </div>
 
       <button class="btn" id="payBtn">Pay ₦5,178 securely</button>
@@ -294,21 +294,27 @@ main{padding:48px 0 72px;}
   var loading = document.getElementById('loading');
   var nameEl = document.getElementById('name');
   var emailEl = document.getElementById('email');
+  var heroBadge = document.getElementById('heroBadge');
+  var heroTitle = document.getElementById('heroTitle');
+  var orderSummary = document.getElementById('orderSummary');
 
   // Cookie + sessionStorage + localStorage for durable partner tracking
   function getCookie(n){var v=document.cookie.match('(^|;)\\s*'+n+'=([^;]*)');return v?v[2]:'';}
   function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+d*864e5);document.cookie=n+'='+v+';expires='+e.toUTCString()+';path=/;SameSite=Lax';}
   var partner = (new URLSearchParams(window.location.search)).get('pp')
+    || (new URLSearchParams(window.location.search)).get('ref')
+    || (new URLSearchParams(window.location.search)).get('p')
     || getCookie('nexora_pp')
     || sessionStorage.getItem('nexora_pp')
     || localStorage.getItem('nexora_pp')
     || '';
   partner = (partner || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 32);
   var offer = (new URLSearchParams(window.location.search)).get('offer')
+    || (new URLSearchParams(window.location.search)).get('tier')
     || getCookie('nexora_offer')
     || sessionStorage.getItem('nexora_offer')
     || localStorage.getItem('nexora_offer')
-    || 'nexora';
+    || (partner ? 'partner' : 'nexora');
   if (partner) {
     sessionStorage.setItem('nexora_pp', partner);
     localStorage.setItem('nexora_pp', partner);
@@ -319,6 +325,22 @@ main{padding:48px 0 72px;}
     sessionStorage.setItem('nexora_offer', offer);
     localStorage.setItem('nexora_offer', offer);
     setCookie('nexora_offer', offer, 30);
+  }
+
+  var currentPriceNaira = partner ? '6,080' : '5,178';
+  var currentAmountKobo = partner ? '608000' : '517800';
+
+  if (partner) {
+    if (heroBadge) heroBadge.textContent = '20% Partner Discount Applied';
+    if (heroTitle) heroTitle.innerHTML = 'Exclusive Partner Privilege<br><span class="highlight">Lock in your ₦6,080 price (20% OFF)</span>';
+    if (orderSummary) {
+      orderSummary.innerHTML =
+        '<div class="sum-row"><span class="l">Base retail price</span><span class="r">₦7,600</span></div>' +
+        '<div class="sum-row discount"><span class="l">Partner link discount (20% OFF)</span><span class="r">&minus;₦1,520</span></div>' +
+        '<div class="sum-row"><span class="l">Regular value</span><span class="r"><s style="color:var(--gray);">₦25,000</s></span></div>' +
+        '<div class="sum-total"><span class="l">Total you pay today</span><span class="r">₦6,080</span></div>';
+    }
+    if (btn) btn.textContent = 'Pay ₦6,080 securely';
   }
 
   function showErr(msg) { errEl.textContent = msg || ''; }
@@ -338,7 +360,9 @@ main{padding:48px 0 72px;}
     btn.textContent = 'Preparing payment\u2026';
     showErr('');
 
-    fetch('/api/config' + (offer ? '?offer=' + encodeURIComponent(offer) : ''))
+    var configUrl = '/api/config?' + (partner ? 'offer=partner&pp=' + encodeURIComponent(partner) : (offer ? 'offer=' + encodeURIComponent(offer) : ''));
+
+    fetch(configUrl)
       .then(function (r) { return r.json(); })
       .then(function (cfg) {
         if (!cfg.ok || !cfg.publicKey) throw new Error(cfg.error || 'Paystack not configured yet.');
@@ -346,7 +370,7 @@ main{padding:48px 0 72px;}
       })
       .catch(function (err) {
         btn.disabled = false;
-        btn.textContent = 'Pay ₦5,178 securely';
+        btn.textContent = 'Pay ₦' + currentPriceNaira + ' securely';
         showErr(err.message);
       });
   });
@@ -355,11 +379,12 @@ main{padding:48px 0 72px;}
     var reference = 'NEXORA-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8);
     var email = emailEl.value.trim();
     var name = nameEl.value.trim();
+    var finalAmount = parseInt(cfg.amount || currentAmountKobo, 10);
 
     var handler = PaystackPop.setup({
       key: cfg.publicKey,
       email: email,
-      amount: parseInt(cfg.amount, 10),
+      amount: finalAmount,
       currency: cfg.currency || 'NGN',
       ref: reference,
       metadata: {
@@ -384,7 +409,7 @@ main{padding:48px 0 72px;}
       },
       onClose: function () {
         btn.disabled = false;
-        btn.textContent = 'Pay ₦5,178 securely';
+        btn.textContent = 'Pay ₦' + currentPriceNaira + ' securely';
       }
     });
     handler.openIframe();
@@ -393,5 +418,3 @@ main{padding:48px 0 72px;}
 </script>
 </body>
 </html>
-
-
