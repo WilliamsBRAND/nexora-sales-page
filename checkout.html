@@ -14,7 +14,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1054342037404078');
 fbq('init', '2111307746477768');
 fbq('track', 'PageView');
-fbq('track', 'InitiateCheckout', { value: 7490, currency: 'NGN' });
+fbq('track', 'Lead');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1054342037404078&ev=PageView&noscript=1"
@@ -25,12 +25,11 @@ src="https://www.facebook.com/tr?id=2111307746477768&ev=PageView&noscript=1"
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout &middot; NEXORA Birthday Pre-Order</title>
+<title>Free Registration &middot; NEXORA Pre-Launch Party</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://js.paystack.co/v1/inline.js"></script>
 <style>
 :root{
   --crimson:#6e0a14;
@@ -57,7 +56,7 @@ body{
 }
 a{text-decoration:none;color:inherit;}
 
-/* ===== HERO (matches sales page dark hero) ===== */
+/* ===== HERO ===== */
 .hero{
   background:var(--black);
   color:#fff;
@@ -177,7 +176,6 @@ main{padding:48px 0 72px;}
 }
 .sum-row .l{color:var(--gray);}
 .sum-row .r{font-weight:600;}
-.sum-row .discount .r{color:#2ecc71;font-weight:700;}
 .sum-total{
   display:flex;justify-content:space-between;align-items:baseline;
   border-top:1px solid rgba(20,20,22,.1);
@@ -186,9 +184,9 @@ main{padding:48px 0 72px;}
 .sum-total .l{font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;color:var(--ink);}
 .sum-total .r{
   font-family:'Archivo',sans-serif;
-  font-size:28px;
+  font-size:24px;
   font-weight:900;
-  color:var(--crimson);
+  color:#2ecc71;
 }
 
 /* ===== BUTTON ===== */
@@ -241,16 +239,16 @@ main{padding:48px 0 72px;}
 
 @media (max-width:560px){
   .card{padding:26px 20px;}
-  .sum-total .r{font-size:25px;}
+  .sum-total .r{font-size:22px;}
 }
 </style>
 </head>
 <body>
 
 <header class="hero" id="checkoutHero">
-  <div class="hero-badge" id="heroBadge">Birthday Pre-Order</div>
-  <h1 id="heroTitle">You're almost there.<br><span class="highlight">Lock in your ₦4,997 price</span></h1>
-  <p class="hero-sub" id="heroSub">Enter your details and pay securely with Paystack. You will be redirected to the NEXORA VIP community immediately after payment is completed.</p>
+  <div class="hero-badge" id="heroBadge">Exclusive Pre-Launch Event</div>
+  <h1 id="heroTitle">You're almost there.<br><span class="highlight">Claim Your Free VIP Pass</span></h1>
+  <p class="hero-sub" id="heroSub">Enter your details to reserve your free seat. You will be redirected to the official NEXORA WhatsApp Group immediately after registering.</p>
 </header>
 
 <main>
@@ -265,24 +263,28 @@ main{padding:48px 0 72px;}
         <div class="row-label">Email address</div>
         <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" />
       </div>
+
+      <div class="field">
+        <div class="row-label">WhatsApp phone number</div>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. 08012345678" />
+      </div>
       <div class="err" id="err"></div>
 
       <div class="order-summary" id="orderSummary">
-        <div class="sum-row"><span class="l">NEXORA birthday pre-order</span><span class="r">₦4,997</span></div>
-        <div class="sum-row"><span class="l">Gateway processing fee</span><span class="r">₦181</span></div>
-        <div class="sum-row discount"><span class="l">Pre-order discount</span><span class="r">&minus;₦20,003</span></div>
-        <div class="sum-row"><span class="l">Regular price</span><span class="r"><s style="color:var(--gray);">₦25,000</s></span></div>
-        <div class="sum-total"><span class="l">Total you pay today</span><span class="r" id="totalDisplay">₦5,178</span></div>
+        <div class="sum-row"><span class="l">Event pass</span><span class="r" style="color:#2ecc71;font-weight:700;">100% Free Access</span></div>
+        <div class="sum-row"><span class="l">Delivery</span><span class="r">Live Launch Party &amp; Webinar</span></div>
+        <div class="sum-row"><span class="l">Community</span><span class="r">Private WhatsApp Group Chat</span></div>
+        <div class="sum-total"><span class="l">Total price</span><span class="r" id="totalDisplay">₦0 (FREE)</span></div>
       </div>
 
-      <button class="btn" id="payBtn">Pay ₦5,178 securely</button>
+      <button class="btn" id="payBtn">Register &amp; Join WhatsApp Group &rarr;</button>
       <div class="secure">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-        <span><b>256-Bit Encrypted Checkout</b> &middot; Payments processed securely via Paystack</span>
+        <span><b>Instant Confirmation</b> &middot; Direct redirect to the official WhatsApp community</span>
       </div>
     </div>
 
-    <div class="loading" id="loading"><div class="spinner"></div>Preparing your secure payment&hellip;</div>
+    <div class="loading" id="loading"><div class="spinner"></div>Securing your free registration&hellip;</div>
   </div>
 </main>
 
@@ -294,11 +296,10 @@ main{padding:48px 0 72px;}
   var loading = document.getElementById('loading');
   var nameEl = document.getElementById('name');
   var emailEl = document.getElementById('email');
-  var heroBadge = document.getElementById('heroBadge');
-  var heroTitle = document.getElementById('heroTitle');
-  var orderSummary = document.getElementById('orderSummary');
+  var phoneEl = document.getElementById('phone');
 
-  // Cookie + sessionStorage + localStorage for durable partner tracking
+  var WA_GROUP_URL = 'https://chat.whatsapp.com/LNC6ABmpaFN5b6we3ZuEpp';
+
   function getCookie(n){var v=document.cookie.match('(^|;)\\s*'+n+'=([^;]*)');return v?v[2]:'';}
   function setCookie(n,v,d){var e=new Date();e.setTime(e.getTime()+d*864e5);document.cookie=n+'='+v+';expires='+e.toUTCString()+';path=/;SameSite=Lax';}
   var partner = (new URLSearchParams(window.location.search)).get('pp')
@@ -309,46 +310,23 @@ main{padding:48px 0 72px;}
     || localStorage.getItem('nexora_pp')
     || '';
   partner = (partner || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 32);
-  var offer = (new URLSearchParams(window.location.search)).get('offer')
-    || (new URLSearchParams(window.location.search)).get('tier')
-    || getCookie('nexora_offer')
-    || sessionStorage.getItem('nexora_offer')
-    || localStorage.getItem('nexora_offer')
-    || (partner ? 'partner' : 'nexora');
+
   if (partner) {
     sessionStorage.setItem('nexora_pp', partner);
     localStorage.setItem('nexora_pp', partner);
     setCookie('nexora_pp', partner, 30);
     try { fetch('https://partners.tomidewilliams.store/api/track?code=' + encodeURIComponent(partner) + '&product=' + encodeURIComponent('nexora')); } catch(e) {}
   }
-  if (offer) {
-    sessionStorage.setItem('nexora_offer', offer);
-    localStorage.setItem('nexora_offer', offer);
-    setCookie('nexora_offer', offer, 30);
-  }
-
-  var currentPriceNaira = partner ? '7,600' : '5,178';
-  var currentAmountKobo = partner ? '760000' : '517800';
-
-  if (partner) {
-    if (heroBadge) heroBadge.textContent = 'Partner Referral Access';
-    if (heroTitle) heroTitle.innerHTML = 'NEXORA Lifetime Access<br><span class="highlight">₦7,600 one-time</span>';
-    if (orderSummary) {
-      orderSummary.innerHTML =
-        '<div class="sum-row"><span class="l">Base retail price</span><span class="r">₦7,600</span></div>' +
-        '<div class="sum-row"><span class="l">Regular value</span><span class="r"><s style="color:var(--gray);">₦25,000</s></span></div>' +
-        '<div class="sum-total"><span class="l">Total you pay today</span><span class="r">₦7,600</span></div>';
-    }
-    if (btn) btn.textContent = 'Pay ₦7,600 securely';
-  }
 
   function showErr(msg) { errEl.textContent = msg || ''; }
   function valid() {
     var name = nameEl.value.trim();
     var email = emailEl.value.trim();
+    var phone = phoneEl.value.trim();
     if (!name) { showErr('Please enter your full name.'); nameEl.focus(); return false; }
     if (!email) { showErr('Please enter your email address.'); emailEl.focus(); return false; }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { showErr('Please enter a valid email address.'); emailEl.focus(); return false; }
+    if (!phone || phone.length < 8) { showErr('Please enter your valid WhatsApp phone number.'); phoneEl.focus(); return false; }
     showErr('');
     return true;
   }
@@ -356,63 +334,45 @@ main{padding:48px 0 72px;}
   btn.addEventListener('click', function () {
     if (!valid()) return;
     btn.disabled = true;
-    btn.textContent = 'Preparing payment\u2026';
+    btn.textContent = 'Registering & Redirecting…';
     showErr('');
 
-    var configUrl = '/api/config?' + (partner ? 'offer=partner&pp=' + encodeURIComponent(partner) : (offer ? 'offer=' + encodeURIComponent(offer) : ''));
-
-    fetch(configUrl)
-      .then(function (r) { return r.json(); })
-      .then(function (cfg) {
-        if (!cfg.ok || !cfg.publicKey) throw new Error(cfg.error || 'Paystack not configured yet.');
-        startPayment(cfg);
-      })
-      .catch(function (err) {
-        btn.disabled = false;
-        btn.textContent = 'Pay ₦' + currentPriceNaira + ' securely';
-        showErr(err.message);
-      });
-  });
-
-  function startPayment(cfg) {
-    var reference = 'NEXORA-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8);
-    var email = emailEl.value.trim();
     var name = nameEl.value.trim();
-    var finalAmount = parseInt(cfg.amount || currentAmountKobo, 10);
+    var email = emailEl.value.trim();
+    var phone = phoneEl.value.trim();
 
-    var handler = PaystackPop.setup({
-      key: cfg.publicKey,
-      email: email,
-      amount: finalAmount,
-      currency: cfg.currency || 'NGN',
-      ref: reference,
-      metadata: {
-        custom_fields: [
-          { display_name: 'Full Name', variable_name: 'name', value: name },
-          { display_name: 'Partner Code', variable_name: 'partner', value: partner || '' }
-        ]
-      },
-      callback: function (response) {
-        try {
-          localStorage.setItem('nexora_cust_name', name);
-          localStorage.setItem('nexora_cust_email', email);
-          sessionStorage.setItem('nexora_cust_name', name);
-          sessionStorage.setItem('nexora_cust_email', email);
-        } catch (e) {}
-        var url = '/thank-you?ref=' + encodeURIComponent(response.reference) +
-                  '&email=' + encodeURIComponent(email) +
-                  '&name=' + encodeURIComponent(name) +
-                  (partner ? '&pp=' + encodeURIComponent(partner) : '') +
-                  (offer ? '&offer=' + encodeURIComponent(offer) : '');
-        window.location.href = url;
-      },
-      onClose: function () {
-        btn.disabled = false;
-        btn.textContent = 'Pay ₦' + currentPriceNaira + ' securely';
-      }
-    });
-    handler.openIframe();
-  }
+    try {
+      localStorage.setItem('nexora_cust_name', name);
+      localStorage.setItem('nexora_cust_email', email);
+      localStorage.setItem('nexora_cust_phone', phone);
+      sessionStorage.setItem('nexora_cust_name', name);
+      sessionStorage.setItem('nexora_cust_email', email);
+      sessionStorage.setItem('nexora_cust_phone', phone);
+    } catch (e) {}
+
+    // Async track / register
+    try {
+      fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          phone: phone,
+          partner: partner,
+          tier: 'free_webinar',
+          amount: '0',
+          heardFrom: 'Direct Free Registration',
+          moduleInterest: 'All Modules'
+        })
+      }).catch(function(){});
+    } catch(e) {}
+
+    // Direct redirect to WhatsApp Group
+    setTimeout(function() {
+      window.location.href = WA_GROUP_URL;
+    }, 600);
+  });
 })();
 </script>
 </body>
