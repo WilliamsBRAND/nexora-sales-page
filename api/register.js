@@ -47,11 +47,32 @@ export default async function handler(req, res) {
   // 1. Check for Partner's Custom WhatsApp Group Funnel URL
   if (db && partner) {
     try {
-      const partnerCode = partner.toUpperCase();
-      const titleKey = `wa_funnel:${partnerCode}`;
-      const { data: waRow } = await db.from('marketing_materials').select('url').eq('title', titleKey).maybeSingle();
+      const cleanPartner = String(partner).trim();
+      const upperPartner = cleanPartner.toUpperCase();
+      
+      // Try direct wa_funnel:CODE lookup
+      const { data: waRow } = await db.from('marketing_materials')
+        .select('url')
+        .or(`title.eq.wa_funnel:${upperPartner},title.ilike.wa_funnel:${cleanPartner}`)
+        .maybeSingle();
+
       if (waRow && waRow.url && waRow.url.trim()) {
         redirectUrl = waRow.url.trim();
+      } else {
+        // Fallback: check if partner is an ID or uuid, find code, then lookup wa_funnel
+        const { data: pRow } = await db.from('partners')
+          .select('code')
+          .or(`code.ilike.${cleanPartner},id.eq.${cleanPartner}`)
+          .maybeSingle();
+        if (pRow && pRow.code) {
+          const { data: waRow2 } = await db.from('marketing_materials')
+            .select('url')
+            .eq('title', `wa_funnel:${pRow.code.toUpperCase()}`)
+            .maybeSingle();
+          if (waRow2 && waRow2.url && waRow2.url.trim()) {
+            redirectUrl = waRow2.url.trim();
+          }
+        }
       }
     } catch (waErr) {
       console.error('[api/register] Partner WhatsApp lookup error:', waErr);

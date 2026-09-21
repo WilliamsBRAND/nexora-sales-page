@@ -364,10 +364,10 @@ main{padding:48px 0 72px;}
       window.location.href = dest;
     }
 
-    // Safety timeout fallback (max 3 seconds before auto-redirecting to master group)
+    // Safety timeout fallback (max 15 seconds for slow mobile connections)
     var fallbackTimer = setTimeout(function() {
       doRedirect(WA_GROUP_URL);
-    }, 3000);
+    }, 15000);
 
     // Call registration API
     fetch('/api/register', {

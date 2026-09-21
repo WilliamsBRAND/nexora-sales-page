@@ -2752,10 +2752,31 @@ window.addEventListener('scroll', function() {
     sessionStorage.setItem('nexora_pp', aff);
     localStorage.setItem('nexora_pp', aff);
     setCookie('nexora_pp', aff, 30);
-    var links = document.querySelectorAll('a[href="checkout"]');
-    for (var i = 0; i < links.length; i++) {
-      links[i].setAttribute('href', 'checkout?pp=' + encodeURIComponent(aff) + '&offer=' + encodeURIComponent(offer));
+    function enrichAllLinks() {
+      var links = document.querySelectorAll('a[href*="checkout"], a[href*="register"]');
+      links.forEach(function(l) {
+        var href = l.getAttribute('href') || '';
+        if (href.indexOf('pp=') === -1) {
+          var sep = href.indexOf('?') === -1 ? '?' : '&';
+          l.setAttribute('href', href + sep + 'pp=' + encodeURIComponent(aff) + '&offer=' + encodeURIComponent(offer));
+        }
+      });
     }
+    enrichAllLinks();
+    document.addEventListener('DOMContentLoaded', enrichAllLinks);
+
+    // Global click fallback
+    document.addEventListener('click', function(e) {
+      var a = e.target.closest('a');
+      if (a && a.getAttribute('href')) {
+        var h = a.getAttribute('href');
+        if ((h.indexOf('checkout') !== -1 || h.indexOf('register') !== -1) && h.indexOf('pp=') === -1) {
+          var sep = h.indexOf('?') === -1 ? '?' : '&';
+          a.setAttribute('href', h + sep + 'pp=' + encodeURIComponent(aff) + '&offer=' + encodeURIComponent(offer));
+        }
+      }
+    }, true);
+
     try { fetch('https://partners.tomidewilliams.store/api/track?code=' + encodeURIComponent(aff) + '&product=' + encodeURIComponent('nexora')); } catch (e) {}
   }
   if (offer) {

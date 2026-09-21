@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Meta Pixel Code -->
@@ -645,7 +645,15 @@ async function handleRegistration(e) {
   errorMsg.style.display = 'none';
   errorMsg.textContent = '';
 
-  const formData = new FormData(form);
+  function getCookie(n){var v=document.cookie.match('(^|;)\\s*'+n+'=([^;]*)');return v?v[2]:'';}
+  const partnerCode = (new URLSearchParams(window.location.search)).get('pp')
+    || (new URLSearchParams(window.location.search)).get('ref')
+    || (new URLSearchParams(window.location.search)).get('p')
+    || getCookie('nexora_pp')
+    || sessionStorage.getItem('nexora_pp')
+    || localStorage.getItem('nexora_pp')
+    || '';
+
   const data = {
     name: formData.get('name'),
     email: formData.get('email'),
@@ -655,6 +663,7 @@ async function handleRegistration(e) {
     heardFromOther: formData.get('heardFromOther'),
     moduleInterest: formData.get('moduleInterest'),
     paymentProof: formData.get('paymentProof'),
+    partner: partnerCode,
   };
 
   submitBtn.disabled = true;
@@ -673,6 +682,10 @@ async function handleRegistration(e) {
       throw new Error(result.error || 'Registration failed. Please check your details and try again.');
     }
 
+    const finalDest = result.redirectUrl || result.data?.redirectUrl || COMMUNITY_URL;
+    const directBtn = document.getElementById('waDirectBtn');
+    if (directBtn) directBtn.href = finalDest;
+
     // Show Success View
     document.getElementById('formView').style.display = 'none';
     document.getElementById('confirmedName').textContent = result.data?.name || data.name;
@@ -681,7 +694,7 @@ async function handleRegistration(e) {
 
     // Immediate Redirect to Community
     setTimeout(() => {
-      window.location.href = COMMUNITY_URL;
+      window.location.href = finalDest;
     }, 1200);
 
   } catch (err) {
